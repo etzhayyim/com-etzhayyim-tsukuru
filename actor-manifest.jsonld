@@ -1,0 +1,300 @@
+{
+  "@context": "https://etzhayyim.com/ns/actor/v1",
+  "@id": "did:web:tsukuru.etzhayyim.com",
+  "actors": [
+    { "displayName": "ISIC A Agriculture, Forestry and Fishing", "path": "industry:isic:a", "description": "ISIC section A industry orchestration actor." },
+    { "displayName": "ISIC B Mining and Quarrying", "path": "industry:isic:b", "description": "ISIC section B industry orchestration actor." },
+    { "displayName": "ISIC C Manufacturing", "path": "industry:isic:c", "description": "ISIC section C industry orchestration actor." },
+    { "displayName": "ISIC D Electricity, Gas, Steam and Air Conditioning Supply", "path": "industry:isic:d", "description": "ISIC section D industry orchestration actor." },
+    { "displayName": "ISIC E Water Supply; Sewerage, Waste Management and Remediation", "path": "industry:isic:e", "description": "ISIC section E industry orchestration actor." },
+    { "displayName": "ISIC F Construction", "path": "industry:isic:f", "description": "ISIC section F industry orchestration actor." },
+    { "displayName": "ISIC G Wholesale and Retail Trade; Repair", "path": "industry:isic:g", "description": "ISIC section G industry orchestration actor." },
+    { "displayName": "ISIC H Transportation and Storage", "path": "industry:isic:h", "description": "ISIC section H industry orchestration actor." },
+    { "displayName": "ISIC I Accommodation and Food Service Activities", "path": "industry:isic:i", "description": "ISIC section I industry orchestration actor." },
+    { "displayName": "ISIC J Information and Communication", "path": "industry:isic:j", "description": "ISIC section J industry orchestration actor." },
+    { "displayName": "ISIC K Financial and Insurance Activities", "path": "industry:isic:k", "description": "ISIC section K industry orchestration actor." },
+    { "displayName": "ISIC L Real Estate Activities", "path": "industry:isic:l", "description": "ISIC section L industry orchestration actor." },
+    { "displayName": "ISIC M Professional, Scientific and Technical Activities", "path": "industry:isic:m", "description": "ISIC section M industry orchestration actor." },
+    { "displayName": "ISIC N Administrative and Support Service Activities", "path": "industry:isic:n", "description": "ISIC section N industry orchestration actor." },
+    { "displayName": "ISIC O Public Administration and Defence", "path": "industry:isic:o", "description": "ISIC section O industry orchestration actor." },
+    { "displayName": "ISIC P Education", "path": "industry:isic:p", "description": "ISIC section P industry orchestration actor." },
+    { "displayName": "ISIC Q Human Health and Social Work Activities", "path": "industry:isic:q", "description": "ISIC section Q industry orchestration actor." },
+    { "displayName": "ISIC R Arts, Entertainment and Recreation", "path": "industry:isic:r", "description": "ISIC section R industry orchestration actor." },
+    { "displayName": "ISIC S Other Service Activities", "path": "industry:isic:s", "description": "ISIC section S industry orchestration actor." },
+    { "displayName": "ISIC T Activities of Households as Employers", "path": "industry:isic:t", "description": "ISIC section T industry orchestration actor." },
+    { "displayName": "ISIC U Extraterritorial Organizations and Bodies", "path": "industry:isic:u", "description": "ISIC section U industry orchestration actor." }
+  ],
+  "capabilities": [
+    "graph.query",
+    "graph.write",
+    "agent.chat",
+    "agent.invoke",
+    "derive:social"
+  ],
+  "complianceDocs": [
+    "90-docs/rules/compliance/per-did-kyumei-shinka-autonomy.md",
+    "90-docs/platform/260403-live-data-kyumei-shinka-consolidated.md"
+  ],
+  "convoSystemPrompt": "You are the Tsukuru OEM manufacturing agent. You manage B2B factory-direct ordering with 460+ manufacturer DIDs across 30+ countries. You handle production orders (BTO/MTO/CTO), trade compliance via treaty.etzhayyim.com, quality inspection, and okaimono catalog integration. Use Murakumo LLM for manufacturing project conversations.",
+  "description": "B2B factory-direct ordering platform. 460+ manufacturer DIDs across 30+ countries. Production order management (BTO/MTO/CTO), trade compliance, quality inspection, KAMI 3D manufacturing cell design, industrial software integration (CAD/CAE/CAM/PLM/MES/SCADA/QMS/WMS/TMS/ERP/CMMS), CNC/3D-printer output, robot-arm operation, material-handling flow, transport route planning, drone operations, and autonomous-driving mission planning. Unified batch-flush write-buffer path (Shannon eta 99.8%).",
+  "displayName": "OEM D2C Manufacturing",
+  "domainKnowledgeRequired": true,
+  "runtime": "k8s-langserver",
+  "edge": "sveltekit-proxy",
+  "legacyExecutionTier": "T1",
+  "governance": {
+    "classification": "internal",
+    "raci": "responsible"
+  },
+  "heartbeatRequired": true,
+  "name": "tsukuru",
+  "nanoid": "tsukr8u0",
+  "performerType": "service",
+  "pipelines": [
+    {
+      "steps": [
+        {
+          "args": {
+            "sql": "MATCH (o:ProductionOrder) WHERE o.status IN ['pending', 'in_progress'] RETURN o.status AS status, count(o) AS total LIMIT 10"
+          },
+          "fn": "graph.query",
+          "id": "pendingOrders"
+        },
+        {
+          "args": {
+            "message": "You are OEM D2C Manufacturing. Based on the following new data, write a concise social post (1-2 sentences, informative and specific). Data: $pendingOrders.rows"
+          },
+          "depends_on": [
+            "pendingOrders"
+          ],
+          "fn": "agent.chat",
+          "id": "compose"
+        },
+        {
+          "args": {
+            "template": "$compose.text"
+          },
+          "depends_on": [
+            "compose"
+          ],
+          "fn": "derive:social",
+          "id": "announce"
+        }
+      ],
+      "trigger": {
+        "cron": "0 6 * * *",
+        "type": "cron"
+      }
+    },
+    {
+      "steps": [
+        {
+          "args": {
+            "command": "invoke",
+            "params": {
+              "data": "$input.record",
+              "method": "evaluateCompliance",
+              "target": "did:web:completer.etzhayyim.com"
+            }
+          },
+          "fn": "agent.invoke",
+          "id": "compliance"
+        },
+        {
+          "args": {
+            "message": "You are OEM D2C Manufacturing. Based on the following new data, write a concise social post (1-2 sentences, informative and specific). Data: $compliance.text"
+          },
+          "depends_on": [
+            "compliance"
+          ],
+          "fn": "agent.chat",
+          "id": "compose"
+        },
+        {
+          "args": {
+            "template": "$compose.text"
+          },
+          "depends_on": [
+            "compose"
+          ],
+          "fn": "derive:social",
+          "id": "notifyFactory"
+        }
+      ],
+      "trigger": {
+        "collections": [
+          "com.etzhayyim.apps.tsukuru.productionOrder"
+        ],
+        "type": "subscribeRepos"
+      }
+    },
+    {
+      "steps": [
+        {
+          "args": {
+            "message": "You are OEM D2C Manufacturing. Based on the following new data, write a concise social post (1-2 sentences, informative and specific). Data: $input.record"
+          },
+          "fn": "agent.chat",
+          "id": "compose"
+        },
+        {
+          "args": {
+            "template": "$compose.text"
+          },
+          "depends_on": [
+            "compose"
+          ],
+          "fn": "derive:social",
+          "id": "qcResult"
+        }
+      ],
+      "trigger": {
+        "collections": [
+          "com.etzhayyim.apps.tsukuru.qualityInspection"
+        ],
+        "type": "subscribeRepos"
+      }
+    },
+    {
+      "steps": [
+        {
+          "args": {
+            "sql": "MATCH (n) WHERE n.repo = $did RETURN count(n) AS nodeCount, coalesce(max(n._seq), 0) AS latestSeq LIMIT 1"
+          },
+          "fn": "graph.query",
+          "id": "coverageNodes"
+        },
+        {
+          "args": {
+            "sql": "MATCH (n) WHERE n.repo = $did AND n.collection IS NOT NULL RETURN n.collection AS collection, count(n) AS cnt ORDER BY cnt DESC LIMIT 10"
+          },
+          "depends_on": [],
+          "fn": "graph.query",
+          "id": "coverageCollections"
+        },
+        {
+          "args": {
+            "params": {
+              "actorName": "tsukuru",
+              "bucket": "6h",
+              "collection": "com.etzhayyim.apps.tsukuru.coverageSnapshot",
+              "latestSeq": 0,
+              "nanoid": "tsukr8u0",
+              "nodeCount": "$coverageNodes.rows[0].nodeCount"
+            },
+            "template": "MERGE (c:ActorCoverageSnapshot {actorDid: $did, bucket: $bucket, actorName: $actorName, nanoid: $nanoid, nodeCount: $nodeCount, latestTs: $latestTs, repo: $did, collection: $collection, status: 'active'})"
+          },
+          "depends_on": [
+            "coverageNodes"
+          ],
+          "fn": "graph.write",
+          "id": "coverageSnapshot"
+        },
+        {
+          "args": {
+            "message": "You are OEM D2C Manufacturing. Based on the following new data, write a concise social post (1-2 sentences, informative and specific). Data: $coverageSnapshot.text"
+          },
+          "depends_on": [
+            "coverageSnapshot"
+          ],
+          "fn": "agent.chat",
+          "id": "compose"
+        },
+        {
+          "args": {
+            "template": "$compose.text"
+          },
+          "depends_on": [
+            "compose"
+          ],
+          "fn": "derive:social",
+          "id": "announce"
+        }
+      ],
+      "trigger": {
+        "cron": "0 */6 * * *",
+        "type": "cron"
+      }
+    },
+    {
+      "steps": [
+        {
+          "args": {
+            "sql": "MATCH (c:ActorCoverageSnapshot {actorDid: $did}) RETURN c.nodeCount AS nodeCount, c.latestSeq AS latestSeq, c.topCollections AS topCollections, c._seq AS snapshotSeq LIMIT 1"
+          },
+          "fn": "graph.query",
+          "id": "coverageStats"
+        },
+        {
+          "args": {
+            "sql": "MATCH (c:ActorCoverageSnapshot {actorDid: $did}) RETURN c.nodeCount AS totalNodes LIMIT 1"
+          },
+          "depends_on": [],
+          "fn": "graph.query",
+          "id": "coverageHealth"
+        }
+      ],
+      "trigger": {
+        "nsid": "com.etzhayyim.apps.tsukuru.coverage.get",
+        "type": "xrpc"
+      }
+    }
+  ],
+  "profile": {
+    "agentType": "autonomous",
+    "capabilities": [
+      "create-production-order",
+      "list-manufacturers",
+      "search-manufacturers",
+      "get-manufacturer",
+      "register-manufacturer",
+      "quality-inspection",
+      "design-kami-3d-manufacturing-cell",
+      "plan-cnc-gcode-output",
+      "plan-3d-printer-output",
+      "plan-robot-arm-operation",
+      "plan-material-handling-flow",
+      "design-industrial-software-stack",
+      "plan-logistics-route",
+      "plan-drone-operation",
+      "plan-autonomous-driving-operation",
+      "design-cnt-fiber-manufacturing-flow",
+      "plan-cnt-process-automation",
+      "prepare-cnt-order-package",
+      "get-cnt-process-catalog",
+      "prepare-cnt-run-package",
+      "validate-cnt-run-package"
+    ],
+    "description": "Factory-direct B2B ordering with 460+ manufacturer DIDs. BTO/MTO/CTO production orders, trade compliance (FTA/EPA), quality inspection pipeline, KAMI 3D cell design, industrial software stack integration, CNC/3D-printer output, robot-arm operation, material-handling flow, logistics route planning, drone operation, and autonomous-driving operation planning.",
+    "displayName": "OEM D2C Manufacturing",
+    "isBot": true,
+    "operator": "etzhayyim"
+  },
+  "requiredCollections": [
+    "com.etzhayyim.apps.standard.shinkaEvolution",
+    "com.etzhayyim.apps.standard.shinkaKnowledge"
+  ],
+  "requiredLoops": [
+    "shinka",
+    "koji",
+    "kyumei",
+    "domain-knowledge"
+  ],
+  "standardRule": "per-did-kyumei-shinka-autonomy@2026-04-13",
+  "standardStatus": "required",
+  "triggers": {
+    "subscribeRepos": {
+      "collections": [
+        "com.etzhayyim.apps.tsukuru.manufacturer",
+        "com.etzhayyim.apps.tsukuru.productionOrder",
+        "com.etzhayyim.apps.tsukuru.qualityInspection",
+        "com.etzhayyim.apps.tsukuru.manufacturingCell",
+        "com.etzhayyim.apps.tsukuru.manufacturingOutput",
+        "com.etzhayyim.apps.tsukuru.softwareIntegration",
+        "com.etzhayyim.apps.tsukuru.logisticsRoute",
+        "com.etzhayyim.apps.tsukuru.autonomyOperation"
+      ]
+    }
+  },
+  "uiType": "yoro"
+}

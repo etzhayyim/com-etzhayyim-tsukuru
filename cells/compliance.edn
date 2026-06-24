@@ -1,0 +1,26 @@
+;; tsukuru 作 — compliance cell (langgraph, WASM runtime)
+;; ADR-2605202800 · Phase 2 scaffold
+{:cell/id "compliance"
+ :cell/glyph "作"
+ :cell/kind :langgraph
+ :cell/runtime :wasm
+ :cell/entry "py/agent.py"
+ :cell/handler "handle_compliance"
+ :cell/doc "trade-compliance gate (G16): treaty (FTA/EPA authority chain) + yabai ScreenEntity (sanctions/denied-party) + HS/CBAM/embedded-carbon 文脈。不通過の production-order は reject。外部 open-signal actor (open-chemicals/critical-minerals/hs/commodity-trade) を observation input として束ねる (owner にはしない)."
+ :cell/state-graph
+ {:nodes [:resolve-treaty :screen-entity :evaluate-compliance :gate-decision]
+  :entry :resolve-treaty
+  :edges [[:resolve-treaty :screen-entity] [:screen-entity :evaluate-compliance]
+          [:evaluate-compliance :gate-decision] [:gate-decision :end]]}
+ :cell/llm
+ {:provider :murakumo
+  :endpoint "127.0.0.1:4000"
+  :model "gemma3:4b"
+  :charter-rider true}
+ :cell/gates ["G5" "G6" "G16"]
+ :cell/invokes
+ [{:actor "yabai"   :fn "ScreenEntity"        :purpose "sanctions/denied-party screening"}
+  {:actor "treaty"  :fn "authority-chain"     :purpose "FTA/EPA trade-agreement resolution"}]
+ :cell/kotoba
+ {:reads [:production-order/id :production-order/factory-did :factory/country]
+  :writes [:production-order/compliance-state :production-order/compliance-note]}}

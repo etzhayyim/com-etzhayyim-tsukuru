@@ -1,0 +1,173 @@
+;; tsukuru 作 — kotoba EAVT schema
+;; ADR-2605202800 · migration plan Phase 3 (90-docs/260602-tsukuru-kotoba-native-migration-plan.md)
+;; B2B factory-direct ordering over kotoba Datoms: manufacturer registry, member
+;; production-order (BTO/MTO/CTO) state machine, production progress, quality
+;; inspection, and on-chain settlement intent. All state is kotoba Datoms — replaces
+;; the legacy Cypher `MATCH (o:ProductionOrder)` / G() builder / RisingWave path (G6).
+
+[;; ───────────────────────────── :factory/* — manufacturer registry entry ─────────────────────────────
+ {:db/ident :factory/did
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity
+  :db/doc "path-based factory DID (did:web:tsukuru.etzhayyim.com/...; performerType=service). 460+ across 30+ countries"}
+ {:db/ident :factory/display-name
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :factory/country
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "ISO 3166-1 alpha-2"}
+ {:db/ident :factory/isic
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "ISIC rev.4 section/class, e.g. C26 (semiconductor). fab 装置発注は C26 lane (所有は silicon, ADR-2606021139)"}
+ {:db/ident :factory/capabilities
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/many
+  :db/doc "process capabilities, e.g. cnc-5axis / injection-molding / pcba / cnt-fiber"}
+ {:db/ident :factory/fulfillment-modes
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/many
+  :db/doc ":bto | :mto | :cto"}
+ {:db/ident :factory/labor-provenance
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":etzhayyim-dignity | :verified-fair | :disclosed | :unknown (G8)"}
+ {:db/ident :factory/sourcing
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":authoritative | :representative (R0 seed honesty, G10)"}
+
+ ;; ───────────────────────────── :production-order/* — order state machine ─────────────────────────────
+ {:db/ident :production-order/id
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity}
+ {:db/ident :production-order/buyer-did
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "member = purchasing principal (G14), active Adherent SBT; detail encrypted com.etzhayyim.encrypted.* (G9)"}
+ {:db/ident :production-order/factory-did
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "ref → :factory fulfilling the order"}
+ {:db/ident :production-order/mode
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":bto (Build-to-Order) | :mto (Made-to-Order) | :cto (Configure-to-Order)"}
+ {:db/ident :production-order/spec
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "production spec (Murakumo-parsed natural language, G5)"}
+ {:db/ident :production-order/state
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":draft → :placed → :dispatched → :in-production → :qc → :ready → :shipped (as-of trajectory). :quarantine on QC fail; :refused on eligibility/compliance reject"}
+ {:db/ident :production-order/compliance-state
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":pending | :passed | :rejected — trade-compliance gate (G16: treaty + yabai)"}
+ {:db/ident :production-order/compliance-note
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :production-order/settlement
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "ref → :settlement"}
+
+ ;; ───────────────────────────── :progress/* — production progress (G17) ─────────────────────────────
+ {:db/ident :progress/id
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity}
+ {:db/ident :progress/order
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :progress/stage
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":dispatched | :in-production | :assembly | :qc | :packed | :shipped"}
+ {:db/ident :progress/pct
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one
+  :db/doc "0..100 completion"}
+ {:db/ident :progress/note
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :progress/timestamp
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "ISO-8601 datetime (passed in; no wall-clock in cell)"}
+
+ ;; ───────────────────────────── :quality/* — quality inspection (G17) ─────────────────────────────
+ {:db/ident :quality/id
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity}
+ {:db/ident :quality/order
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :quality/result
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":pass | :fail | :rework"}
+ {:db/ident :quality/defects
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/many
+  :db/doc "defect descriptors (empty on :pass)"}
+ {:db/ident :quality/inspector-did
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "inspector identity — signs own attestation, no platform key (G15)"}
+ {:db/ident :quality/timestamp
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ ;; ───────────────────────────── :settlement/* — USDC + TitheRouter intent (NOT executed; G7/G11) ─────────────────────────────
+ {:db/ident :settlement/id
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity}
+ {:db/ident :settlement/order
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :settlement/rail
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":usdc-base-l2 (ERC-4337 smart-account via warifu, ADR-2605302000); no fiat / no Stripe (G7)"}
+ {:db/ident :settlement/gross-minor
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one
+  :db/doc "USDC minor (6-dp) gross order value"}
+ {:db/ident :settlement/tithe-minor
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one
+  :db/doc "10% TitheRouter auto-split → Public Fund (G7)"}
+ {:db/ident :settlement/factory-payout-minor
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one
+  :db/doc "net to factory (gross − tithe), USDC minor"}
+ {:db/ident :settlement/tithe-router
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "TitheRouter contract ref (50-infra/etzhayyim-tithe-router)"}
+ {:db/ident :settlement/state
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":intent (computed, NOT broadcast) | :executed (member-signed + operator-broadcast, G11/G15). R0 stops at :intent"}
+ {:db/ident :settlement/buyer-sig-ref
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "member passkey/smart-account signature ref; platform holds no key (G15). absent ⇒ stays :intent"}
+
+ ;; ───────────────────────────── :sbt/* — Adherent SBT eligibility (§3 / G2) ─────────────────────────────
+ {:db/ident :sbt/holder-did
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity
+  :db/doc "DID of an Adherent SBT holder (member buyer)"}
+ {:db/ident :sbt/active
+  :db/valueType :db.type/boolean
+  :db/cardinality :db.cardinality/one
+  :db/doc "active Adherent SBT? required for internal SBT↔SBT settlement (§3 / G2)"}]

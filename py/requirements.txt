@@ -1,0 +1,4 @@
+# tsukuru 作 — py cell deps (ADR-2605202800 Phase 4)
+# Runtime LLM + datalog bindings are kotoba host imports (WASM Component Model),
+# not pip packages. Only the test/dev harness needs anything here.
+# Murakumo-only inference (ADR-2605215000): no openai/anthropic/litellm client here.

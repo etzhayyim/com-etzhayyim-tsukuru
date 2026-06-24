@@ -1,0 +1,14 @@
+;; tsukuru 作 — orderbook cell (datalog, kotoba runtime)
+;; ADR-2605202800 · Phase 2 scaffold (90-docs/260602-tsukuru-kotoba-native-migration-plan.md)
+{:cell/id "orderbook"
+ :cell/glyph "作"
+ :cell/kind :datalog
+ :cell/runtime :kotoba
+ :cell/doc "Factory registry (460+ manufacturer DID, 30+ countries) + member production-order book on kotoba Datom. Replaces legacy Cypher `MATCH (o:ProductionOrder)` / G() builder."
+ :cell/gates ["G6" "G10" "G14"]
+ :cell/kotoba
+ {:reads []
+  :writes [:factory/did :factory/display-name :factory/country :factory/isic
+           :factory/capabilities :factory/fulfillment-modes :factory/labor-provenance
+           :production-order/id :production-order/buyer-did :production-order/factory-did
+           :production-order/mode :production-order/state]}}

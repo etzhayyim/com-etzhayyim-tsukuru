@@ -1,0 +1,12 @@
+;; tsukuru 作 — ledger cell (datalog, kotoba runtime)
+;; ADR-2605202800 · Phase 2 scaffold
+{:cell/id "ledger"
+ :cell/glyph "作"
+ :cell/kind :datalog
+ :cell/runtime :kotoba
+ :cell/doc "Settlement ledger: production-order 決済 (USDC Base L2 + ERC-4337 + warifu) の記録 + TitheRouter 10% auto-split。member = 購買 principal (G14); platform は鍵を持たない (G15)。Stripe/fiat 非前提。"
+ :cell/gates ["G2" "G6" "G7" "G14" "G15"]
+ :cell/kotoba
+ {:reads [:production-order/id :production-order/buyer-did :production-order/factory-did]
+  :writes [:settlement/id :settlement/order-id :settlement/buyer-did :settlement/amount-minor
+           :settlement/currency :settlement/tx-hash :settlement/tithe-minor :settlement/state]}}

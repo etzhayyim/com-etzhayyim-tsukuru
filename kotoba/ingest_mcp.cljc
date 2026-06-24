@@ -1,0 +1,74 @@
+#!/usr/bin/env bb
+;; tsukuru 作る — ingest seed.edn into a live kotoba node (cljc port of ingest_mcp.py).
+;; ADR-2605202800.
+(ns tsukuru.kotoba.ingest-mcp
+  "tsukuru 作る — MCP seed-ingest scaffold (dry-run default, live path placeholder).
+  ADR-2605202800. Template: see funadaiku.kotoba.ingest-mcp."
+  (:require [clojure.string :as str]
+            #?(:clj [clojure.java.io :as io])))
+
+(def default-url   "http://127.0.0.1:8077")
+(def default-graph "com.etzhayyim.tsukuru")
+
+#?(:clj
+   (def seed-path
+     (str (-> (io/file *file*) .getParentFile .getAbsolutePath)
+          "/seed.edn")))
+
+(defn strip-comments [^String s]
+  (let [sb (StringBuilder.)]
+    (loop [i 0 in-str? false]
+      (if (>= i (count s))
+        (str sb)
+        (let [c (.charAt s i)]
+          (cond
+            in-str?  (do (.append sb c) (recur (inc i) (if (= c \") false in-str?)))
+            (= c \") (do (.append sb c) (recur (inc i) true))
+            (= c \;) (recur (inc (or (some (fn [j] (when (= (.charAt s j) \newline) j))
+                                           (range i (count s)))
+                                     (count s)))
+                            false)
+            :else    (do (.append sb c) (recur (inc i) false))))))))
+
+(defn count-top-level-entities [^String s]
+  (let [s (strip-comments s)
+        start (.indexOf s (int \[))]
+    (if (< start 0) 0
+        (loop [i (inc start) depth 0 cnt 0 in-str? false]
+          (if (>= i (count s)) cnt
+              (let [c (.charAt s i)]
+                (cond
+                  in-str?  (recur (inc i) depth cnt (if (= c \") false in-str?))
+                  (= c \") (recur (inc i) depth cnt true)
+                  (= c \{) (recur (inc i) (inc depth) cnt false)
+                  (= c \}) (let [d (dec depth)]
+                              (recur (inc i) d (if (zero? d) (inc cnt) cnt) false))
+                  :else    (recur (inc i) depth cnt false))))))))
+
+(defn estimate-datoms [^String s]
+  (let [s (strip-comments s)]
+    (+ (count (re-seq #" :" s))
+       (count (re-seq #"\{:" s)))))
+
+#?(:clj
+   (defn run [{:keys [url graph dry-run?]
+               :or   {url default-url graph default-graph dry-run? false}}]
+     (let [raw    (slurp seed-path)
+           n-e    (count-top-level-entities raw)
+           n-d    (estimate-datoms raw)
+           live?  (and (not dry-run?) (seq (System/getenv "KOTOBA_TOKEN")))]
+       (println (str "   parsed " n-e " entities (~" n-d " datoms) from seed.edn → " graph))
+       (if live?
+         (do (println "   live ingest requested — implement MCP kotoba_datom_create wiring before use.") {:status :live-placeholder :entities n-e :datoms n-d})
+         (do (println "   DRY RUN — no writes. Set KOTOBA_TOKEN to ingest.") {:status :dry-run :entities n-e :datoms n-d})))))
+
+#?(:clj
+   (defn -main [& args]
+     (let [argv (vec args)
+           url  (if (some #(= "--url" %) argv)   (get argv (inc (.indexOf argv "--url")))   default-url)
+           gr   (if (some #(= "--graph" %) argv) (get argv (inc (.indexOf argv "--graph"))) default-graph)
+           dry? (boolean (some #(= "--dry-run" %) argv))]
+       (run {:url url :graph gr :dry-run? dry?}))))
+
+#?(:clj
+   (when (= *file* (System/getProperty "babashka.file")) (-main)))

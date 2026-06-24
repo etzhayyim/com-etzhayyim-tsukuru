@@ -1,0 +1,54 @@
+;; tsukuru 作 — actor manifest (Gen-3 kotoba-native)
+;; B2B factory-direct ordering — production-order (BTO/MTO/CTO) + trade-compliance + QC
+;; ADR-2605202800 (business-model-change) · 0061 (ISIC BPMN) · 2606021139 (namespace = ordering only)
+;; Migration plan: 90-docs/260602-tsukuru-kotoba-native-migration-plan.md (Phase 2 scaffold)
+{:actor/id        "tsukuru"
+ :actor/glyph     "作"
+ :actor/tier      :tier-b
+ :actor/domain    "tsukuru.etzhayyim.com"
+ :actor/nanoid    "tsukr8u0"
+ :actor/purpose   "B2B factory-direct ordering — member/internal 発注を 460+ manufacturer DID (30+ countries) へ仲介。production-order (BTO/MTO/CTO) + 進捗 + 品質検査 + 取引コンプライアンス (treaty/yabai screening). fab 装置は ISIC C26 発注カテゴリの 1 つ (所有は silicon actor, ADR-2606021139). 外部 B2B 売上の inflow は禁止 (§3 SBT↔SBT carve-out + member-principal). fiat 非前提 — USDC Base L2 + ERC-4337 + TitheRouter のみ. Murakumo-only, kotoba-EAVT-native."
+ :actor/status    :r0
+ :actor/adr       "2605202800"
+ :actor/related   ["0061" "2605202900" "2606021139" "2606012100"]
+
+ :actor/charter-rider
+ {:rider/version "2.0"
+  :rider/applied true}
+
+ :actor/gates
+ [{:gate/id "G1"  :gate/name "consent-bound"           :gate/rule "member DID-signed consent before order capture or any factory dispatch"}
+  {:gate/id "G2"  :gate/name "value-inflow-boundary"   :gate/rule "外部 B2B 売上の etzhayyim への inflow 禁止; 内部取引は SBT↔SBT carve-out のみ (§3); member は購買 principal (G14)"}
+  {:gate/id "G5"  :gate/name "murakumo-only"           :gate/rule "製造プロジェクト会話 / spec 解釈は KotobaLLM 127.0.0.1:4000; 外部 LLM 禁止 (ADR-2605215000)"}
+  {:gate/id "G6"  :gate/name "kotoba-eavt-native"      :gate/rule "factory/order/progress/qc は kotoba Datom; Cypher MATCH / RisingWave / G() builder を canonical にしない"}
+  {:gate/id "G7"  :gate/name "tithe-non-fiat"          :gate/rule "決済は USDC Base L2 + ERC-4337 + warifu のみ; TitheRouter 10% auto-split; Stripe/fiat 非前提 (憲法的に非存在)"}
+  {:gate/id "G8"  :gate/name "labor-dignity-provenance" :gate/rule "factory 労働 provenance 開示; gig 搾取なし; fulfillment は etzhayyim logistics actor 経由"}
+  {:gate/id "G9"  :gate/name "pii-encrypted-envelope"  :gate/rule "発注/取引履歴 → com.etzhayyim.encrypted.*, DID-bound (ADR-2605181100)"}
+  {:gate/id "G10" :gate/name "sourcing-legality"       :gate/rule "460 factory data は public/API-ToS 準拠; 価格/在庫の捏造禁止; :representative honesty"}
+  {:gate/id "G14" :gate/name "member-principal"        :gate/rule "tsukuru は買主にならない; member が購買 principal、factory に直接対価; 外部 inflow を生まない"}
+  {:gate/id "G15" :gate/name "no-server-key"           :gate/rule "member/factory は自鍵で署名; platform private key / card secret 非保持 (ADR-2605231525)"}
+  {:gate/id "G16" :gate/name "trade-compliance"        :gate/rule "production-order は treaty (FTA/EPA) + yabai (sanctions/denied-party screening) 通過必須; 不通過は reject"}
+  {:gate/id "G17" :gate/name "fulfillment-traceability" :gate/rule "BTO/MTO/CTO → production-progress → QC → ship を全段 kotoba Datom に lossless 記録; silent truncation 禁止"}]
+
+ :actor/cells
+ [{:cell/id "orderbook"  :cell/kind :datalog   :cell/runtime :kotoba}
+  {:cell/id "discover"   :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "production" :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "qc"         :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "compliance" :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "ledger"     :cell/kind :datalog   :cell/runtime :kotoba}]
+
+ :actor/lex
+ [{:lex/id "factory"}
+  {:lex/id "production-order"}
+  {:lex/id "progress"}
+  {:lex/id "quality"}
+  {:lex/id "settlement"}]
+
+ ;; legacy (gen-1) artifacts pending decommission per migration plan Phase 3/5
+ :actor/legacy
+ {:manifest    "actor-manifest.jsonld"
+  :wit-packages ["etzhayyim:tsukuru@0.1.0" "etzhayyim:tsukuru-process-registry@1.0.0"
+                 "etzhayyim:tsukuru-manufacturer-registry@1.0.0" "etzhayyim:tsukuru-trade-compliance@1.0.0"
+                 "etzhayyim:tsukuru-production-order@1.0.0"]
+  :note "etzhayyim: WIT 改名は kotodama atomic rename wave (ADR-2605214000 §3) に同期; 法人登記ゲート"}}

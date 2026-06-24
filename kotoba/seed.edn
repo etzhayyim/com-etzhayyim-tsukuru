@@ -1,0 +1,65 @@
+;; tsukuru 作 — kotoba seed data (representative, R0)
+;; ADR-2605202800  ·  :sourcing :representative (NOT authoritative; G10)
+;; A small worked example: 3 factories (CNC / injection / semiconductor C26) + one
+;; member production-order (BTO) flowing draft → dispatched → in-production → qc →
+;; ready, with a passed compliance gate, a QC pass, and a computed settlement intent
+;; (USDC minor, 10% tithe). Prices = USDC minor (6-dp). NOT a live commercial offer.
+
+[;; ════════════ Factories (manufacturer registry) ════════════
+ {:factory/did "did:web:tsukuru.etzhayyim.com/factory/jp-precision-cnc"
+  :factory/display-name "Precision CNC 工房 (representative)"
+  :factory/country "JP" :factory/isic "C25"
+  :factory/capabilities ["cnc-5axis" "anodizing" "small-batch"]
+  :factory/fulfillment-modes [:bto :mto]
+  :factory/labor-provenance :etzhayyim-dignity :factory/sourcing :representative}
+ {:factory/did "did:web:tsukuru.etzhayyim.com/factory/de-injection-mold"
+  :factory/display-name "Injection Molding Werk (representative)"
+  :factory/country "DE" :factory/isic "C22"
+  :factory/capabilities ["injection-molding" "tooling" "overmolding"]
+  :factory/fulfillment-modes [:mto :cto]
+  :factory/labor-provenance :verified-fair :factory/sourcing :representative}
+ {:factory/did "did:web:tsukuru.etzhayyim.com/factory/tw-semi-c26"
+  :factory/display-name "Semiconductor Foundry C26 lane (fab 装置発注; owner = silicon)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "packaging" "test"]
+  :factory/fulfillment-modes [:bto]
+  :factory/labor-provenance :disclosed :factory/sourcing :representative}
+
+ ;; ════════════ Production order (BTO worked example) ════════════
+ {:production-order/id "po.demo.0001"
+  :production-order/buyer-did "did:web:member.example.etzhayyim.com"
+  :production-order/factory-did "did:web:tsukuru.etzhayyim.com/factory/jp-precision-cnc"
+  :production-order/mode :bto
+  :production-order/spec "5-axis CNC aluminum bracket, qty 50, anodized black, AS9100 lot trace"
+  :production-order/state :ready
+  :production-order/compliance-state :passed
+  :production-order/compliance-note "treaty: JP domestic; yabai ScreenEntity clear"
+  :production-order/settlement "settle.demo.0001"}
+
+ ;; progress trajectory (G17 — every stage a datom, no silent truncation)
+ {:progress/id "prog.demo.0001.a" :progress/order "po.demo.0001"
+  :progress/stage :dispatched :progress/pct 5 :progress/note "factory accepted"
+  :progress/timestamp "2026-06-02T00:00:00Z"}
+ {:progress/id "prog.demo.0001.b" :progress/order "po.demo.0001"
+  :progress/stage :in-production :progress/pct 60 :progress/note "machining lot 1/1"
+  :progress/timestamp "2026-06-02T06:00:00Z"}
+ {:progress/id "prog.demo.0001.c" :progress/order "po.demo.0001"
+  :progress/stage :qc :progress/pct 90 :progress/note "dimensional inspection"
+  :progress/timestamp "2026-06-02T10:00:00Z"}
+
+ ;; quality inspection (pass)
+ {:quality/id "qc.demo.0001" :quality/order "po.demo.0001"
+  :quality/result :pass :quality/defects []
+  :quality/inspector-did "did:web:inspector.example.etzhayyim.com"
+  :quality/timestamp "2026-06-02T10:30:00Z"}
+
+ ;; settlement intent (computed, NOT broadcast — R0 stops at :intent; G11)
+ {:settlement/id "settle.demo.0001" :settlement/order "po.demo.0001"
+  :settlement/rail :usdc-base-l2
+  :settlement/gross-minor 500000000 :settlement/tithe-minor 50000000
+  :settlement/factory-payout-minor 450000000
+  :settlement/tithe-router "50-infra/etzhayyim-tithe-router"
+  :settlement/state :intent}
+
+ ;; SBT eligibility (member buyer active)
+ {:sbt/holder-did "did:web:member.example.etzhayyim.com" :sbt/active true}]
