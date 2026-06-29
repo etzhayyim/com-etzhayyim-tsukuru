@@ -1,6 +1,6 @@
 (ns tsukuru.py.test-agent
-  "tsukuru 作 — agent cell tests. 1:1 port of py/test_agent.py (custom harness → clojure.test).
-  Offline: discover capability ranking, SBT gate (§3/G2), unknown-mode refusal, compliance no-auto-
+  "tsukuru 作 — agent cell tests. cljc SSoT (ADR-2606160842; py/test_agent.py origin + .clj port
+  pruned). Offline: discover capability ranking, SBT gate (§3/G2), unknown-mode refusal, compliance no-auto-
   pass + denied-party reject (G16), order advance gating, QC fail→quarantine / pass→ready, USDC +
   tithe settlement (G7/G11/G15)."
   (:require [clojure.test :refer [deftest is]]

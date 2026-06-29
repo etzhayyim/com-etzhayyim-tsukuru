@@ -1,5 +1,6 @@
 (ns tsukuru.py.agent
-  "tsukuru 作 — B2B factory-direct ordering cell. 1:1 port of py/agent.py. Four handlers over the
+  "tsukuru 作 — B2B factory-direct ordering cell. cljc SSoT (ADR-2606160842 py->clj port wave; the
+  py/agent.py origin and the .clj port were pruned). Four handlers over the
   production lifecycle: handle-discover (spec → capability-match factory candidates), handle-
   compliance (G16 treaty + yabai screening, never auto-pass), handle-production (BTO/MTO/CTO order
   state machine, G14 member-principal, G2 SBT-gated), handle-qc (pass/fail→quarantine/rework), +

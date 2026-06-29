@@ -4,7 +4,7 @@
  :cell/glyph "作"
  :cell/kind :langgraph
  :cell/runtime :wasm
- :cell/entry "py/agent.py"
+ :cell/entry "py/agent.cljc"
  :cell/handler "handle_compliance"
  :cell/doc "trade-compliance gate (G16): treaty (FTA/EPA authority chain) + yabai ScreenEntity (sanctions/denied-party) + HS/CBAM/embedded-carbon 文脈。不通過の production-order は reject。外部 open-signal actor (open-chemicals/critical-minerals/hs/commodity-trade) を observation input として束ねる (owner にはしない)."
  :cell/state-graph
