@@ -65,6 +65,21 @@
 ;; (+2: Indian Oil Corporation, Valero Energy), C25 fabricated metal products (+2: Crown
 ;; Holdings, Stanley Black & Decker). Running total: 337 companies / 91 countries / 23 ISIC
 ;; divisions, zero duplicate DIDs.
+;; Batch 10 (/loop pass 10): +30 companies, +0 new countries — BR+MX depth (Braskem, Suzano,
+;; Alpargatas, Hypera Pharma, Alpek, Vitro, Grupo Flexi, Genomma Lab — petrochemicals/paper/
+;; footwear/pharma/glass); thin-ISIC C15 leather +4 (ECCO, Coach, Clarks, Camper) and C32 other
+;; manufacturing +4 (Yamaha, LEGO, Stryker, Head Sport); second entry for 9 single-entry
+;; countries — got real, distinct companies for all 9 (Cementos Pacasmayo PE, Condor
+;; Electronics DZ, Alucam CM, Bralirwa RW, Bosnalijek BA, Guinness Ghana Breweries GH, Birra
+;; Tirana AL, Cambrew KH, INDEVCO Group LB); thin-ISIC round 2b targeting C16/C17/C19/C22 — only
+;; 5 of the requested 8 survived dedup (Oji Holdings C17, Metsä Wood C16, Orlen C19, Michelin
+;; C22, Amcor C22); the agent's "Suzano" and "Canfor" picks were the same companies already
+;; added earlier in this batch / in batch 6, and its "Reliance Industries" pick for C19
+;; collided with the existing in/reliance-industries (added batch 7, different ISIC) — all
+;; three dropped rather than silently double-counted (per-batch agent prompts list explicit
+;; avoid-lists, but they're necessarily incomplete against a 300+-entry file; this dedup pass
+;; is why kotoba/validate_candidates.bb's duplicate-DID check runs before every commit).
+;; Running total: 367 companies / 91 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -2176,4 +2191,192 @@
   :factory/country "US" :factory/isic "C25"
   :factory/capabilities ["hand-tools" "fastening-tools" "storage-solutions"]
   :factory/source-url "https://en.wikipedia.org/wiki/Stanley_Black_%26_Decker"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Brazil + Mexico depth — petrochemicals / paper / footwear / pharma / glass (C15/C17/C20/C21/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/br/braskem"
+  :factory/display-name "Braskem"
+  :factory/country "BR" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "resin-production" "basic-chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Braskem"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/suzano"
+  :factory/display-name "Suzano"
+  :factory/country "BR" :factory/isic "C17"
+  :factory/capabilities ["pulp-production" "paper-manufacturing" "eucalyptus-pulp"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Suzano_Papel_e_Celulose"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/alpargatas"
+  :factory/display-name "Alpargatas"
+  :factory/country "BR" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "rubber-sandals" "flip-flops"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alpargatas_S.A."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/hypera-pharma"
+  :factory/display-name "Hypera Pharma"
+  :factory/country "BR" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "otc-medicines" "consumer-healthcare"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hypera_Pharma"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/alpek"
+  :factory/display-name "Alpek"
+  :factory/country "MX" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "pet-resin" "polypropylene" "caprolactam"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alpek"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/vitro"
+  :factory/display-name "Vitro"
+  :factory/country "MX" :factory/isic "C23"
+  :factory/capabilities ["glass-manufacturing" "flat-glass" "glass-containers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vitro"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/grupo-flexi"
+  :factory/display-name "Grupo Flexi"
+  :factory/country "MX" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "shoe-design" "casual-footwear"]
+  :factory/source-url "https://somos.flexi.com.mx/historia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/genomma-lab-internacional"
+  :factory/display-name "Genomma Lab Internacional"
+  :factory/country "MX" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "otc-medicines" "dermocosmetics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Genomma_Lab_Internacional"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 2a — leather goods / other manufacturing (C15/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/dk/ecco"
+  :factory/display-name "ECCO"
+  :factory/country "DK" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "leather-tanning" "shoe-manufacturing" "leather-accessories"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ECCO"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/coach-tapestry"
+  :factory/display-name "Coach (Tapestry, Inc.)"
+  :factory/country "US" :factory/isic "C15"
+  :factory/capabilities ["leather-handbags" "leather-goods" "accessories" "footwear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tapestry,_Inc."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/clarks"
+  :factory/display-name "Clarks"
+  :factory/country "GB" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "shoe-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Clarks_(shoe_retailer)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/camper"
+  :factory/display-name "Camper"
+  :factory/country "ES" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "casual-footwear" "shoe-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Camper_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/yamaha-corporation"
+  :factory/display-name "Yamaha Corporation"
+  :factory/country "JP" :factory/isic "C32"
+  :factory/capabilities ["musical-instruments" "pianos" "wind-instruments" "audio-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Yamaha_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/lego-group"
+  :factory/display-name "LEGO Group"
+  :factory/country "DK" :factory/isic "C32"
+  :factory/capabilities ["toys" "plastic-construction-toys"]
+  :factory/source-url "https://en.wikipedia.org/wiki/The_Lego_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/stryker-corporation"
+  :factory/display-name "Stryker Corporation"
+  :factory/country "US" :factory/isic "C32"
+  :factory/capabilities ["medical-devices" "surgical-instruments" "orthopedic-implants"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Stryker_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/head-sport"
+  :factory/display-name "Head Sport GmbH"
+  :factory/country "AT" :factory/isic "C32"
+  :factory/capabilities ["sporting-goods" "skis" "tennis-rackets" "ski-boots"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Head_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Second entry for single-entry countries (PE/DZ/CM/RW/BA/GH/AL/KH/LB) ════════════
+ {:factory/did "candidate:manufacturer-directory/pe/cementos-pacasmayo"
+  :factory/display-name "Cementos Pacasmayo"
+  :factory/country "PE" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "concrete" "lime" "quicklime"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cementos_Pacasmayo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/condor-electronics"
+  :factory/display-name "Condor Electronics"
+  :factory/country "DZ" :factory/isic "C27"
+  :factory/capabilities ["consumer-electronics" "home-appliances" "mobile-phones" "assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Condor_Electronics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/alucam"
+  :factory/display-name "Alucam"
+  :factory/country "CM" :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "ingot-casting" "rolling" "anode-production"]
+  :factory/source-url "https://www.industryabout.com/country-territories-3/2089-cameroon/aluminium-industry/32030-alucam-edea-aluminium-smelter"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/bralirwa"
+  :factory/display-name "Bralirwa"
+  :factory/country "RW" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beverage-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bralirwa_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/bosnalijek"
+  :factory/display-name "Bosnalijek"
+  :factory/country "BA" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "solid-oral-dosage" "ampule-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bosnalijek"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/guinness-ghana-breweries"
+  :factory/display-name "Guinness Ghana Breweries"
+  :factory/country "GH" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beverage-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Guinness_Ghana_Breweries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/birra-tirana"
+  :factory/display-name "Birra Tirana"
+  :factory/country "AL" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beverage-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Birra_Tirana"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/cambrew"
+  :factory/display-name "Cambrew"
+  :factory/country "KH" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beverage-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cambrew_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/indevco-group"
+  :factory/display-name "INDEVCO Group"
+  :factory/country "LB" :factory/isic "C17"
+  :factory/capabilities ["corrugated-packaging" "paper-manufacturing" "plastic-packaging" "tissue-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/INDEVCO_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 2b — paper / wood products / petroleum refining / rubber-plastics (C16/C17/C19/C22) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/oji-holdings"
+  :factory/display-name "Oji Holdings Corporation"
+  :factory/country "JP" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "packaging" "pulp-production" "forestry"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Oji_Paper_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/metsa-wood"
+  :factory/display-name "Metsä Wood"
+  :factory/country "FI" :factory/isic "C16"
+  :factory/capabilities ["plywood" "laminated-veneer-lumber" "engineered-wood-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mets%C3%A4_Wood"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/orlen"
+  :factory/display-name "Orlen S.A."
+  :factory/country "PL" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petrochemicals" "fuel-retailing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Orlen"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/michelin"
+  :factory/display-name "Michelin"
+  :factory/country "FR" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Michelin"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/amcor"
+  :factory/display-name "Amcor plc"
+  :factory/country "CH" :factory/isic "C22"
+  :factory/capabilities ["plastics-packaging" "flexible-packaging" "rigid-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Amcor"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
