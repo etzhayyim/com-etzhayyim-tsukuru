@@ -503,6 +503,21 @@
 ;; split judged too close to the standing weapons-scope line to include even without an
 ;; explicit ammunition/small-arms product. No drops from the returned candidates themselves.
 ;; Running total: 1480 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 44 (/loop pass 44): +38 companies, +0 new countries. Second-pass depth for 10
+;; countries at the 10-entry floor (UAE/Azerbaijan/Bangladesh/Jamaica/Nigeria/Norway/Peru/
+;; Serbia/Slovakia/Uganda). Two drops, both weapons/ammunition scope: Zastava Arms (Serbia,
+;; C25) — an explicit small-arms/firearms manufacturer, dropped on the standing batch-33
+;; precedent; and Nammo AS (Norway, C25 ammunition/rocket motors) — re-suggested by this
+;; batch's Norway research agent (it wasn't told about the prior exclusion, only given the
+;; current roster) but it is the exact same company already dropped in batch 39, confirmed by
+;; grep against this file's own header text before finalizing. Seventh BAT country-subsidiary
+;; keep: British American Tobacco Bangladesh, alongside UK (HQ)/Kenya/Nigeria/Cambodia/
+;; Uzbekistan/Zambia. Fifth Bata country-subsidiary keep: Bata Nigeria, alongside Switzerland
+;; (HQ)/Zimbabwe/Zambia/Kenya. Agents continued self-policing currently-operating status:
+;; Uganda's agent excluded BAT Uganda itself (closed its Kampala factory in 2013, now
+;; import-only) and Slovakia's agent excluded Whirlpool Slovakia (exited the market in 2023,
+;; plant now under different ownership/branding).
+;; Running total: 1518 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -9614,5 +9629,233 @@
   :factory/country "LV" :factory/isic "C31"
   :factory/capabilities ["solid-wood-furniture" "plywood-furniture" "wood-pellets" "large-scale-woodworking"]
   :factory/source-url "https://www.avoti.lv/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ae/damas-jewellery"
+  :factory/display-name "Damas Jewellery"
+  :factory/country "AE" :factory/isic "C32"
+  :factory/capabilities ["jewelry-manufacturing" "gold-processing" "precision-casting" "gemstone-setting"]
+  :factory/source-url "https://www.thenationalnews.com/business/jeweller-damas-opens-dubai-production-plant-1.154668"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ae/emirates-printing-press"
+  :factory/display-name "Emirates Printing Press (EPP)"
+  :factory/country "AE" :factory/isic "C18"
+  :factory/capabilities ["rotogravure-printing" "flexible-packaging" "folding-cartons" "label-printing"]
+  :factory/source-url "https://alshirawi.com/company/emirates-printing-press-epp/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ae/brc-arabia"
+  :factory/display-name "BRC Arabia (The Kanoo Group)"
+  :factory/country "AE" :factory/isic "C25"
+  :factory/capabilities ["welded-wire-mesh" "cut-and-bent-rebar" "cold-drawn-steel-wire" "rebar-threading"]
+  :factory/source-url "https://www.kanoogroup.com/business/brc-arabia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/azneftkimyamash"
+  :factory/display-name "Azneftkimyamash JSC"
+  :factory/country "AZ" :factory/isic "C28"
+  :factory/capabilities ["oil-field-equipment" "drilling-machinery" "valves-pumps" "petrochemical-machinery"]
+  :factory/source-url "https://www.trend.az/business/energy/1116324.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/gardashlar-mebel"
+  :factory/display-name "Gardashlar Mebel JSC"
+  :factory/country "AZ" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "institutional-furniture" "custom-furniture" "hospitality-furniture"]
+  :factory/source-url "https://www.navigator.az/en/firm/25002/info/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/baku-textile-factory"
+  :factory/display-name "Baku Textile Factory (Bakı Tekstil Fabriki MMC)"
+  :factory/country "AZ" :factory/isic "C14"
+  :factory/capabilities ["workwear" "uniforms" "sportswear" "socks-hosiery"]
+  :factory/source-url "https://icricinternational.org/iwtd/baki-tekstil-fabriki-mmc/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/bakupack"
+  :factory/display-name "BakuPack"
+  :factory/country "AZ" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "paperboard-packaging" "cardboard-boxes" "paper-bags"]
+  :factory/source-url "https://www.packaginginsights.com/news/baku-pack-new-facility-azerbaijan.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/walton-hi-tech-industries"
+  :factory/display-name "Walton Hi-Tech Industries PLC"
+  :factory/country "BD" :factory/isic "C27"
+  :factory/capabilities ["refrigerators" "air-conditioners" "compressors" "home-appliances"]
+  :factory/source-url "https://www.tbsnews.net/supplement/walton-made-bangladesh-smart-fridge-manufacturing-country-870151"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/rfl-plastics"
+  :factory/display-name "RFL Plastics Limited (RFL Group)"
+  :factory/country "BD" :factory/isic "C22"
+  :factory/capabilities ["plastic-products" "pvc-pipes" "injection-molding" "household-plasticware"]
+  :factory/source-url "https://www.rflbd.com/page/factories"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/kohinoor-chemical-company"
+  :factory/display-name "Kohinoor Chemical Company (Bangladesh) Limited"
+  :factory/country "BD" :factory/isic "C20"
+  :factory/capabilities ["soap-manufacturing" "detergents" "toiletries" "cleaning-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kohinoor_Chemical_Company_(Bangladesh)_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/star-particle-board-mills"
+  :factory/display-name "Star Particle Board Mills Limited (Partex Star Group)"
+  :factory/country "BD" :factory/isic "C16"
+  :factory/capabilities ["particle-board" "wood-based-panels" "laminated-boards" "veneer-boards"]
+  :factory/source-url "https://partexstargroup.com/companies/partex-star-particle-board-mills-limited/contact/factory/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/bat-bangladesh"
+  :factory/display-name "British American Tobacco Bangladesh Company Limited"
+  :factory/country "BD" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "leaf-threshing" "export-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/British_American_Tobacco_Bangladesh"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/sanmerna-paper-products"
+  :factory/display-name "Sanmerna Paper Products Ltd"
+  :factory/country "JM" :factory/isic "C17"
+  :factory/capabilities ["tissue-paper" "napkins" "hand-towels" "medical-bedrolls"]
+  :factory/source-url "https://www.jamaicaobserver.com/2023/03/07/the-sanmerna-paper-products-story/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/caribbean-cable-company"
+  :factory/display-name "Caribbean Cable Company Ltd"
+  :factory/country "JM" :factory/isic "C27"
+  :factory/capabilities ["electrical-wire" "power-cables" "control-cables" "wire-extrusion"]
+  :factory/source-url "https://www.workandjam.com/bl/electronics/caribbean-cable-company-ltd.htm"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/petrojam"
+  :factory/display-name "Petrojam Limited"
+  :factory/country "JM" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "gasoline" "diesel" "asphalt"]
+  :factory/source-url "https://jis.gov.jm/government/agencies/petrojam-limited/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/federated-pharmaceuticals"
+  :factory/display-name "Federated Pharmaceuticals (2014) Ltd"
+  :factory/country "JM" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "otc-medication" "prescription-drugs" "veterinary-products"]
+  :factory/source-url "https://federatedpharma.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/fidson-healthcare"
+  :factory/display-name "Fidson Healthcare Plc"
+  :factory/country "NG" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "large-volume-parenterals" "glass-ampoule-injectables" "tablets-capsules"]
+  :factory/source-url "https://leadership.ng/bois-eib-backed-financing-accelerates-fidsons-pharmaceutical-manufacturing-growth/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/cutix"
+  :factory/display-name "Cutix Plc"
+  :factory/country "NG" :factory/isic "C27"
+  :factory/capabilities ["cable-manufacturing" "wire-insulation" "xlpe-cables" "armoured-cables"]
+  :factory/source-url "https://cutixplc.com.ng/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/first-aluminium-nigeria"
+  :factory/display-name "First Aluminium Nigeria Plc"
+  :factory/country "NG" :factory/isic "C25"
+  :factory/capabilities ["aluminium-rolling" "roofing-sheets" "collapsible-tubes" "metal-packaging"]
+  :factory/source-url "https://nairametrics.com/2019/03/11/about-first-aluminium-plc/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/sunflag-nigeria"
+  :factory/display-name "Sunflag Nigeria Limited"
+  :factory/country "NG" :factory/isic "C13"
+  :factory/capabilities ["cotton-spinning" "weaving" "knitting" "terry-towels"]
+  :factory/source-url "https://sunflag.ng/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/bata-nigeria"
+  :factory/display-name "Bata Nigeria (Bata Shoe Company Nigeria)"
+  :factory/country "NG" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "shoe-assembly" "rubber-soles" "leather-goods"]
+  :factory/source-url "https://nairametrics.com/2019/11/05/bata-is-back-opens-a-n350-million-factory/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/glamox"
+  :factory/display-name "Glamox ASA"
+  :factory/country "NO" :factory/isic "C27"
+  :factory/capabilities ["led-lighting" "luminaires" "marine-offshore-lighting" "human-centric-lighting"]
+  :factory/source-url "https://www.glamox.com/aboutus/our-history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/tine"
+  :factory/display-name "Tine SA"
+  :factory/country "NO" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "cheese-production" "milk-products" "ice-cream"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tine_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/aass-bryggeri"
+  :factory/display-name "Aass Bryggeri (Aass Brewery)"
+  :factory/country "NO" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "aquavit" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Aass_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/hersil"
+  :factory/display-name "Hersil S.A. Laboratorios Industriales Farmacéuticos"
+  :factory/country "PE" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "veterinary-products" "cosmetics-manufacturing" "nutraceuticals"]
+  :factory/source-url "https://www.hersil.com.pe/nosotros/acerca-de-hersil"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/fima"
+  :factory/display-name "FIMA S.A."
+  :factory/country "PE" :factory/isic "C25"
+  :factory/capabilities ["structural-steel-fabrication" "boilermaking" "metal-mechanical-equipment" "mining-and-energy-equipment"]
+  :factory/source-url "https://www.bnamericas.com/en/company-profile/fima-sa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/relapasa"
+  :factory/display-name "Refinería La Pampilla S.A.A. (RELAPASA)"
+  :factory/country "PE" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "fuel-production" "diesel-and-gasoline" "distillation"]
+  :factory/source-url "https://www.repsol.pe/es/la-pampilla/conocenos/index.cshtml"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/imk-14-oktobar"
+  :factory/display-name "IMK 14. oktobar (Kruševac)"
+  :factory/country "RS" :factory/isic "C28"
+  :factory/capabilities ["heavy-machinery" "construction-equipment" "mining-equipment" "wheel-loaders"]
+  :factory/source-url "https://14oktobar.rs/o-nama/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/fabrika-kartona-umka"
+  :factory/display-name "Fabrika kartona Umka (Kappa Star Group)"
+  :factory/country "RS" :factory/isic "C17"
+  :factory/capabilities ["paperboard" "recycled-paper" "cardboard" "packaging-materials"]
+  :factory/source-url "https://www.umka.rs/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/institute-for-manufacturing-banknotes-coins"
+  :factory/display-name "Institute for Manufacturing Banknotes and Coins (Zavod Topčider)"
+  :factory/country "RS" :factory/isic "C18"
+  :factory/capabilities ["banknote-printing" "coin-minting" "security-printing" "currency-production"]
+  :factory/source-url "https://www.nbs.rs/sr/o_nbs/jub140/jub_zin/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/foxconn-slovakia"
+  :factory/display-name "Foxconn Slovakia, spol. s r.o."
+  :factory/country "SK" :factory/isic "C26"
+  :factory/capabilities ["consumer-electronics" "television-manufacturing" "pcb-assembly" "contract-manufacturing"]
+  :factory/source-url "https://www.foxconn.sk/en/20-millionth-tv-from-foxconn-slovakia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/chemosvit-fibrochem"
+  :factory/display-name "Chemosvit Fibrochem, a.s."
+  :factory/country "SK" :factory/isic "C13"
+  :factory/capabilities ["polypropylene-yarn" "technical-fibers" "industrial-textiles" "fiber-spinning"]
+  :factory/source-url "https://www.fibrochem.sk/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/sez-krompachy"
+  :factory/display-name "SEZ Krompachy, a.s."
+  :factory/country "SK" :factory/isic "C27"
+  :factory/capabilities ["circuit-breakers" "switchgear" "electrical-distribution-equipment" "low-voltage-devices"]
+  :factory/source-url "https://www.sez-krompachy.sk/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/chirana-medical"
+  :factory/display-name "Chirana Medical, a.s."
+  :factory/country "SK" :factory/isic "C32"
+  :factory/capabilities ["medical-devices" "dental-equipment" "anesthesia-equipment" "precision-instruments"]
+  :factory/source-url "https://www.chirana.eu/o-nas/historia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/movit-products"
+  :factory/display-name "Movit Products Limited"
+  :factory/country "UG" :factory/isic "C20"
+  :factory/capabilities ["cosmetics-manufacturing" "personal-care" "skincare" "petroleum-jelly"]
+  :factory/source-url "https://movitproducts.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/steel-and-tube-industries"
+  :factory/display-name "Steel & Tube Industries Ltd (STIL)"
+  :factory/country "UG" :factory/isic "C25"
+  :factory/capabilities ["steel-tubes" "wire-products" "roofing-profiles" "storage-tanks"]
+  :factory/source-url "https://stil.co.ug/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/new-vision-printing-and-publishing"
+  :factory/display-name "New Vision Printing and Publishing Company Limited"
+  :factory/country "UG" :factory/isic "C18"
+  :factory/capabilities ["newspaper-printing" "offset-printing" "commercial-printing" "large-format-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/New_Vision_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/kiira-motors-corporation"
+  :factory/display-name "Kiira Motors Corporation"
+  :factory/country "UG" :factory/isic "C29"
+  :factory/capabilities ["electric-buses" "vehicle-assembly" "bus-manufacturing" "ev-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kiira_Motors_Corporation"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
