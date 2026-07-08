@@ -12,14 +12,20 @@
 ;; fact, not a public-directory fact, and is left unset rather than guessed.
 ;; Compiled 2026-07-08 via public web research (company sites + Wikipedia), one source_url per
 ;; entry. Batch 1: 80 companies / 18 countries / 12 ISIC divisions (medium pilot, per owner
-;; scope). Batch 2 (same day, /loop coverage pass): +32 companies / +11 countries (BR MX ES PL
-;; CZ NL CH AT TR IL SG) / +4 ISIC divisions (C10 food, C20 chemicals, C24 basic metals, C32
-;; other manufacturing incl. precision instruments/watches). Running total: 112 companies / 29
-;; countries / 16 ISIC divisions. Still-uncovered ISIC divisions worth a future batch: C11-12
-;; (beverages/tobacco), C14 (apparel, distinct from C13 textiles), C16 (wood products), C18
-;; (printing), C19 (coke/petroleum), C23 (non-metallic minerals: cement/glass/ceramics), C33
-;; (repair/installation). Still-uncovered regions worth a future batch: Canada, Australia,
-;; South Africa, Portugal, Belgium, Philippines, remaining Gulf/MENA and Sub-Saharan Africa.
+;; scope). Batch 2 (/loop pass 2): +32 companies / +11 countries (BR MX ES PL CZ NL CH AT TR IL
+;; SG) / +4 ISIC divisions (C10 food, C20 chemicals, C24 basic metals, C32 other manufacturing).
+;; Batch 3 (/loop pass 3): +32 companies / +9 countries (CA AU PT ZA BE SA AE QA EG) / +6 ISIC
+;; divisions (C11 beverages, C12 tobacco, C16 wood/cork, C18 printing, C19 coke/petroleum, C23
+;; non-metallic minerals). Running total: 144 companies / 38 countries / 22 ISIC divisions.
+;; Still-uncovered ISIC divisions: C14 (apparel, distinct from C13 textiles), C33 (repair/
+;; installation of machinery — arguably a service, not primary manufacturing; may stay
+;; permanently uncovered by design). Still-uncovered regions worth a future batch: Philippines,
+;; remaining Sub-Saharan Africa (Nigeria, Kenya, Ghana), Russia/CIS (politically sensitive —
+;; skip pending explicit owner direction), Central Asia, remaining Balkans/Eastern Europe
+;; (Romania, Hungary, Slovakia, Slovenia), Chile/Argentina/Colombia (Latin America beyond
+;; BR/MX), Pacific Islands, remaining Caribbean. At ~144 companies with near-complete ISIC
+;; breadth, future batches should shift emphasis from new ISIC divisions to deepening existing
+;; ones (more companies per already-covered division/country) and toward regional breadth.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -719,4 +725,204 @@
   :factory/country "SG" :factory/isic "C26"
   :factory/capabilities ["semiconductor-components" "test-equipment-manufacturing" "electronics-manufacturing"]
   :factory/source-url "https://aem.com.sg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Canada + Australia — aerospace/rail / wood-pulp / mining equipment / basic metals (C16/C24/C28/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/ca/bombardier"
+  :factory/display-name "Bombardier Inc."
+  :factory/country "CA" :factory/isic "C30"
+  :factory/capabilities ["aerospace-manufacturing" "business-jets" "aircraft-completions"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bombardier_Inc."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/heroux-devtek"
+  :factory/display-name "Héroux-Devtek Inc."
+  :factory/country "CA" :factory/isic "C30"
+  :factory/capabilities ["aerospace-components" "landing-gear" "mro"]
+  :factory/source-url "https://www.herouxdevtek.com/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/canfor"
+  :factory/display-name "Canfor Corporation"
+  :factory/country "CA" :factory/isic "C16"
+  :factory/capabilities ["wood-products" "lumber" "pulp-and-paper" "engineered-wood"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Canfor"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/algoma-steel"
+  :factory/display-name "Algoma Steel Inc."
+  :factory/country "CA" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "basic-metals" "steel-plate"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Algoma_Steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/maclean-engineering"
+  :factory/display-name "MacLean Engineering"
+  :factory/country "CA" :factory/isic "C28"
+  :factory/capabilities ["mining-equipment" "underground-mining-vehicles" "heavy-machinery"]
+  :factory/source-url "https://macleanengineering.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/bluescope-steel"
+  :factory/display-name "BlueScope Steel Limited"
+  :factory/country "AU" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "basic-metals" "coated-steel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BlueScope"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/bradken"
+  :factory/display-name "Bradken Limited"
+  :factory/country "AU" :factory/isic "C24"
+  :factory/capabilities ["mining-equipment" "metal-castings" "rail-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bradken"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/austal"
+  :factory/display-name "Austal Limited"
+  :factory/country "AU" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "defense-vessels" "transport-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Austal"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ South Africa + Portugal + Belgium — chemicals / non-metallic minerals / wood-cork products (C16/C20/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/pt/corticeira-amorim"
+  :factory/display-name "Corticeira Amorim"
+  :factory/country "PT" :factory/isic "C16"
+  :factory/capabilities ["cork-products" "cork-stoppers" "cork-composites" "wood-based-products"]
+  :factory/source-url "https://www.amorim.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/secil"
+  :factory/display-name "Secil"
+  :factory/country "PT" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "lime-manufacturing" "building-materials"]
+  :factory/source-url "https://www.secil-group.com/en/home"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/ba-glass"
+  :factory/display-name "BA Glass"
+  :factory/country "PT" :factory/isic "C23"
+  :factory/capabilities ["glass-manufacturing" "glass-packaging"]
+  :factory/source-url "https://www.baglass.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/sasol"
+  :factory/display-name "Sasol"
+  :factory/country "ZA" :factory/isic "C20"
+  :factory/capabilities ["industrial-chemicals" "petrochemicals" "synthetic-fuels"]
+  :factory/source-url "https://www.sasol.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/aeci"
+  :factory/display-name "AECI Ltd"
+  :factory/country "ZA" :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "industrial-chemicals" "mining-chemicals"]
+  :factory/source-url "https://www.aeciworld.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/ppc"
+  :factory/display-name "PPC Ltd"
+  :factory/country "ZA" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "aggregates" "ready-mix-concrete"]
+  :factory/source-url "https://www.ppc.co.za/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/solvay"
+  :factory/display-name "Solvay"
+  :factory/country "BE" :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "industrial-chemicals"]
+  :factory/source-url "https://www.solvay.com/en/solvay-around-the-world/belgium"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/agc-glass-europe"
+  :factory/display-name "AGC Glass Europe"
+  :factory/country "BE" :factory/isic "C23"
+  :factory/capabilities ["glass-manufacturing" "flat-glass"]
+  :factory/source-url "https://www.agc-glass.eu/en/about/contact-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Gulf/MENA (SA/AE/QA/EG) — petrochemicals / non-metallic minerals / basic metals (C19/C20/C23/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/sa/saudi-aramco"
+  :factory/display-name "Saudi Aramco"
+  :factory/country "SA" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petrochemicals" "natural-gas-processing"]
+  :factory/source-url "https://www.aramco.com/en/about-us/our-offices-and-facilities"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/sabic"
+  :factory/display-name "SABIC"
+  :factory/country "SA" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "chemicals-manufacturing" "polymers" "fertilizers"]
+  :factory/source-url "https://www.sabic.com/en/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ae/adnoc-refining"
+  :factory/display-name "ADNOC Refining"
+  :factory/country "AE" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-processing" "fuel-manufacturing"]
+  :factory/source-url "https://www.adnoc.ae/en/adnoc-refining"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ae/emirates-global-aluminium"
+  :factory/display-name "Emirates Global Aluminium"
+  :factory/country "AE" :factory/isic "C24"
+  :factory/capabilities ["aluminum-smelting" "alumina-refining" "aluminum-production"]
+  :factory/source-url "https://www.ega.ae/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/qapco"
+  :factory/display-name "Qatar Petrochemical Company (QAPCO)"
+  :factory/country "QA" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "polyethylene-manufacturing" "plastics-manufacturing"]
+  :factory/source-url "https://qapco.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/qatar-steel"
+  :factory/display-name "Qatar Steel"
+  :factory/country "QA" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "steel-billets" "iron-and-steel"]
+  :factory/source-url "https://www.qatarsteel.com.qa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/ezz-steel"
+  :factory/display-name "Ezz Steel"
+  :factory/country "EG" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "long-products" "flat-products"]
+  :factory/source-url "https://www.ezzsteel.com/about-ezz-steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/suez-cement"
+  :factory/display-name "Suez Cement Company"
+  :factory/country "EG" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://www.heidelbergmaterials.eg/en/suez-cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Global beverages / tobacco / printing (C11/C12/C18) ════════════
+ {:factory/did "candidate:manufacturer-directory/nl/heineken"
+  :factory/display-name "Heineken N.V."
+  :factory/country "NL" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "beverage-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Heineken_N.V."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/pernod-ricard"
+  :factory/display-name "Pernod Ricard SA"
+  :factory/country "FR" :factory/isic "C11"
+  :factory/capabilities ["spirits-distilling" "wine-production"]
+  :factory/source-url "https://www.pernod-ricard.com/en/our-group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/ambev"
+  :factory/display-name "Ambev S.A."
+  :factory/country "BR" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "soft-drink-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ambev"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/carlsberg"
+  :factory/display-name "Carlsberg A/S"
+  :factory/country "DK" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Carlsberg_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/british-american-tobacco"
+  :factory/display-name "British American Tobacco p.l.c."
+  :factory/country "GB" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/British_American_Tobacco"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/kt-and-g"
+  :factory/display-name "KT&G Corporation"
+  :factory/country "KR" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Korea_Tobacco_%26_Ginseng_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/toppan-holdings"
+  :factory/display-name "Toppan Holdings Inc."
+  :factory/country "JP" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "packaging-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Toppan"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/ccl-industries"
+  :factory/display-name "CCL Industries Inc."
+  :factory/country "CA" :factory/isic "C18"
+  :factory/capabilities ["label-printing" "packaging-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/CCL_Industries"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
