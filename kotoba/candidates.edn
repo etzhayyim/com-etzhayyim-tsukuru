@@ -473,6 +473,23 @@
 ;; (Haiti and Lesotho agents each explicitly rejected leads with ambiguous 2024-2026
 ;; operating status rather than include stale entries).
 ;; Running total: 1398 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 42 (/loop pass 42): +42 companies, +0 new countries. Second-pass depth for 10
+;; single-pass-only countries (Albania/Cyprus/Singapore/Philippines/Dominican-Republic/
+;; Morocco/Madagascar/Cambodia/Honduras/Lebanon). One judgment call worth flagging: Cotona SA
+;; (Madagascar, C13 fabric mill) is part of the same Socota/Ismail family group as the
+;; already-listed Socota (C14 apparel) — the research agent itself flagged this transparently
+;; and offered to exclude it. Kept it on the Continental-Tires-Slovakia/Matador-Automotive
+;; precedent (batch 35) rather than the ICL-Dead-Sea-Works precedent (batch 17, dropped):
+;; Cotona has its own multi-decade independent history predating the current group structure,
+;; its own physical factory, and produces a genuinely different upstream product (raw fabric
+;; vs. cut-and-sew garments) — a different-entity-different-product case, not a same-entity-
+;; relabeled-division case. Also noting weaker sourcing on one entry: Coson Sports Goods
+;; (Cambodia, C32) relies only on the company's own site plus directory listings (no
+;; independent journalism) — the research agent flagged it as its weakest-evidence pick of
+;; the batch; kept per the same public-directory-sourcing bar as everything else, but flagged
+;; here for visibility. Two more Sumitomo Electric country-subsidiary keeps this batch, in
+;; different countries: SEWS-CABIND Albania and Sumi (Cambodia) Wiring Systems.
+;; Running total: 1440 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -9092,5 +9109,257 @@
   :factory/country "SV" :factory/isic "C25"
   :factory/capabilities ["metal-structures" "vehicle-body-fabrication" "stainless-steel-fabrication" "custom-metalwork"]
   :factory/source-url "https://www.industriasmiguelangel.com/sobre-nosotros"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/sews-cabind-albania"
+  :factory/display-name "SEWS-CABIND Albania Sh.p.k."
+  :factory/country "AL" :factory/isic "C29"
+  :factory/capabilities ["automotive-wire-harnesses" "cable-assembly" "electrical-wiring-sets" "export-manufacturing"]
+  :factory/source-url "https://sumitomoelectric.com/company/office_group_companies/sews-cabind-albania"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/edipack"
+  :factory/display-name "Edipack Sha"
+  :factory/country "AL" :factory/isic "C17"
+  :factory/capabilities ["cardboard-boxes" "corrugated-packaging" "paper-recycling" "custom-packaging"]
+  :factory/source-url "https://www.edipack.al/services/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/labos"
+  :factory/display-name "Labos"
+  :factory/country "AL" :factory/isic "C16"
+  :factory/capabilities ["mdf-panels" "particleboard" "plywood" "veneered-panels"]
+  :factory/source-url "https://labos.al/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/albdesign"
+  :factory/display-name "Albdesign"
+  :factory/country "AL" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "label-printing" "flexo-packaging-printing" "security-printing"]
+  :factory/source-url "https://albdesign.al/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/couvas-carton-industries"
+  :factory/display-name "Couvas Carton Industries Ltd"
+  :factory/country "CY" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "carton-manufacturing" "paper-packaging" "lithographic-printing"]
+  :factory/source-url "https://www.cyprusnet.com/couvas-group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/transfonix"
+  :factory/display-name "Transfonix Ltd"
+  :factory/country "CY" :factory/isic "C27"
+  :factory/capabilities ["transformer-manufacturing" "dry-type-transformers" "custom-wound-coils" "electrical-components"]
+  :factory/source-url "https://transfonix-ltd.growzone.ai/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/stereotis"
+  :factory/display-name "Stereotis (Nea Stereotis Ltd)"
+  :factory/country "CY" :factory/isic "C16"
+  :factory/capabilities ["wooden-doors" "joinery" "wall-cladding" "custom-worktops"]
+  :factory/source-url "https://stereotis.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/kimonas-jewellery-workshop"
+  :factory/display-name "A. Kimonas Jewellery Workshop Ltd"
+  :factory/country "CY" :factory/isic "C32"
+  :factory/capabilities ["gold-jewellery" "silver-jewellery" "casting" "custom-design"]
+  :factory/source-url "https://www.kimonasjewelleryworkshop.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/tai-sin-electric"
+  :factory/display-name "Tai Sin Electric Limited"
+  :factory/country "SG" :factory/isic "C27"
+  :factory/capabilities ["cable-manufacturing" "low-voltage-cables" "medium-voltage-cables" "busbar-trunking-systems"]
+  :factory/source-url "https://www.enterprisesg.gov.sg/resources/inspiring-stories/tai-sin-electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/kulicke-and-soffa"
+  :factory/display-name "Kulicke & Soffa Industries, Inc."
+  :factory/country "SG" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-assembly-equipment" "wire-bonders" "ball-bonders" "chip-packaging-machinery"]
+  :factory/source-url "https://investor.kns.com/2014-02-20-Kulicke-Soffa-Creates-Connections-and-Redefines-Solutions-at-the-Grand-Opening-of-Its-Corporate-Headquarters"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/grand-venture-technology"
+  :factory/display-name "Grand Venture Technology Limited"
+  :factory/country "SG" :factory/isic "C25"
+  :factory/capabilities ["precision-machining" "sheet-metal-fabrication" "cnc-machining" "cleanroom-manufacturing"]
+  :factory/source-url "https://gvt.com.sg/who-we-are/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/far-east-packaging-industrial"
+  :factory/display-name "Far East Packaging Industrial Pte Ltd"
+  :factory/country "SG" :factory/isic "C17"
+  :factory/capabilities ["corrugated-board" "corrugated-cartons" "paper-packaging" "carton-manufacturing"]
+  :factory/source-url "https://www.fep.com.sg/about.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/pilipinas-kao"
+  :factory/display-name "Pilipinas Kao, Inc."
+  :factory/country "PH" :factory/isic "C20"
+  :factory/capabilities ["oleochemicals" "fatty-alcohols" "glycerin-refining" "coconut-oil-processing"]
+  :factory/source-url "https://chemical.kao.com/ph/business/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/amherst-laboratories"
+  :factory/display-name "Amherst Laboratories, Inc. (Unilab)"
+  :factory/country "PH" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "tablets-and-capsules" "liquid-dosage-forms" "cgmp-manufacturing"]
+  :factory/source-url "https://www.unilab.com.ph/our-enterprise"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/united-pulp-and-paper"
+  :factory/display-name "United Pulp and Paper Co., Inc. (UPPC)"
+  :factory/country "PH" :factory/isic "C17"
+  :factory/capabilities ["testliner-board" "corrugating-medium" "recycled-paper" "industrial-packaging-paper"]
+  :factory/source-url "https://ph.scgpackaging.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/first-philec"
+  :factory/display-name "First Philec (Philippine Electric Corporation)"
+  :factory/country "PH" :factory/isic "C27"
+  :factory/capabilities ["distribution-transformers" "power-transformers" "amorphous-core-transformers" "electrical-equipment"]
+  :factory/source-url "https://firstphilec.com/who-we-are"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/fabtech-steel"
+  :factory/display-name "Fabtech Steel (Fabtech Group of Companies)"
+  :factory/country "PH" :factory/isic "C25"
+  :factory/capabilities ["steel-fabrication" "sheet-metal-parts" "laser-cutting" "structural-steel"]
+  :factory/source-url "https://www.fabtech.com.ph/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/editora-corripio"
+  :factory/display-name "Editora Corripio, S.A.S"
+  :factory/country "DO" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "book-manufacturing" "notebook-manufacturing" "packaging-printing"]
+  :factory/source-url "https://editoracorripio.com.do/?page_id=140"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/pinturas-popular"
+  :factory/display-name "Pinturas Popular, S.A."
+  :factory/country "DO" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "industrial-coatings" "architectural-paints" "wood-finishes"]
+  :factory/source-url "https://www.diariolibre.com/revista/pinturas-popular-celebra-su-40-aniversario-FEDL56667"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/indumeca"
+  :factory/display-name "Industrias Metálicas Caribe (INDUMECA)"
+  :factory/country "DO" :factory/isic "C25"
+  :factory/capabilities ["structural-steel-fabrication" "lpg-cylinder-manufacturing" "metal-stamping" "welding-fabrication"]
+  :factory/source-url "https://indumeca.com.do/empresa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/tejidos-del-sol"
+  :factory/display-name "Tejidos del Sol"
+  :factory/country "DO" :factory/isic "C13"
+  :factory/capabilities ["fabric-knitting" "textile-dyeing-finishing" "vertical-textile-integration" "yarn-processing"]
+  :factory/source-url "https://www.tejidosdelsol.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/sothema"
+  :factory/display-name "Sothema (Laboratoires Sothema)"
+  :factory/country "MA" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "injectable-drugs" "generic-medicines" "sterile-production"]
+  :factory/source-url "https://www.sothema.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/stmicroelectronics-morocco"
+  :factory/display-name "STMicroelectronics Morocco (Bouskoura site)"
+  :factory/country "MA" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-assembly" "ic-packaging" "silicon-carbide" "automotive-electronics"]
+  :factory/source-url "https://www.st.com/content/st_com/en/about/manufacturing-at-st/our-facilities/bouskoura-st-site.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/gpc-gharb-papier-et-carton"
+  :factory/display-name "GPC — Gharb Papier et Carton"
+  :factory/country "MA" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "paper-recycling" "packaging" "box-manufacturing"]
+  :factory/source-url "https://www.mcinet.gov.ma/en/content/gpc-paper-and-cardboard-invests-more-800-million-dirhams-kenitra"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/richbond"
+  :factory/display-name "Richbond"
+  :factory/country "MA" :factory/isic "C31"
+  :factory/capabilities ["polyurethane-foam" "mattress-manufacturing" "spring-production" "upholstery"]
+  :factory/source-url "https://richbondgroup.eu/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/promamec"
+  :factory/display-name "Promamec"
+  :factory/country "MA" :factory/isic "C32"
+  :factory/capabilities ["medical-devices" "gauze-bandages" "surgical-kits" "sterilization-equipment"]
+  :factory/source-url "https://promamec.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/cotona"
+  :factory/display-name "Cotona SA (La Cotonnière d'Antsirabe)"
+  :factory/country "MG" :factory/isic "C13"
+  :factory/capabilities ["cotton-spinning" "weaving" "textile-dyeing" "fabric-manufacturing"]
+  :factory/source-url "https://lexpress.mg/09/09/2021/textile-socota-au-septieme-ciel/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/fanalamanga"
+  :factory/display-name "Fanalamanga SA"
+  :factory/country "MG" :factory/isic "C16"
+  :factory/capabilities ["sawn-timber" "wood-processing" "pine-eucalyptus-lumber" "resin-processing"]
+  :factory/source-url "https://lexpress.mg/07/08/2018/alaotra-mangoro-la-societe-fanalamanga-developpe-la-region/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/savonnerie-tropicale"
+  :factory/display-name "Savonnerie Tropicale S.A."
+  :factory/country "MG" :factory/isic "C20"
+  :factory/capabilities ["soap-manufacturing" "detergent-powder" "glycerin-production" "household-chemicals"]
+  :factory/source-url "https://www.savonnerie-tropicale.mg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/chocolaterie-robert"
+  :factory/display-name "Chocolaterie Robert"
+  :factory/country "MG" :factory/isic "C10"
+  :factory/capabilities ["chocolate-manufacturing" "cocoa-bean-processing" "confectionery" "single-origin-chocolate"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Chocolaterie_Robert"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/sumi-cambodia-wiring-systems"
+  :factory/display-name "Sumi (Cambodia) Wiring Systems Co., Ltd."
+  :factory/country "KH" :factory/isic "C29"
+  :factory/capabilities ["automotive-wire-harness" "wiring-systems" "oem-auto-parts" "sez-manufacturing"]
+  :factory/source-url "https://www.marklines.com/en/news/273087"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/qlm-label-makers"
+  :factory/display-name "QLM Label Makers (Cambodia) Co., Ltd."
+  :factory/country "KH" :factory/isic "C18"
+  :factory/capabilities ["label-printing" "garment-labels" "digital-printing" "packaging-print"]
+  :factory/source-url "https://www.print21.com.au/news/qlm-opens-label-factory-in-cambodia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/texson-cambodia"
+  :factory/display-name "TEXSON (Cambodia) Knitting Washing Dyeing & Printing Co., Ltd."
+  :factory/country "KH" :factory/isic "C13"
+  :factory/capabilities ["knitted-fabric" "fabric-dyeing" "fabric-printing" "textile-mill"]
+  :factory/source-url "https://public.foursource.com/profile/fabrics/texson-cambodia-knitting-washing-dyeing-ltd-6f0ab8aed38b46d8e7b80c4f917408f2"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/coson-sports-goods"
+  :factory/display-name "Coson Sports Goods Co., Limited"
+  :factory/country "KH" :factory/isic "C32"
+  :factory/capabilities ["sports-balls" "soccer-balls" "oem-manufacturing" "sez-factory"]
+  :factory/source-url "https://cosonsports.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/corrugados-de-sula"
+  :factory/display-name "Corrugados de Sula, S.A. (Empresas Galindo)"
+  :factory/country "HN" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "packaging-boxes" "agro-export-packaging" "box-corrugation"]
+  :factory/source-url "https://www.empresasgalindo.com/ubicaciones/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/coficab-honduras"
+  :factory/display-name "COFICAB Honduras"
+  :factory/country "HN" :factory/isic "C27"
+  :factory/capabilities ["automotive-cable" "insulated-wire" "wire-drawing" "oem-supply"]
+  :factory/source-url "https://proceso.hn/coficab-anuncia-ampliacion-de-planta-de-produccion-en-honduras/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/pintuco-de-honduras"
+  :factory/display-name "Pintuco de Honduras, S.A."
+  :factory/country "HN" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "coatings" "industrial-coatings" "automotive-paint"]
+  :factory/source-url "https://www.semana.com/negocios/articulo/pintuco-consolida-su-operacion-centroamerica/156789/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/alutech-honduras"
+  :factory/display-name "Alutech, S.A. de C.V. (Grupo EMCO)"
+  :factory/country "HN" :factory/isic "C25"
+  :factory/capabilities ["galvanized-steel" "roofing-sheets" "rain-gutters" "flat-steel-products"]
+  :factory/source-url "https://www.alutech.hn/nosotros"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/ritex"
+  :factory/display-name "Ritex"
+  :factory/country "LB" :factory/isic "C14"
+  :factory/capabilities ["lingerie-manufacturing" "loungewear-pajamas" "activewear" "knitting-weaving"]
+  :factory/source-url "https://ritexlb.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/samtec"
+  :factory/display-name "SAMTEC"
+  :factory/country "LB" :factory/isic "C28"
+  :factory/capabilities ["food-processing-machinery" "bakery-equipment" "confectionery-machines" "industrial-machinery-design"]
+  :factory/source-url "https://www.samtec.com.lb/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/nafco-steel-engineering"
+  :factory/display-name "NAFCO Steel Engineering S.A.L."
+  :factory/country "LB" :factory/isic "C25"
+  :factory/capabilities ["structural-steel-fabrication" "storage-tanks" "silos" "pressure-vessels"]
+  :factory/source-url "https://nafcosteel.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/salem-international-tannery"
+  :factory/display-name "Salem International Tannery"
+  :factory/country "LB" :factory/isic "C15"
+  :factory/capabilities ["leather-tanning" "hide-dyeing-finishing" "footwear-leather" "leather-goods"]
+  :factory/source-url "https://www.salemtannery.com/production-plant"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
