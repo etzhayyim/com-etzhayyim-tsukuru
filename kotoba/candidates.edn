@@ -279,6 +279,19 @@
 ;; (batch 13) just under a shortened display name — caught by the pre-append grep despite the
 ;; name truncation.
 ;; Running total: 814 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 28 (/loop pass 28): +25 companies, +0 new countries. Full-roster depth for 14
+;; countries (Liechtenstein/El Salvador/Haiti/Madagascar/Nicaragua/Guatemala/New Zealand,
+;; Latvia/Azerbaijan/Slovakia/Colombia/Serbia/Uganda/UAE). Thin-ISIC round 20 across C13
+;; textiles (now the single thinnest division) and C19/C30/C32. Dropped 5 duplicates: Michell
+;; y Cía (Peru, re-suggested under a shortened name — third recurrence across batches 13/22/28),
+;; Grupo Kaltex (Mexico, same company as the already-listed C14 apparel entry, re-suggested
+;; under C13 textiles — same same-entity-different-classification pattern as ITC
+;; Limited/batch-24), CRRC Corporation (China, re-suggested with "Limited" appended), Straumann
+;; Group (Switzerland, re-suggested for C32), and LEGO Group (Denmark, re-suggested for C32).
+;; Kept Cementos Argos (Colombia HQ) distinct from the already-listed Cementos Argos Honduras
+;; (batch 26) — same corporate group, different country subsidiary, same precedent as Tata
+;; Steel UK/India.
+;; Running total: 839 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -5376,4 +5389,162 @@
   :factory/country "LU" :factory/isic "C12"
   :factory/capabilities ["cigarette-manufacturing" "roll-your-own-tobacco" "independent-family-owned"]
   :factory/source-url "https://landewyck.com/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Liechtenstein/El Salvador/Haiti/Madagascar/Nicaragua/Guatemala/New Zealand (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/li/ivoclar"
+  :factory/display-name "Ivoclar"
+  :factory/country "LI" :factory/isic "C32"
+  :factory/capabilities ["dental-materials" "dental-ceramics" "dental-equipment" "precision-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ivoclar"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/kyocera-avx"
+  :factory/display-name "Kyocera AVX Components (El Salvador)"
+  :factory/country "SV" :factory/isic "C26"
+  :factory/capabilities ["capacitor-manufacturing" "tantalum-capacitors" "ceramic-capacitors" "electronic-components"]
+  :factory/source-url "https://www.kyocera-avx.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/les-moulins-dhaiti"
+  :factory/display-name "Les Moulins d'Haiti"
+  :factory/country "HT" :factory/isic "C10"
+  :factory/capabilities ["wheat-milling" "flour-milling" "grain-processing" "maize-milling"]
+  :factory/source-url "https://seaboardoverseas.com/location/les-moulins-d-haiti/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/codal"
+  :factory/display-name "CODAL (Comptoir d'Alimentation de Madagascar)"
+  :factory/country "MG" :factory/isic "C10"
+  :factory/capabilities ["food-canning" "fruit-and-vegetable-processing" "meat-canning" "juice-production"]
+  :factory/source-url "https://www.codal-madagascar.com/en/codal-company-madagascar/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/cargill-tip-top"
+  :factory/display-name "Cargill Tip Top"
+  :factory/country "NI" :factory/isic "C10"
+  :factory/capabilities ["poultry-processing" "meat-processing" "cold-chain-packaging" "food-processing"]
+  :factory/source-url "https://www.wattagnet.com/broilers-turkeys/processing-slaughter/article/15525232/cargill-inaugurates-poultry-processing-plant-in-nicaragua-wattagnet"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/cerveceria-centro-americana"
+  :factory/display-name "Cervecería Centro Americana"
+  :factory/country "GT" :factory/isic "C11"
+  :factory/capabilities ["brewing" "malting" "beer-bottling" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cervecer%C3%ADa_Centro_Americana"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/rocket-lab"
+  :factory/display-name "Rocket Lab"
+  :factory/country "NZ" :factory/isic "C30"
+  :factory/capabilities ["aerospace-manufacturing" "rocket-manufacturing" "precision-machining" "spacecraft-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rocket_Lab"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Latvia/Azerbaijan/Slovakia/Colombia/Serbia/Uganda/UAE (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/lv/laima"
+  :factory/display-name "Laima"
+  :factory/country "LV" :factory/isic "C10"
+  :factory/capabilities ["chocolate-manufacturing" "confectionery" "candy-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Laima_(confectioner)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/holcim-azerbaijan"
+  :factory/display-name "Holcim Azerbaijan (Garadagh Cement Plant)"
+  :factory/country "AZ" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://www.holcim.az/en/about-us/history-of-garadagh-cement-plant-holcim-azerbaijan"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/slovnaft"
+  :factory/display-name "Slovnaft"
+  :factory/country "SK" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petrochemicals" "fuel-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Slovnaft"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/cementos-argos"
+  :factory/display-name "Cementos Argos"
+  :factory/country "CO" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "construction-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Grupo_Argos"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/hemofarm"
+  :factory/display-name "Hemofarm"
+  :factory/country "RS" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drug-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hemofarm_a.d."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/hima-cement"
+  :factory/display-name "Hima Cement"
+  :factory/country "UG" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hima_Cement_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ae/emsteel"
+  :factory/display-name "EMSTEEL (Emirates Steel)"
+  :factory/country "AE" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "rebar-production" "wire-rod-production"]
+  :factory/source-url "https://www.emsteel.com/about-emirates-steel/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 20a — textiles (C13) ════════════
+ {:factory/did "candidate:manufacturer-directory/bd/square-textiles"
+  :factory/display-name "Square Textiles PLC"
+  :factory/country "BD" :factory/isic "C13"
+  :factory/capabilities ["yarn-spinning" "knitting" "weaving" "cotton-processing"]
+  :factory/source-url "https://textile.squaregroup.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/vicunha-textil"
+  :factory/display-name "Vicunha Têxtil"
+  :factory/country "BR" :factory/isic "C13"
+  :factory/capabilities ["denim-weaving" "spinning" "dyeing" "fabric-finishing"]
+  :factory/source-url "https://vicunha.com/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/fabricato"
+  :factory/display-name "Fabricato"
+  :factory/country "CO" :factory/isic "C13"
+  :factory/capabilities ["yarn-spinning" "weaving" "knitting" "denim-fabric"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Fabricato"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/tintex-textiles"
+  :factory/display-name "Tintex Textiles"
+  :factory/country "PT" :factory/isic "C13"
+  :factory/capabilities ["jersey-knitting" "dyeing" "fabric-finishing" "fabric-coating"]
+  :factory/source-url "https://www.tintextextiles.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/rivatex"
+  :factory/display-name "Rivatex East Africa"
+  :factory/country "KE" :factory/isic "C13"
+  :factory/capabilities ["cotton-spinning" "weaving" "wet-processing" "fabric-dyeing"]
+  :factory/source-url "https://rivatex.co.ke/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/kurabo"
+  :factory/display-name "Kurabo Industries"
+  :factory/country "JP" :factory/isic "C13"
+  :factory/capabilities ["cotton-spinning" "denim-weaving" "dyeing" "fabric-production"]
+  :factory/source-url "https://www.kurabo.co.jp/english/division/textile.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 20b — petroleum refining / other transport equipment / other manufacturing (C19/C30/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/tr/tupras"
+  :factory/display-name "Tüpraş (Türkiye Petrol Rafinerileri A.Ş.)"
+  :factory/country "TR" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "fuel-production" "petrochemicals" "aviation-fuel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/T%C3%BCpra%C5%9F"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/pertamina"
+  :factory/display-name "Pertamina (PT Pertamina (Persero))"
+  :factory/country "ID" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "fuel-production" "lubricants" "lpg"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pertamina"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/pemex"
+  :factory/display-name "Pemex (Petróleos Mexicanos)"
+  :factory/country "MX" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "fuel-production" "petrochemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pemex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/fincantieri"
+  :factory/display-name "Fincantieri S.p.A."
+  :factory/country "IT" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "cruise-ships" "naval-vessels" "offshore-units"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fincantieri"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/royal-enfield"
+  :factory/display-name "Royal Enfield"
+  :factory/country "IN" :factory/isic "C30"
+  :factory/capabilities ["motorcycles" "two-wheelers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Royal_Enfield_(India)"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
