@@ -211,6 +211,15 @@
 ;; of a short "already listed" summary — zero duplicates resulted (vs. 7/9 in batch 19 for the
 ;; same target set). Thin-ISIC round 12 across C12/C27/C31/C32.
 ;; Running total: 605 companies / 97 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 21 (/loop pass 21): +31 companies, +0 new countries. Continued the full-roster
+;; research prompting from batch 20 for a further 16 three-entry countries (East Africa +
+;; Caribbean/Pacific: Tanzania/Zimbabwe/Fiji/Rwanda/Bosnia/Jamaica/Kenya/Cyprus; Ghana +
+;; Morocco + Singapore + Dominican Republic + Albania + Cambodia + Lebanon + Kazakhstan) — zero
+;; duplicates again. Thin-ISIC round 13 across C16/C17/C22/C25. One candidate (Ilim Group, a
+;; Russian pulp/paper major) intentionally dropped for the same Russia/Iran/North
+;; Korea/Cuba sanctions-sensitivity policy set in batches 5/9/18 — kept consistent rather than
+;; unilaterally revisited.
+;; Running total: 636 companies / 97 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3998,4 +4007,198 @@
   :factory/country "FR" :factory/isic "C27"
   :factory/capabilities ["wiring-devices" "switchgear" "electrical-distribution" "transformers"]
   :factory/source-url "https://en.wikipedia.org/wiki/Schneider_Electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fourth entry — East Africa + Caribbean/Pacific (TZ/ZW/FJ/RW/BA/JM/KE/CY), researched against full existing rosters ════════════
+ {:factory/did "candidate:manufacturer-directory/tz/a-to-z-textile-mills"
+  :factory/display-name "A to Z Textile Mills Limited"
+  :factory/country "TZ" :factory/isic "C13"
+  :factory/capabilities ["bed-net-manufacturing" "textile-weaving" "knitting" "dyeing"]
+  :factory/source-url "https://pmc.ncbi.nlm.nih.gov/articles/PMC3001614/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/caps-pharmaceuticals"
+  :factory/display-name "CAPS Pharmaceuticals (CAPS Holdings)"
+  :factory/country "ZW" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-production" "antiretroviral-drugs" "anti-malarial-drugs"]
+  :factory/source-url "https://caps.co.zw/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/fiji-water"
+  :factory/display-name "Fiji Water"
+  :factory/country "FJ" :factory/isic "C11"
+  :factory/capabilities ["bottled-water" "artesian-water-extraction" "plastic-bottle-molding" "beverage-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fiji_Water"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/inyange-industries"
+  :factory/display-name "Inyange Industries Ltd"
+  :factory/country "RW" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "uht-milk-production" "fruit-juice-processing" "bottled-water"]
+  :factory/source-url "https://www.inyangeindustries.com/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/arcelormittal-zenica"
+  :factory/display-name "ArcelorMittal Zenica"
+  :factory/country "BA" :factory/isic "C24"
+  :factory/capabilities ["steel-smelting" "blast-furnace-operation" "billet-casting" "rebar-and-wire-rod-rolling"]
+  :factory/source-url "https://zenica.arcelormittal.com/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/caribbean-cement"
+  :factory/display-name "Caribbean Cement Company Limited"
+  :factory/country "JM" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "gypsum-and-shale-mining"]
+  :factory/source-url "https://caribcement.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/bat-kenya"
+  :factory/display-name "British American Tobacco Kenya"
+  :factory/country "KE" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-leaf-threshing" "tobacco-processing"]
+  :factory/source-url "https://www.batkenya.com/who-we-are/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/frou-frou-biscuits"
+  :factory/display-name "Alkis H. Hadjikyriacos (Frou Frou Biscuits) Public Ltd"
+  :factory/country "CY" :factory/isic "C10"
+  :factory/capabilities ["biscuit-manufacturing" "wafer-production" "cracker-production" "chocolate-coating"]
+  :factory/source-url "https://froufrou.com.cy/our-history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fourth entry — Ghana + Morocco + Singapore + Caribbean + Balkans + Cambodia + Lebanon + Kazakhstan, researched against full existing rosters ════════════
+ {:factory/did "candidate:manufacturer-directory/gh/aluworks"
+  :factory/display-name "Aluworks Limited"
+  :factory/country "GH" :factory/isic "C24"
+  :factory/capabilities ["aluminium-casting" "cold-rolling" "coil-and-sheet-manufacturing" "roofing-sheet-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Aluworks"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/cosumar"
+  :factory/display-name "Cosumar"
+  :factory/country "MA" :factory/isic "C10"
+  :factory/capabilities ["sugar-refining" "sugar-milling" "food-processing"]
+  :factory/source-url "https://www.cosumar.co.ma/en/who-we-are/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/seatrium"
+  :factory/display-name "Seatrium"
+  :factory/country "SG" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "offshore-rig-fabrication" "ship-repair" "marine-engineering"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Seatrium"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/cerveceria-nacional-dominicana"
+  :factory/display-name "Cervecería Nacional Dominicana"
+  :factory/country "DO" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "bottling" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cervecer%C3%ADa_Nacional_Dominicana"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/albchrome"
+  :factory/display-name "AlbChrome"
+  :factory/country "AL" :factory/isic "C24"
+  :factory/capabilities ["ferrochrome-smelting" "chrome-ore-processing" "metal-alloy-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/AlbChrome"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/minebea-cambodia"
+  :factory/display-name "Minebea (Cambodia) Co., Ltd."
+  :factory/country "KH" :factory/isic "C26"
+  :factory/capabilities ["precision-electronic-components" "micro-motor-manufacturing" "ball-bearing-production"]
+  :factory/source-url "https://www.minebeamitsumi.com/english/corp/company/factories/cambodia/1186630_6770.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/benta-pharma-industries"
+  :factory/display-name "Benta Pharma Industries (BPI)"
+  :factory/country "LB" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "medical-device-manufacturing"]
+  :factory/source-url "https://bpi.com.lb/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/saryarkaavtoprom"
+  :factory/display-name "SaryarkaAvtoProm"
+  :factory/country "KZ" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "welding" "painting" "skd-automotive-assembly"]
+  :factory/source-url "https://kostanay.invest.gov.kz/about-kazakhstan/success-story/977/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 13a — wood products / paper (C16/C17) ════════════
+ {:factory/did "candidate:manufacturer-directory/ca/tolko-industries"
+  :factory/display-name "Tolko Industries"
+  :factory/country "CA" :factory/isic "C16"
+  :factory/capabilities ["lumber" "plywood" "oriented-strand-board" "engineered-wood"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tolko"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/kastamonu-entegre"
+  :factory/display-name "Kastamonu Entegre"
+  :factory/country "TR" :factory/isic "C16"
+  :factory/capabilities ["mdf" "particleboard" "laminate-flooring" "door-panels"]
+  :factory/source-url "https://www.kastamonuentegre.com/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/interfor-corporation"
+  :factory/display-name "Interfor Corporation"
+  :factory/country "CA" :factory/isic "C16"
+  :factory/capabilities ["lumber" "sawmilling" "dimension-lumber"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Interfor_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/masisa"
+  :factory/display-name "Masisa"
+  :factory/country "CL" :factory/isic "C16"
+  :factory/capabilities ["particleboard" "mdf" "osb" "wood-panels"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Masisa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/lee-and-man-paper"
+  :factory/display-name "Lee & Man Paper Manufacturing"
+  :factory/country "CN" :factory/isic "C17"
+  :factory/capabilities ["containerboard" "packaging-paper" "tissue"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lee_%26_Man_Paper"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/packaging-corporation-of-america"
+  :factory/display-name "Packaging Corporation of America"
+  :factory/country "US" :factory/isic "C17"
+  :factory/capabilities ["containerboard" "corrugated-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Packaging_Corporation_of_America"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/the-navigator-company"
+  :factory/display-name "The Navigator Company"
+  :factory/country "PT" :factory/isic "C17"
+  :factory/capabilities ["bleached-eucalyptus-pulp" "printing-paper" "tissue"]
+  :factory/source-url "https://en.wikipedia.org/wiki/The_Navigator_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 13b — rubber-plastics / fabricated metal (C22/C25) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/yokohama-rubber"
+  :factory/display-name "Yokohama Rubber Co., Ltd."
+  :factory/country "JP" :factory/isic "C22"
+  :factory/capabilities ["tires" "industrial-rubber-products" "hoses-and-belts"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Yokohama_Rubber_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/toyo-tire"
+  :factory/display-name "Toyo Tire Corporation"
+  :factory/country "JP" :factory/isic "C22"
+  :factory/capabilities ["tires" "industrial-rubber" "polyurethane-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Toyo_Tires"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/kossan-rubber-industries"
+  :factory/display-name "Kossan Rubber Industries Bhd"
+  :factory/country "MY" :factory/isic "C22"
+  :factory/capabilities ["rubber-gloves" "latex-products" "cleanroom-products"]
+  :factory/source-url "https://kossan.com.my/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/huhtamaki"
+  :factory/display-name "Huhtamaki Oyj"
+  :factory/country "FI" :factory/isic "C22"
+  :factory/capabilities ["flexible-plastic-packaging" "plastic-cups" "food-packaging"]
+  :factory/source-url "https://www.huhtamaki.com/en/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/kennametal"
+  :factory/display-name "Kennametal Inc."
+  :factory/country "US" :factory/isic "C25"
+  :factory/capabilities ["cutting-tools" "metalworking-tools" "tungsten-carbide-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kennametal"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/dormakaba"
+  :factory/display-name "dormakaba Holding AG"
+  :factory/country "CH" :factory/isic "C25"
+  :factory/capabilities ["locks" "door-hardware" "access-control-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dormakaba"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/georg-fischer"
+  :factory/display-name "Georg Fischer AG"
+  :factory/country "CH" :factory/isic "C25"
+  :factory/capabilities ["pipe-fittings" "valves" "piping-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Georg_Fischer_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/wmf-group"
+  :factory/display-name "WMF Group"
+  :factory/country "DE" :factory/isic "C25"
+  :factory/capabilities ["cookware" "cutlery" "metal-hollowware"]
+  :factory/source-url "https://en.wikipedia.org/wiki/WMF_Group"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
