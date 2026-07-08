@@ -415,6 +415,19 @@
 ;; and tagged around aircraft/satellites/UAV/avionics rather than munitions, following the
 ;; established Elbit Systems / FAdeA / Aircraft Industries precedent).
 ;; Running total: 1229 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 38 (/loop pass 38): +50 companies, +0 new countries. Full-roster depth for 10
+;; countries: the 8 sitting at the 6-entry floor (Zimbabwe/Kenya/Sri-Lanka/Norway/Chile/
+;; Netherlands/Ireland/Colombia) plus two large-economy depth targets one tier up (Portugal
+;; at 7, Pakistan at 8). Targeted the thinnest ISIC divisions going in (C32/C14/C16/C28/C18/
+;; C29/C26/C30) alongside broad fill. Sri Lanka and Pakistan prompts explicitly excluded
+;; further apparel/textile and (for Pakistan) cement picks since those divisions were already
+;; over-represented in their existing rosters — both agents complied cleanly. Fourth Bata
+;; country-subsidiary keep, not a duplicate: Bata Shoe Company (Kenya) PLC, alongside the
+;; already-listed Switzerland (HQ)/Zimbabwe/Zambia entries. One drop, a third application of
+;; the batch-33 weapons/ammunition scope precedent: Nammo AS (Norway, C25 small/medium/large-
+;; caliber ammunition and rocket motors) — same export-control/reputational exclusion as
+;; Igman d.d. Konjic and VMZ Sopot EAD.
+;; Running total: 1279 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -8020,5 +8033,305 @@
   :factory/country "VN" :factory/isic "C27"
   :factory/capabilities ["electric-cable-manufacturing" "wire-manufacturing" "power-cable-production" "aluminum-cable"]
   :factory/source-url "https://cadivi.vn/en/about-us.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/delta-corporation"
+  :factory/display-name "Delta Corporation Limited"
+  :factory/country "ZW" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "soft-drink-bottling" "malting" "sorghum-beer-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Delta_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/willowvale-motor-industries"
+  :factory/display-name "Willowvale Motor Industries"
+  :factory/country "ZW" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "automotive-manufacturing" "pick-up-trucks" "commercial-vehicles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Willowvale_Motor_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/border-timbers"
+  :factory/display-name "Border Timbers Limited"
+  :factory/country "ZW" :factory/isic "C16"
+  :factory/capabilities ["sawmilling" "plywood-manufacturing" "veneer-production" "pine-lumber"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Border_Timbers"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/hunyani-paper-and-packaging"
+  :factory/display-name "Hunyani Paper & Packaging"
+  :factory/country "ZW" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cartons" "paper-sacks" "carton-labels" "packaging-manufacturing"]
+  :factory/source-url "https://zimpackaging.co.zw/directory/hunyani-paper-and-packaging-pvt-ltd/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/chloride-zimbabwe"
+  :factory/display-name "Chloride Zimbabwe (ART Corporation)"
+  :factory/country "ZW" :factory/isic "C27"
+  :factory/capabilities ["lead-acid-batteries" "automotive-batteries" "solar-batteries" "power-backup-systems"]
+  :factory/source-url "https://www.artcorp.co.zw/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/kenya-vehicle-manufacturers"
+  :factory/display-name "Kenya Vehicle Manufacturers Ltd (KVM)"
+  :factory/country "KE" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "commercial-truck-assembly" "bus-body-building" "skd-ckd-assembly"]
+  :factory/source-url "https://www.tuko.co.ke/business-economy/economy/628647-kenya-vehicle-manufacturers-launch-toyota-hiace-assembly-line-thika-creates-200-jobs/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/bata-shoe-company-kenya"
+  :factory/display-name "Bata Shoe Company (Kenya) PLC"
+  :factory/country "KE" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-processing" "rubber-footwear" "technical-tannery"]
+  :factory/source-url "https://www.bata.com/ke/about-us.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/crown-paints-kenya"
+  :factory/display-name "Crown Paints Kenya PLC"
+  :factory/country "KE" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "industrial-coatings" "decorative-paints" "adhesives"]
+  :factory/source-url "https://www.crownpaints.co.ke/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/revital-healthcare"
+  :factory/display-name "Revital Healthcare (EPZ) Ltd"
+  :factory/country "KE" :factory/isic "C32"
+  :factory/capabilities ["medical-devices" "auto-disable-syringes" "disposable-syringes" "diagnostic-test-kits"]
+  :factory/source-url "https://revitalhcare.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/mabati-rolling-mills"
+  :factory/display-name "Mabati Rolling Mills Ltd (MRM)"
+  :factory/country "KE" :factory/isic "C25"
+  :factory/capabilities ["roofing-sheets" "steel-roll-forming" "coated-steel-products" "structural-steel-fabrication"]
+  :factory/source-url "https://mabati.com/mabati-rolling-mills/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/colombo-dockyard"
+  :factory/display-name "Colombo Dockyard PLC"
+  :factory/country "LK" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "ship-repair" "offshore-engineering" "marine-fabrication"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Colombo_Dockyard"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/ceylon-tobacco-company"
+  :factory/display-name "Ceylon Tobacco Company PLC"
+  :factory/country "LK" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-leaf-processing" "blending" "threshing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ceylon_Tobacco_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/haycarb"
+  :factory/display-name "Haycarb PLC"
+  :factory/country "LK" :factory/isic "C20"
+  :factory/capabilities ["activated-carbon" "coconut-shell-carbonization" "chemical-activation" "purification-media"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Haycarb"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/teejay-lanka"
+  :factory/display-name "Teejay Lanka PLC"
+  :factory/country "LK" :factory/isic "C13"
+  :factory/capabilities ["knitted-fabric" "fabric-dyeing" "fabric-finishing" "textile-mill"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Teejay_Lanka"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/kelani-cables"
+  :factory/display-name "Kelani Cables PLC"
+  :factory/country "LK" :factory/isic "C27"
+  :factory/capabilities ["power-cables" "wire-drawing" "winding-wire" "telecom-cables"]
+  :factory/source-url "https://www.kelanicables.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/vard-group"
+  :factory/display-name "Vard Group AS"
+  :factory/country "NO" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "offshore-support-vessels" "specialized-vessels" "ship-design"]
+  :factory/source-url "https://www.vard.com/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/moelven-industrier"
+  :factory/display-name "Moelven Industrier ASA"
+  :factory/country "NO" :factory/isic "C16"
+  :factory/capabilities ["sawn-timber" "wood-processing" "laminated-wood-components" "plywood"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Moelven_Industrier"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/norske-skog"
+  :factory/display-name "Norske Skog ASA"
+  :factory/country "NO" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "publication-paper" "packaging-board" "pulp-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Norske_Skog"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/laerdal-medical"
+  :factory/display-name "Laerdal Medical AS"
+  :factory/country "NO" :factory/isic "C32"
+  :factory/capabilities ["medical-simulation-manikins" "cpr-training-equipment" "healthcare-training-devices" "resuscitation-training"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Laerdal"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/camanchaca"
+  :factory/display-name "Compañía Pesquera Camanchaca S.A."
+  :factory/country "CL" :factory/isic "C10"
+  :factory/capabilities ["salmon-farming" "fish-processing" "seafood-packaging" "canned-seafood"]
+  :factory/source-url "https://salmonescamanchaca.cl/en/the-company/our-business/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/concha-y-toro"
+  :factory/display-name "Viña Concha y Toro S.A."
+  :factory/country "CL" :factory/isic "C11"
+  :factory/capabilities ["wine-production" "grape-cultivation" "bottling" "winemaking"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Concha_y_Toro"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/asenav"
+  :factory/display-name "ASENAV S.A. (Astilleros y Servicios Navales)"
+  :factory/country "CL" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "vessel-construction" "naval-engineering" "offshore-vessels"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Asenav"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/cintac"
+  :factory/display-name "Cintac S.A. (Grupo Cintac)"
+  :factory/country "CL" :factory/isic "C25"
+  :factory/capabilities ["steel-tubes" "structural-steel" "galvanized-profiles" "metal-fabrication"]
+  :factory/source-url "https://www.cintac.cl/empresa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/reborn-electric-motors"
+  :factory/display-name "Reborn Electric Motors"
+  :factory/country "CL" :factory/isic "C29"
+  :factory/capabilities ["electric-buses" "bus-manufacturing" "electromobility" "battery-integration"]
+  :factory/source-url "https://rebornelectric.cl/fabrica/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/frieslandcampina"
+  :factory/display-name "Royal FrieslandCampina N.V."
+  :factory/country "NL" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "milk-powder" "cheese-production" "dairy-ingredients"]
+  :factory/source-url "https://en.wikipedia.org/wiki/FrieslandCampina"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/vdl-bus-and-coach"
+  :factory/display-name "VDL Bus & Coach bv"
+  :factory/country "NL" :factory/isic "C29"
+  :factory/capabilities ["coach-manufacturing" "bus-manufacturing" "electric-vehicle-assembly" "chassis-fabrication"]
+  :factory/source-url "https://en.wikipedia.org/wiki/VDL_Bus_%26_Coach"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/vlisco"
+  :factory/display-name "Vlisco Netherlands B.V."
+  :factory/country "NL" :factory/isic "C13"
+  :factory/capabilities ["wax-print-textiles" "textile-printing" "fabric-dyeing" "batik-inspired-finishing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vlisco"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/nedap"
+  :factory/display-name "Nedap N.V."
+  :factory/country "NL" :factory/isic "C26"
+  :factory/capabilities ["rfid-systems" "identification-electronics" "access-control-hardware" "livestock-management-sensors"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nedap"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/royal-auping"
+  :factory/display-name "Royal Auping (Koninklijke Auping B.V.)"
+  :factory/country "NL" :factory/isic "C31"
+  :factory/capabilities ["mattress-manufacturing" "bed-frame-production" "mesh-base-fabrication" "sewing-and-upholstery"]
+  :factory/source-url "https://www.auping.com/en/news/auping-opens-mattress-factory-future"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/combilift"
+  :factory/display-name "Combilift"
+  :factory/country "IE" :factory/isic "C28"
+  :factory/capabilities ["multi-directional-forklifts" "materials-handling-equipment" "articulated-forklifts" "container-handling"]
+  :factory/source-url "https://combilift.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/chanelle-pharma"
+  :factory/display-name "Chanelle Pharma"
+  :factory/country "IE" :factory/isic "C21"
+  :factory/capabilities ["generic-pharmaceuticals" "veterinary-medicines" "active-pharmaceutical-ingredients" "fda-approved-manufacturing"]
+  :factory/source-url "https://chanellepharma.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/west-cork-distillers"
+  :factory/display-name "West Cork Distillers"
+  :factory/country "IE" :factory/isic "C11"
+  :factory/capabilities ["irish-whiskey" "pot-still-distilling" "gin-production" "triple-distillation"]
+  :factory/source-url "https://www.westcorkdistillers.com/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/glennon-brothers"
+  :factory/display-name "Glennon Brothers"
+  :factory/country "IE" :factory/isic "C16"
+  :factory/capabilities ["sawmilling" "timber-processing" "kiln-dried-timber" "engineered-wood-products"]
+  :factory/source-url "https://www.wood.ie/glennon-brothers/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/magee-1866"
+  :factory/display-name "Magee 1866 (Magee of Donegal)"
+  :factory/country "IE" :factory/isic "C13"
+  :factory/capabilities ["donegal-tweed" "wool-weaving" "luxury-fabrics" "tailoring"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Magee_of_Donegal"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/renault-sofasa"
+  :factory/display-name "Renault-Sofasa (Sociedad de Fabricación de Automotores S.A.)"
+  :factory/country "CO" :factory/isic "C29"
+  :factory/capabilities ["automobile-assembly" "vehicle-manufacturing" "welding" "automotive-oem"]
+  :factory/source-url "https://www.renaultgroup.com/en/group/locations/envigado-sofasa-plant/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/industrias-haceb"
+  :factory/display-name "Industrias Haceb S.A."
+  :factory/country "CO" :factory/isic "C27"
+  :factory/capabilities ["household-appliances" "refrigerators" "water-heaters" "stoves"]
+  :factory/source-url "https://www.haceb.com/institucional/empresa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/leonisa"
+  :factory/display-name "Leonisa S.A."
+  :factory/country "CO" :factory/isic "C14"
+  :factory/capabilities ["intimate-apparel" "lingerie-manufacturing" "garment-production" "shapewear"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Leonisa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/cueros-velez"
+  :factory/display-name "Cueros Vélez S.A.S."
+  :factory/country "CO" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "tannery" "footwear" "handbags"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Cueros_V%C3%A9lez"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/bavaria"
+  :factory/display-name "Bavaria S.A."
+  :factory/country "CO" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-manufacturing" "malting" "bottling"]
+  :factory/source-url "https://www.bavaria.co/acerca-de-nosotros/bavaria-colombia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/sogrape-vinhos"
+  :factory/display-name "Sogrape Vinhos, S.A."
+  :factory/country "PT" :factory/isic "C11"
+  :factory/capabilities ["wine-production" "winemaking" "vineyard-ownership" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sogrape"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/frulact"
+  :factory/display-name "Frulact"
+  :factory/country "PT" :factory/isic "C10"
+  :factory/capabilities ["fruit-preparations" "food-ingredients" "dairy-inputs" "plant-based-ingredients"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Frulact"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/efacec"
+  :factory/display-name "Efacec"
+  :factory/country "PT" :factory/isic "C27"
+  :factory/capabilities ["power-transformers" "switchgear" "substations" "ev-chargers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/EFACEC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/caetanobus"
+  :factory/display-name "CaetanoBus, S.A."
+  :factory/country "PT" :factory/isic "C29"
+  :factory/capabilities ["bus-manufacturing" "coach-bodies" "vehicle-assembly" "airport-buses"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Salvador_Caetano"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/wewood"
+  :factory/display-name "Wewood — Portuguese Joinery"
+  :factory/country "PT" :factory/isic "C31"
+  :factory/capabilities ["solid-wood-furniture" "cabinetmaking" "custom-joinery" "furniture-export"]
+  :factory/source-url "https://www.wewood.eu/company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/indus-motor-company"
+  :factory/display-name "Indus Motor Company (Pvt) Limited (Toyota Indus)"
+  :factory/country "PK" :factory/isic "C29"
+  :factory/capabilities ["automotive-assembly" "passenger-vehicles" "hybrid-vehicles" "oem-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Toyota_Indus"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/karachi-shipyard"
+  :factory/display-name "Karachi Shipyard & Engineering Works Limited (KS&EW)"
+  :factory/country "PK" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "ship-repair" "naval-vessels" "submarine-construction"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Karachi_Shipyard_%26_Engineering_Works"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/service-industries-limited"
+  :factory/display-name "Service Industries Limited (Servis)"
+  :factory/country "PK" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "shoe-manufacturing" "footwear-export" "leather-goods"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Service_Industries_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/forward-sports"
+  :factory/display-name "Forward Sports (Pvt) Limited"
+  :factory/country "PK" :factory/isic "C32"
+  :factory/capabilities ["sports-goods" "football-manufacturing" "sporting-equipment" "sialkot-cluster"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Forward_Sports"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/fauji-fertilizer-company"
+  :factory/display-name "Fauji Fertilizer Company Limited (FFC)"
+  :factory/country "PK" :factory/isic "C20"
+  :factory/capabilities ["urea-fertilizer" "ammonia-production" "nitrogen-fertilizers" "agri-chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fauji_Fertilizer_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/international-steels-limited"
+  :factory/display-name "International Steels Limited (ISL)"
+  :factory/country "PK" :factory/isic "C24"
+  :factory/capabilities ["flat-steel-products" "cold-rolled-steel" "galvanized-steel" "color-coated-steel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/International_Steels_Limited"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
