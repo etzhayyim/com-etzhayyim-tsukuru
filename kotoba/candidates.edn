@@ -388,6 +388,19 @@
 ;; entities producing different products (tires vs. auto parts), the same treatment already
 ;; given to U.S. Steel Košice. No drops this batch.
 ;; Running total: 1131 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 36 (/loop pass 36): +50 companies, +0 new countries. Full-roster depth for the 10
+;; countries at the new 6-entry floor (Peru/Slovenia/Trinidad-and-Tobago/Malaysia/Mongolia/
+;; Algeria/North-Macedonia/Greece/Saudi-Arabia/Bahrain) — no country remains below 10 entries
+;; after this batch (thinnest is now Liechtenstein at 7). Targeted the thinnest ISIC divisions
+;; going in (C32/C16/C18/C29/C14/C19/C28/C26) alongside broad fill elsewhere. One sourcing-
+;; legality flag, not a drop: Maderera Bozovich (Peru, C16 plywood/flooring) has been the
+;; subject of investigative reporting (Earthsight, EIA) alleging illegally-sourced Amazon
+;; timber; kept because the company itself is real, verifiably operating, and the dataset
+;; makes no ESG/legality claim beyond :factory/labor-provenance :unknown — this is a
+;; different category of concern than the sanctions/export-control drops in prior batches
+;; (raw-material sourcing legality vs. weapons/sanctioned-entity scope), noted here for
+;; transparency rather than acted on. No drops this batch.
+;; Running total: 1181 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -7405,5 +7418,305 @@
   :factory/country "ZM" :factory/isic "C16"
   :factory/capabilities ["sawn-timber" "particleboard" "plywood" "laminated-boards"]
   :factory/source-url "https://wpizambia.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/industrias-nettalco"
+  :factory/display-name "Industrias Nettalco S.A."
+  :factory/country "PE" :factory/isic "C14"
+  :factory/capabilities ["knit-apparel" "cotton-garments" "contract-manufacturing" "dyeing-finishing"]
+  :factory/source-url "https://www.nettalco.com.pe/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/maderera-bozovich"
+  :factory/display-name "Maderera Bozovich S.A.C."
+  :factory/country "PE" :factory/isic "C16"
+  :factory/capabilities ["plywood" "hardwood-flooring" "decking" "sawmilling"]
+  :factory/source-url "https://bozovich.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/trupal"
+  :factory/display-name "Trupal S.A."
+  :factory/country "PE" :factory/isic "C17"
+  :factory/capabilities ["kraft-paper" "corrugated-cardboard" "flexible-packaging" "paperboard"]
+  :factory/source-url "https://www.bnamericas.com/en/company-profile/trupal-sa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/hidrostal"
+  :factory/display-name "Hidrostal S.A."
+  :factory/country "PE" :factory/isic "C28"
+  :factory/capabilities ["centrifugal-pumps" "iron-foundry" "pump-manufacturing" "industrial-pumps"]
+  :factory/source-url "https://peru.ahk.de/es/socios/directorio-de-socios/hidrostal-s.a"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/modasa"
+  :factory/display-name "MODASA (Motores Diesel Andinos S.A.)"
+  :factory/country "PE" :factory/isic "C29"
+  :factory/capabilities ["bus-bodies" "coachbuilding" "diesel-generators" "vehicle-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Modasa_(bus_manufacturer)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/elan"
+  :factory/display-name "Elan d.o.o."
+  :factory/country "SI" :factory/isic "C32"
+  :factory/capabilities ["skis" "snowboards" "composite-manufacturing" "sailboats"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Elan_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/cetis"
+  :factory/display-name "Cetis d.d."
+  :factory/country "SI" :factory/isic "C18"
+  :factory/capabilities ["security-printing" "banknote-printing" "passport-production" "id-document-personalization"]
+  :factory/source-url "https://www.cetis.si/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/riko-hise"
+  :factory/display-name "Riko Hiše d.o.o."
+  :factory/country "SI" :factory/isic "C16"
+  :factory/capabilities ["prefabricated-wood-houses" "timber-frame-construction" "solid-wood-panels" "eco-building-elements"]
+  :factory/source-url "https://www.riko-hise.si/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/alples"
+  :factory/display-name "Alples d.d."
+  :factory/country "SI" :factory/isic "C31"
+  :factory/capabilities ["board-based-furniture" "ready-to-assemble-furniture" "contract-furnishing" "kitchen-and-bedroom-furniture"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alples"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/iskraemeco"
+  :factory/display-name "Iskraemeco d.d."
+  :factory/country "SI" :factory/isic "C26"
+  :factory/capabilities ["electricity-meters" "smart-metering-hardware" "iot-devices" "measuring-instruments"]
+  :factory/source-url "https://iskraemeco.com/company/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/witco"
+  :factory/display-name "West Indian Tobacco Company Limited (WITCO)"
+  :factory/country "TT" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "consumer-packaged-goods" "regional-export"]
+  :factory/source-url "https://www.westindiantobacco.com/who-we-are/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/caribbean-packaging-industries"
+  :factory/display-name "Caribbean Packaging Industries Ltd (CPI)"
+  :factory/country "TT" :factory/isic "C17"
+  :factory/capabilities ["corrugated-boxes" "paperboard-converting" "paper-bags" "industrial-packaging"]
+  :factory/source-url "https://www.paper-world.com/en/company/cpi-caribbean-packaging-industries-ltd-port-of-spain-2602997"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/mittco"
+  :factory/display-name "Musical Instruments of Trinidad & Tobago Company Limited (MITTCO)"
+  :factory/country "TT" :factory/isic "C32"
+  :factory/capabilities ["steelpan-manufacturing" "musical-instruments" "artisan-craftsmanship" "pan-accessories"]
+  :factory/source-url "https://mittcott.com/the-story-of-mittco/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/eniaths-printing"
+  :factory/display-name "Eniath's Printing Co. Ltd. (EPCL)"
+  :factory/country "TT" :factory/isic "C18"
+  :factory/capabilities ["book-printing" "offset-printing" "commercial-printing" "food-packaging-cartons"]
+  :factory/source-url "https://eniathsprinting.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/electrical-industries-group"
+  :factory/display-name "Electrical Industries Group"
+  :factory/country "TT" :factory/isic "C27"
+  :factory/capabilities ["copper-cable-manufacturing" "lighting-fixtures" "electrical-products" "kema-basec-certified"]
+  :factory/source-url "https://electricalindustriesgroup.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/panasonic-manufacturing-malaysia"
+  :factory/display-name "Panasonic Manufacturing Malaysia Berhad"
+  :factory/country "MY" :factory/isic "C27"
+  :factory/capabilities ["electric-fans" "vacuum-cleaners" "small-kitchen-appliances" "hvac-ventilation-products"]
+  :factory/source-url "https://pmma.my.panasonic.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/proton-holdings"
+  :factory/display-name "Proton Holdings Berhad"
+  :factory/country "MY" :factory/isic "C29"
+  :factory/capabilities ["passenger-car-assembly" "automotive-engines" "suv-manufacturing" "vehicle-oem"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Proton_Holdings"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/favelle-favco"
+  :factory/display-name "Favelle Favco Berhad"
+  :factory/country "MY" :factory/isic "C28"
+  :factory/capabilities ["tower-cranes" "offshore-cranes" "luffing-cranes" "heavy-lifting-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Favelle_Favco_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/prefchem"
+  :factory/display-name "PRefChem (Pengerang Refining Company)"
+  :factory/country "MY" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "jet-fuel-production" "diesel-production" "petrochemical-production"]
+  :factory/source-url "https://prefchem.com.my/prefchem-at-a-glance"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/latitude-tree-holdings"
+  :factory/display-name "Latitude Tree Holdings Berhad"
+  :factory/country "MY" :factory/isic "C31"
+  :factory/capabilities ["wooden-furniture" "rubberwood-furniture" "dining-sets" "bedroom-furniture"]
+  :factory/source-url "https://www.latitude-tree.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/monos-pharma"
+  :factory/display-name "Monos Pharma LLC (Monos Group)"
+  :factory/country "MN" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "injectables" "cosmetics-production" "gmp-certified"]
+  :factory/source-url "https://www.ebrd.com/home/news-and-events/news/2018/ebrd-and-eu-support-expansion-of-mongolian-pharmaceutical-company.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/mongol-textile"
+  :factory/display-name "Mongol Textile JSC"
+  :factory/country "MN" :factory/isic "C13"
+  :factory/capabilities ["wool-yarn" "cashmere-fabric" "knitwear" "weaving"]
+  :factory/source-url "https://www.mongoltextile.com/our-history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/admon-print"
+  :factory/display-name "Admon Print LLC (Admon Group)"
+  :factory/country "MN" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "book-publishing" "magazine-printing" "commercial-print"]
+  :factory/source-url "https://www.admon.mn/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/darkhan-nekhii"
+  :factory/display-name "Darkhan Nekhii JSC"
+  :factory/country "MN" :factory/isic "C15"
+  :factory/capabilities ["leather-tanning" "wet-blue-leather" "sheepskin-processing" "leather-garments"]
+  :factory/source-url "https://montsame.mn/en/read/141385"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/ganbros"
+  :factory/display-name "Ganbros LLC"
+  :factory/country "MN" :factory/isic "C31"
+  :factory/capabilities ["kitchen-furniture" "cabinetry" "wardrobes" "wood-furniture-manufacturing"]
+  :factory/source-url "https://www.ganbros.mn/en/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/snvi"
+  :factory/display-name "SNVI (Société Nationale des Véhicules Industriels)"
+  :factory/country "DZ" :factory/isic "C29"
+  :factory/capabilities ["trucks" "buses" "coaches" "industrial-vehicles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/SNVI"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/iris-tyres"
+  :factory/display-name "IRIS Tyres"
+  :factory/country "DZ" :factory/isic "C22"
+  :factory/capabilities ["tires" "tyre-manufacturing" "rubber-products" "automotive-tires"]
+  :factory/source-url "https://iris-tyres.com/1/qui-sommes-nous-/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/enmtp"
+  :factory/display-name "ENMTP (Entreprise Nationale des Matériels de Travaux Publics)"
+  :factory/country "DZ" :factory/isic "C28"
+  :factory/capabilities ["construction-machinery" "excavators" "cranes" "compactors"]
+  :factory/source-url "https://www.enmtp.com/presentation-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/enie"
+  :factory/display-name "ENIE (Entreprise Nationale des Industries Electroniques)"
+  :factory/country "DZ" :factory/isic "C26"
+  :factory/capabilities ["televisions" "printed-circuit-boards" "solar-panels" "tablets"]
+  :factory/source-url "https://www.enie.dz/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/general-emballage"
+  :factory/display-name "General Emballage"
+  :factory/country "DZ" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "packaging" "paper-products" "box-manufacturing"]
+  :factory/source-url "https://generalemballage.com/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/teteks"
+  :factory/display-name "Teteks AD Tetovo"
+  :factory/country "MK" :factory/isic "C13"
+  :factory/capabilities ["wool-fabric" "yarn-spinning" "knitwear" "blankets"]
+  :factory/source-url "https://www.mse.mk/en/issuer/teteks-ad-tetovo/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/tutunski-kombinat-prilep"
+  :factory/display-name "Tutunski Kombinat AD Prilep"
+  :factory/country "MK" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "oriental-tobacco-processing" "tobacco-curing" "contract-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tutunski_kombinat_Prilep"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/mar-eva-mar"
+  :factory/display-name "Mar Eva Mar"
+  :factory/country "MK" :factory/isic "C15"
+  :factory/capabilities ["shoe-uppers" "leather-footwear-components" "leather-cutting" "luxury-footwear-oem"]
+  :factory/source-url "https://shoeinfonet.com/organisations/country/MK"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/rade-koncar-kontaktori-i-relei"
+  :factory/display-name "Rade Končar – Kontaktori i Relei"
+  :factory/country "MK" :factory/isic "C27"
+  :factory/capabilities ["low-voltage-switchgear" "contactors-relays" "circuit-breakers" "energy-monitoring-systems"]
+  :factory/source-url "https://radekoncar.com.mk/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/evropa-92"
+  :factory/display-name "Evropa 92"
+  :factory/country "MK" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "roto-printing" "digital-printing" "newspaper-printing"]
+  :factory/source-url "https://mbcham.org/evropa-92/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/kleemann-lifts"
+  :factory/display-name "Kleemann Hellas S.A. (Kleemann Lifts)"
+  :factory/country "GR" :factory/isic "C28"
+  :factory/capabilities ["elevators" "escalators" "moving-walks" "lift-components"]
+  :factory/source-url "https://kleemannlifts.com/company/contact/kleemann-head-offices"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/coco-mat"
+  :factory/display-name "COCO-MAT"
+  :factory/country "GR" :factory/isic "C31"
+  :factory/capabilities ["natural-mattresses" "pillows" "bed-frames" "coconut-fiber-products"]
+  :factory/source-url "https://www.coco-mat.com/greece/en/coco-mat/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/intracom-telecom"
+  :factory/display-name "Intracom Telecom"
+  :factory/country "GR" :factory/isic "C26"
+  :factory/capabilities ["telecom-equipment" "wireless-broadband-systems" "printed-circuit-boards" "network-hardware"]
+  :factory/source-url "https://www.intracom-telecom.com/en/company/profile/intracom_telecom_glance.htm"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/pyramis-group"
+  :factory/display-name "Pyramis Group (Pyramis Metallourgia A.E.)"
+  :factory/country "GR" :factory/isic "C25"
+  :factory/capabilities ["stainless-steel-sinks" "cookware" "kitchen-fixtures" "metal-fabrication"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pyramis"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/thrace-plastics"
+  :factory/display-name "Thrace Group (Thrace Plastics Co S.A.)"
+  :factory/country "GR" :factory/isic "C13"
+  :factory/capabilities ["nonwoven-fabrics" "technical-textiles" "spunbond" "geosynthetics"]
+  :factory/source-url "https://www.athexgroup.gr/en/market-data/issuers/128"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/zamil-steel-holding"
+  :factory/display-name "Zamil Steel Holding Company Ltd."
+  :factory/country "SA" :factory/isic "C25"
+  :factory/capabilities ["pre-engineered-buildings" "structural-steel" "steel-towers" "pressure-vessels"]
+  :factory/source-url "https://zamilsteel.com/facility-middle-east"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/riyadh-cables-group"
+  :factory/display-name "Riyadh Cables Group Company"
+  :factory/country "SA" :factory/isic "C27"
+  :factory/capabilities ["power-cables" "extra-high-voltage-cables" "fiber-optic-cables" "overhead-conductors"]
+  :factory/source-url "https://riyadh-cables.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/zoujaj"
+  :factory/display-name "The National Company for Glass Industries (Zoujaj)"
+  :factory/country "SA" :factory/isic "C23"
+  :factory/capabilities ["glass-bottles" "glass-containers" "float-glass" "food-jars"]
+  :factory/source-url "https://zoujajglass.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/middle-east-paper-company"
+  :factory/display-name "Middle East Paper Company (MEPCO)"
+  :factory/country "SA" :factory/isic "C17"
+  :factory/capabilities ["containerboard" "paperboard" "recycled-fiber" "packaging-paper"]
+  :factory/source-url "https://www.mep.co/Website/En/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/saudi-steel-pipe"
+  :factory/display-name "Saudi Steel Pipe Company (TenarisSSP)"
+  :factory/country "SA" :factory/isic "C24"
+  :factory/capabilities ["welded-steel-pipe" "octg" "line-pipe" "hfi-welding"]
+  :factory/source-url "https://www.sspipe.com/en/Home/About"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/midal-cables"
+  :factory/display-name "Midal Cables B.S.C.(c)"
+  :factory/country "BH" :factory/isic "C27"
+  :factory/capabilities ["aluminium-wire-rod" "overhead-conductors" "electrical-cables" "wire-drawing"]
+  :factory/source-url "https://www.midalcable.com/profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/gulf-plastic-industries"
+  :factory/display-name "Gulf Plastic Industries W.L.L. (GULFPLAS)"
+  :factory/country "BH" :factory/isic "C22"
+  :factory/capabilities ["pvc-pipes" "hdpe-pipes" "plastic-fittings" "pipe-extrusion"]
+  :factory/source-url "https://www.gulfplas.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/awal-press"
+  :factory/display-name "Awal Press W.L.L."
+  :factory/country "BH" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "offset-printing" "publishing" "ctp-printing"]
+  :factory/source-url "https://www.awalpress.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/bahrain-pack"
+  :factory/display-name "Bahrain Pack (United Paper Industries B.S.C.(c))"
+  :factory/country "BH" :factory/isic "C17"
+  :factory/capabilities ["corrugated-boxes" "carton-packaging" "paperboard-cartons" "die-cut-packaging"]
+  :factory/source-url "https://www.bahrainpack.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/aldar-wood-furniture-factory"
+  :factory/display-name "ALDAR Wood Furniture Factory W.L.L."
+  :factory/country "BH" :factory/isic "C31"
+  :factory/capabilities ["wooden-furniture" "kitchen-cabinetry" "office-furniture" "fire-rated-doors"]
+  :factory/source-url "https://www.aldarbh.com/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
