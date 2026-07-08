@@ -205,6 +205,12 @@
 ;; the thinnest-remaining countries should start including the country's full current roster in
 ;; the prompt, not just a short "already listed" summary.
 ;; Running total: 588 companies / 97 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 20 (/loop pass 20): +17 companies, +0 new countries. Applied the batch-19 lesson: for
+;; the 9 countries that were stuck at 3 (or 1, for Lesotho/Myanmar) after prior duplicate-heavy
+;; attempts, the research prompt included each country's FULL current roster verbatim instead
+;; of a short "already listed" summary — zero duplicates resulted (vs. 7/9 in batch 19 for the
+;; same target set). Thin-ISIC round 12 across C12/C27/C31/C32.
+;; Running total: 605 companies / 97 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3886,4 +3892,110 @@
   :factory/country "IT" :factory/isic "C30"
   :factory/capabilities ["motorcycles" "scooters" "mopeds"]
   :factory/source-url "https://en.wikipedia.org/wiki/Piaggio"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fifth/second entry — stuck-at-3 countries + Lesotho/Myanmar, researched against full existing rosters (CM/GE/KW/MN/PE/RO/TT/LS/MM) ════════════
+ {:factory/did "candidate:manufacturer-directory/cm/sabc"
+  :factory/display-name "Société Anonyme des Boissons du Cameroun (SABC)"
+  :factory/country "CM" :factory/isic "C11"
+  :factory/capabilities ["brewing" "bottling" "soft-drink-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Boissons_du_Cameroun"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/tbilisi-aircraft-manufacturing"
+  :factory/display-name "JSC Tbilisi Aircraft Manufacturing (Tbilaviamsheni)"
+  :factory/country "GE" :factory/isic "C30"
+  :factory/capabilities ["aircraft-manufacturing" "aerospace-component-production" "armored-vehicle-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tbilisi_Aircraft_Manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/gulf-cables-and-electrical-industries"
+  :factory/display-name "Gulf Cables & Electrical Industries Group Co. (K.S.C.P.)"
+  :factory/country "KW" :factory/isic "C27"
+  :factory/capabilities ["power-cable-manufacturing" "control-cable-manufacturing" "wire-and-conductor-production"]
+  :factory/source-url "https://www.gulfcable.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/darkhan-metallurgical-plant"
+  :factory/display-name "Darkhan Metallurgical Plant"
+  :factory/country "MN" :factory/isic "C24"
+  :factory/capabilities ["steel-production" "iron-ore-processing" "metal-casting"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Darkhan_Metallurgical_Plant"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/aceros-arequipa"
+  :factory/display-name "Corporación Aceros Arequipa S.A."
+  :factory/country "PE" :factory/isic "C24"
+  :factory/capabilities ["steel-production" "steel-rolling" "construction-steel-manufacturing"]
+  :factory/source-url "https://acerosarequipa.com/pe/en/conocenos"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/omv-petrom-petrobrazi"
+  :factory/display-name "OMV Petrom (Petrobrazi Refinery)"
+  :factory/country "RO" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "fuel-production" "sustainable-fuels-manufacturing"]
+  :factory/source-url "https://www.omvpetrom.com/en/about-us/what-we-do/refining-and-marketing/petrobrazi-refinery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/national-flour-mills"
+  :factory/display-name "National Flour Mills Limited"
+  :factory/country "TT" :factory/isic "C10"
+  :factory/capabilities ["flour-milling" "animal-feed-manufacturing" "grain-processing"]
+  :factory/source-url "https://nfm.co.tt/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/maluti-mountain-brewery"
+  :factory/display-name "Maluti Mountain Brewery (Pty) Ltd"
+  :factory/country "LS" :factory/isic "C11"
+  :factory/capabilities ["brewing" "bottling" "beverage-manufacturing"]
+  :factory/source-url "https://www.africaoutlookmag.com/company-profiles/1525-maluti-mountain-brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/myanmar-brewery"
+  :factory/display-name "Myanmar Brewery Limited"
+  :factory/country "MM" :factory/isic "C11"
+  :factory/capabilities ["brewing" "bottling" "beverage-manufacturing"]
+  :factory/source-url "https://myanmar-brewery.com/mbr/story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 12 — furniture / tobacco / other manufacturing / electrical equipment (C12/C27/C31/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/ashley-furniture-industries"
+  :factory/display-name "Ashley Furniture Industries"
+  :factory/country "US" :factory/isic "C31"
+  :factory/capabilities ["residential-furniture" "upholstered-furniture" "casegoods" "home-furnishings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ashley_Furniture_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/godrej-interio"
+  :factory/display-name "Godrej Interio"
+  :factory/country "IN" :factory/isic "C31"
+  :factory/capabilities ["home-furniture" "office-furniture" "steel-furniture" "modular-kitchens"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Godrej_Interio"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/djarum"
+  :factory/display-name "Djarum"
+  :factory/country "ID" :factory/isic "C12"
+  :factory/capabilities ["kretek-cigarettes" "clove-cigarettes" "tobacco-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Djarum"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/vector-group"
+  :factory/display-name "Vector Group (Liggett Group)"
+  :factory/country "US" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vector_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/medtronic"
+  :factory/display-name "Medtronic"
+  :factory/country "IE" :factory/isic "C32"
+  :factory/capabilities ["medical-devices" "surgical-instruments" "cardiac-devices" "neurostimulation"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Medtronic"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/swarovski"
+  :factory/display-name "Swarovski"
+  :factory/country "AT" :factory/isic "C32"
+  :factory/capabilities ["cut-crystal" "jewelry" "crystal-accessories"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Swarovski"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/abb"
+  :factory/display-name "ABB Ltd"
+  :factory/country "CH" :factory/isic "C27"
+  :factory/capabilities ["electric-motors" "generators" "transformers" "electrification-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ABB"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/schneider-electric"
+  :factory/display-name "Schneider Electric"
+  :factory/country "FR" :factory/isic "C27"
+  :factory/capabilities ["wiring-devices" "switchgear" "electrical-distribution" "transformers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Schneider_Electric"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
