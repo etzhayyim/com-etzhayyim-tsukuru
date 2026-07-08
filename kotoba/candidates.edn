@@ -188,6 +188,23 @@
 ;; rather than unilaterally revisited mid-batch; flagged in the PR/turn summary for the owner
 ;; to weigh in on explicitly if Cuba should be back in scope for a future batch.
 ;; Running total: 563 companies / 95 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 19 (/loop pass 19): +25 companies, +2 new countries (LS Lesotho, MM Myanmar). Fourth
+;; entry for 10 previously-3-entry countries (Oceania+SE Asia+Caucasus+Iceland,
+;; Israel+Hungary+Vietnam+Qatar). Thin-ISIC round 11 across C14/C15/C17/C30. Dropped 8
+;; duplicate agent picks this batch — the highest count yet, and a new pattern: 7 of the 8 were
+;; literal re-adds of companies already listed for the SAME thinning-country target from
+;; earlier depth passes (Cementos Pacasmayo/Angostura/Gobi Cashmere/Rustavi Steel/Kuwait
+;; Cement/Antibiotice/Alucam — batches 10-15 already added these for the exact countries this
+;; batch was asked to deepen again). Root cause: each research agent only sees the specific
+;; "already listed for X" summary in its own prompt, not the full 563-entry file, so repeatedly
+;; asking for "one more company in country Y" without also passing the FULL existing list for Y
+;; will keep re-surfacing the same obvious next pick once the country's low-hanging fruit is
+;; exhausted. The 8th drop (Metsä Group) was a second attempt at the same parent/subsidiary
+;; near-duplicate rejected in batch 17/18. No process change needed — the pre-append grep
+;; caught all 8 as designed — but this is a signal that further per-country depth passes for
+;; the thinnest-remaining countries should start including the country's full current roster in
+;; the prompt, not just a short "already listed" summary.
+;; Running total: 588 companies / 97 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3711,4 +3728,162 @@
   :factory/country "ZA" :factory/isic "C18"
   :factory/capabilities ["commercial-printing" "newspaper-printing" "publishing"]
   :factory/source-url "https://en.wikipedia.org/wiki/Caxton_and_CTP_Publishers_and_Printers"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fourth entry — Oceania + SE Asia + Caucasus + Iceland (AU/MY/MK/CI/UZ/IS) ════════════
+ {:factory/did "candidate:manufacturer-directory/au/csl-limited"
+  :factory/display-name "CSL Limited"
+  :factory/country "AU" :factory/isic "C21"
+  :factory/capabilities ["biopharmaceuticals" "blood-plasma-derivatives" "vaccines" "antivenom"]
+  :factory/source-url "https://en.wikipedia.org/wiki/CSL_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/top-glove-corporation"
+  :factory/display-name "Top Glove Corporation"
+  :factory/country "MY" :factory/isic "C22"
+  :factory/capabilities ["rubber-gloves" "nitrile-gloves" "latex-gloves" "medical-gloves"]
+  :factory/source-url "https://www.topglove.com/corporate-profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/okta-ad-skopje"
+  :factory/display-name "OKTA AD Skopje"
+  :factory/country "MK" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "fuel-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/OKTA"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/uniwax"
+  :factory/display-name "Uniwax"
+  :factory/country "CI" :factory/isic "C13"
+  :factory/capabilities ["wax-print-textiles" "cotton-fabric" "fabric-printing"]
+  :factory/source-url "https://www.uniwax.com/en/about-uniwax"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/uzauto-motors"
+  :factory/display-name "UzAuto Motors"
+  :factory/country "UZ" :factory/isic "C29"
+  :factory/capabilities ["automobile-assembly" "vehicle-manufacturing" "chevrolet-vehicles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/UzAuto_Motors"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/marel"
+  :factory/display-name "Marel"
+  :factory/country "IS" :factory/isic "C28"
+  :factory/capabilities ["food-processing-machinery" "industrial-equipment" "automation-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Marel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fourth entry — Israel + Hungary + Vietnam + Qatar (IL/HU/VN/QA) ════════════
+ {:factory/did "candidate:manufacturer-directory/il/iscar-metalworking"
+  :factory/display-name "ISCAR Metalworking Ltd"
+  :factory/country "IL" :factory/isic "C25"
+  :factory/capabilities ["metal-cutting-tools" "carbide-tooling" "precision-engineering" "tool-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ISCAR_Metalworking"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/herend-porcelain"
+  :factory/display-name "Herend Porcelain Manufactory"
+  :factory/country "HU" :factory/isic "C23"
+  :factory/capabilities ["porcelain-manufacturing" "hand-painted-ceramics" "gilding" "luxury-tableware"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Herend_Porcelain_Manufactory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/hoa-phat-group"
+  :factory/display-name "Hoa Phat Group JSC"
+  :factory/country "VN" :factory/isic "C24"
+  :factory/capabilities ["steel-production" "hot-rolled-coil" "steel-pipes" "construction-steel"]
+  :factory/source-url "http://www.hoaphat.com.vn/en/hoa-phat-steel/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/qatar-fertiliser-company"
+  :factory/display-name "Qatar Fertiliser Company (QAFCO)"
+  :factory/country "QA" :factory/isic "C20"
+  :factory/capabilities ["ammonia-production" "urea-production" "fertilizer-manufacturing" "melamine"]
+  :factory/source-url "https://www.qafco.qa/en/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 11a — apparel / leather goods (C14/C15) ════════════
+ {:factory/did "candidate:manufacturer-directory/eg/dice-sport-and-casual-wear"
+  :factory/display-name "Dice Sport & Casual Wear"
+  :factory/country "EG" :factory/isic "C14"
+  :factory/capabilities ["knitting" "dyeing" "printing" "sewing"]
+  :factory/source-url "https://dice.eg/apparel/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/grupo-kaltex"
+  :factory/display-name "Grupo Kaltex"
+  :factory/country "MX" :factory/isic "C14"
+  :factory/capabilities ["apparel-manufacturing" "cutting" "sewing" "denim"]
+  :factory/source-url "https://kaltex.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/nien-hsing-international"
+  :factory/display-name "Nien Hsing International (Lesotho)"
+  :factory/country "LS" :factory/isic "C14"
+  :factory/capabilities ["denim-manufacturing" "cutting" "sewing" "garment-assembly"]
+  :factory/source-url "https://www.nhjeans.com/nien-hsing-international-maseru-lesotho/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/handa-yangon-garment"
+  :factory/display-name "Handa (Yangon) Garment Co."
+  :factory/country "MM" :factory/isic "C14"
+  :factory/capabilities ["knitting" "dyeing" "garment-sewing" "knitwear-manufacturing"]
+  :factory/source-url "https://www.handagroup.com/en/social/254.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/pou-chen-corporation"
+  :factory/display-name "Pou Chen Corporation"
+  :factory/country "TW" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "oem-odm" "athletic-footwear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pou_Chen_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/birkenstock-group"
+  :factory/display-name "Birkenstock Group"
+  :factory/country "DE" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "sandals" "vertical-integration"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Birkenstock"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/tbs-group"
+  :factory/display-name "TBS Group (Thai Binh Shoes)"
+  :factory/country "VN" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-goods" "handbags"]
+  :factory/source-url "https://www.tbsgroup.vn/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/stella-international-holdings"
+  :factory/display-name "Stella International Holdings"
+  :factory/country "HK" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-goods" "oem-odm"]
+  :factory/source-url "https://www.stella.com.hk/about-us.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 11b — paper / rail-motorcycle transport equipment (C17/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/georgia-pacific"
+  :factory/display-name "Georgia-Pacific"
+  :factory/country "US" :factory/isic "C17"
+  :factory/capabilities ["pulp" "tissue" "paper-towels" "packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Georgia-Pacific"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/cmpc"
+  :factory/display-name "CMPC (Empresas CMPC)"
+  :factory/country "CL" :factory/isic "C17"
+  :factory/capabilities ["pulp" "paper" "tissue" "packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/CMPC_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/sca"
+  :factory/display-name "SCA (Svenska Cellulosa Aktiebolaget)"
+  :factory/country "SE" :factory/isic "C17"
+  :factory/capabilities ["pulp" "paper" "containerboard" "solid-wood-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/SCA_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/alstom"
+  :factory/display-name "Alstom"
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["rolling-stock" "high-speed-trains" "trams" "metros"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alstom"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/crrc-corporation"
+  :factory/display-name "CRRC Corporation"
+  :factory/country "CN" :factory/isic "C30"
+  :factory/capabilities ["rolling-stock" "high-speed-trains" "locomotives" "urban-rail-transit"]
+  :factory/source-url "https://en.wikipedia.org/wiki/CRRC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/harley-davidson"
+  :factory/display-name "Harley-Davidson"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["motorcycles" "cruiser-motorcycles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Harley-Davidson"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/piaggio"
+  :factory/display-name "Piaggio"
+  :factory/country "IT" :factory/isic "C30"
+  :factory/capabilities ["motorcycles" "scooters" "mopeds"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Piaggio"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
