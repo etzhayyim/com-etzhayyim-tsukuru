@@ -428,6 +428,23 @@
 ;; caliber ammunition and rocket motors) — same export-control/reputational exclusion as
 ;; Igman d.d. Konjic and VMZ Sopot EAD.
 ;; Running total: 1279 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 39 (/loop pass 39): +44 companies, +0 new countries. Full-roster depth for 10
+;; countries: the large-economy floor/near-floor targets (South-Africa/Australia/Thailand/
+;; Hong-Kong/Indonesia/Spain), plus deliberate SECOND passes on four countries already fully
+;; researched once before (Fiji/Papua-New-Guinea/Belgium/Malta) — each second-pass prompt was
+;; framed as "quality over quantity, 0 results is fine" to test whether these small/thin
+;; economies had more genuine headroom; all four yielded a handful more (Fiji +2, PNG +1,
+;; Belgium +4, Malta +3), confirming they were not yet fully exhausted at the first pass.
+;; Third ArcelorMittal country-plant keep, extending an already-established dataset pattern:
+;; ArcelorMittal South Africa Limited, alongside the already-listed Luxembourg (HQ) and
+;; Zenica (Bosnia) entries. Third Pou Chen country-subsidiary keep: PT Nikomas Gemilang
+;; (Indonesia), alongside Taiwan (HQ) and Cambodia. Two drops: PT Pindad (Indonesia, C25) —
+;; a real state defense manufacturer whose core historic line is small arms/ammunition, a
+;; fourth application of the batch-33 weapons/ammunition scope precedent; and Samarai Plastics
+;; (PNG, C30) — the research agent itself could not confirm whether this named entity still
+;; exists as a distinct manufacturer versus having been folded into Ela Motors' operations, an
+;; entity-identity verification failure rather than a scope/ethics concern.
+;; Running total: 1323 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -8333,5 +8350,269 @@
   :factory/country "PK" :factory/isic "C24"
   :factory/capabilities ["flat-steel-products" "cold-rolled-steel" "galvanized-steel" "color-coated-steel"]
   :factory/source-url "https://en.wikipedia.org/wiki/International_Steels_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/aspen-pharmacare-holdings"
+  :factory/display-name "Aspen Pharmacare Holdings Limited"
+  :factory/country "ZA" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generic-medicines" "sterile-manufacturing" "oncology-drugs"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Aspen_Pharmacare"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/bell-equipment"
+  :factory/display-name "Bell Equipment Limited"
+  :factory/country "ZA" :factory/isic "C28"
+  :factory/capabilities ["earthmoving-equipment" "articulated-dump-trucks" "mining-machinery" "construction-equipment"]
+  :factory/source-url "https://www.bellequipment.com/bell-equipment/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/arcelormittal-south-africa"
+  :factory/display-name "ArcelorMittal South Africa Limited"
+  :factory/country "ZA" :factory/isic "C24"
+  :factory/capabilities ["crude-steel" "flat-steel-products" "long-steel-products" "steelmaking"]
+  :factory/source-url "https://www.arcelormittalsa.com/Whoweare.aspx"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/toyota-south-africa-motors"
+  :factory/display-name "Toyota South Africa Motors (Pty) Ltd"
+  :factory/country "ZA" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "light-commercial-vehicles" "passenger-vehicle-manufacturing" "automotive-export"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Toyota_South_Africa_Motors"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/metair-first-national-battery"
+  :factory/display-name "Metair Investments Limited (First National Battery)"
+  :factory/country "ZA" :factory/isic "C27"
+  :factory/capabilities ["lead-acid-batteries" "automotive-components" "battery-recycling" "energy-storage"]
+  :factory/source-url "https://www.battery.co.za/about/history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/lodox-systems"
+  :factory/display-name "Lodox Systems (Pty) Ltd"
+  :factory/country "ZA" :factory/isic "C32"
+  :factory/capabilities ["medical-imaging-devices" "digital-x-ray-systems" "trauma-scanners" "precision-electromechanical-manufacturing"]
+  :factory/source-url "https://lodox.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/nanosonics"
+  :factory/display-name "Nanosonics Limited"
+  :factory/country "AU" :factory/isic "C32"
+  :factory/capabilities ["ultrasound-probe-disinfection" "infection-prevention" "medical-devices" "hospital-equipment"]
+  :factory/source-url "https://www.nanosonics.com.au/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/codan"
+  :factory/display-name "Codan Limited"
+  :factory/country "AU" :factory/isic "C26"
+  :factory/capabilities ["radio-communications" "electronics-manufacturing" "metal-detection" "defense-comms"]
+  :factory/source-url "https://codan.com.au/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/redarc-electronics"
+  :factory/display-name "REDARC Electronics"
+  :factory/country "AU" :factory/isic "C27"
+  :factory/capabilities ["voltage-converters" "battery-chargers" "power-electronics" "automotive-electronics"]
+  :factory/source-url "https://www.redarcelectronics.com/au/australianmade"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/pwr-holdings"
+  :factory/display-name "PWR Holdings (PWR Advanced Cooling Technology)"
+  :factory/country "AU" :factory/isic "C29"
+  :factory/capabilities ["aluminium-heat-exchangers" "motorsport-cooling" "radiators" "automotive-parts"]
+  :factory/source-url "https://www.pwr.com.au/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/treasury-wine-estates"
+  :factory/display-name "Treasury Wine Estates (Penfolds)"
+  :factory/country "AU" :factory/isic "C11"
+  :factory/capabilities ["winemaking" "viticulture" "wine-production" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Treasury_Wine_Estates"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/bruck-textiles"
+  :factory/display-name "Bruck Textiles"
+  :factory/country "AU" :factory/isic "C13"
+  :factory/capabilities ["technical-fabrics" "defence-textiles" "apparel-fabrics" "textile-weaving"]
+  :factory/source-url "https://www.brucktextiles.com.au/about-bruck/history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/sri-trang-agro-industry"
+  :factory/display-name "Sri Trang Agro-Industry PCL"
+  :factory/country "TH" :factory/isic "C22"
+  :factory/capabilities ["natural-rubber-processing" "rubber-gloves" "technically-specified-rubber" "latex-concentrate"]
+  :factory/source-url "https://www.sritranggroup.com/en/home"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/aapico-hitech"
+  :factory/display-name "Aapico Hitech PCL"
+  :factory/country "TH" :factory/isic "C29"
+  :factory/capabilities ["metal-stamping" "automotive-parts" "stamping-dies" "chassis-components"]
+  :factory/source-url "https://www.aapico.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/pranda-jewelry"
+  :factory/display-name "Pranda Jewelry PCL"
+  :factory/country "TH" :factory/isic "C32"
+  :factory/capabilities ["fine-jewelry" "gold-jewelry" "silver-jewelry" "gemstone-setting"]
+  :factory/source-url "https://www.pranda.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/modernform-group"
+  :factory/display-name "Modernform Group PCL"
+  :factory/country "TH" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "residential-furniture" "kitchen-furniture" "furniture-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Modernform_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/vanachai-group"
+  :factory/display-name "Vanachai Group PCL"
+  :factory/country "TH" :factory/isic "C16"
+  :factory/capabilities ["mdf-panels" "particleboard" "osb" "wood-based-panels"]
+  :factory/source-url "https://www.vanachai.com/en/company/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/thanulux"
+  :factory/display-name "Thanulux PCL"
+  :factory/country "TH" :factory/isic "C14"
+  :factory/capabilities ["garment-manufacturing" "apparel" "leather-goods" "shirts-and-suits"]
+  :factory/source-url "https://www.tnl.co.th/en/about-us/our-history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/techtronic-industries"
+  :factory/display-name "Techtronic Industries Company Limited"
+  :factory/country "HK" :factory/isic "C28"
+  :factory/capabilities ["power-tools" "cordless-technology" "outdoor-power-equipment" "floor-care-appliances"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Techtronic_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/vtech-holdings"
+  :factory/display-name "VTech Holdings Limited"
+  :factory/country "HK" :factory/isic "C26"
+  :factory/capabilities ["consumer-electronics" "electronic-learning-products" "cordless-telephones" "baby-monitors"]
+  :factory/source-url "https://en.wikipedia.org/wiki/VTech"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/lee-kum-kee"
+  :factory/display-name "Lee Kum Kee Company Limited"
+  :factory/country "HK" :factory/isic "C10"
+  :factory/capabilities ["sauces-condiments" "oyster-sauce" "soy-sauce" "food-seasoning"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lee_Kum_Kee"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/crystal-international-group"
+  :factory/display-name "Crystal International Group Limited"
+  :factory/country "HK" :factory/isic "C14"
+  :factory/capabilities ["apparel-manufacturing" "denim" "intimate-wear" "sportswear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Crystal_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/fountain-set-holdings"
+  :factory/display-name "Fountain Set (Holdings) Limited"
+  :factory/country "HK" :factory/isic "C13"
+  :factory/capabilities ["knitted-fabric" "textile-dyeing" "textile-printing" "fabric-finishing"]
+  :factory/source-url "https://www.fshl.com/en/about/glance/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/pt-gajah-tunggal"
+  :factory/display-name "PT Gajah Tunggal Tbk"
+  :factory/country "ID" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-processing" "tire-cord-production" "radial-tires"]
+  :factory/source-url "https://www.gt-tires.com/en/corporate-profile/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/pt-nikomas-gemilang"
+  :factory/display-name "PT Nikomas Gemilang (Pou Chen Group Indonesia)"
+  :factory/country "ID" :factory/isic "C15"
+  :factory/capabilities ["athletic-footwear" "oem-footwear-manufacturing" "rubber-canvas-footwear" "mass-footwear-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pou_Chen_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/pt-astra-otoparts"
+  :factory/display-name "PT Astra Otoparts Tbk"
+  :factory/country "ID" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "two-wheeler-parts" "four-wheeler-parts" "oem-manufacturing"]
+  :factory/source-url "https://www.astra.co.id/en/business/automotive/astra-otoparts"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/pt-chandra-asri-petrochemical"
+  :factory/display-name "PT Chandra Asri Petrochemical Tbk"
+  :factory/country "ID" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "naphtha-cracking" "polyethylene" "polypropylene"]
+  :factory/source-url "https://chandra-asri.com/en/about/who-we-are"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/pt-chitose-internasional"
+  :factory/display-name "PT Chitose Internasional Tbk"
+  :factory/country "ID" :factory/isic "C31"
+  :factory/capabilities ["steel-furniture" "folding-chairs" "institutional-furniture" "hospital-beds"]
+  :factory/source-url "https://www.chitose-indonesia.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/finsa"
+  :factory/display-name "Finsa (Financiera Maderera, S.A.)"
+  :factory/country "ES" :factory/isic "C16"
+  :factory/capabilities ["wood-panels" "chipboard" "mdf-boards" "laminate-flooring"]
+  :factory/source-url "https://www.finsa.com/en/finsa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/mahou-san-miguel"
+  :factory/display-name "Mahou San Miguel Group"
+  :factory/country "ES" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "bottling-canning" "malt-beverages" "brewery-operations"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mahou-San_Miguel_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/actiu"
+  :factory/display-name "Actiu (Actiu Berbegal y Formas, S.A.)"
+  :factory/country "ES" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "task-seating" "workstations" "contract-furniture"]
+  :factory/source-url "https://www.actiu.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/ingeteam"
+  :factory/display-name "Ingeteam (Ingeteam Corporación, S.A.)"
+  :factory/country "ES" :factory/isic "C27"
+  :factory/capabilities ["power-electronics" "inverters" "wind-converters" "grid-control-equipment"]
+  :factory/source-url "https://renewablesnow.com/news/to-the-point-ingeteam-opens-power-converters-factory-in-spain-679684/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/textil-santanderina"
+  :factory/display-name "Textil Santanderina, S.A."
+  :factory/country "ES" :factory/isic "C13"
+  :factory/capabilities ["technical-fabrics" "weaving" "spinning" "textile-finishing"]
+  :factory/source-url "https://textilsantanderina.com/textil-santanderina/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/sociedad-textil-lonia"
+  :factory/display-name "Sociedad Textil Lonia, S.A. (STL)"
+  :factory/country "ES" :factory/isic "C14"
+  :factory/capabilities ["ready-to-wear" "garment-manufacturing" "apparel-production" "cut-and-sew"]
+  :factory/source-url "https://www.alcazarenformacion.es/visitamos-la-fabrica-sociedad-textil-lonia-en-ourense/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/fiji-ships-and-heavy-industries"
+  :factory/display-name "Fiji Ships & Heavy Industries Ltd (FSHIL)"
+  :factory/country "FJ" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "steel-fabrication" "marine-engineering" "ship-repair"]
+  :factory/source-url "https://fijiports.com.fj/fiji-ships-heavy-industries-ltd/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/apco-coatings"
+  :factory/display-name "Apco Coatings (Fiji)"
+  :factory/country "FJ" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "coatings" "varnishes" "industrial-chemicals"]
+  :factory/source-url "https://www.apcocoatings.com/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/moore-printing"
+  :factory/display-name "Moore Printing (Moore Business Systems PNG Limited)"
+  :factory/country "PG" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "security-printing" "business-forms" "cheque-printing"]
+  :factory/source-url "https://moore.com.pg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/ab-inbev"
+  :factory/display-name "Anheuser-Busch InBev (AB InBev)"
+  :factory/country "BE" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "malting" "bottling"]
+  :factory/source-url "https://europecareers.ab-inbev.com/locations/belgium"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/vpk-group"
+  :factory/display-name "VPK Group"
+  :factory/country "BE" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "paper-mill" "packaging-manufacturing" "recycled-fiber"]
+  :factory/source-url "https://vpkgroup.com/en/plant-overview"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/materialise"
+  :factory/display-name "Materialise NV"
+  :factory/country "BE" :factory/isic "C32"
+  :factory/capabilities ["3d-printing" "additive-manufacturing" "medical-device-production" "rapid-prototyping"]
+  :factory/source-url "https://www.materialise.com/en/about/locations/belgium"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/guylian"
+  :factory/display-name "Guylian (Chocolaterie Guylian NV)"
+  :factory/country "BE" :factory/isic "C10"
+  :factory/capabilities ["chocolate-manufacturing" "confectionery" "praline-production" "food-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Guylian"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/gutenberg-press"
+  :factory/display-name "Gutenberg Press Ltd"
+  :factory/country "MT" :factory/isic "C18"
+  :factory/capabilities ["book-printing" "packaging-print" "offset-printing" "carton-packaging"]
+  :factory/source-url "https://www.gutenberg.com.mt/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/combino-pharm-malta"
+  :factory/display-name "Combino Pharm (Malta) Ltd"
+  :factory/country "MT" :factory/isic "C21"
+  :factory/capabilities ["solid-dosage-tablets" "capsules" "blister-packaging" "gmp-manufacturing"]
+  :factory/source-url "https://www.pharmaceutical-technology.com/sponsored/combinopharm/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/drop-chemicals"
+  :factory/display-name "Drop Chemicals Ltd"
+  :factory/country "MT" :factory/isic "C20"
+  :factory/capabilities ["laundry-detergents" "household-cleaners" "fabric-conditioners" "private-label-manufacturing"]
+  :factory/source-url "https://www.dropchemicals.com.mt/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
