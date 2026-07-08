@@ -80,6 +80,20 @@
 ;; avoid-lists, but they're necessarily incomplete against a 300+-entry file; this dedup pass
 ;; is why kotoba/validate_candidates.bb's duplicate-DID check runs before every commit).
 ;; Running total: 367 companies / 91 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 11 (/loop pass 11): +31 companies, +0 new countries — CA+DK+CH depth (Apotex, Buhler
+;; Industries, Saputo, Novo Nordisk, Arla Foods, Novartis, Bühler Group, Nestlé — pharma/
+;; agri-machinery/dairy-food); ES+PL+LK depth (Porcelanosa, Ebro Foods, Ercros, Grupa Azoty,
+;; Maspex, Cersanit, Dilmah, DSI Samson Group — ceramics/food/chemicals/tea/tires, Sri Lanka's
+;; first non-apparel entries); thin-ISIC round 3 across C12/C16/C18/C19/C22/C25/C31 (Imperial
+;; Brands, Altria, Dai Nippon Printing, Walstead Group, Bertelsmann Printing Group, ASSA ABLOY,
+;; Fiskars, Tramontina, MillerKnoll, Kinnarps, Egger Group, West Fraser Timber, Phillips 66,
+;; Pirelli, Hankook Tire). Dropped one more agent pick ("Reliance Industries" for C19, again —
+;; third time this exact company has resurfaced across batches 9-11 as an obvious go-to
+;; "famous refiner" example) after the validator's duplicate-DID check would have caught it;
+;; per-batch avoid-lists remain necessarily incomplete against a 350+-entry file, so every
+;; batch's new picks get grepped against the merged main candidates.edn before being appended,
+;; not just validated after the fact. Running total: 398 companies / 91 countries / 23 ISIC
+;; divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -2379,4 +2393,198 @@
   :factory/country "CH" :factory/isic "C22"
   :factory/capabilities ["plastics-packaging" "flexible-packaging" "rigid-packaging"]
   :factory/source-url "https://en.wikipedia.org/wiki/Amcor"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Canada + Denmark + Switzerland depth — pharma / agri-machinery / dairy-food (C10/C21/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/ca/apotex"
+  :factory/display-name "Apotex Inc"
+  :factory/country "CA" :factory/isic "C21"
+  :factory/capabilities ["generic-pharmaceuticals" "biosimilars" "active-pharmaceutical-ingredients" "drug-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Apotex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/buhler-industries"
+  :factory/display-name "Buhler Industries Inc"
+  :factory/country "CA" :factory/isic "C28"
+  :factory/capabilities ["agricultural-tractors" "tillage-equipment" "grain-augers" "farm-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Buhler_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/saputo"
+  :factory/display-name "Saputo Inc"
+  :factory/country "CA" :factory/isic "C10"
+  :factory/capabilities ["cheese-manufacturing" "dairy-processing" "fluid-milk" "dairy-ingredients"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Saputo_Inc."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/novo-nordisk"
+  :factory/display-name "Novo Nordisk A/S"
+  :factory/country "DK" :factory/isic "C21"
+  :factory/capabilities ["insulin-manufacturing" "diabetes-care" "biopharmaceuticals" "injectable-devices"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Novo_Nordisk"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/arla-foods"
+  :factory/display-name "Arla Foods amba"
+  :factory/country "DK" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "cheese" "butter" "milk-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Arla_Foods"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/novartis"
+  :factory/display-name "Novartis AG"
+  :factory/country "CH" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biopharmaceuticals" "drug-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Novartis"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/buhler-group"
+  :factory/display-name "Bühler Group"
+  :factory/country "CH" :factory/isic "C28"
+  :factory/capabilities ["food-processing-machinery" "milling-equipment" "chocolate-processing-equipment" "die-casting-machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/B%C3%BChler_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/nestle"
+  :factory/display-name "Nestlé S.A."
+  :factory/country "CH" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "dairy-products" "beverages" "confectionery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nestl%C3%A9"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Spain + Poland + Sri Lanka depth — ceramics / food / chemicals / tea / tires (C10/C11/C13/C20/C22/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/es/porcelanosa"
+  :factory/display-name "Porcelanosa Grupo"
+  :factory/country "ES" :factory/isic "C23"
+  :factory/capabilities ["ceramic-tiles" "bathroom-fixtures" "flooring" "building-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Porcelanosa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/ebro-foods"
+  :factory/display-name "Ebro Foods"
+  :factory/country "ES" :factory/isic "C10"
+  :factory/capabilities ["rice-processing" "pasta-manufacturing" "food-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ebro_Foods"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/ercros"
+  :factory/display-name "Ercros"
+  :factory/country "ES" :factory/isic "C20"
+  :factory/capabilities ["basic-chemicals" "chlor-alkali" "plastics" "pharmaceutical-intermediates"]
+  :factory/source-url "https://www.ercros.es/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/grupa-azoty"
+  :factory/display-name "Grupa Azoty"
+  :factory/country "PL" :factory/isic "C20"
+  :factory/capabilities ["fertilizers" "chemicals" "plastics" "oxo-alcohols"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Grupa_Azoty"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/maspex"
+  :factory/display-name "Maspex Group"
+  :factory/country "PL" :factory/isic "C10"
+  :factory/capabilities ["juices-and-nectars" "pasta" "instant-food-products" "jams-and-preserves"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Maspex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/cersanit"
+  :factory/display-name "Cersanit (Rovese)"
+  :factory/country "PL" :factory/isic "C23"
+  :factory/capabilities ["ceramic-tiles" "sanitaryware" "bathroom-fixtures"]
+  :factory/source-url "https://www.cersanit.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/dilmah"
+  :factory/display-name "Dilmah (Dilmah Ceylon Tea Company / MJF Holdings)"
+  :factory/country "LK" :factory/isic "C10"
+  :factory/capabilities ["tea-processing" "tea-packaging" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dilmah"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/dsi-samson-group"
+  :factory/display-name "DSI Samson Group"
+  :factory/country "LK" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "tubes-and-tyres"]
+  :factory/source-url "https://en.wikipedia.org/wiki/DSI_Samson_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 3a — tobacco / printing / fabricated metal products (C12/C18/C25) ════════════
+ {:factory/did "candidate:manufacturer-directory/gb/imperial-brands"
+  :factory/display-name "Imperial Brands plc"
+  :factory/country "GB" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "fine-cut-tobacco" "tobacco-papers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Imperial_Brands"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/altria-group"
+  :factory/display-name "Altria Group, Inc."
+  :factory/country "US" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "smokeless-tobacco" "cigar-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Altria"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/dai-nippon-printing"
+  :factory/display-name "Dai Nippon Printing Co., Ltd."
+  :factory/country "JP" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "packaging-printing" "electronics-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dai_Nippon_Printing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/walstead-group"
+  :factory/display-name "Walstead Group Limited"
+  :factory/country "GB" :factory/isic "C18"
+  :factory/capabilities ["web-offset-printing" "magazine-printing" "catalogue-printing"]
+  :factory/source-url "https://www.walstead-group.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/bertelsmann-printing-group"
+  :factory/display-name "Bertelsmann Printing Group"
+  :factory/country "DE" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "gravure-printing" "book-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bertelsmann_Printing_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/assa-abloy"
+  :factory/display-name "ASSA ABLOY AB"
+  :factory/country "SE" :factory/isic "C25"
+  :factory/capabilities ["locks" "door-hardware" "access-control" "entrance-automation"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Assa_Abloy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/fiskars-group"
+  :factory/display-name "Fiskars Group"
+  :factory/country "FI" :factory/isic "C25"
+  :factory/capabilities ["cutlery" "scissors" "kitchenware" "hand-tools"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fiskars"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/tramontina"
+  :factory/display-name "Tramontina"
+  :factory/country "BR" :factory/isic "C25"
+  :factory/capabilities ["cutlery" "cookware" "kitchenware" "hand-tools"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tramontina"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 3b — furniture / wood products / petroleum refining / rubber-plastics (C16/C19/C22/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/millerknoll"
+  :factory/display-name "MillerKnoll"
+  :factory/country "US" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "seating" "systems-furniture" "home-furnishings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Herman_Miller"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/kinnarps"
+  :factory/display-name "Kinnarps"
+  :factory/country "SE" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "educational-furniture" "healthcare-furniture" "seating"]
+  :factory/source-url "https://www.kinnarps.com/about-kinnarps/our-history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/egger-group"
+  :factory/display-name "Egger Group"
+  :factory/country "AT" :factory/isic "C16"
+  :factory/capabilities ["particleboard" "wood-based-panels" "laminate-flooring" "mdf"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Egger_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/west-fraser-timber"
+  :factory/display-name "West Fraser Timber"
+  :factory/country "CA" :factory/isic "C16"
+  :factory/capabilities ["lumber" "plywood" "osb" "mdf"]
+  :factory/source-url "https://en.wikipedia.org/wiki/West_Fraser_Timber"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/phillips-66"
+  :factory/display-name "Phillips 66"
+  :factory/country "US" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "fuels" "lubricants"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Phillips_66"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/pirelli"
+  :factory/display-name "Pirelli"
+  :factory/country "IT" :factory/isic "C22"
+  :factory/capabilities ["tires" "rubber-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pirelli"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hankook-tire"
+  :factory/display-name "Hankook Tire"
+  :factory/country "KR" :factory/isic "C22"
+  :factory/capabilities ["tires" "rubber-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hankook"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
