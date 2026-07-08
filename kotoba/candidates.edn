@@ -220,6 +220,15 @@
 ;; Korea/Cuba sanctions-sensitivity policy set in batches 5/9/18 — kept consistent rather than
 ;; unilaterally revisited.
 ;; Running total: 636 companies / 97 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 22 (/loop pass 22): +34 companies, +1 new country (HN Honduras). Continued the
+;; full-roster method for 19 more countries (UAE/Azerbaijan/Bangladesh/Belgium/Czech/
+;; Ethiopia/Luxembourg/Malta/Nigeria, Netherlands/Norway/PNG/Serbia/Slovakia/Senegal/
+;; Uganda/Zambia/Lesotho/Myanmar) — only 1 duplicate out of 19 (Interloop Limited for
+;; Pakistan apparel, re-suggested a third time across batches 17/19/22 — this exact company
+;; keeps resurfacing whenever an agent is asked for "an apparel/hosiery manufacturer" without
+;; Pakistan specifically excluded, since it's simply the most famous Pakistani apparel company;
+;; dropped as usual via the pre-append grep). Thin-ISIC round 14 across C14/C18/C31/C32.
+;; Running total: 670 companies / 98 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -4201,4 +4210,216 @@
   :factory/country "DE" :factory/isic "C25"
   :factory/capabilities ["cookware" "cutlery" "metal-hollowware"]
   :factory/source-url "https://en.wikipedia.org/wiki/WMF_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — UAE/Azerbaijan/Bangladesh/Belgium/Czech/Ethiopia/Luxembourg/Malta/Nigeria (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/ae/ducab"
+  :factory/display-name "Ducab"
+  :factory/country "AE" :factory/isic "C27"
+  :factory/capabilities ["cable-manufacturing" "wire-manufacturing" "copper-rod-production" "power-cables"]
+  :factory/source-url "https://ducab.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/ganja-automobile-plant"
+  :factory/display-name "Ganja Automobile Plant"
+  :factory/country "AZ" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "truck-assembly" "bus-manufacturing" "tractor-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ganja_Auto_Plant"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/square-pharmaceuticals"
+  :factory/display-name "Square Pharmaceuticals"
+  :factory/country "BD" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drugs" "tablet-production" "active-pharmaceutical-ingredients"]
+  :factory/source-url "https://www.squarepharma.com.bd/about-us.php"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/ucb"
+  :factory/display-name "UCB"
+  :factory/country "BE" :factory/isic "C21"
+  :factory/capabilities ["biopharmaceutical-manufacturing" "drug-manufacturing" "cns-therapeutics" "immunology-drugs"]
+  :factory/source-url "https://www.ucb.com/about-ucb"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/plzensky-prazdroj"
+  :factory/display-name "Plzeňský Prazdroj"
+  :factory/country "CZ" :factory/isic "C11"
+  :factory/capabilities ["brewing" "malt-liquor-production" "bottling" "malting"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pilsner_Urquell_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/anbessa-shoe"
+  :factory/display-name "Anbessa Shoe Share Company"
+  :factory/country "ET" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-processing" "leather-goods" "bag-manufacturing"]
+  :factory/source-url "https://anbessashoesc.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/ceratizit"
+  :factory/display-name "Ceratizit"
+  :factory/country "LU" :factory/isic "C25"
+  :factory/capabilities ["cutting-tools" "tungsten-carbide-manufacturing" "cemented-carbide-production" "hard-material-solutions"]
+  :factory/source-url "https://ceratizit.com/int/en/about-us/from-pioneer-to-global-player.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/stmicroelectronics-malta"
+  :factory/display-name "STMicroelectronics Malta"
+  :factory/country "MT" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-packaging" "chip-testing" "electronic-components" "mems-sensor-assembly"]
+  :factory/source-url "https://www.st.com/content/st_com/en/about/manufacturing-at-st/our-facilities/kirkop-st-site.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/innoson-vehicle-manufacturing"
+  :factory/display-name "Innoson Vehicle Manufacturing"
+  :factory/country "NG" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "automotive-manufacturing" "electric-vehicles" "bus-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Innoson_Vehicle_Manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Netherlands/Norway/PNG/Serbia/Slovakia/Senegal/Uganda/Zambia/Lesotho/Myanmar (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/nl/dsm-firmenich"
+  :factory/display-name "DSM-Firmenich"
+  :factory/country "NL" :factory/isic "C20"
+  :factory/capabilities ["nutrition-ingredients" "vitamins" "enzymes" "fragrances"]
+  :factory/source-url "https://en.wikipedia.org/wiki/DSM_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/yara-international"
+  :factory/display-name "Yara International"
+  :factory/country "NO" :factory/isic "C20"
+  :factory/capabilities ["nitrogen-fertilizers" "ammonia" "nitric-acid" "npk-fertilizers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Yara_International"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/trukai-industries"
+  :factory/display-name "Trukai Industries"
+  :factory/country "PG" :factory/isic "C10"
+  :factory/capabilities ["rice-milling" "rice-packaging" "grain-processing"]
+  :factory/source-url "https://www.trukai.com.pg/about/our-story/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/tigar-tyres"
+  :factory/display-name "Tigar Tyres"
+  :factory/country "RS" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-mixing" "passenger-car-tires" "light-truck-tires"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tigar_Tyres"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/us-steel-kosice"
+  :factory/display-name "U.S. Steel Košice"
+  :factory/country "SK" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "hot-rolled-steel" "cold-rolled-steel" "coated-steel-sheets"]
+  :factory/source-url "https://en.wikipedia.org/wiki/U._S._Steel_Ko%C5%A1ice,_s.r.o."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/grands-moulins-de-dakar"
+  :factory/display-name "Grands Moulins de Dakar"
+  :factory/country "SN" :factory/isic "C10"
+  :factory/capabilities ["wheat-milling" "flour-production" "animal-feed"]
+  :factory/source-url "https://www.gmd.sn/apropos/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/roofings-group"
+  :factory/display-name "Roofings Group"
+  :factory/country "UG" :factory/isic "C24"
+  :factory/capabilities ["steel-rolling" "roofing-sheets" "galvanized-steel" "pvc-pipes"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Roofings_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/zambian-breweries"
+  :factory/display-name "Zambian Breweries"
+  :factory/country "ZM" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverages" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Zambian_Breweries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/lesotho-flour-mills"
+  :factory/display-name "Lesotho Flour Mills"
+  :factory/country "LS" :factory/isic "C10"
+  :factory/capabilities ["maize-milling" "wheat-milling" "flour-production" "sugar-packaging"]
+  :factory/source-url "https://lesothoflourmills.co.ls/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/max-cement"
+  :factory/display-name "Max Cement (Max Myanmar Manufacturing)"
+  :factory/country "MM" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-manufacturing" "portland-cement"]
+  :factory/source-url "https://www.maxcement.com/company-profile/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 14a — furniture / other manufacturing (C31/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/hni-corporation"
+  :factory/display-name "HNI Corporation"
+  :factory/country "US" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "seating" "casegoods" "contract-furniture"]
+  :factory/source-url "https://en.wikipedia.org/wiki/HNI_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/nowy-styl-group"
+  :factory/display-name "Nowy Styl Group"
+  :factory/country "PL" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "seating" "contract-furniture" "stadium-seating"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nowy_Styl"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/kuka-home"
+  :factory/display-name "Kuka Home"
+  :factory/country "CN" :factory/isic "C31"
+  :factory/capabilities ["upholstered-furniture" "sofas" "mattresses"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kuka_Home"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/nilkamal"
+  :factory/display-name "Nilkamal Limited"
+  :factory/country "IN" :factory/isic "C31"
+  :factory/capabilities ["plastic-furniture" "molded-furniture" "crates-containers" "mattresses"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nilkamal_Plastics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/terumo-corporation"
+  :factory/display-name "Terumo Corporation"
+  :factory/country "JP" :factory/isic "C32"
+  :factory/capabilities ["medical-devices" "cardiovascular-devices" "diabetes-care" "blood-transfusion-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Terumo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/gibson-brands"
+  :factory/display-name "Gibson Brands"
+  :factory/country "US" :factory/isic "C32"
+  :factory/capabilities ["guitars" "musical-instruments" "electric-guitars" "acoustic-guitars"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gibson_(guitar_company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/mattel"
+  :factory/display-name "Mattel Inc"
+  :factory/country "US" :factory/isic "C32"
+  :factory/capabilities ["toys" "dolls" "die-cast-vehicles" "toy-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mattel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/chow-tai-fook"
+  :factory/display-name "Chow Tai Fook Jewellery Group"
+  :factory/country "HK" :factory/isic "C32"
+  :factory/capabilities ["jewelry" "gold-jewelry" "gem-set-jewelry" "jewelry-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Chow_Tai_Fook"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 14b — printing / apparel (C18/C14) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/kyodo-printing"
+  :factory/display-name "Kyodo Printing Co., Ltd."
+  :factory/country "JP" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "security-printing" "packaging-printing" "smart-cards"]
+  :factory/source-url "https://www.kyodoprinting.com/company-profile/org.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/deluxe-corporation"
+  :factory/display-name "Deluxe Corporation"
+  :factory/country "US" :factory/isic "C18"
+  :factory/capabilities ["check-printing" "business-forms" "print-fulfillment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Deluxe_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/edelmann-group"
+  :factory/display-name "Edelmann Group"
+  :factory/country "DE" :factory/isic "C18"
+  :factory/capabilities ["packaging-printing" "folding-cartons" "pharmaceutical-packaging"]
+  :factory/source-url "https://www.edelmann-group.com/en/group/profile/family-business/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/autajon-group"
+  :factory/display-name "Autajon Group"
+  :factory/country "FR" :factory/isic "C18"
+  :factory/capabilities ["packaging-printing" "folding-cartons" "labels" "luxury-packaging"]
+  :factory/source-url "https://www.autajon.com/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/shahi-exports"
+  :factory/display-name "Shahi Exports"
+  :factory/country "IN" :factory/isic "C14"
+  :factory/capabilities ["apparel-manufacturing" "knits" "wovens" "denim"]
+  :factory/source-url "https://shahi.co.in/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/united-aryan"
+  :factory/display-name "United Aryan (EPZ) Ltd"
+  :factory/country "KE" :factory/isic "C14"
+  :factory/capabilities ["apparel-manufacturing" "woven-garments" "knit-garments" "export-processing-zone"]
+  :factory/source-url "http://www.unitedaryan.net/home.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/elcatex-group"
+  :factory/display-name "Elcatex Group"
+  :factory/country "HN" :factory/isic "C14"
+  :factory/capabilities ["knitted-garments" "vertical-integration" "apparel-manufacturing"]
+  :factory/source-url "https://www.elcatex.com/about-us/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
