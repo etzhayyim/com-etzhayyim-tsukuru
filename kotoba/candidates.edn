@@ -19,19 +19,25 @@
 ;; non-metallic minerals). Batch 4 (/loop pass 4): +32 companies / +15 countries (BD KH LK PH NG
 ;; KE GH CL AR CO PE RO HU SK SI) / +1 ISIC division (C14 apparel, closing the gap called out
 ;; after batch 3). Batch 5 (/loop pass 5): +32 companies / +11 countries (LT LV EE BG HR RS PK
-;; ET TZ UG CI) — pure regional-depth pass, no new ISIC divisions. Running total: 208
-;; companies / 64 countries / 23 ISIC divisions.
+;; ET TZ UG CI) — pure regional-depth pass, no new ISIC divisions. Batch 6 (/loop pass 6): +32
+;; companies / +10 countries (MA TN JO LB DZ SN CM ZM ZW RW) — half depth-in-major-economies
+;; (US +8 in previously-uncovered industries: machinery/semiconductors/chemicals/pharma/food/
+;; paper/furniture/electrical; CN +8 likewise: steel/petrochemicals/computers/cement/heavy-
+;; machinery/food/beverages), half remaining-country-gap fill (Maghreb/Levant, remaining
+;; Sub-Saharan Africa). Running total: 240 companies / 74 countries / 23 ISIC divisions.
 ;; Only C33 (repair/installation of machinery — arguably a service, not primary manufacturing)
-;; remains uncovered, likely permanently by design. Still-uncovered regions worth a future
-;; batch: Russia/CIS and Iran (politically sensitive — skip pending explicit owner direction),
-;; Central Asia (Kazakhstan, Uzbekistan), Pacific Islands, Caribbean (Dominican Republic,
-;; Trinidad), remaining Balkans (North Macedonia, Bosnia, Albania), remaining Sub-Saharan
-;; Africa (Senegal, Cameroon, Zambia, Zimbabwe, Rwanda), remaining Middle East (Jordan,
-;; Lebanon, Morocco, Tunisia, Algeria). With ISIC breadth complete at 23/24, all future
-;; batches are regional-depth passes: more companies per already-covered division/country,
-;; plus filling remaining country gaps. See kotoba/validate_candidates.bb (batch 4) and
-;; .github/workflows/validate-candidates.yml (batch 5) for the automated consistency check
-;; and its CI enforcement on PRs touching this file.
+;; remains uncovered, likely permanently by design. Country coverage is now broad (74) and
+;; roughly proportional to global manufacturing output for major economies (JP/DE/CN/US/IN/IT
+;; each have 8-9 entries); future batches should keep splitting between (a) depth in
+;; already-listed major economies — plenty of real, well-documented companies remain
+;; unlisted per country, and this is what actually moves toward the original registry's
+;; "460+ manufacturers" scale reference — and (b) the remaining country gaps: Russia/CIS and
+;; Iran (politically sensitive — skip pending explicit owner direction), Central Asia
+;; (Kazakhstan, Uzbekistan), Pacific Islands, Caribbean (Dominican Republic, Trinidad),
+;; remaining Balkans (North Macedonia, Bosnia, Albania). See kotoba/validate_candidates.bb
+;; (batch 4) and .github/workflows/validate-candidates.yml (batch 5, fixed in the batch-5 PR
+;; after the first CI run failed on a nonexistent babashka/setup-babashka action — now uses
+;; the official install script) for the automated consistency check and its CI enforcement.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -1331,4 +1337,204 @@
   :factory/country "CI" :factory/isic "C23"
   :factory/capabilities ["cement-manufacturing" "building-materials" "white-cement-production"]
   :factory/source-url "https://www.lafargeholcim.ci/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ USA depth — machinery / semiconductors / chemicals / pharma / food / paper / furniture / electrical (C10/C17/C20/C21/C26/C27/C28/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/caterpillar"
+  :factory/display-name "Caterpillar Inc."
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["construction-equipment" "mining-equipment" "diesel-engines" "heavy-machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Caterpillar_Inc."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/intel-corporation"
+  :factory/display-name "Intel Corporation"
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-fabrication" "microprocessors" "chip-design" "integrated-circuits"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Intel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/dow"
+  :factory/display-name "Dow Inc."
+  :factory/country "US" :factory/isic "C20"
+  :factory/capabilities ["industrial-chemicals" "plastics" "coatings" "specialty-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dow_Chemical_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/pfizer"
+  :factory/display-name "Pfizer Inc."
+  :factory/country "US" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "vaccines" "drug-manufacturing" "biotechnology"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pfizer"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/general-mills"
+  :factory/display-name "General Mills, Inc."
+  :factory/country "US" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "packaged-foods" "cereal-manufacturing" "milling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/General_Mills"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/international-paper"
+  :factory/display-name "International Paper Company"
+  :factory/country "US" :factory/isic "C17"
+  :factory/capabilities ["pulp-and-paper" "corrugated-packaging" "containerboard"]
+  :factory/source-url "https://en.wikipedia.org/wiki/International_Paper"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/steelcase"
+  :factory/display-name "Steelcase Inc."
+  :factory/country "US" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "furniture-manufacturing" "workplace-design"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Steelcase"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/emerson-electric"
+  :factory/display-name "Emerson Electric Co."
+  :factory/country "US" :factory/isic "C27"
+  :factory/capabilities ["industrial-automation" "process-control" "electrical-equipment" "measurement-instruments"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Emerson_Electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ China depth — steel / petrochemicals / computers / cement / heavy machinery / food / beverages (C10/C11/C20/C23/C24/C26/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/cn/china-baowu-steel-group"
+  :factory/display-name "China Baowu Steel Group"
+  :factory/country "CN" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "iron-ore-processing" "steel-products" "metallurgy"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Baowu"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/sinopec"
+  :factory/display-name "Sinopec"
+  :factory/country "CN" :factory/isic "C20"
+  :factory/capabilities ["oil-refining" "petrochemicals" "fertilizers" "plastics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sinopec"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/inspur-group"
+  :factory/display-name "Inspur Group"
+  :factory/country "CN" :factory/isic "C26"
+  :factory/capabilities ["servers" "computers" "cloud-computing-hardware" "storage-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Inspur"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/anhui-conch-cement"
+  :factory/display-name "Anhui Conch Cement"
+  :factory/country "CN" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker" "building-materials" "concrete"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Anhui_Conch_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/sany-heavy-industry"
+  :factory/display-name "Sany Heavy Industry"
+  :factory/country "CN" :factory/isic "C28"
+  :factory/capabilities ["excavators" "concrete-machinery" "cranes" "construction-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sany"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/weichai-power"
+  :factory/display-name "Weichai Power"
+  :factory/country "CN" :factory/isic "C28"
+  :factory/capabilities ["diesel-engines" "powertrains" "transmissions" "forklifts"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Weichai_Power"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/shuanghui-group"
+  :factory/display-name "Shuanghui Group (Henan Shuanghui Investment & Development)"
+  :factory/country "CN" :factory/isic "C10"
+  :factory/capabilities ["meat-processing" "packaged-meats" "pork-products" "sausages"]
+  :factory/source-url "https://govt.chinadaily.com.cn/s/201908/29/WS5d672f2a498ebcb190578edf/shuanghui-group.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/kweichow-moutai"
+  :factory/display-name "Kweichow Moutai"
+  :factory/country "CN" :factory/isic "C11"
+  :factory/capabilities ["baijiu-distilling" "liquor-production" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kweichow_Moutai"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Morocco + Tunisia + Jordan + Lebanon + Algeria — phosphates/chemicals / textiles / food / cement / pharma (C10/C13/C20/C21/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/ma/ocp-group"
+  :factory/display-name "OCP Group"
+  :factory/country "MA" :factory/isic "C20"
+  :factory/capabilities ["phosphate-processing" "fertilizer-manufacturing" "specialty-chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/OCP_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/ciments-du-maroc"
+  :factory/display-name "Ciments du Maroc"
+  :factory/country "MA" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "ready-mix-concrete" "aggregates-production"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Ciments_du_Maroc"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/groupe-chimique-tunisien"
+  :factory/display-name "Groupe Chimique Tunisien"
+  :factory/country "TN" :factory/isic "C20"
+  :factory/capabilities ["phosphate-processing" "chemical-manufacturing" "fertilizer-manufacturing"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Groupe_chimique_tunisien"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/sitex"
+  :factory/display-name "SITEX"
+  :factory/country "TN" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "denim-fabric-production" "spinning-weaving-dyeing"]
+  :factory/source-url "https://sitex-denim.com/pages/story-of-sitex/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/arab-potash"
+  :factory/display-name "Arab Potash Company"
+  :factory/country "JO" :factory/isic "C20"
+  :factory/capabilities ["potash-mining" "chemical-manufacturing" "fertilizer-inputs"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Arab_Potash"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/dar-al-dawa"
+  :factory/display-name "Dar Al Dawa"
+  :factory/country "JO" :factory/isic "C21"
+  :factory/capabilities ["pharma-manufacturing" "generic-drug-production"]
+  :factory/source-url "https://www.dadgroup.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/holcim-liban"
+  :factory/display-name "Holcim Liban"
+  :factory/country "LB" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "ready-mix-concrete" "aggregates-production"]
+  :factory/source-url "https://www.holcim.com.lb/who-we-are"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/cevital-agro-industrie"
+  :factory/display-name "Cevital Agro-Industrie"
+  :factory/country "DZ" :factory/isic "C10"
+  :factory/capabilities ["sugar-refining" "edible-oil-processing" "food-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cevital"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Senegal + Cameroon + Zambia + Zimbabwe + Rwanda — food/beverage / cement / copper / textiles (C10/C13/C23/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/sn/sonacos"
+  :factory/display-name "Sonacos SA (formerly Suneor)"
+  :factory/country "SN" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "edible-oil-production" "peanut-processing"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Sonacos"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/sococim-industries"
+  :factory/display-name "Sococim Industries"
+  :factory/country "SN" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "building-materials"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Sococim_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/cicam"
+  :factory/display-name "CICAM (Cotonniere Industrielle du Cameroun)"
+  :factory/country "CM" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "cotton-weaving" "fabric-dyeing"]
+  :factory/source-url "https://cicam.cm/presentation/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/zambia-sugar"
+  :factory/display-name "Zambia Sugar Plc"
+  :factory/country "ZM" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "sugar-manufacturing" "agro-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Zambia_Sugar"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/mopani-copper-mines"
+  :factory/display-name "Mopani Copper Mines Plc"
+  :factory/country "ZM" :factory/isic "C24"
+  :factory/capabilities ["copper-smelting" "copper-refining" "cobalt-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mopani_Copper_Mines"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/national-foods-holdings"
+  :factory/display-name "National Foods Holdings Limited"
+  :factory/country "ZW" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "milling" "maize-meal-manufacturing"]
+  :factory/source-url "https://nationalfoods.co.zw/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/ppc-zimbabwe"
+  :factory/display-name "PPC Zimbabwe Limited"
+  :factory/country "ZW" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "building-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/PPC_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/cimerwa"
+  :factory/display-name "CIMERWA Plc"
+  :factory/country "RW" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "limestone-mining"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cimerwa_Cement_Limited"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
