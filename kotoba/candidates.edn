@@ -547,6 +547,23 @@
 ;; not combat vehicles, before including it — the kind of self-check this dataset has come to
 ;; rely on rather than catching after the fact. No drops this batch.
 ;; Running total: 1599 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 47 (/loop pass 47): +44 companies, +0 new countries. First-ever dedicated pass for
+;; four large economies that only had baseline (early-batch) seed rosters going in —
+;; Turkey/Mexico/Poland/Sweden — plus second-pass depth for Sri-Lanka/Chile/Netherlands/
+;; Ireland/Colombia/Portugal. Two drops, both weapons scope, both self-identified by the
+;; research agents' own descriptions rather than caught only at review time: Timoney
+;; Technology Ltd (Ireland, C30) — the agent's own justification text says it "designs and
+;; manufactures complete armoured personnel carriers," a fourth application of the batch-45
+;; combat-vehicle exclusion; and Indumil (Colombia, C25) — Colombia's state arms
+;; manufacturer, whose own capability tags read "firearms-manufacturing, ammunition,
+;; explosives," the most explicit small-arms/ammunition case since Zastava Arms (batch 44).
+;; Three legitimate parent/country-subsidiary keeps confirmed via grep against already-listed
+;; entries, not duplicates: Polpharma (Poland, HQ) alongside its already-listed Kazakhstan
+;; subsidiary Chimpharm/SANTO; Trelleborg AB (Sweden, HQ) alongside its already-listed Malta
+;; subsidiary; and Pintuco (Colombia, HQ — Compañía Global de Pinturas) alongside its
+;; already-listed Honduras subsidiary — the same parent+subsidiary pattern as ArcelorMittal's
+;; three-country presence.
+;; Running total: 1643 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -10372,5 +10389,269 @@
   :factory/country "ZW" :factory/isic "C25"
   :factory/capabilities ["metal-hollowware" "cookware-manufacturing" "aluminium-ware" "steel-fabrication"]
   :factory/source-url "https://tregerproducts.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/turasas"
+  :factory/display-name "TÜRASAŞ (Türkiye Vagon Sanayi)"
+  :factory/country "TR" :factory/isic "C30"
+  :factory/capabilities ["rail-locomotives" "electric-locomotives" "freight-wagons" "railway-rolling-stock"]
+  :factory/source-url "https://www.turasas.gov.tr/history-of-eskisehir-regional-directorate"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/brisa-bridgestone-sabanci"
+  :factory/display-name "Brisa Bridgestone Sabancı Lastik"
+  :factory/country "TR" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "automotive-tires" "tire-production"]
+  :factory/source-url "https://www.brisa.com.tr/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/abdi-ibrahim"
+  :factory/display-name "Abdi İbrahim İlaç San. ve Tic. A.Ş."
+  :factory/country "TR" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biotechnology-manufacturing" "sterile-injectables" "oncology-drugs"]
+  :factory/source-url "https://www.abdiibrahim.com.tr/hakkimizda/tesisler/turkiye/esenyurt-uretim-kompleksi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/dogtas-kelebek-mobilya"
+  :factory/display-name "Doğtaş Kelebek Mobilya"
+  :factory/country "TR" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "wood-furniture" "kitchen-furniture" "bedroom-furniture"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Do%C4%9Fta%C5%9F"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/ulker-biskuvi"
+  :factory/display-name "Ülker Bisküvi Sanayi A.Ş."
+  :factory/country "TR" :factory/isic "C10"
+  :factory/capabilities ["biscuits" "chocolate" "confectionery" "cakes"]
+  :factory/source-url "https://www.ulker.com.tr/en/corporate/turkiye-production-base"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/anadolu-efes"
+  :factory/display-name "Anadolu Efes Biracılık ve Malt Sanayii A.Ş."
+  :factory/country "TR" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-production" "beverage-manufacturing" "bottling"]
+  :factory/source-url "https://www.anadolugroup.com/en/group-companies/beer-group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/becle-jose-cuervo"
+  :factory/display-name "Becle, S.A.B. de C.V. (Jose Cuervo)"
+  :factory/country "MX" :factory/isic "C11"
+  :factory/capabilities ["tequila-distilling" "agave-cultivation" "spirits-blending" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Jose_Cuervo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/lanix"
+  :factory/display-name "Lanix Internacional, S.A. de C.V."
+  :factory/country "MX" :factory/isic "C26"
+  :factory/capabilities ["computer-manufacturing" "mobile-phones" "electronics-assembly" "consumer-electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lanix"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/mabe"
+  :factory/display-name "Mabe, S.A. de C.V."
+  :factory/country "MX" :factory/isic "C27"
+  :factory/capabilities ["home-appliances" "refrigerators" "washing-machines" "cooking-ranges"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mabe_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/cipsa"
+  :factory/display-name "Compañía Industrial de Parras, S.A. de C.V. (CIPSA)"
+  :factory/country "MX" :factory/isic "C13"
+  :factory/capabilities ["denim-weaving" "textile-mills" "cotton-spinning" "fabric-finishing"]
+  :factory/source-url "https://www.encyclopedia.com/books/politics-and-business-magazines/compania-industrial-de-parras-sa-de-cv-cipsa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/duraplay"
+  :factory/display-name "Duraplay de Parral, S.A. de C.V."
+  :factory/country "MX" :factory/isic "C16"
+  :factory/capabilities ["particleboard" "mdf-panels" "plywood" "wood-based-panels"]
+  :factory/source-url "https://duraplayweb.com/en/about-duraplay/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/polpharma"
+  :factory/display-name "Polpharma (Zakłady Farmaceutyczne Polpharma S.A.)"
+  :factory/country "PL" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "active-pharmaceutical-ingredients" "generic-drugs" "oncology-drugs"]
+  :factory/source-url "https://polpharma.pl/en/manufacturing-plants/pharmaceutical-plant-in-starogard-gdanski/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/apator"
+  :factory/display-name "Apator S.A."
+  :factory/country "PL" :factory/isic "C27"
+  :factory/capabilities ["electricity-meters" "gas-metering" "water-metering" "smart-grid-systems"]
+  :factory/source-url "https://www.apator.com/en/apator-group/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/pesa-bydgoszcz"
+  :factory/display-name "PESA Bydgoszcz S.A."
+  :factory/country "PL" :factory/isic "C30"
+  :factory/capabilities ["rail-rolling-stock" "trams" "diesel-multiple-units" "electric-multiple-units"]
+  :factory/source-url "https://pesa.pl/en/about-pesa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/arctic-paper-kostrzyn"
+  :factory/display-name "Arctic Paper Kostrzyn S.A."
+  :factory/country "PL" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "offset-paper" "woodfree-paper" "pulp-processing"]
+  :factory/source-url "https://www.arcticpaper.com/nasze-papiernie/arctic-paper-kostrzyn/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/trefl"
+  :factory/display-name "Trefl S.A."
+  :factory/country "PL" :factory/isic "C32"
+  :factory/capabilities ["jigsaw-puzzles" "board-games" "playing-cards" "toy-manufacturing"]
+  :factory/source-url "https://factory.trefl.com/en/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/polmos-zyrardow-belvedere"
+  :factory/display-name "Polmos Żyrardów (Belvedere Vodka distillery)"
+  :factory/country "PL" :factory/isic "C11"
+  :factory/capabilities ["vodka-distillation" "rye-spirit-rectification" "bottling" "spirits-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Belvedere_Vodka"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/trelleborg"
+  :factory/display-name "Trelleborg AB"
+  :factory/country "SE" :factory/isic "C22"
+  :factory/capabilities ["rubber-manufacturing" "polymer-seals" "industrial-hoses" "antivibration-solutions"]
+  :factory/source-url "https://www.trelleborg.com/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/hexatronic-group"
+  :factory/display-name "Hexatronic Group AB"
+  :factory/country "SE" :factory/isic "C27"
+  :factory/capabilities ["fiber-optic-cables" "cable-manufacturing" "subsea-cable-technology" "network-infrastructure"]
+  :factory/source-url "https://www.hexatronic.com/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/nimbus-group"
+  :factory/display-name "Nimbus Group (Nimbus Boats)"
+  :factory/country "SE" :factory/isic "C30"
+  :factory/capabilities ["boat-building" "leisure-craft-manufacturing" "laminate-hull-production" "powerboats"]
+  :factory/source-url "https://www.nimbusgroup.se/en/section/about-nimbus-group/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/spendrups-bryggeri"
+  :factory/display-name "Spendrups Bryggeri AB"
+  :factory/country "SE" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "malt-beverages" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Spendrups"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/perstorp-group"
+  :factory/display-name "Perstorp Group"
+  :factory/country "SE" :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "organic-acids" "polyols" "formaldehyde"]
+  :factory/source-url "https://www.perstorp.com/en/about/locations/site_perstorp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/lion-brewery-ceylon"
+  :factory/display-name "Lion Brewery (Ceylon) PLC"
+  :factory/country "LK" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "bottling" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lion_Brewery_(Sri_Lanka)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/ceylon-jewelry-manufacturers"
+  :factory/display-name "Ceylon Jewelry Manufacturers (Pvt) Ltd"
+  :factory/country "LK" :factory/isic "C32"
+  :factory/capabilities ["jewelry-manufacturing" "gold-fabrication" "gemstone-setting" "precision-casting"]
+  :factory/source-url "https://www.srilankabusiness.com/exporters-directory/company-profiles/ceylon-jewelry-manufacturers-pvt-ltd/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/alumex"
+  :factory/display-name "Alumex PLC"
+  :factory/country "LK" :factory/isic "C25"
+  :factory/capabilities ["aluminium-extrusion" "powder-coating" "anodizing" "window-door-frames"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alumex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/aitken-spence-printing"
+  :factory/display-name "Aitken Spence Printing & Packaging (Pvt) Ltd"
+  :factory/country "LK" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "packaging-printing" "carton-manufacturing" "label-printing"]
+  :factory/source-url "https://www.aitkenspenceprinting.lk/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/rosen-colchones"
+  :factory/display-name "Rosen (Colchones Rosen S.A.I.C.)"
+  :factory/country "CL" :factory/isic "C31"
+  :factory/capabilities ["mattresses" "bedding" "upholstered-furniture" "foam-manufacturing"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Colchones_Rosen"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/hitega"
+  :factory/display-name "Hitega"
+  :factory/country "CL" :factory/isic "C13"
+  :factory/capabilities ["fabric-weaving" "textile-manufacturing" "uniform-fabrics" "workwear-textiles"]
+  :factory/source-url "https://www.hitega.cl/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/salesianos-impresores"
+  :factory/display-name "Salesianos Impresores S.A."
+  :factory/country "CL" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "book-printing" "bookbinding" "prepress"]
+  :factory/source-url "https://www.asimpres.cl/socios/salesianos-impresores/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/bat-chile"
+  :factory/display-name "BAT Chile (British American Tobacco Chile Operaciones S.A.)"
+  :factory/country "CL" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "tobacco-products" "export-manufacturing"]
+  :factory/source-url "https://www.batchile.com/quienes-somos/acerca-de-bat-chile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/nedschroef"
+  :factory/display-name "Royal Nedschroef Holding B.V."
+  :factory/country "NL" :factory/isic "C25"
+  :factory/capabilities ["fasteners" "cold-forming" "automotive-components" "fastening-technology"]
+  :factory/source-url "https://www.prnewswire.co.uk/news-releases/nedschroef-expands-its-headquarters-678255333.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/alfen"
+  :factory/display-name "Alfen N.V."
+  :factory/country "NL" :factory/isic "C27"
+  :factory/capabilities ["transformer-substations" "ev-chargers" "energy-storage-systems" "power-electronics"]
+  :factory/source-url "https://alfen.com/en/news/we-ve-moved-into-our-new-headquarters-in-almere"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/trespa-international"
+  :factory/display-name "Trespa International B.V."
+  :factory/country "NL" :factory/isic "C16"
+  :factory/capabilities ["hpl-panels" "wood-fiber-composites" "facade-cladding" "decorative-surfaces"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Trespa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/royal-coster-diamonds"
+  :factory/display-name "Royal Coster Diamonds"
+  :factory/country "NL" :factory/isic "C32"
+  :factory/capabilities ["diamond-cutting" "diamond-polishing" "jewelry-manufacturing" "gemstone-craftsmanship"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Coster_Diamonds"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/oneills"
+  :factory/display-name "O'Neills (Irish International Sports Company Ltd)"
+  :factory/country "IE" :factory/isic "C14"
+  :factory/capabilities ["sportswear-manufacturing" "teamwear" "jersey-knitting" "cut-and-sew"]
+  :factory/source-url "https://en.wikipedia.org/wiki/O%27Neills"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/kingspan-group"
+  :factory/display-name "Kingspan Group plc"
+  :factory/country "IE" :factory/isic "C22"
+  :factory/capabilities ["insulated-panels" "rigid-foam-insulation" "plastic-composite-panels" "building-envelope-products"]
+  :factory/source-url "https://www.engineersireland.ie/Engineers-Journal/More/Sponsored/bringing-powerpanel-to-kingspans-manufacturing-facility-at-kingscourt"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/farran-technology"
+  :factory/display-name "Farran Technology Ltd"
+  :factory/country "IE" :factory/isic "C26"
+  :factory/capabilities ["millimeter-wave-components" "waveguide-manufacturing" "rf-test-systems" "frequency-converters"]
+  :factory/source-url "https://farran.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/tablemac"
+  :factory/display-name "Tablemac"
+  :factory/country "CO" :factory/isic "C16"
+  :factory/capabilities ["mdf-panels" "wood-fiberboard" "particleboard" "wood-products"]
+  :factory/source-url "https://www.larepublica.co/empresas/la-nueva-planta-de-tablemac-en-barbosa-antioquia-comenzara-a-operar-en-abril-2005945"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/pintuco"
+  :factory/display-name "Pintuco (Compañía Global de Pinturas)"
+  :factory/country "CO" :factory/isic "C20"
+  :factory/capabilities ["paints-coatings" "varnishes" "printing-inks" "industrial-coatings"]
+  :factory/source-url "https://www.pintuco.com.co/historia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/cotecmar"
+  :factory/display-name "COTECMAR"
+  :factory/country "CO" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "naval-vessels" "patrol-boats" "ship-repair"]
+  :factory/source-url "https://www.semana.com/mejor-colombia/articulo/industria-naval-de-talla-mundial-asi-se-convirtio-cotecmar-en-referente-de-ingenieria-construccion-e-innovacion-tecnologica/202659/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/adira"
+  :factory/display-name "ADIRA – Metal Forming Solutions, S.A."
+  :factory/country "PT" :factory/isic "C28"
+  :factory/capabilities ["press-brakes" "laser-cutting-machines" "guillotine-shears" "sheet-metal-forming"]
+  :factory/source-url "https://adira.pt/empresa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/martifer"
+  :factory/display-name "Martifer – Construções Metalomecânicas, S.A."
+  :factory/country "PT" :factory/isic "C25"
+  :factory/capabilities ["steel-structures" "wind-towers" "structural-steel-fabrication" "hot-dip-galvanizing"]
+  :factory/source-url "https://www.martifer.pt/pt/contactos"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/simoldes-plasticos"
+  :factory/display-name "Simoldes Plásticos (Grupo Simoldes)"
+  :factory/country "PT" :factory/isic "C22"
+  :factory/capabilities ["plastic-injection-molding" "automotive-components" "thermoplastic-parts" "mold-tooling"]
+  :factory/source-url "https://www.simoldes.com/en/plastics-companies/simoldes-plasticos/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/impetus-portugal"
+  :factory/display-name "Impetus Portugal – Têxteis, S.A."
+  :factory/country "PT" :factory/isic "C14"
+  :factory/capabilities ["mens-underwear" "seamless-knitwear" "nightwear" "cut-and-sew"]
+  :factory/source-url "https://eco.sapo.pt/reportagem/das-cuecas-garridas-ao-fio-reciclado-casal-figueiredo-pos-impetus-no-mapa-textil/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
