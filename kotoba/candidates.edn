@@ -264,6 +264,13 @@
 ;; Corporation — different country, different physical factory, same precedent as Tata Steel
 ;; UK/India and Nestlé S.A./Nestlé Nigeria.
 ;; Running total: 757 companies / 105 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 26 (/loop pass 26): +30 companies, +0 new countries — full-roster depth for the 5
+;; countries that entered the dataset last batch at a single apparel entry each (El
+;; Salvador/Haiti/Madagascar/Nicaragua/Guatemala all get a genuinely different second
+;; industry), plus 9 more established countries (New Zealand/Bahrain,
+;; Dominican Republic/Albania/Cambodia/Honduras/Lebanon/Kazakhstan/Norway). Thin-ISIC round 18
+;; across C18/C22/C31 — zero duplicates this batch, a clean run.
+;; Running total: 787 companies / 105 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -5003,4 +5010,192 @@
   :factory/country "PL" :factory/isic "C15"
   :factory/capabilities ["leather-footwear" "shoe-manufacturing" "leather-goods"]
   :factory/source-url "https://www.wojas.eu/en_EU/company/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — El Salvador/Haiti/Madagascar/Nicaragua/Guatemala/New Zealand/Bahrain (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/sv/productos-alimenticios-diana"
+  :factory/display-name "Productos Alimenticios Diana"
+  :factory/country "SV" :factory/isic "C10"
+  :factory/capabilities ["snack-food-manufacturing" "cookie-production" "confectionery" "food-processing"]
+  :factory/source-url "https://www.productosdiana.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/rhum-barbancourt"
+  :factory/display-name "Société du Rhum Barbancourt"
+  :factory/country "HT" :factory/isic "C11"
+  :factory/capabilities ["rum-distilling" "sugarcane-processing" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rhum_Barbancourt"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/ambatovy"
+  :factory/display-name "Ambatovy"
+  :factory/country "MG" :factory/isic "C24"
+  :factory/capabilities ["nickel-refining" "cobalt-refining" "ore-processing" "metal-smelting"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ambatovy_mine"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/compania-licorera"
+  :factory/display-name "Compañía Licorera de Nicaragua"
+  :factory/country "NI" :factory/isic "C11"
+  :factory/capabilities ["rum-distilling" "sugarcane-processing" "barrel-aging" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Flor_de_Ca%C3%B1a"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/cementos-progreso"
+  :factory/display-name "Cementos Progreso"
+  :factory/country "GT" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "concrete-production" "lime-production"]
+  :factory/source-url "https://progreso.com/about-progreso/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/fisher-and-paykel-healthcare"
+  :factory/display-name "Fisher & Paykel Healthcare"
+  :factory/country "NZ" :factory/isic "C32"
+  :factory/capabilities ["medical-device-manufacturing" "respiratory-equipment-production" "product-assembly-and-testing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fisher_%26_Paykel_Healthcare"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/gpic"
+  :factory/display-name "Gulf Petrochemical Industries Company (GPIC)"
+  :factory/country "BH" :factory/isic "C20"
+  :factory/capabilities ["ammonia-production" "methanol-production" "urea-production" "fertilizer-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gulf_Petrochemical_Industries_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Dominican Republic/Albania/Cambodia/Honduras/Lebanon/Kazakhstan/Norway (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/do/central-romana"
+  :factory/display-name "Central Romana Corporation"
+  :factory/country "DO" :factory/isic "C10"
+  :factory/capabilities ["sugar-milling" "raw-sugar-production" "refined-sugar" "construction-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Central_Romana_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/donianna"
+  :factory/display-name "DoniAnna"
+  :factory/country "AL" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "shoe-assembly" "export-production"]
+  :factory/source-url "https://donianna.al/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/a-and-j-cambodia"
+  :factory/display-name "A&J (Cambodia) Co., Ltd"
+  :factory/country "KH" :factory/isic "C30"
+  :factory/capabilities ["bicycle-manufacturing" "frame-welding" "alloy-rim-production" "bicycle-assembly"]
+  :factory/source-url "https://www.phnompenhpost.com/business/kingdoms-bicycle-exports-top-500m"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/cementos-argos-honduras"
+  :factory/display-name "Cementos Argos Honduras"
+  :factory/country "HN" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "ready-mix-concrete" "construction-materials"]
+  :factory/source-url "https://honduras.argos.co/argos-honduras/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/chateau-ksara"
+  :factory/display-name "Château Ksara"
+  :factory/country "LB" :factory/isic "C11"
+  :factory/capabilities ["wine-production" "bottling" "vineyard-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ch%C3%A2teau_Ksara"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/ulba-metallurgical-plant"
+  :factory/display-name "Ulba Metallurgical Plant"
+  :factory/country "KZ" :factory/isic "C24"
+  :factory/capabilities ["nuclear-fuel-pellet-manufacturing" "uranium-processing" "beryllium-products" "tantalum-niobium-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ulba_Metallurgical_Plant"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/tomra-systems"
+  :factory/display-name "TOMRA Systems ASA"
+  :factory/country "NO" :factory/isic "C28"
+  :factory/capabilities ["reverse-vending-machine-manufacturing" "sorting-machine-manufacturing" "recycling-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tomra"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 18a — rubber-plastics / furniture (C22/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/sumitomo-rubber"
+  :factory/display-name "Sumitomo Rubber Industries, Ltd."
+  :factory/country "JP" :factory/isic "C22"
+  :factory/capabilities ["tires" "rubber-products" "golf-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sumitomo_Rubber_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/mrf"
+  :factory/display-name "MRF Limited"
+  :factory/country "IN" :factory/isic "C22"
+  :factory/capabilities ["tyres" "tubes" "conveyor-belts" "rubber-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/MRF_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/gerresheimer"
+  :factory/display-name "Gerresheimer AG"
+  :factory/country "DE" :factory/isic "C22"
+  :factory/capabilities ["plastic-packaging" "glass-packaging" "pharma-devices"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gerresheimer"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/aptargroup"
+  :factory/display-name "AptarGroup, Inc."
+  :factory/country "US" :factory/isic "C22"
+  :factory/capabilities ["plastic-dispensing" "closures" "pumps" "drug-delivery"]
+  :factory/source-url "https://aptar.com/en-us/about-aptar"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/nobilia"
+  :factory/display-name "nobilia-Werke J. Stickling GmbH & Co. KG"
+  :factory/country "DE" :factory/isic "C31"
+  :factory/capabilities ["kitchen-furniture" "cabinetry"]
+  :factory/source-url "https://www.nobilia.de/en/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hanssem"
+  :factory/display-name "Hanssem Co., Ltd."
+  :factory/country "KR" :factory/isic "C31"
+  :factory/capabilities ["home-furniture" "kitchen-furniture" "interior-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hanssem"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/bene"
+  :factory/display-name "Bene AG"
+  :factory/country "AT" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "workplace-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bene_AG"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/suofeiya"
+  :factory/display-name "Suofeiya Home Collection Co., Ltd."
+  :factory/country "CN" :factory/isic "C31"
+  :factory/capabilities ["custom-cabinetry" "wardrobes" "kitchen-furniture"]
+  :factory/source-url "https://www.sofeyiahome.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 18b — printing (C18) ════════════
+ {:factory/did "candidate:manufacturer-directory/ch/orell-fussli"
+  :factory/display-name "Orell Füssli Holding AG"
+  :factory/country "CH" :factory/isic "C18"
+  :factory/capabilities ["security-printing" "banknote-printing" "publishing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Orell_F%C3%BCssli"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/shenzhen-jinjia"
+  :factory/display-name "Shenzhen Jinjia Group Co., Ltd."
+  :factory/country "CN" :factory/isic "C18"
+  :factory/capabilities ["packaging-printing" "cigarette-packaging" "carton-printing" "anti-counterfeiting-printing"]
+  :factory/source-url "https://www.jinjia.com/en/about.aspx"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/ive-group"
+  :factory/display-name "IVE Group Limited"
+  :factory/country "AU" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "marketing-print" "catalogue-printing" "point-of-sale-printing"]
+  :factory/source-url "https://www.ivegroup.com.au/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/manipal-technologies"
+  :factory/display-name "Manipal Technologies Limited"
+  :factory/country "IN" :factory/isic "C18"
+  :factory/capabilities ["security-printing" "banking-card-printing" "commercial-printing" "digital-printing"]
+  :factory/source-url "https://manipaltechnologies.com/secure/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/wilco"
+  :factory/display-name "Wilco B.V."
+  :factory/country "NL" :factory/isic "C18"
+  :factory/capabilities ["book-printing" "magazine-printing" "binding" "catalogue-printing"]
+  :factory/source-url "https://www.wilco.nl/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/postnord-stralfors"
+  :factory/display-name "PostNord Strålfors AB"
+  :factory/country "SE" :factory/isic "C18"
+  :factory/capabilities ["transactional-printing" "invoice-printing" "direct-mail-printing" "customer-communication-printing"]
+  :factory/source-url "https://www.stralfors.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/grano"
+  :factory/display-name "Grano Oy"
+  :factory/country "FI" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "large-format-printing" "packaging-and-labels" "book-printing"]
+  :factory/source-url "https://www.grano.fi/en/contact-information/vantaa/headquarters"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/komsco"
+  :factory/display-name "Korea Minting, Security Printing and ID Card Operating Corporation (KOMSCO)"
+  :factory/country "KR" :factory/isic "C18"
+  :factory/capabilities ["banknote-printing" "security-printing" "passport-printing" "stamp-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Korea_Minting_and_Security_Printing_Corporation"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
