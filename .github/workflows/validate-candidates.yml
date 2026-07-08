@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: babashka/setup-babashka@v2
-        with:
-          babashka-version: "1.3.191"
+      - name: install babashka
+        run: curl -sLO https://raw.githubusercontent.com/babashka/babashka/master/install && chmod +x install && sudo ./install
       - run: bb kotoba/validate_candidates.bb kotoba/candidates.edn
