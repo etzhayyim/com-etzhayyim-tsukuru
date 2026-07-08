@@ -109,6 +109,23 @@
 ;; that step is now non-negotiable, not just for spot-checks.
 ;; Running total: 430 companies / 93 countries / 23 ISIC divisions, zero duplicate DIDs — within
 ;; 30 of the original registry's "460+ manufacturers" scale reference.
+;; Batch 13 (/loop pass 13): +34 companies, +1 new country (KW) — third entry for 18
+;; previously-2-entry countries across Central/Eastern Europe+Caucasus (pharma-heavy: Krka,
+;; Gedeon Richter, Antibiotice, Grindeks, Saneca — plus Azersun food, Preciosa crystal glass,
+;; DuPont Luxembourg nonwovens, Playmobil Malta toys, Kerry Group Ireland food ingredients) and
+;; Latin America+Caribbean+Pacific+Hong Kong (Michell y Cía Peru alpaca textiles, Tecnoquímicas
+;; Colombia pharma, Johnson Electric Hong Kong motors, SQM Chile lithium chemicals, PNG Forest
+;; Products, Pratima Fiji pharma, La Aurora Dominican cigars, Wisynco Jamaica plastics); thin-
+;; ISIC round 5 across C12/C15/C17/C18/C19/C25/C32, adding Kuwait (Kuwait National Petroleum,
+;; C19) as a new country. Dropped 2 more duplicate agent picks (IDS Borjomi Georgia and
+;; Methanol Holdings Trinidad — both re-surfaced from batches 7/8) via the pre-append grep.
+;; **This batch crosses the original registry's "460+ manufacturers" scale reference**: running
+;; total 464 companies / 94 countries / 23 ISIC divisions, zero duplicate DIDs. Country count
+;; (94) already far exceeds the "30+ countries" reference from the same source. This is still
+;; :sourcing :public-directory reference data, not the onboarded/live :factory registry — see
+;; the file header above and CLAUDE.md's Manufacturer Registry Rules — but the scale target
+;; that originally motivated the "460+" figure in manifest.edn/CLAUDE.md is now matched by real,
+;; sourced, verifiable public-directory entries rather than an unverified legacy assumption.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -2802,4 +2819,216 @@
   :factory/country "HK" :factory/isic "C31"
   :factory/capabilities ["sofas" "motion-furniture" "mattresses"]
   :factory/source-url "https://www.manwah.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Third entry — Central/Eastern Europe + Caucasus (SI/HU/RO/AZ/LV/SK/CZ/LU/MT/IE) ════════════
+ {:factory/did "candidate:manufacturer-directory/si/krka"
+  :factory/display-name "Krka d.d."
+  :factory/country "SI" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generic-drugs" "active-ingredients"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Krka_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/gedeon-richter"
+  :factory/display-name "Gedeon Richter Plc"
+  :factory/country "HU" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biotechnology" "hormone-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gedeon_Richter_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/antibiotice"
+  :factory/display-name "Antibiotice S.A."
+  :factory/country "RO" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "active-pharmaceutical-ingredients" "antibiotics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Antibiotice_Ia%C8%99i"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/azersun-holding"
+  :factory/display-name "Azersun Holding"
+  :factory/country "AZ" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "sugar-refining" "tea-packing" "edible-oils"]
+  :factory/source-url "https://azersun.com/en/activity-fields/qida/sun-tea-cay-fabriki"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/grindeks"
+  :factory/display-name "Grindeks"
+  :factory/country "LV" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "active-pharmaceutical-ingredients" "generics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Grindeks"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/saneca-pharmaceuticals"
+  :factory/display-name "Saneca Pharmaceuticals a.s."
+  :factory/country "SK" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "active-pharmaceutical-ingredients" "contract-manufacturing"]
+  :factory/source-url "https://saneca.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/preciosa"
+  :factory/display-name "Preciosa a.s."
+  :factory/country "CZ" :factory/isic "C23"
+  :factory/capabilities ["crystal-glass" "glass-beads" "crystal-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Preciosa_(corporation)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/dupont-de-nemours-luxembourg"
+  :factory/display-name "DuPont de Nemours (Luxembourg) S.à r.l."
+  :factory/country "LU" :factory/isic "C22"
+  :factory/capabilities ["nonwoven-materials" "tyvek-production" "technical-plastics"]
+  :factory/source-url "https://www.dupont.com/locations/welcome-to-dupont-luxembourg.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/playmobil-malta"
+  :factory/display-name "Playmobil Malta Ltd"
+  :factory/country "MT" :factory/isic "C32"
+  :factory/capabilities ["toy-manufacturing" "injection-molding"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Playmobil_FunPark"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/kerry-group"
+  :factory/display-name "Kerry Group plc"
+  :factory/country "IE" :factory/isic "C10"
+  :factory/capabilities ["food-ingredients" "flavours" "food-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kerry_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Third entry — Latin America + Caribbean + Pacific + Hong Kong (PE/CO/CL/PG/FJ/DO/JM/HK) ════════════
+ {:factory/did "candidate:manufacturer-directory/pe/michell-y-cia"
+  :factory/display-name "Michell y Cía S.A."
+  :factory/country "PE" :factory/isic "C13"
+  :factory/capabilities ["textiles" "alpaca-fiber-processing" "spinning" "yarn-production"]
+  :factory/source-url "https://www.michell.com.pe/michell/about-us/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/tecnoquimicas"
+  :factory/display-name "Tecnoquímicas S.A."
+  :factory/country "CO" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generic-drugs" "personal-care-products" "diaper-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tecnoqu%C3%ADmicas"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/johnson-electric-holdings"
+  :factory/display-name "Johnson Electric Holdings Limited"
+  :factory/country "HK" :factory/isic "C27"
+  :factory/capabilities ["electric-motors" "actuators" "motion-subsystems" "electro-mechanical-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Johnson_Electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/sqm"
+  :factory/display-name "Sociedad Química y Minera de Chile (SQM)"
+  :factory/country "CL" :factory/isic "C20"
+  :factory/capabilities ["lithium-chemicals" "lithium-carbonate" "lithium-hydroxide" "industrial-chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sociedad_Qu%C3%ADmica_y_Minera"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/png-forest-products"
+  :factory/display-name "PNG Forest Products Limited"
+  :factory/country "PG" :factory/isic "C16"
+  :factory/capabilities ["plywood-manufacturing" "sawmilling" "treated-pine-timber" "engineered-wood-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bulolo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/pratima-pharmaceutical-industries"
+  :factory/display-name "Pratima Pharmaceutical Industries"
+  :factory/country "FJ" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "essential-medicines"]
+  :factory/source-url "https://www.pharmaceuticals.com.fj/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/la-aurora-cigars"
+  :factory/display-name "La Aurora Cigars"
+  :factory/country "DO" :factory/isic "C12"
+  :factory/capabilities ["cigar-manufacturing" "tobacco-processing"]
+  :factory/source-url "https://www.laaurora.com.do/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/wisynco-group"
+  :factory/display-name "Wisynco Group Limited"
+  :factory/country "JM" :factory/isic "C22"
+  :factory/capabilities ["plastics-manufacturing" "foam-containers" "packaging" "synthetics"]
+  :factory/source-url "https://wisynco.com/about-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 5a — petroleum refining / tobacco / paper (C12/C17/C19) ════════════
+ {:factory/did "candidate:manufacturer-directory/br/petrobras"
+  :factory/display-name "Petrobras"
+  :factory/country "BR" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "upstream-integrated" "research-cenpes"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Petrobras"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/thai-oil"
+  :factory/display-name "Thai Oil Public Company Limited"
+  :factory/country "TH" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "lubricants" "fuel-distribution"]
+  :factory/source-url "https://www.thaioilgroup.com/en/about/oil-refinery/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/kuwait-national-petroleum"
+  :factory/display-name "Kuwait National Petroleum Company"
+  :factory/country "KW" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "gas-processing" "petroleum-products" "fuel-export"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kuwait_National_Petroleum_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/itc-limited"
+  :factory/display-name "ITC Limited"
+  :factory/country "IN" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "fmcg-diversified"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ITC_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/scandinavian-tobacco-group"
+  :factory/display-name "Scandinavian Tobacco Group"
+  :factory/country "DK" :factory/isic "C12"
+  :factory/capabilities ["cigar-manufacturing" "pipe-tobacco" "tobacco-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Scandinavian_Tobacco_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/stora-enso"
+  :factory/display-name "Stora Enso"
+  :factory/country "FI" :factory/isic "C17"
+  :factory/capabilities ["pulp-production" "paper-manufacturing" "packaging-board" "forestry"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Stora_Enso"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/klabin"
+  :factory/display-name "Klabin"
+  :factory/country "BR" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "pulp-production" "packaging-board" "corrugated-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Klabin"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/mondi-group"
+  :factory/display-name "Mondi Group"
+  :factory/country "GB" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "packaging" "pulp-production" "industrial-bags"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mondi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 5b — fabricated metal / other manufacturing / printing / leather (C15/C18/C25/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/de/zwilling-ja-henckels"
+  :factory/display-name "Zwilling J.A. Henckels"
+  :factory/country "DE" :factory/isic "C25"
+  :factory/capabilities ["cutlery" "kitchen-knives" "cookware" "forged-steel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Zwilling_J._A._Henckels"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/tsubakimoto-chain"
+  :factory/display-name "Tsubakimoto Chain Corporation"
+  :factory/country "JP" :factory/isic "C25"
+  :factory/capabilities ["roller-chains" "power-transmission" "conveyor-systems" "sprockets"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tsubakimoto_Chain"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/pandora"
+  :factory/display-name "Pandora A/S"
+  :factory/country "DK" :factory/isic "C32"
+  :factory/capabilities ["jewelry" "charms" "bracelets" "silver-and-gold-work"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pandora_(jewelry)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/fender-musical-instruments"
+  :factory/display-name "Fender Musical Instruments Corporation"
+  :factory/country "US" :factory/isic "C32"
+  :factory/capabilities ["electric-guitars" "basses" "amplifiers" "musical-instruments"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fender_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/multi-color-corporation"
+  :factory/display-name "Multi-Color Corporation"
+  :factory/country "US" :factory/isic "C18"
+  :factory/capabilities ["label-printing" "pressure-sensitive-labels" "shrink-sleeve-labels" "packaging-printing"]
+  :factory/source-url "https://www.mcclabel.com/en/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/constantia-flexibles"
+  :factory/display-name "Constantia Flexibles"
+  :factory/country "AT" :factory/isic "C18"
+  :factory/capabilities ["flexible-packaging-printing" "rotogravure-printing" "laminate-production" "food-and-pharma-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Constantia_Flexibles"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/salvatore-ferragamo"
+  :factory/display-name "Salvatore Ferragamo S.p.A."
+  :factory/country "IT" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "footwear" "handbags" "luxury-accessories"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Salvatore_Ferragamo_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/bata-corporation"
+  :factory/display-name "Bata Corporation"
+  :factory/country "CH" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-shoes" "safety-shoes" "rubber-footwear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bata_Corporation"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
