@@ -19,6 +19,12 @@ B2B factory-direct ordering platform for `tsukuru.etzhayyim.com`.
 - Active collection name: `com.etzhayyim.apps.tsukuru.manufacturer`.
 - Historical collection for migration/read-compat: `com.etzhayyim.apps.tsukuru-api.manufacturer`.
 - Registry scale assumption: 460+ manufacturer DIDs across 30+ countries.
+- `kotoba/candidates.edn` is a separate, explicitly-labeled **public-directory reference
+  dataset** (`:factory/sourcing :public-directory`, `candidate:manufacturer-directory/...`
+  ids, never `did:web:tsukuru.etzhayyim.com/...`) — real companies sourced from their own
+  public sites/Wikipedia, NOT onboarded/registered factories. Do not conflate it with the
+  live `:factory/*` registry above. Validate with `bb kotoba/validate_candidates.bb` before
+  committing changes to it.
 
 ## Write Buffer Rule
 
