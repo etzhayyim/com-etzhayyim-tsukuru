@@ -445,6 +445,19 @@
 ;; exists as a distinct manufacturer versus having been folded into Ela Motors' operations, an
 ;; entity-identity verification failure rather than a scope/ethics concern.
 ;; Running total: 1323 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 40 (/loop pass 40): +43 companies, +0 new countries. This is the 40th consecutive
+;; /loop batch. Full second-pass depth for 10 countries already at the 10-entry floor
+;; (Argentina/Denmark/Finland/Croatia/Georgia/Hungary/Kuwait/Romania/Qatar/New-Zealand),
+;; each prompted "quality over quantity, 0 is fine" against its exact existing roster to
+;; avoid re-suggesting already-listed companies. All ten yielded real additions (3-5 each),
+;; confirming — as with the batch-39 second passes — that a single research pass per country
+;; does not exhaust genuine candidates even for already-well-covered economies. Fifth BAT
+;; country-subsidiary keep: British American Tobacco Romania, alongside the UK (HQ)/Kenya/
+;; Nigeria/Cambodia entries. No drops this batch — every candidate cleared the genuine-
+;; owned-factory, currently-operating, and civilian-scope bars; several agents explicitly
+;; flagged and excluded recently-closed plants (e.g. Argentina's FATE S.A. tire plant,
+;; closed February 2026) rather than including stale entries.
+;; Running total: 1366 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -8614,5 +8627,263 @@
   :factory/country "MT" :factory/isic "C20"
   :factory/capabilities ["laundry-detergents" "household-cleaners" "fabric-conditioners" "private-label-manufacturing"]
   :factory/source-url "https://www.dropchemicals.com.mt/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/invap"
+  :factory/display-name "INVAP S.E."
+  :factory/country "AR" :factory/isic "C26"
+  :factory/capabilities ["satellites" "radar-systems" "nuclear-instrumentation" "precision-optics"]
+  :factory/source-url "https://www.invap.com.ar/en/the-company/overview/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/newsan"
+  :factory/display-name "Newsan S.A."
+  :factory/country "AR" :factory/isic "C27"
+  :factory/capabilities ["air-conditioners" "home-appliances" "microwave-ovens" "electronics-assembly"]
+  :factory/source-url "https://www.forbesargentina.com/negocios/como-son-plantas-tierra-fuego-newsan-emplea-3200-personas-n17858"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/promedon"
+  :factory/display-name "Promedon S.A."
+  :factory/country "AR" :factory/isic "C32"
+  :factory/capabilities ["urological-implants" "surgical-instruments" "medical-devices" "biomedical-manufacturing"]
+  :factory/source-url "https://www.argentina.gob.ar/inti/pymes-exportan/instrumental-medico/edicion-45-octubre-2024/promedon-de-cordoba-al-mundo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/bodega-catena-zapata"
+  :factory/display-name "Bodega Catena Zapata"
+  :factory/country "AR" :factory/isic "C11"
+  :factory/capabilities ["winemaking" "viticulture" "bottling" "beverage-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bodega_Catena_Zapata"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/alba"
+  :factory/display-name "Alba S.A."
+  :factory/country "AR" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "industrial-coatings" "varnishes" "enamels"]
+  :factory/source-url "https://www.alba.com.ar/es/acerca-de-nosotros"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/bang-and-olufsen"
+  :factory/display-name "Bang & Olufsen A/S"
+  :factory/country "DK" :factory/isic "C26"
+  :factory/capabilities ["audio-electronics" "speaker-manufacturing" "aluminum-anodizing" "consumer-electronics"]
+  :factory/source-url "https://www.bang-olufsen.com/en/int/story/inside-the-factory-tour"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/zenvo-automotive"
+  :factory/display-name "Zenvo Automotive A/S"
+  :factory/country "DK" :factory/isic "C29"
+  :factory/capabilities ["hypercar-manufacturing" "carbon-fiber-composites" "engine-assembly" "chassis-fabrication"]
+  :factory/source-url "https://zenvoautomotive.com/brand-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/karstensens-skibsvaerft"
+  :factory/display-name "Karstensens Skibsværft A/S"
+  :factory/country "DK" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "steel-hull-fabrication" "fishing-vessel-construction" "ship-repair"]
+  :factory/source-url "https://karstensens.dk/profile/history.aspx"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/vola"
+  :factory/display-name "VOLA A/S"
+  :factory/country "DK" :factory/isic "C25"
+  :factory/capabilities ["metal-fabrication" "tap-and-faucet-manufacturing" "brass-machining" "plumbing-fixtures"]
+  :factory/source-url "https://specialtyhardware.net/vola-a-legacy-of-timeless-danish-design/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/novonesis"
+  :factory/display-name "Novonesis A/S (formerly Novozymes A/S)"
+  :factory/country "DK" :factory/isic "C20"
+  :factory/capabilities ["industrial-biotechnology" "enzyme-fermentation" "microbial-production" "chemical-processing"]
+  :factory/source-url "https://www.symbiosis.dk/en/novonesis/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/outokumpu"
+  :factory/display-name "Outokumpu Oyj"
+  :factory/country "FI" :factory/isic "C24"
+  :factory/capabilities ["stainless-steel" "ferrochrome" "hot-rolling" "cold-rolling"]
+  :factory/source-url "https://otke-cdn.outokumpu.com/en/locations/torniostainless-steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/vaisala"
+  :factory/display-name "Vaisala Oyj"
+  :factory/country "FI" :factory/isic "C26"
+  :factory/capabilities ["weather-sensors" "meteorological-instruments" "industrial-transmitters" "precision-electronics"]
+  :factory/source-url "https://www.vaisala.com/en/news/2024-11/vaisala-build-new-automated-logistics-center-vantaa-finland"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/valmet-automotive"
+  :factory/display-name "Valmet Automotive Oy"
+  :factory/country "FI" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "contract-manufacturing" "ev-battery-production" "convertible-roof-systems"]
+  :factory/source-url "https://www.valmet-automotive.com/manufacturing/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/meyer-turku"
+  :factory/display-name "Meyer Turku Oy"
+  :factory/country "FI" :factory/isic "C30"
+  :factory/capabilities ["cruise-ship-building" "shipyard-fabrication" "marine-engineering" "steel-hull-construction"]
+  :factory/source-url "https://www.meyerturku.fi/en/company/index.jsp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/orion-corporation"
+  :factory/display-name "Orion Corporation (Orion Oyj)"
+  :factory/country "FI" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-and-capsule-production" "active-pharmaceutical-ingredients" "sterile-injectables"]
+  :factory/source-url "https://www.orionpharma.com/contact-us/locations/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/tdr"
+  :factory/display-name "TDR d.o.o. (Tvornica duhana Rovinj)"
+  :factory/country "HR" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "heated-tobacco-products" "tobacco-processing" "packaging-materials"]
+  :factory/source-url "https://www.croatiaweek.com/british-american-tobacco-takes-over-croatias-tvornica-duhana-rovinj/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/karlovacka-pivovara"
+  :factory/display-name "Heineken Hrvatska d.o.o. (Karlovačka pivovara)"
+  :factory/country "HR" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "bottling" "malting-barley-processing" "beverage-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Karlova%C4%8Dka_pivovara"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/dalstroj"
+  :factory/display-name "Dalstroj d.d."
+  :factory/country "HR" :factory/isic "C28"
+  :factory/capabilities ["deck-machinery" "offshore-equipment" "subsea-systems" "welded-steel-structures"]
+  :factory/source-url "https://www.dalstroj.com/sectors/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/strazaplastika"
+  :factory/display-name "Stražaplastika d.d."
+  :factory/country "HR" :factory/isic "C22"
+  :factory/capabilities ["injection-moulding" "plastic-extrusion" "reusable-crates" "industrial-packaging"]
+  :factory/source-url "https://www.dwreusables.com/press-release/dw-reusables-to-further-expand-its-injection-moulding-portfolio-through-acquisition-of-strazaplastika/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/hunnewell-cement"
+  :factory/display-name "Hunnewell Cement"
+  :factory/country "GE" :factory/isic "C23"
+  :factory/capabilities ["cement-clinker-production" "aggregates" "concrete-mixing" "quarrying"]
+  :factory/source-url "https://beton.ge/en/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/aversi-rational"
+  :factory/display-name "Aversi-Rational LTD"
+  :factory/country "GE" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablets-capsules" "injectable-solutions" "generic-medicines"]
+  :factory/source-url "https://www.rational.ge/en/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/georgian-packaging"
+  :factory/display-name "Georgian Packaging Ltd (Gpackaging)"
+  :factory/country "GE" :factory/isic "C17"
+  :factory/capabilities ["paper-cup-manufacturing" "food-grade-packaging" "kraft-paper-bags" "carton-production"]
+  :factory/source-url "https://www.gpackaging.ge/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/kamp"
+  :factory/display-name "LLC KAMP (Kutaisi Auto Mechanical Plant)"
+  :factory/country "GE" :factory/isic "C28"
+  :factory/capabilities ["mining-equipment" "ropeway-conveyor-systems" "metal-casting" "industrial-machinery"]
+  :factory/source-url "https://www.eu4business-ebrdcreditline.ge/llc-kamp/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/vajda-papir"
+  :factory/display-name "Vajda-Papír Kft."
+  :factory/country "HU" :factory/isic "C17"
+  :factory/capabilities ["tissue-paper" "hygiene-paper" "base-paper" "paper-mill"]
+  :factory/source-url "https://vajdapapir.hu/news/vajda-papir-opened-hungarys-most-innovative-paper-factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/alex-fembutor"
+  :factory/display-name "Alex Fémbútor Kft. (Alex Furniture)"
+  :factory/country "HU" :factory/isic "C31"
+  :factory/capabilities ["school-furniture" "metal-furniture" "office-furniture" "powder-coating"]
+  :factory/source-url "https://alexbutor.hu/eng.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/steelvent"
+  :factory/display-name "Steelvent Zrt."
+  :factory/country "HU" :factory/isic "C25"
+  :factory/capabilities ["steel-wire" "fencing-systems" "gabions" "wire-drawing"]
+  :factory/source-url "https://www.steelvent.hu/en/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/hevesgep"
+  :factory/display-name "Hevesgép Kft."
+  :factory/country "HU" :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery" "grain-drying-equipment" "livestock-machinery" "tillage-equipment"]
+  :factory/source-url "https://hevesgep.hu/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/gulf-paper-manufacturing"
+  :factory/display-name "Gulf Paper Manufacturing Company (GPMC)"
+  :factory/country "KW" :factory/isic "C17"
+  :factory/capabilities ["paper-mill" "kraft-paper" "tissue-paper" "recycled-paper"]
+  :factory/source-url "https://www.gulfpaper.com/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/refrigeration-industries"
+  :factory/display-name "Refrigeration Industries Company (RIC)"
+  :factory/country "KW" :factory/isic "C28"
+  :factory/capabilities ["air-conditioning-systems" "chillers" "cooling-equipment" "coil-manufacturing"]
+  :factory/source-url "https://ric.com.kw/en/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/heisco"
+  :factory/display-name "Heavy Engineering Industries & Shipbuilding Co. (HEISCO)"
+  :factory/country "KW" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "ship-repair" "offshore-fabrication" "marine-engineering"]
+  :factory/source-url "https://www.heisco.com/shipyard.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/bat-romania"
+  :factory/display-name "British American Tobacco Romania"
+  :factory/country "RO" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "heated-tobacco-consumables" "export-manufacturing"]
+  :factory/source-url "https://www.romania-insider.com/bat-expands-factory-romania"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/electroarges"
+  :factory/display-name "Electroargeș S.A."
+  :factory/country "RO" :factory/isic "C27"
+  :factory/capabilities ["household-appliances" "power-tools" "small-motors" "hair-dryers-and-vacuum-cleaners"]
+  :factory/source-url "https://electroarges.ro/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/romaqua-group-borsec"
+  :factory/display-name "Romaqua Group Borsec S.A."
+  :factory/country "RO" :factory/isic "C11"
+  :factory/capabilities ["mineral-water-bottling" "beverage-production" "soft-drinks" "beer-production"]
+  :factory/source-url "https://romaqua-group.ro/en/company/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/flex-romania"
+  :factory/display-name "Flex Romania (Flextronics Romania SRL)"
+  :factory/country "RO" :factory/isic "C26"
+  :factory/capabilities ["electronics-manufacturing-services" "pcb-assembly" "contract-manufacturing" "medical-device-assembly"]
+  :factory/source-url "https://flex.com/careers/romania-en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/imprimeria-nationala"
+  :factory/display-name "Compania Națională Imprimeria Națională S.A."
+  :factory/country "RO" :factory/isic "C18"
+  :factory/capabilities ["security-document-printing" "tax-stamp-production" "passport-printing" "offset-printing"]
+  :factory/source-url "https://www.cnin.ro/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/napico"
+  :factory/display-name "National Paper Industries Co. (NAPICO)"
+  :factory/country "QA" :factory/isic "C17"
+  :factory/capabilities ["tissue-paper" "paper-converting" "toilet-rolls" "kitchen-towels"]
+  :factory/source-url "https://www.napico.com.qa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/al-waraq-printing-press"
+  :factory/display-name "Al Waraq Printing Press (AWPP)"
+  :factory/country "QA" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "digital-printing" "commercial-packaging" "web-printing"]
+  :factory/source-url "https://www.alwaraq.qa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/almuftah-carpentry"
+  :factory/display-name "Almuftah Carpentry (Almuftah Furniture & Decoration)"
+  :factory/country "QA" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "wooden-doors" "joinery" "kitchen-cabinets"]
+  :factory/source-url "https://www.qdb.qa/develop-your-business/access-to-global-markets/exporters-directory/exporter/almuftah-carpentry"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/gulf-carpet-factory"
+  :factory/display-name "Gulf Carpet Factory"
+  :factory/country "QA" :factory/isic "C13"
+  :factory/capabilities ["hand-tufted-carpets" "wool-rugs" "carpet-manufacturing" "custom-rugs"]
+  :factory/source-url "https://www.qdb.qa/develop-your-business/access-to-global-markets/exporters-directory/exporter/gulf-carpet-factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/scott-technology"
+  :factory/display-name "Scott Technology Limited (Scott Automation)"
+  :factory/country "NZ" :factory/isic "C28"
+  :factory/capabilities ["industrial-robotics" "automation-systems" "meat-processing-equipment" "mining-lab-equipment"]
+  :factory/source-url "https://www.nzherald.co.nz/nz/dunedin-robotics-factory-deeply-saddened-by-workers-death-worksafe-investigating/GWPJZR3B2ZHAXHJAI34J2LDWYQ/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/tait-communications"
+  :factory/display-name "Tait Communications (Tait International Limited)"
+  :factory/country "NZ" :factory/isic "C26"
+  :factory/capabilities ["two-way-radios" "land-mobile-radio" "communications-equipment" "smt-manufacturing"]
+  :factory/source-url "https://www.taitcommunications.com/en/about-us/news/tait-talks-new-zealand-manufacturing-facility-sets-tait-communications-apart"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/ballance-agri-nutrients"
+  :factory/display-name "Ballance Agri-Nutrients Limited"
+  :factory/country "NZ" :factory/isic "C20"
+  :factory/capabilities ["fertiliser-manufacturing" "urea-production" "superphosphate" "agri-chemicals"]
+  :factory/source-url "https://ballance.co.nz/our-business-and-history/manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/moa-brewing"
+  :factory/display-name "Moa Brewing Company"
+  :factory/country "NZ" :factory/isic "C11"
+  :factory/capabilities ["craft-brewing" "beer-manufacturing" "cider-manufacturing" "canning"]
+  :factory/source-url "https://moabeer.com/pages/our-story"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
