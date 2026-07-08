@@ -401,6 +401,20 @@
 ;; (raw-material sourcing legality vs. weapons/sanctioned-entity scope), noted here for
 ;; transparency rather than acted on. No drops this batch.
 ;; Running total: 1181 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 37 (/loop pass 37): +48 companies, +0 new countries. Full-roster depth for 10
+;; countries at the 6-entry floor (Jordan/Côte-d'Ivoire/Uzbekistan/Tunisia/Iceland/Tanzania/
+;; Lithuania/Bulgaria/Israel/Vietnam). Targeted the thinnest ISIC divisions going in (C32/
+;; C14/C16/C19/C29/C11/C30/C12/C18/C26) alongside broad fill elsewhere. Iceland yielded only
+;; 4 of the requested 5 (small formal manufacturing base outside aluminium/fish, consistent
+;; with prior small-economy passes). One drop, applying the batch-33 weapons/ammunition scope
+;; precedent for the first time to a non-Bosnian entry: VMZ Sopot EAD (Bulgaria, C25) — a
+;; real, verifiable state armaments factory manufacturing artillery/mortar ammunition and
+;; fuzes, excluded on the same export-control/reputational scope grounds as Igman d.d. Konjic
+;; (batch 33), distinct from the military-aircraft/avionics entries kept elsewhere in the
+;; dataset (Israel Aerospace Industries, added this same batch, was deliberately researched
+;; and tagged around aircraft/satellites/UAV/avionics rather than munitions, following the
+;; established Elbit Systems / FAdeA / Aircraft Industries precedent).
+;; Running total: 1229 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -7718,5 +7732,293 @@
   :factory/country "BH" :factory/isic "C31"
   :factory/capabilities ["wooden-furniture" "kitchen-cabinetry" "office-furniture" "fire-rated-doors"]
   :factory/source-url "https://www.aldarbh.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/fine-hygienic-holding"
+  :factory/display-name "Fine Hygienic Holding (Nuqul Group)"
+  :factory/country "JO" :factory/isic "C17"
+  :factory/capabilities ["tissue-paper" "paper-milling" "hygiene-products" "diaper-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fine_Hygienic_Holding"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/al-ekbal-printing-and-packaging"
+  :factory/display-name "Al-Ekbal Printing and Packaging Co. PSC"
+  :factory/country "JO" :factory/isic "C18"
+  :factory/capabilities ["carton-printing" "folding-boxes" "pharma-packaging" "cosmetics-packaging"]
+  :factory/source-url "https://www.exchange.jo/en/company_historical/EKPC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/cableco"
+  :factory/display-name "National Cable and Wire Manufacturing Company (Cableco)"
+  :factory/country "JO" :factory/isic "C27"
+  :factory/capabilities ["power-cables" "wire-manufacturing" "pvc-insulated-cable" "xlpe-cable"]
+  :factory/source-url "https://cableco.com.jo/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/jordan-petroleum-refinery"
+  :factory/display-name "Jordan Petroleum Refinery Company (JPRC)"
+  :factory/country "JO" :factory/isic "C19"
+  :factory/capabilities ["crude-oil-refining" "asphalt" "lubricants" "fuel-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Jordan_Petroleum_Refinery_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/jordan-worsted-mills"
+  :factory/display-name "The Jordan Worsted Mills Co. PSC"
+  :factory/country "JO" :factory/isic "C13"
+  :factory/capabilities ["worsted-wool-fabric" "yarn-spinning" "weaving" "military-uniform-fabric"]
+  :factory/source-url "https://www.exchange.jo/en/company_historical/JOWM"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/sitab"
+  :factory/display-name "SITAB (Société Ivoirienne des Tabacs)"
+  :factory/country "CI" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "blending" "brand-production"]
+  :factory/source-url "https://www.brvm.org/fr/emetteurs/societes-cotees/societe-ivoirienne-des-tabacs-sitab"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/brassivoire"
+  :factory/display-name "Brassivoire"
+  :factory/country "CI" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "malt-processing" "bottling"]
+  :factory/source-url "https://www.theheinekencompany.com/newsroom/with-brassivoire-heineken-and-cfao-open-one-of-west-africas-most-modern-breweries-in-abidjan-cote-divoire/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/thanry"
+  :factory/display-name "Thanry (Société Industrielle Thanry)"
+  :factory/country "CI" :factory/isic "C16"
+  :factory/capabilities ["sawmilling" "veneer-production" "plywood-manufacturing" "tropical-timber-processing"]
+  :factory/source-url "https://thanry.net/fr/histoire-de-l-entreprise/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/sotaci"
+  :factory/display-name "SOTACI (Société des Tubes d'Acier et d'Aluminium de Côte d'Ivoire)"
+  :factory/country "CI" :factory/isic "C25"
+  :factory/capabilities ["steel-tube-manufacturing" "aluminum-profile-fabrication" "metal-tube-welding" "construction-materials"]
+  :factory/source-url "https://www.sotaci.com/presentation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/sivop"
+  :factory/display-name "SIVOP (Société Ivoirienne de Parfumerie)"
+  :factory/country "CI" :factory/isic "C20"
+  :factory/capabilities ["cosmetics-manufacturing" "perfume-production" "soap-manufacturing" "personal-care-products"]
+  :factory/source-url "https://www.sivop.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/toy-bola"
+  :factory/display-name "Toy bola"
+  :factory/country "UZ" :factory/isic "C32"
+  :factory/capabilities ["toy-manufacturing" "plastic-injection-molding" "children-products" "export-manufacturing"]
+  :factory/source-url "https://www.spielwarenmesse.de/en/mag/toy-lab/the-rise-of-toy-empire-toy-bola-in-uzbekistan/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/fergana-oil-refinery"
+  :factory/display-name "Fergana Oil Refinery Plant LLC"
+  :factory/country "UZ" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "fuel-and-lubricants" "hydrocarbon-processing"]
+  :factory/source-url "https://www.fnpz.uz/en/company-profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/ozbekiston-shampani"
+  :factory/display-name "O'zbekiston Shampani JSC (Uzbekistan Champagne)"
+  :factory/country "UZ" :factory/isic "C11"
+  :factory/capabilities ["sparkling-wine-production" "champagne-manufacturing" "vodka-production" "bottling"]
+  :factory/source-url "https://champagne.uz/en/about-org-eng/history-eng"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/uzbat"
+  :factory/display-name "UZBAT (British American Tobacco Uzbekistan)"
+  :factory/country "UZ" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "heated-tobacco-products" "export-production"]
+  :factory/source-url "http://bat.uz/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/orient-metal"
+  :factory/display-name "Orient Metal"
+  :factory/country "UZ" :factory/isic "C25"
+  :factory/capabilities ["structural-metal-products" "hot-dip-galvanizing" "sandwich-panels" "steel-doors"]
+  :factory/source-url "https://orient-metal.uz/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/coficab"
+  :factory/display-name "COFICAB (ELLOUMI Group)"
+  :factory/country "TN" :factory/isic "C29"
+  :factory/capabilities ["automotive-wiring-harness" "cable-manufacturing" "high-voltage-cables" "ev-charging-cables"]
+  :factory/source-url "https://www.coficab.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/stir"
+  :factory/display-name "STIR (Société Tunisienne des Industries de Raffinage)"
+  :factory/country "TN" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "gasoline-production" "lpg-production" "fuel-oil-production"]
+  :factory/source-url "https://www.stir.com.tn/fr/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/sfbt"
+  :factory/display-name "SFBT (Société de Fabrication des Boissons de Tunisie)"
+  :factory/country "TN" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "soft-drink-bottling" "mineral-water-bottling" "fruit-juice-production"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_de_fabrication_des_boissons_de_Tunisie"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/sotipapier"
+  :factory/display-name "SOTIPAPIER (Société Tunisienne Industrielle du Papier et du Carton)"
+  :factory/country "TN" :factory/isic "C17"
+  :factory/capabilities ["kraft-paper" "corrugated-paper" "fluting-paper" "testliner-paper"]
+  :factory/source-url "https://sotipapier.com/en/qui-sommes-nous/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/rnta"
+  :factory/display-name "RNTA (Régie Nationale des Tabacs et des Allumettes)"
+  :factory/country "TN" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "match-manufacturing" "playing-card-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/National_Tobacco_and_Matches_Authority_(Tunisia)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/olgerdin-egill-skallagrimsson"
+  :factory/display-name "Ölgerðin Egill Skallagrímsson"
+  :factory/country "IS" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "soft-drink-bottling" "malt-extract"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Egill_Skallagr%C3%ADmsson_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/noi-sirius"
+  :factory/display-name "Nói Síríus"
+  :factory/country "IS" :factory/isic "C10"
+  :factory/capabilities ["chocolate-manufacturing" "confectionery" "candy-production" "sugar-confectionery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/N%C3%B3i_S%C3%ADr%C3%ADus"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/trefjar"
+  :factory/display-name "Trefjar hf (Cleopatra boats)"
+  :factory/country "IS" :factory/isic "C30"
+  :factory/capabilities ["fiberglass-boat-building" "fishing-vessel-manufacturing" "aquaculture-equipment" "boat-hull-molding"]
+  :factory/source-url "https://cleopatra.is/about-trefjar/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/star-oddi"
+  :factory/display-name "Star-Oddi"
+  :factory/country "IS" :factory/isic "C26"
+  :factory/capabilities ["electronic-data-loggers" "marine-sensors" "wildlife-tracking-tags" "scientific-instruments"]
+  :factory/source-url "https://www.star-oddi.com/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/mufindi-paper-mills"
+  :factory/display-name "Mufindi Paper Mills Limited"
+  :factory/country "TZ" :factory/isic "C17"
+  :factory/capabilities ["kraft-paper" "pulp-and-paper" "sack-kraft" "paperboard"]
+  :factory/source-url "https://www.valmet.com/media/news/press-releases/2022/valmet-to-deliver-a-recovery-boiler-rebuild-to-mufindi-paper-mills-in-tanzania/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/alaf"
+  :factory/display-name "ALAF Limited"
+  :factory/country "TZ" :factory/isic "C25"
+  :factory/capabilities ["steel-roofing-sheets" "steel-pipes" "structural-steel" "cold-rolled-steel"]
+  :factory/source-url "https://www.alaf.co.tz/who-we-are/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/minjingu-mines-and-fertiliser"
+  :factory/display-name "Minjingu Mines & Fertiliser Limited"
+  :factory/country "TZ" :factory/isic "C20"
+  :factory/capabilities ["phosphate-fertilizer" "blended-fertilizer" "granulated-fertilizer" "agro-inputs"]
+  :factory/source-url "https://minjingumines.com/about.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/gf-vehicle-assemblers"
+  :factory/display-name "GF Vehicle Assemblers Limited"
+  :factory/country "TZ" :factory/isic "C29"
+  :factory/capabilities ["truck-assembly" "heavy-duty-trucks" "commercial-vehicles" "ckd-vehicle-manufacturing"]
+  :factory/source-url "https://www.gfassemblers.co.tz/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/tanzania-match-industries"
+  :factory/display-name "Tanzania Match Industries Limited"
+  :factory/country "TZ" :factory/isic "C16"
+  :factory/capabilities ["safety-matches" "matchboxes" "wood-products" "tbs-certified"]
+  :factory/source-url "https://www.tbs.go.tz/companies"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/orlen-lietuva"
+  :factory/display-name "ORLEN Lietuva (Mažeikiai Refinery)"
+  :factory/country "LT" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "diesel-production" "jet-fuel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Orlen_Lietuva"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/philip-morris-lietuva"
+  :factory/display-name "Philip Morris Lietuva"
+  :factory/country "LT" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "heated-tobacco-products" "export-production"]
+  :factory/source-url "https://www.pmi.com/markets/lithuania/en/overview"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/blrt-western-shipyard"
+  :factory/display-name "Vakarų Baltijos laivų statykla (BLRT Western Shipyard)"
+  :factory/country "LT" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "steel-block-fabrication" "tugboats" "ferries"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BLRT_Western_Shipyard"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/grigeo"
+  :factory/display-name "Grigeo AB (Grigiškės)"
+  :factory/country "LT" :factory/isic "C17"
+  :factory/capabilities ["tissue-paper" "paperboard" "corrugated-packaging" "fibreboard"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Grigeo_AB"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/svyturys"
+  :factory/display-name "Švyturys (Švyturys-Utenos alus, AB)"
+  :factory/country "LT" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverages" "bottling" "non-alcoholic-beer"]
+  :factory/source-url "https://en.wikipedia.org/wiki/%C5%A0vyturys"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/bulgartabac-holding"
+  :factory/display-name "Bulgartabac Holding AD"
+  :factory/country "BG" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "tobacco-leaf-curing" "cigarette-brands"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bulgartabac"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/monbat"
+  :factory/display-name "Monbat AD"
+  :factory/country "BG" :factory/isic "C27"
+  :factory/capabilities ["lead-acid-batteries" "battery-manufacturing" "battery-recycling" "starter-batteries"]
+  :factory/source-url "https://monbatgroup.com/our-identity/history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/lukoil-neftohim-burgas"
+  :factory/display-name "LUKOIL Neftohim Burgas AD"
+  :factory/country "BG" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petrochemicals" "polymer-production" "fuel-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lukoil_Neftohim_Burgas"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/vp-brands-international"
+  :factory/display-name "VP Brands International (Vinprom Peshtera)"
+  :factory/country "BG" :factory/isic "C11"
+  :factory/capabilities ["spirits-distilling" "rakia-production" "wine-production" "bottling"]
+  :factory/source-url "https://vp-brands.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/bazan-group"
+  :factory/display-name "BAZAN Group (Oil Refineries Ltd.)"
+  :factory/country "IL" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petrochemicals" "fuels-production" "polymers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BAZAN_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/tempo-beer-industries"
+  :factory/display-name "Tempo Beer Industries Ltd."
+  :factory/country "IL" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverages" "soft-drink-bottling" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tempo_Beer_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/israel-aerospace-industries"
+  :factory/display-name "Israel Aerospace Industries Ltd. (IAI)"
+  :factory/country "IL" :factory/isic "C30"
+  :factory/capabilities ["aircraft-manufacturing" "satellites" "uav-systems" "avionics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Israel_Aerospace_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/dubek"
+  :factory/display-name "Dubek Ltd."
+  :factory/country "IL" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "cigars" "smoking-accessories"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dubek"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/keter-group"
+  :factory/display-name "Keter Group (Keter Plastic Ltd.)"
+  :factory/country "IL" :factory/isic "C31"
+  :factory/capabilities ["plastic-furniture" "resin-molding" "injection-molding" "outdoor-storage"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Keter_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/thaco"
+  :factory/display-name "THACO (Truong Hai Auto Corporation)"
+  :factory/country "VN" :factory/isic "C29"
+  :factory/capabilities ["automobile-manufacturing" "truck-manufacturing" "bus-manufacturing" "motorcycle-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Truong_Hai_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/duc-thanh-wood-processing"
+  :factory/display-name "Duc Thanh Wood Processing JSC (Gỗ Đức Thành)"
+  :factory/country "VN" :factory/isic "C16"
+  :factory/capabilities ["wood-processing" "kitchenware-manufacturing" "wooden-toys" "household-utensils"]
+  :factory/source-url "https://www.goducthanh.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/binh-son-refining"
+  :factory/display-name "Binh Son Refining and Petrochemical JSC (BSR)"
+  :factory/country "VN" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "fuel-production" "petrochemicals" "lpg-production"]
+  :factory/source-url "https://bsr.com.vn/en/web/bsr-eng/about-bsr"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/phu-tai"
+  :factory/display-name "Phu Tai Joint Stock Company"
+  :factory/country "VN" :factory/isic "C31"
+  :factory/capabilities ["wooden-furniture" "outdoor-furniture" "indoor-furniture" "furniture-export"]
+  :factory/source-url "https://phutai.com.vn/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/cadivi"
+  :factory/display-name "Vietnam Electric Cable Corporation (CADIVI)"
+  :factory/country "VN" :factory/isic "C27"
+  :factory/capabilities ["electric-cable-manufacturing" "wire-manufacturing" "power-cable-production" "aluminum-cable"]
+  :factory/source-url "https://cadivi.vn/en/about-us.html"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
