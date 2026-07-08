@@ -10,7 +10,7 @@
   :db/valueType :db.type/string
   :db/cardinality :db.cardinality/one
   :db/unique :db.unique/identity
-  :db/doc "path-based factory DID (did:web:tsukuru.etzhayyim.com/...; performerType=service). 460+ across 30+ countries"}
+  :db/doc "path-based factory DID (did:web:tsukuru.etzhayyim.com/...; performerType=service) for onboarded/registered factories. 460+ across 30+ countries (legacy scale assumption, live projection G11/G15-gated). :public-directory sourcing entries (candidates.edn) use a distinct \"candidate:manufacturer-directory/...\" id form instead — NOT a did:web under this domain — because those companies have not onboarded/consented to registration."}
  {:db/ident :factory/display-name
   :db/valueType :db.type/string
   :db/cardinality :db.cardinality/one}
@@ -37,7 +37,11 @@
  {:db/ident :factory/sourcing
   :db/valueType :db.type/keyword
   :db/cardinality :db.cardinality/one
-  :db/doc ":authoritative | :representative (R0 seed honesty, G10)"}
+  :db/doc ":authoritative | :representative | :public-directory (R0 seed honesty, G10). :public-directory = real company, facts drawn from company's own public site / Wikipedia (see :factory/source-url); reference/candidate only, NOT onboarded or registered on tsukuru."}
+ {:db/ident :factory/source-url
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "citation URL for :public-directory sourcing (official company page or Wikipedia) supporting the country/isic/capabilities facts, G10 verifiability"}
 
  ;; ───────────────────────────── :production-order/* — order state machine ─────────────────────────────
  {:db/ident :production-order/id
