@@ -252,6 +252,18 @@
 ;; Sea Works and Metsä Wood/Metsä Group were in batches 17-18, even though the pre-append grep
 ;; alone wouldn't have caught the different display-name wording.
 ;; Running total: 727 companies / 100 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 25 (/loop pass 25): +30 companies, +5 new countries (NI Nicaragua, GT Guatemala, SV El
+;; Salvador, HT Haiti, MG Madagascar — all via the C14 apparel push). Full-roster depth for 15
+;; countries. Thin-ISIC round 17 across C14 and C15 (the two remaining thinnest divisions),
+;; with C15 explicitly scoped to companies with genuine owned manufacturing (not brand/design
+;; houses, continuing the Nike/adidas exclusion precedent from batch 23). Dropped 1 duplicate
+;; (Interloop Limited, a FOURTH recurrence across batches 17/19/22/25 — it is simply the most
+;; famous Pakistani apparel/hosiery company, so it keeps resurfacing whenever a prompt asks for
+;; "an apparel manufacturer" without Pakistan itself excluded). Kept one country-subsidiary
+;; entry (Bata Shoe Company Zimbabwe) distinct from the existing Switzerland-based Bata
+;; Corporation — different country, different physical factory, same precedent as Tata Steel
+;; UK/India and Nestlé S.A./Nestlé Nigeria.
+;; Running total: 757 companies / 105 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -4803,4 +4815,192 @@
   :factory/country "DE" :factory/isic "C16"
   :factory/capabilities ["particleboard" "mdf" "laminate-flooring" "decorative-panels"]
   :factory/source-url "https://en.wikipedia.org/wiki/Pfleiderer"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — New Zealand/Bahrain/Honduras/Argentina/Bosnia/Cyprus/Fiji (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/nz/fonterra"
+  :factory/display-name "Fonterra Co-operative Group"
+  :factory/country "NZ" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "milk-powder-manufacturing" "butter-manufacturing" "cheese-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fonterra"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/bahrain-flour-mills"
+  :factory/display-name "Bahrain Flour Mills Company B.S.C."
+  :factory/country "BH" :factory/isic "C10"
+  :factory/capabilities ["flour-milling" "grain-processing"]
+  :factory/source-url "https://bfm.bh/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/hondupalma"
+  :factory/display-name "Hondupalma (Palmas Aceiteras de Honduras)"
+  :factory/country "HN" :factory/isic "C10"
+  :factory/capabilities ["palm-oil-extraction" "edible-oil-refining" "soap-manufacturing" "animal-feed-manufacturing"]
+  :factory/source-url "https://hondupalmahn.com/home/empresa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/laboratorios-roemmers"
+  :factory/display-name "Laboratorios Roemmers"
+  :factory/country "AR" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "medicinal-formulation"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Laboratorios_Roemmers"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/natron-hayat"
+  :factory/display-name "Natron-Hayat"
+  :factory/country "BA" :factory/isic "C17"
+  :factory/capabilities ["pulp-and-paper-manufacturing" "kraft-paper-production" "paper-packaging"]
+  :factory/source-url "https://natron-hayat.ba/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/charalambides-christis"
+  :factory/display-name "Charalambides Christis"
+  :factory/country "CY" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "yogurt-manufacturing" "cheese-manufacturing"]
+  :factory/source-url "https://en.charalambideschristis.com.cy/company/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/tropik-wood-industries"
+  :factory/display-name "Tropik Wood Industries Limited"
+  :factory/country "FJ" :factory/isic "C16"
+  :factory/capabilities ["sawmilling" "timber-processing" "woodchip-production"]
+  :factory/source-url "https://tropik.com.fj/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Rwanda/Zimbabwe/Ghana/Morocco/Singapore/Philippines/Jamaica/Lesotho (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/rw/c-and-h-garments"
+  :factory/display-name "C&H Garments Ltd"
+  :factory/country "RW" :factory/isic "C14"
+  :factory/capabilities ["garment-manufacturing" "apparel-cutting-and-sewing" "uniform-production" "export-apparel"]
+  :factory/source-url "http://www.xinhuanet.com/english/2018-05/02/c_137151281.htm"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/bata-shoe-zimbabwe"
+  :factory/display-name "Bata Shoe Company (Zimbabwe) Ltd"
+  :factory/country "ZW" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-tanning" "rubber-and-canvas-footwear" "safety-boots"]
+  :factory/source-url "http://world.tomasbata.org/africa/zimbabwe/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/volkswagen-ghana"
+  :factory/display-name "Volkswagen Ghana Limited"
+  :factory/country "GH" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "automotive-manufacturing"]
+  :factory/source-url "https://www.volkswagenghana.com/en/newsroom/volkswagen-takes-over-the-responsibility-of-vehicle-assembly-in-.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/safran-aircraft-engines-morocco"
+  :factory/display-name "Safran Aircraft Engines Morocco"
+  :factory/country "MA" :factory/isic "C30"
+  :factory/capabilities ["aircraft-engine-assembly" "leap-engine-mro" "aerospace-manufacturing"]
+  :factory/source-url "https://www.safran-group.com/countries/morocco"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/wilmar-international"
+  :factory/display-name "Wilmar International Limited"
+  :factory/country "SG" :factory/isic "C10"
+  :factory/capabilities ["edible-oil-refining" "oleochemicals-production" "palm-oil-processing" "consumer-food-manufacturing"]
+  :factory/source-url "https://www.wilmar-international.com/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/toyota-motor-philippines"
+  :factory/display-name "Toyota Motor Philippines Corporation"
+  :factory/country "PH" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "automotive-manufacturing"]
+  :factory/source-url "https://toyota.com.ph/company-profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/berger-paints-jamaica"
+  :factory/display-name "Berger Paints Jamaica Limited"
+  :factory/country "JM" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "coatings-production" "wood-coatings-manufacturing"]
+  :factory/source-url "https://www.bergerpaintscaribbean.com/jamaica/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/jaguar-shoes"
+  :factory/display-name "Jaguar Shoes (Pty) Ltd"
+  :factory/country "LS" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "shoe-assembly" "export-footwear"]
+  :factory/source-url "https://lndc.org.ls/2025/03/24/footwear/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 17a — apparel (C14), 5 new countries ════════════
+ {:factory/did "candidate:manufacturer-directory/ni/rocedes"
+  :factory/display-name "Rocedes"
+  :factory/country "NI" :factory/isic "C14"
+  :factory/capabilities ["cut-and-sew" "circular-knitting" "vertical-integration" "design-development"]
+  :factory/source-url "https://www.rocedes.com.ni/About.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/pearl-global-guatemala"
+  :factory/display-name "Pearl Global Guatemala"
+  :factory/country "GT" :factory/isic "C14"
+  :factory/capabilities ["knitwear" "polos" "sweatshirts" "performance-garments"]
+  :factory/source-url "https://www.pearlglobal.com/central-america/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/milco-apparel"
+  :factory/display-name "Milco Apparel"
+  :factory/country "SV" :factory/isic "C14"
+  :factory/capabilities ["activewear" "vertical-manufacturing" "sportswear-knits"]
+  :factory/source-url "https://milcoapparel.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/s-and-h-global"
+  :factory/display-name "S&H Global (Sae-A Trading)"
+  :factory/country "HT" :factory/isic "C14"
+  :factory/capabilities ["knitting" "dyeing" "cut-and-sew" "vertical-integration"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sae-A_Trading"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/socota"
+  :factory/display-name "Socota"
+  :factory/country "MG" :factory/isic "C14"
+  :factory/capabilities ["vertical-integration" "garment-manufacturing" "fabric-production"]
+  :factory/source-url "http://groupesocota.com/socota/index.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/sartex-group"
+  :factory/display-name "Sartex Group"
+  :factory/country "TN" :factory/isic "C14"
+  :factory/capabilities ["denim" "jeanswear" "cutting-sewing" "washing-dyeing"]
+  :factory/source-url "https://sartexgroup.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/busana-apparel-group"
+  :factory/display-name "Busana Apparel Group"
+  :factory/country "ID" :factory/isic "C14"
+  :factory/capabilities ["woven-knit-apparel" "denim" "activewear" "outerwear"]
+  :factory/source-url "https://www.busanagroup.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 17b — leather goods / footwear (C15) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/new-balance"
+  :factory/display-name "New Balance Athletics, Inc."
+  :factory/country "US" :factory/isic "C15"
+  :factory/capabilities ["athletic-footwear" "domestic-manufacturing" "shoe-assembly" "materials-cutting"]
+  :factory/source-url "https://www.newbalance.com/responsible-leadership/owned-manufacturing.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/liberty-shoes"
+  :factory/display-name "Liberty Shoes Ltd"
+  :factory/country "IN" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "shoe-manufacturing" "tannery" "sports-shoes"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Liberty_Shoes"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/kyaia"
+  :factory/display-name "Kyaia S.A. (Fly London)"
+  :factory/country "PT" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "shoe-assembly" "own-factories" "export"]
+  :factory/source-url "https://shop-eu.flylondon.com/pages/about-fly"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/huajian-group"
+  :factory/display-name "Huajian Group"
+  :factory/country "CN" :factory/isic "C15"
+  :factory/capabilities ["womens-leather-shoes" "shoe-assembly" "tannery" "export-manufacturing"]
+  :factory/source-url "http://en.cabc.org.cn/?c=workes&a=view&id=84"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/desa"
+  :factory/display-name "Desa (Desa Deri Sanayi ve Ticaret A.S.)"
+  :factory/country "TR" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "handbags" "tannery" "leather-garments"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Desa_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/rm-williams"
+  :factory/display-name "R.M. Williams"
+  :factory/country "AU" :factory/isic "C15"
+  :factory/capabilities ["leather-boots" "bootmaking" "leather-goods" "boot-repair"]
+  :factory/source-url "https://en.wikipedia.org/wiki/R._M._Williams_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hwaseung-enterprise"
+  :factory/display-name "Hwaseung Enterprise Co., Ltd."
+  :factory/country "KR" :factory/isic "C15"
+  :factory/capabilities ["athletic-footwear" "oem-manufacturing" "shoe-assembly"]
+  :factory/source-url "https://www.hsenterprise.co.kr/footwear.php"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/wojas"
+  :factory/display-name "Wojas S.A."
+  :factory/country "PL" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "shoe-manufacturing" "leather-goods"]
+  :factory/source-url "https://www.wojas.eu/en_EU/company/about-us"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
