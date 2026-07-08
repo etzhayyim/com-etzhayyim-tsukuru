@@ -16,16 +16,19 @@
 ;; SG) / +4 ISIC divisions (C10 food, C20 chemicals, C24 basic metals, C32 other manufacturing).
 ;; Batch 3 (/loop pass 3): +32 companies / +9 countries (CA AU PT ZA BE SA AE QA EG) / +6 ISIC
 ;; divisions (C11 beverages, C12 tobacco, C16 wood/cork, C18 printing, C19 coke/petroleum, C23
-;; non-metallic minerals). Running total: 144 companies / 38 countries / 22 ISIC divisions.
-;; Still-uncovered ISIC divisions: C14 (apparel, distinct from C13 textiles), C33 (repair/
-;; installation of machinery — arguably a service, not primary manufacturing; may stay
-;; permanently uncovered by design). Still-uncovered regions worth a future batch: Philippines,
-;; remaining Sub-Saharan Africa (Nigeria, Kenya, Ghana), Russia/CIS (politically sensitive —
-;; skip pending explicit owner direction), Central Asia, remaining Balkans/Eastern Europe
-;; (Romania, Hungary, Slovakia, Slovenia), Chile/Argentina/Colombia (Latin America beyond
-;; BR/MX), Pacific Islands, remaining Caribbean. At ~144 companies with near-complete ISIC
-;; breadth, future batches should shift emphasis from new ISIC divisions to deepening existing
-;; ones (more companies per already-covered division/country) and toward regional breadth.
+;; non-metallic minerals). Batch 4 (/loop pass 4): +32 companies / +15 countries (BD KH LK PH NG
+;; KE GH CL AR CO PE RO HU SK SI) / +1 ISIC division (C14 apparel, closing the gap called out
+;; after batch 3). Running total: 176 companies / 53 countries / 23 ISIC divisions.
+;; Only C33 (repair/installation of machinery — arguably a service, not primary manufacturing)
+;; remains uncovered, likely permanently by design. Still-uncovered regions worth a future
+;; batch: Russia/CIS (politically sensitive — skip pending explicit owner direction), Central
+;; Asia, Pacific Islands, remaining Caribbean, remaining Balkans (Bulgaria, Croatia, Serbia),
+;; Baltics (Estonia, Latvia, Lithuania), remaining Sub-Saharan Africa (Ethiopia, Tanzania,
+;; Uganda, Côte d'Ivoire), Iran (politically sensitive — skip pending explicit owner direction),
+;; Pakistan. With ISIC breadth essentially complete (23/24), future batches should be almost
+;; entirely regional-depth passes: more companies per already-covered division/country, plus
+;; filling remaining country gaps. See kotoba/validate_candidates.bb for the automated
+;; consistency check (uniqueness, source-url presence, field shape) added in batch 4.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -925,4 +928,204 @@
   :factory/country "CA" :factory/isic "C18"
   :factory/capabilities ["label-printing" "packaging-printing"]
   :factory/source-url "https://en.wikipedia.org/wiki/CCL_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Bangladesh + Cambodia + Sri Lanka — apparel/garment manufacturing (C14, closes ISIC gap) ════════════
+ {:factory/did "candidate:manufacturer-directory/bd/dbl-group"
+  :factory/display-name "DBL Group"
+  :factory/country "BD" :factory/isic "C14"
+  :factory/capabilities ["knitwear" "denim-manufacturing" "woven-apparel" "garment-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/DBL_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/ha-meem-group"
+  :factory/display-name "Ha-Meem Group"
+  :factory/country "BD" :factory/isic "C14"
+  :factory/capabilities ["woven-apparel" "denim-manufacturing" "sweater-manufacturing" "garment-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ha-meem_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bd/square-fashions"
+  :factory/display-name "Square Fashions Ltd"
+  :factory/country "BD" :factory/isic "C14"
+  :factory/capabilities ["knitwear" "woven-apparel" "apparel-sewing" "garment-manufacturing"]
+  :factory/source-url "https://www.squarefashions.com/contactuses/index"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/grand-twins-international"
+  :factory/display-name "Grand Twins International (Cambodia) Plc"
+  :factory/country "KH" :factory/isic "C14"
+  :factory/capabilities ["apparel-sewing" "sportswear" "garment-manufacturing" "subcontract-manufacturing"]
+  :factory/source-url "https://csx.com.kh/en/company-information/stock/list-of-companies/KH1000020003"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/mas-holdings"
+  :factory/display-name "MAS Holdings"
+  :factory/country "LK" :factory/isic "C14"
+  :factory/capabilities ["intimate-apparel" "sportswear" "swimwear" "garment-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/MAS_Holdings"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/brandix"
+  :factory/display-name "Brandix"
+  :factory/country "LK" :factory/isic "C14"
+  :factory/capabilities ["apparel-sewing" "garment-manufacturing" "denim-manufacturing" "sportswear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Brandix"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/hirdaramani-group"
+  :factory/display-name "Hirdaramani Group"
+  :factory/country "LK" :factory/isic "C14"
+  :factory/capabilities ["apparel-sewing" "knitwear" "woven-apparel" "garment-manufacturing"]
+  :factory/source-url "https://www.hirdaramani.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/timex-garments"
+  :factory/display-name "Timex Garments (Pvt) Ltd"
+  :factory/country "LK" :factory/isic "C14"
+  :factory/capabilities ["apparel-sewing" "woven-apparel" "garment-manufacturing"]
+  :factory/source-url "https://www.timexsl.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Philippines + Nigeria + Kenya + Ghana — EMS electronics / food processing / cement (C10/C23/C26) ════════════
+ {:factory/did "candidate:manufacturer-directory/ph/integrated-micro-electronics"
+  :factory/display-name "Integrated Micro-Electronics Inc (IMI)"
+  :factory/country "PH" :factory/isic "C26"
+  :factory/capabilities ["electronics-assembly" "ems" "pcb-assembly" "semiconductor-test"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Integrated_Micro-Electronics,_Inc."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/republic-cement"
+  :factory/display-name "Republic Cement & Building Materials Inc"
+  :factory/country "PH" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "building-materials"]
+  :factory/source-url "https://www.republiccement.com/site-locations"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/dangote-cement"
+  :factory/display-name "Dangote Cement Plc"
+  :factory/country "NG" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dangote_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/zinox-technologies"
+  :factory/display-name "Zinox Technologies Limited"
+  :factory/country "NG" :factory/isic "C26"
+  :factory/capabilities ["electronics-assembly" "computer-manufacturing" "ict-hardware"]
+  :factory/source-url "https://zinoxtechnologies.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/nestle-nigeria"
+  :factory/display-name "Nestle Nigeria Plc"
+  :factory/country "NG" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nestle_Nigeria"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/bamburi-cement"
+  :factory/display-name "Bamburi Cement Limited"
+  :factory/country "KE" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "concrete-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bamburi_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/brookside-dairy"
+  :factory/display-name "Brookside Dairy Limited"
+  :factory/country "KE" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "dairy-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Brookside_Dairy_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/ghacem"
+  :factory/display-name "Ghacem Limited"
+  :factory/country "GH" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "building-materials"]
+  :factory/source-url "https://www.ghacem.com/en/about_us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Chile + Argentina + Colombia + Peru — food/beverage / basic metals / wood-paper / machinery (C10/C16/C17/C24/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/cl/arauco"
+  :factory/display-name "Arauco"
+  :factory/country "CL" :factory/isic "C16"
+  :factory/capabilities ["wood-products" "pulp-manufacturing" "forestry" "sawmills"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Celulosa_Arauco_y_Constituci%C3%B3n"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/aceros-aza"
+  :factory/display-name "Aceros AZA"
+  :factory/country "CL" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "steel-recycling" "long-steel-products"]
+  :factory/source-url "https://www.aza.cl/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/ternium-argentina"
+  :factory/display-name "Ternium Argentina"
+  :factory/country "AR" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "flat-steel-products" "long-steel-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ternium"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/arcor"
+  :factory/display-name "Arcor"
+  :factory/country "AR" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "confectionery" "candy-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Grupo_Arcor"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/impsa"
+  :factory/display-name "IMPSA"
+  :factory/country "AR" :factory/isic "C28"
+  :factory/capabilities ["industrial-machinery" "turbine-manufacturing" "crane-manufacturing"]
+  :factory/source-url "https://es.wikipedia.org/wiki/IMPSA"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/grupo-nutresa"
+  :factory/display-name "Grupo Nutresa"
+  :factory/country "CO" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "chocolate-manufacturing" "meat-processing" "coffee-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Grupo_Nutresa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/propal"
+  :factory/display-name "Carvajal Pulpa y Papel (Propal)"
+  :factory/country "CO" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "pulp-production" "packaging"]
+  :factory/source-url "https://www.propal.com.co/en/nosotros"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/alicorp"
+  :factory/display-name "Alicorp"
+  :factory/country "PE" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "consumer-goods" "edible-oils"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alicorp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Romania + Hungary + Slovakia + Slovenia — automotive components / bearings / electronics (C26/C28/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/ro/automobile-dacia"
+  :factory/display-name "Automobile Dacia"
+  :factory/country "RO" :factory/isic "C29"
+  :factory/capabilities ["automotive-assembly" "motor-vehicle-manufacturing" "vehicle-body-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Automobile_Dacia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/urb-group"
+  :factory/display-name "URB Group (Rulmenți SA Bârlad)"
+  :factory/country "RO" :factory/isic "C28"
+  :factory/capabilities ["bearings" "industrial-machinery-components" "precision-manufacturing"]
+  :factory/source-url "https://www.urbgroup.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/raba-automotive-holding"
+  :factory/display-name "Rába Automotive Holding"
+  :factory/country "HU" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "axles" "chassis-components"]
+  :factory/source-url "https://raba.hu/en/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/videoton-holding"
+  :factory/display-name "Videoton Holding"
+  :factory/country "HU" :factory/isic "C26"
+  :factory/capabilities ["electronics-assembly" "contract-manufacturing" "pcb-assembly"]
+  :factory/source-url "https://www.videoton.hu/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/matador-automotive"
+  :factory/display-name "Matador Automotive"
+  :factory/country "SK" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "stamping" "structural-parts"]
+  :factory/source-url "https://www.matador-group.eu/en/companies/matador-automotive/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/kinex-bearings"
+  :factory/display-name "Kinex Bearings"
+  :factory/country "SK" :factory/isic "C28"
+  :factory/capabilities ["bearings" "industrial-machinery-components" "precision-manufacturing"]
+  :factory/source-url "https://www.kinex.sk/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/hidria"
+  :factory/display-name "Hidria"
+  :factory/country "SI" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "electric-motors" "diesel-cold-start-systems"]
+  :factory/source-url "https://www.hidria.com/int/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/tpv-automotive"
+  :factory/display-name "TPV Automotive"
+  :factory/country "SI" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "seating-systems" "chassis-components"]
+  :factory/source-url "https://www.tpv-automotive.si/en/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
