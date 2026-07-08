@@ -564,6 +564,21 @@
 ;; already-listed Honduras subsidiary — the same parent+subsidiary pattern as ArcelorMittal's
 ;; three-country presence.
 ;; Running total: 1643 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 48 (/loop pass 48): +36 companies, +0 new countries. Second-pass depth for 10
+;; countries (Australia/Dominican-Republic/Hong-Kong/Indonesia/Jamaica/Pakistan/Rwanda/
+;; Singapore/El-Salvador/South-Africa — Dominican-Republic/Jamaica/Rwanda/Singapore/
+;; El-Salvador are each on their 3rd pass; all still yielded 2-3 genuine finds). Two drops:
+;; PT Pindad (Indonesia, C25) — the exact same state small-arms/ammunition manufacturer
+;; already dropped in batch 39, re-surfaced by this round's research agent unaware of the
+;; prior exclusion, caught via grep against this file's own header text (second recurrence of
+;; this exact pattern after Nammo AS in batch 44); and Nine Dragons Paper (proposed as a Hong
+;; Kong entry) — not a weapons issue but a same-company duplicate: it is the identical
+;; real-world company already listed under China (batch-unknown, DID cn/nine-dragons-paper-
+;; holdings) since the company is HKEX-listed/HK-headquartered but its plants are in mainland
+;; China — the existing CN classification and this batch's HK classification are both
+;; defensible readings of the same company, so rather than adjudicate and duplicate, the new
+;; entry was dropped and the existing one left as-is.
+;; Running total: 1679 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -10653,5 +10668,221 @@
   :factory/country "PT" :factory/isic "C14"
   :factory/capabilities ["mens-underwear" "seamless-knitwear" "nightwear" "cut-and-sew"]
   :factory/source-url "https://eco.sapo.pt/reportagem/das-cuecas-garridas-ao-fio-reciclado-casal-figueiredo-pos-impetus-no-mapa-textil/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/orica"
+  :factory/display-name "Orica Limited"
+  :factory/country "AU" :factory/isic "C20"
+  :factory/capabilities ["industrial-explosives" "ammonium-nitrate" "mining-chemicals" "nitric-acid"]
+  :factory/source-url "https://www.orica.com/about-us/locations/global-major-sites/kooragang-island/operations"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/pact-group-holdings"
+  :factory/display-name "Pact Group Holdings Ltd"
+  :factory/country "AU" :factory/isic "C22"
+  :factory/capabilities ["rigid-plastic-packaging" "injection-molding" "recycled-plastics" "contract-manufacturing"]
+  :factory/source-url "https://pactgroup.com/news/game-changing-investment-in-australias-plastic-recycling-and-sustainable-packaging-industry/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/bega-group"
+  :factory/display-name "Bega Group (Bega Cheese Limited)"
+  :factory/country "AU" :factory/isic "C10"
+  :factory/capabilities ["cheese-processing" "dairy-products" "milk-processing" "peanut-processing"]
+  :factory/source-url "https://begagroup.com.au/about-us/our-sites/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/weathertex"
+  :factory/display-name "Weathertex Pty Ltd"
+  :factory/country "AU" :factory/isic "C16"
+  :factory/capabilities ["wood-fibre-cladding" "hardboard" "weatherboards" "timber-panels"]
+  :factory/source-url "https://weathertex.com.au/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/ah-beard"
+  :factory/display-name "A.H. Beard"
+  :factory/country "AU" :factory/isic "C31"
+  :factory/capabilities ["mattress-manufacturing" "bedding" "upholstery" "spring-units"]
+  :factory/source-url "https://ahbeard.com/who-we-are/our-history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/cementos-cibao"
+  :factory/display-name "Cementos Cibao"
+  :factory/country "DO" :factory/isic "C23"
+  :factory/capabilities ["cement" "clinker-production" "concrete-blocks" "construction-materials"]
+  :factory/source-url "https://www.globalcement.com/news/20601-cementos-cibao-inaugurates-new-clinker-production-line"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/la-nacional-colchoneria"
+  :factory/display-name "Colchonería y Mueblería La Nacional"
+  :factory/country "DO" :factory/isic "C31"
+  :factory/capabilities ["furniture" "mattresses" "upholstery" "home-furnishings"]
+  :factory/source-url "https://eldinero.com.do/332266/la-nacional-celebra-su-85-aniversario-y-lanza-nuevos-modelos-de-colchones/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/eminsa"
+  :factory/display-name "Eminsa (Empresa de Ingeniería, SAS)"
+  :factory/country "DO" :factory/isic "C27"
+  :factory/capabilities ["electrical-transformers" "distribution-transformers" "substations" "electrical-equipment"]
+  :factory/source-url "https://forbes.do/estrategia/2024-12-03/eminsa-apuesta-por-la-fabricacion-de-transformadores-adaptados-a-necesidades-del-mercado-local"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/kingboard-holdings"
+  :factory/display-name "Kingboard Holdings Limited"
+  :factory/country "HK" :factory/isic "C20"
+  :factory/capabilities ["copper-clad-laminates" "industrial-chemicals" "copper-foil" "caustic-soda"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kingboard_Holdings"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/sino-biopharmaceutical"
+  :factory/display-name "Sino Biopharmaceutical Limited"
+  :factory/country "HK" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biopharmaceuticals" "generic-drugs" "oncology-drugs"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sino_Biopharmaceutical_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/tk-group"
+  :factory/display-name "TK Group (Holdings) Limited"
+  :factory/country "HK" :factory/isic "C22"
+  :factory/capabilities ["injection-molding" "precision-plastics" "mold-fabrication" "automotive-plastics"]
+  :factory/source-url "https://www.tkmold.com/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/kalbe-farma"
+  :factory/display-name "PT Kalbe Farma Tbk"
+  :factory/country "ID" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biologics" "tablets-capsules" "injectables"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kalbe_Farma"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/multi-bintang-indonesia"
+  :factory/display-name "PT Multi Bintang Indonesia Tbk"
+  :factory/country "ID" :factory/isic "C11"
+  :factory/capabilities ["brewing" "malt-beverages" "soft-drinks" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Multi_Bintang_Indonesia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/kayu-lapis-indonesia"
+  :factory/display-name "PT Kayu Lapis Indonesia"
+  :factory/country "ID" :factory/isic "C16"
+  :factory/capabilities ["plywood" "particleboard" "engineered-wood" "wood-panels"]
+  :factory/source-url "https://apkindo.org/anggota/profile-anggota/detail/pt-kayu-lapis-indonesia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/barata-indonesia"
+  :factory/display-name "PT Barata Indonesia (Persero)"
+  :factory/country "ID" :factory/isic "C28"
+  :factory/capabilities ["heavy-machinery" "foundry-casting" "industrial-equipment" "sugar-mill-equipment"]
+  :factory/source-url "https://www.barata.id/en/facilities/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/fargo-electronics-jamaica"
+  :factory/display-name "Fargo Electronics Jamaica Limited"
+  :factory/country "JM" :factory/isic "C26"
+  :factory/capabilities ["printed-circuit-boards" "cable-harness-assembly" "electronic-mechanical-assemblies" "contract-electronics-manufacturing"]
+  :factory/source-url "https://www.jseza.com/sez/fargo-electronics-jamaica-limited/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/somers-furnishing"
+  :factory/display-name "Somers Furnishing"
+  :factory/country "JM" :factory/isic "C31"
+  :factory/capabilities ["custom-cabinetry" "kitchen-cabinets" "bespoke-furniture" "woodwork-manufacturing"]
+  :factory/source-url "https://www.somersfurnishing.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/bridget-sandals"
+  :factory/display-name "Bridget Sandals (B&B Manufacturing Limited)"
+  :factory/country "JM" :factory/isic "C15"
+  :factory/capabilities ["leather-sandals" "handcrafted-footwear" "leather-goods" "footwear-manufacturing"]
+  :factory/source-url "https://www.jamaicaobserver.com/2026/03/11/bridget-sandals-kingston-home-business-global-fashion-brand/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/millat-tractors"
+  :factory/display-name "Millat Tractors Limited"
+  :factory/country "PK" :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery" "tractor-assembly" "engine-block-machining" "farm-implements"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Millat_Tractors"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/pak-elektron"
+  :factory/display-name "Pak Elektron Limited (PEL)"
+  :factory/country "PK" :factory/isic "C27"
+  :factory/capabilities ["home-appliances" "power-transformers" "energy-meters" "refrigerators"]
+  :factory/source-url "https://en.wikipedia.org/wiki/PEL_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/packages-limited"
+  :factory/display-name "Packages Limited"
+  :factory/country "PK" :factory/isic "C17"
+  :factory/capabilities ["paperboard-manufacturing" "pulp-milling" "folding-cartons" "corrugated-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Packages_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/murree-brewery"
+  :factory/display-name "Murree Brewery Company"
+  :factory/country "PK" :factory/isic "C11"
+  :factory/capabilities ["brewing" "distilling" "glass-bottling" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Murree_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/treet-corporation"
+  :factory/display-name "Treet Corporation Limited"
+  :factory/country "PK" :factory/isic "C25"
+  :factory/capabilities ["razor-blade-manufacturing" "metal-stamping" "precision-tooling" "blade-honing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Treet_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/mark-cables-rwanda"
+  :factory/display-name "Mark Cables FZE Rwanda Ltd"
+  :factory/country "RW" :factory/isic "C27"
+  :factory/capabilities ["electrical-cables" "copper-cables" "wire-manufacturing" "power-cables"]
+  :factory/source-url "https://www.mininfra.gov.rw/updates/news-details/minister-gatete-visits-shyogwe-mayaga-dyke-and-mark-cable-factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/basil-industries"
+  :factory/display-name "Basil Industries"
+  :factory/country "RW" :factory/isic "C17"
+  :factory/capabilities ["sanitary-pads" "toilet-paper" "corrugated-boxes" "hygiene-products"]
+  :factory/source-url "https://www.newtimes.co.rw/article/22553/news/women/30m-factory-to-boost-sanitary-pad-production-in-muhanga"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/printex"
+  :factory/display-name "Printex Ltd"
+  :factory/country "RW" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "book-printing" "offset-printing" "packaging-print"]
+  :factory/source-url "https://theservicemag.com/printex-taking-rwandas-printing-industry-to-greater-heights/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/eng-hua-furniture"
+  :factory/display-name "Eng Hua Furniture Manufacturing Pte Ltd"
+  :factory/country "SG" :factory/isic "C31"
+  :factory/capabilities ["wooden-furniture" "timber-doors" "kitchen-cabinets" "fire-rated-doors"]
+  :factory/source-url "https://www.enghuafm.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/asia-pacific-breweries-singapore"
+  :factory/display-name "Asia Pacific Breweries Singapore (Tiger Beer)"
+  :factory/country "SG" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverages" "tiger-beer" "bottling"]
+  :factory/source-url "https://www.theheinekencompany.com/newsroom/heineken-shifts-singapore-to-an-import-led-supply-model-strengthening-the-countrys-regional-hub-role-and-maintaining-tiger-beers-global-brand-home/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/pan-united-corporation"
+  :factory/display-name "Pan-United Corporation Ltd"
+  :factory/country "SG" :factory/isic "C23"
+  :factory/capabilities ["ready-mix-concrete" "concrete-batching" "cement-products" "low-carbon-concrete"]
+  :factory/source-url "https://www.panunited.com.sg/about-us/history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/la-sigua-cigar"
+  :factory/display-name "La Sigua Cigar Co."
+  :factory/country "SV" :factory/isic "C12"
+  :factory/capabilities ["cigars" "tobacco-cultivation" "hand-rolling" "tobacco-packaging"]
+  :factory/source-url "https://www.elsalvador.com/dinero-y-negocios/voces-de-emprendimiento/tabaco-emprendedor-emprendimiento/1252348/2025/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/maderusa"
+  :factory/display-name "Maderusa"
+  :factory/country "SV" :factory/isic "C16"
+  :factory/capabilities ["wood-pallets" "sawmilling" "planing" "wood-packaging"]
+  :factory/source-url "https://www.maderusasv.com/nosotros/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/da-gama-textiles"
+  :factory/display-name "Da Gama Textiles"
+  :factory/country "ZA" :factory/isic "C13"
+  :factory/capabilities ["cotton-textile-milling" "weaving" "dyeing-printing" "shweshwe-fabric"]
+  :factory/source-url "https://www.dagama.co.za/who-we-are/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/ninian-and-lester"
+  :factory/display-name "Ninian & Lester"
+  :factory/country "ZA" :factory/isic "C14"
+  :factory/capabilities ["garment-manufacturing" "knitted-fabrics" "underwear-activewear" "fabric-dyeing"]
+  :factory/source-url "https://www.ninian.co.za/about-ninian-and-lester/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/mossop-leather"
+  :factory/display-name "Mossop Leather (Mossop Western Leathers)"
+  :factory/country "ZA" :factory/isic "C15"
+  :factory/capabilities ["leather-tanning" "hide-processing" "footwear-leather" "upholstery-leather"]
+  :factory/source-url "https://www.mossop.co.za/pages/our-heritage"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/south-african-breweries"
+  :factory/display-name "South African Breweries (SAB)"
+  :factory/country "ZA" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malting" "bottling-canning" "beverage-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/South_African_Breweries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/sumitomo-rubber-south-africa"
+  :factory/display-name "Sumitomo Rubber South Africa (Dunlop Tyres SA)"
+  :factory/country "ZA" :factory/isic "C22"
+  :factory/capabilities ["tyre-manufacturing" "rubber-processing" "tyre-molding" "oem-tyre-supply"]
+  :factory/source-url "https://www.engineeringnews.co.za/article/sumitomo-rubber-sa-pledges-to-invest-in-its-dunlop-ladysmith-plant-2023-03-22"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
