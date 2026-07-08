@@ -292,6 +292,14 @@
 ;; (batch 26) — same corporate group, different country subsidiary, same precedent as Tata
 ;; Steel UK/India.
 ;; Running total: 839 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 29 (/loop pass 29): +28 companies, +0 new countries. Full-roster depth for 13
+;; countries (Liechtenstein/Malta/Peru/Slovenia/Trinidad/Mongolia,
+;; Algeria/North-Macedonia/Greece/Saudi-Arabia/Bahrain/Jordan/Cote-d'Ivoire). Thin-ISIC round 21
+;; across C22/C27/C31/C32 — now all four of the thinnest divisions in one batch. Dropped 1
+;; duplicate: "Georg Fischer (GF Piping Systems)" re-suggested for C22 — same company as the
+;; already-listed Georg Fischer AG (batch 21, C25), same same-entity-different-classification
+;; pattern as Grupo Kaltex/ITC Limited.
+;; Running total: 867 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -5547,4 +5555,180 @@
   :factory/country "IN" :factory/isic "C30"
   :factory/capabilities ["motorcycles" "two-wheelers"]
   :factory/source-url "https://en.wikipedia.org/wiki/Royal_Enfield_(India)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Liechtenstein/Malta/Peru/Slovenia/Trinidad/Mongolia (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/li/thyssenkrupp-presta"
+  :factory/display-name "ThyssenKrupp Presta AG"
+  :factory/country "LI" :factory/isic "C29"
+  :factory/capabilities ["steering-systems" "cold-forging" "automotive-components" "steering-columns"]
+  :factory/source-url "https://www.thyssenkrupp-automotive-technology.com/en/company/organizational-structure/steering"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/methode-electronics-malta"
+  :factory/display-name "Methode Electronics Malta Ltd"
+  :factory/country "MT" :factory/isic "C27"
+  :factory/capabilities ["sensors" "switches" "human-machine-interfaces" "mechatronics"]
+  :factory/source-url "https://supplier.methode.com/methode-electronics-malta-ltd/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/aje-group"
+  :factory/display-name "AJE Group (Ajeper S.A.)"
+  :factory/country "PE" :factory/isic "C11"
+  :factory/capabilities ["soft-drinks" "bottling" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ajegroup"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/fructal"
+  :factory/display-name "Fructal d.o.o."
+  :factory/country "SI" :factory/isic "C10"
+  :factory/capabilities ["fruit-juice-production" "fruit-processing" "beverage-manufacturing"]
+  :factory/source-url "https://www.fructal.si/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/atlantic-lng"
+  :factory/display-name "Atlantic LNG Company of Trinidad and Tobago"
+  :factory/country "TT" :factory/isic "C19"
+  :factory/capabilities ["natural-gas-liquefaction" "lng-processing" "gas-refining"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Atlantic_LNG"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/moncement"
+  :factory/display-name "Moncement Building Materials LLC"
+  :factory/country "MN" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-processing" "building-materials"]
+  :factory/source-url "https://en.moncement.mn/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Algeria/North Macedonia/Greece/Saudi Arabia/Bahrain/Jordan/Cote d'Ivoire (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/dz/tosyali-algerie"
+  :factory/display-name "Tosyalı Algérie"
+  :factory/country "DZ" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "direct-reduced-iron" "iron-ore-pelletizing" "rebar"]
+  :factory/source-url "https://www.tosyali-algerie.com/complex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/vdl-van-hool-macedonia"
+  :factory/display-name "VDL Van Hool Macedonia"
+  :factory/country "MK" :factory/isic "C29"
+  :factory/capabilities ["bus-manufacturing" "coach-manufacturing" "motor-vehicle-bodywork"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Van_Hool"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/helleniq-energy"
+  :factory/display-name "HELLENiQ Energy (Hellenic Petroleum)"
+  :factory/country "GR" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "fuel-production"]
+  :factory/source-url "https://www.helpe.gr/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/spimaco"
+  :factory/display-name "SPIMACO"
+  :factory/country "SA" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drugs" "oncology-drugs" "medical-appliances"]
+  :factory/source-url "https://www.spimaco.com.sa/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/bahrain-steel"
+  :factory/display-name "Bahrain Steel"
+  :factory/country "BH" :factory/isic "C24"
+  :factory/capabilities ["iron-ore-pelletizing" "direct-reduction-grade-pellets" "steel-raw-materials"]
+  :factory/source-url "https://bahrainsteel.com.bh/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/jordan-cement-factories"
+  :factory/display-name "Jordan Cement Factories Company (Lafarge Jordan)"
+  :factory/country "JO" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "portland-cement" "blended-cement"]
+  :factory/source-url "https://www.lafarge.com.jo/en/1_1_1-Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/saph"
+  :factory/display-name "SAPH (Société Africaine de Plantations d'Hévéas)"
+  :factory/country "CI" :factory/isic "C22"
+  :factory/capabilities ["natural-rubber-processing" "rubber-plantations" "crumb-rubber" "latex-processing"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_africaine_de_plantations_d'h%C3%A9v%C3%A9as"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 21a — rubber-plastics / electrical equipment (C22/C27) ════════════
+ {:factory/did "candidate:manufacturer-directory/kr/kumho-tire"
+  :factory/display-name "Kumho Tire"
+  :factory/country "KR" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "passenger-tires" "truck-tires"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kumho_Tire"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/nexen-tire"
+  :factory/display-name "Nexen Tire"
+  :factory/country "KR" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "radial-tires"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nexen_Tire"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/toyoda-gosei"
+  :factory/display-name "Toyoda Gosei"
+  :factory/country "JP" :factory/isic "C22"
+  :factory/capabilities ["rubber-auto-parts" "plastic-auto-parts" "weatherstrips" "airbags"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Toyoda_Gosei"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/prysmian"
+  :factory/display-name "Prysmian Group"
+  :factory/country "IT" :factory/isic "C27"
+  :factory/capabilities ["power-cables" "telecom-cables" "optical-fiber" "cable-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Prysmian_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/nidec"
+  :factory/display-name "Nidec Corporation"
+  :factory/country "JP" :factory/isic "C27"
+  :factory/capabilities ["electric-motors" "precision-motors" "automotive-motors" "drives"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nidec"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/mitsubishi-electric"
+  :factory/display-name "Mitsubishi Electric Corporation"
+  :factory/country "JP" :factory/isic "C27"
+  :factory/capabilities ["electric-motors" "transformers" "switchgear" "factory-automation"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mitsubishi_Electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/eaton"
+  :factory/display-name "Eaton Corporation plc"
+  :factory/country "IE" :factory/isic "C27"
+  :factory/capabilities ["switchgear" "circuit-protection" "power-distribution" "electrical-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Eaton_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 21b — furniture / other manufacturing (C31/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/no/ekornes"
+  :factory/display-name "Ekornes ASA"
+  :factory/country "NO" :factory/isic "C31"
+  :factory/capabilities ["recliners" "upholstered-furniture" "seating" "mattresses"]
+  :factory/source-url "https://www.ekornes.com/en/about-ekornes"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/kokuyo"
+  :factory/display-name "Kokuyo Co., Ltd."
+  :factory/country "JP" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "stationery" "space-design"]
+  :factory/source-url "https://www.kokuyo.com/en/corporateprofile/history.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/teknion"
+  :factory/display-name "Teknion Corporation"
+  :factory/country "CA" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "architectural-walls" "textiles"]
+  :factory/source-url "https://www.teknion.com/ca"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/molteni"
+  :factory/display-name "Molteni & C S.p.A."
+  :factory/country "IT" :factory/isic "C31"
+  :factory/capabilities ["residential-furniture" "kitchens" "office-furniture" "design-furniture"]
+  :factory/source-url "https://molteni.it/us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/olympus"
+  :factory/display-name "Olympus Corporation"
+  :factory/country "JP" :factory/isic "C32"
+  :factory/capabilities ["endoscopes" "medical-instruments" "surgical-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Olympus_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/kawai-musical-instruments"
+  :factory/display-name "Kawai Musical Instruments Manufacturing Co., Ltd."
+  :factory/country "JP" :factory/isic "C32"
+  :factory/capabilities ["pianos" "digital-pianos" "keyboards" "synthesizers"]
+  :factory/source-url "https://www.kawai.co.jp/en/company/business/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/chow-sang-sang"
+  :factory/display-name "Chow Sang Sang Holdings International Limited"
+  :factory/country "HK" :factory/isic "C32"
+  :factory/capabilities ["gold-jewellery" "jewellery-manufacturing" "precious-metals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Chow_Sang_Sang"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/callaway-golf"
+  :factory/display-name "Callaway Golf Company"
+  :factory/country "US" :factory/isic "C32"
+  :factory/capabilities ["golf-clubs" "golf-balls" "sporting-goods"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Callaway_Golf_Company"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
