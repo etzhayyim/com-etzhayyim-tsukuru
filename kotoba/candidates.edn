@@ -31,13 +31,22 @@
 ;; each have 8-9 entries); future batches should keep splitting between (a) depth in
 ;; already-listed major economies — plenty of real, well-documented companies remain
 ;; unlisted per country, and this is what actually moves toward the original registry's
-;; "460+ manufacturers" scale reference — and (b) the remaining country gaps: Russia/CIS and
-;; Iran (politically sensitive — skip pending explicit owner direction), Central Asia
-;; (Kazakhstan, Uzbekistan), Pacific Islands, Caribbean (Dominican Republic, Trinidad),
-;; remaining Balkans (North Macedonia, Bosnia, Albania). See kotoba/validate_candidates.bb
-;; (batch 4) and .github/workflows/validate-candidates.yml (batch 5, fixed in the batch-5 PR
-;; after the first CI run failed on a nonexistent babashka/setup-babashka action — now uses
-;; the official install script) for the automated consistency check and its CI enforcement.
+;; "460+ manufacturers" scale reference. Batch 7 (/loop pass 7): +32 companies / +9 countries
+;; (KZ UZ GE AZ DO TT MK BA AL) — same split: DE +8 (chemicals/pharma/steel/electronics/
+;; semiconductors/optics/food/adhesives, previously all automotive/machinery) and IN +8
+;; (steel/aluminium/cement/petrochemicals/paints/food/EMS, previously all pharma/textiles/
+;; auto) for economy depth; Central Asia+Caucasus and Caribbean+remaining-Balkans for country
+;; gaps. Running total: 272 companies / 83 countries / 23 ISIC divisions.
+;; Remaining country gaps: Russia/CIS and Iran (politically sensitive — skip pending explicit
+;; owner direction), Pacific Islands (Fiji, Papua New Guinea), remaining Caribbean (Jamaica,
+;; Trinidad already added but Jamaica/Cuba/Haiti still open), Mongolia, North Korea
+;; (politically sensitive — skip), a handful of small European states (Cyprus, Malta,
+;; Luxembourg, Iceland). With most significant economies now represented, future batches
+;; should default to economy-depth (any already-listed country, new industries) unless a
+;; specific country gap is worth closing. See kotoba/validate_candidates.bb (batch 4) and
+;; .github/workflows/validate-candidates.yml (batch 5, fixed in the batch-5 PR after the
+;; first CI run failed on a nonexistent babashka/setup-babashka action — now uses the
+;; official install script) for the automated consistency check and its CI enforcement.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -1537,4 +1546,204 @@
   :factory/country "RW" :factory/isic "C23"
   :factory/capabilities ["cement-manufacturing" "clinker-production" "limestone-mining"]
   :factory/source-url "https://en.wikipedia.org/wiki/Cimerwa_Cement_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Germany depth — chemicals / pharma / steel / electronics / semiconductors / optics / food / adhesives (C10/C20/C21/C24/C26/C27/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/de/basf"
+  :factory/display-name "BASF SE"
+  :factory/country "DE" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "polymers" "agricultural-chemicals" "performance-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BASF"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/bayer"
+  :factory/display-name "Bayer AG"
+  :factory/country "DE" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biotechnology" "prescription-drugs" "consumer-health"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bayer"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/thyssenkrupp"
+  :factory/display-name "thyssenkrupp AG"
+  :factory/country "DE" :factory/isic "C24"
+  :factory/capabilities ["steel-production" "basic-metals" "steel-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ThyssenKrupp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/siemens"
+  :factory/display-name "Siemens AG"
+  :factory/country "DE" :factory/isic "C27"
+  :factory/capabilities ["electrical-equipment" "industrial-automation" "electronics-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Siemens"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/infineon-technologies"
+  :factory/display-name "Infineon Technologies AG"
+  :factory/country "DE" :factory/isic "C26"
+  :factory/capabilities ["semiconductors" "power-electronics" "microcontrollers" "sensors"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Infineon_Technologies"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/carl-zeiss"
+  :factory/display-name "Carl Zeiss AG"
+  :factory/country "DE" :factory/isic "C26"
+  :factory/capabilities ["precision-optics" "optoelectronics" "microscopes" "measuring-technology"]
+  :factory/source-url "https://www.zeiss.com/corporate/en/about-zeiss/present/facts-figures/zeiss-locations.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/dr-oetker"
+  :factory/display-name "Dr. Oetker"
+  :factory/country "DE" :factory/isic "C10"
+  :factory/capabilities ["baking-ingredients" "frozen-food" "cake-mixes" "food-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dr._Oetker"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/henkel"
+  :factory/display-name "Henkel AG & Co. KGaA"
+  :factory/country "DE" :factory/isic "C20"
+  :factory/capabilities ["adhesives" "sealants" "consumer-chemicals" "coatings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Henkel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ India depth — steel / aluminium / cement / petrochemicals / paints / food / electronics EMS (C10/C20/C23/C24/C26) ════════════
+ {:factory/did "candidate:manufacturer-directory/in/tata-steel"
+  :factory/display-name "Tata Steel"
+  :factory/country "IN" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "basic-metals" "flat-and-long-steel" "mining-integrated"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tata_Steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/hindalco-industries"
+  :factory/display-name "Hindalco Industries"
+  :factory/country "IN" :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "copper-smelting" "basic-metals" "rolling-and-extrusion"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hindalco_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/ultratech-cement"
+  :factory/display-name "UltraTech Cement"
+  :factory/country "IN" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "ready-mix-concrete" "white-cement" "non-metallic-minerals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/UltraTech_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/reliance-industries"
+  :factory/display-name "Reliance Industries"
+  :factory/country "IN" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "oil-refining" "polymers" "integrated-petrochemical-complex"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Reliance_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/asian-paints"
+  :factory/display-name "Asian Paints"
+  :factory/country "IN" :factory/isic "C20"
+  :factory/capabilities ["paints-and-coatings" "home-decor-products" "chemical-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Asian_Paints"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/pidilite-industries"
+  :factory/display-name "Pidilite Industries"
+  :factory/country "IN" :factory/isic "C20"
+  :factory/capabilities ["adhesives" "sealants" "specialty-chemicals" "construction-chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pidilite_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/britannia-industries"
+  :factory/display-name "Britannia Industries"
+  :factory/country "IN" :factory/isic "C10"
+  :factory/capabilities ["biscuits" "bakery-products" "dairy-products" "food-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Britannia_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/dixon-technologies"
+  :factory/display-name "Dixon Technologies"
+  :factory/country "IN" :factory/isic "C26"
+  :factory/capabilities ["electronics-manufacturing-services" "contract-manufacturing" "consumer-electronics" "odm"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dixon_Technologies"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Kazakhstan + Uzbekistan + Georgia + Azerbaijan (Central Asia + Caucasus) — basic metals / food-beverage / chemicals / textiles (C10/C11/C13/C20/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/kz/qarmet"
+  :factory/display-name "Qarmet"
+  :factory/country "KZ" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "iron-smelting" "coal-mining"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Qarmet"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/lotte-rakhat"
+  :factory/display-name "LOTTE Rakhat (JSC Rakhat)"
+  :factory/country "KZ" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "confectionery-manufacturing" "chocolate-manufacturing"]
+  :factory/source-url "https://www.rakhat.kz/en/o-kompanii/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/uzmetkombinat"
+  :factory/display-name "Uzmetkombinat"
+  :factory/country "UZ" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "metal-casting" "scrap-steel-recycling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Uzmetkombinat"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/uztex-group"
+  :factory/display-name "Uztex Group"
+  :factory/country "UZ" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "cotton-spinning" "yarn-production" "garment-manufacturing"]
+  :factory/source-url "https://uztexgroup.com/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/socar-polymer"
+  :factory/display-name "SOCAR Polymer"
+  :factory/country "AZ" :factory/isic "C20"
+  :factory/capabilities ["chemicals-manufacturing" "petrochemicals-production" "polypropylene-manufacturing" "polyethylene-manufacturing"]
+  :factory/source-url "https://www.socarpolymer.az/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/baku-steel-company"
+  :factory/display-name "Baku Steel Company"
+  :factory/country "AZ" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "rebar-production" "wire-rod-manufacturing"]
+  :factory/source-url "https://bakusteel.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/rustavi-azot"
+  :factory/display-name "Rustavi Azot JSC"
+  :factory/country "GE" :factory/isic "C20"
+  :factory/capabilities ["chemicals-manufacturing" "nitrogen-fertilizer-production" "ammonia-production"]
+  :factory/source-url "https://rustaviazot.ge/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/ids-borjomi-georgia"
+  :factory/display-name "IDS Borjomi Georgia"
+  :factory/country "GE" :factory/isic "C11"
+  :factory/capabilities ["beverage-manufacturing" "mineral-water-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Borjomi_(water)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Dominican Republic + Trinidad and Tobago + North Macedonia + Bosnia + Albania — apparel / food-beverage / petrochemicals / basic metals (C11/C14/C19/C20/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/do/grupo-m"
+  :factory/display-name "Grupo M"
+  :factory/country "DO" :factory/isic "C14"
+  :factory/capabilities ["apparel-manufacturing" "denim" "knitwear" "woven-garments" "vertically-integrated"]
+  :factory/source-url "https://forbes.com.mx/grupo-m-el-gigante-textil-del-caribe/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/refidomsa"
+  :factory/display-name "Refidomsa"
+  :factory/country "DO" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "hydroskimming" "fuel-distribution"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Refidomsa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/angostura"
+  :factory/display-name "Angostura Limited"
+  :factory/country "TT" :factory/isic "C11"
+  :factory/capabilities ["bitters-production" "rum-distilling" "beverage-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/House_of_Angostura"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/methanol-holdings-trinidad"
+  :factory/display-name "Methanol Holdings (Trinidad) Limited"
+  :factory/country "TT" :factory/isic "C20"
+  :factory/capabilities ["methanol-production" "ammonia-production" "urea" "melamine" "petrochemicals"]
+  :factory/source-url "https://proman.org/companies/mhtl/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/mond"
+  :factory/display-name "Mond"
+  :factory/country "MK" :factory/isic "C14"
+  :factory/capabilities ["trouser-manufacturing" "cut-and-sew" "apparel-export"]
+  :factory/source-url "https://mond.com.mk/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/makstil"
+  :factory/display-name "Makstil AD Skopje"
+  :factory/country "MK" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "electric-arc-furnace" "hot-rolled-plate" "continuous-casting"]
+  :factory/source-url "https://www.makstil.com/makstil/company/our-company.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/sarajevska-pivara"
+  :factory/display-name "Sarajevska Pivara"
+  :factory/country "BA" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "soft-drink-bottling"]
+  :factory/source-url "https://sarajevska-pivara.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/kurum-international"
+  :factory/display-name "Kurum International"
+  :factory/country "AL" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "electric-arc-furnace" "rebar" "iron-products"]
+  :factory/source-url "https://www.kurum.al/en/about-us/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
