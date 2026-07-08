@@ -1,0 +1,514 @@
+;; tsukuru 作 — public-directory manufacturer candidates (reference dataset, R0)
+;; :sourcing :public-directory — NOT authoritative, NOT onboarded/registered on tsukuru (G10).
+;; Every entry is a REAL company; every fact (country/ISIC/capabilities) is drawn from that
+;; company's own public site or Wikipedia — cited in :factory/source-url for verification.
+;; :factory/did here uses a "candidate:manufacturer-directory/..." id, deliberately NOT a
+;; did:web:tsukuru.etzhayyim.com/... path, because these companies have not consented to or
+;; been onboarded into the tsukuru registry — this is a research/reference directory only,
+;; not a claim of platform membership.
+;; :factory/labor-provenance is :unknown for every entry — public corporate/industry facts do
+;; not establish labor conditions or ESG posture, and none is asserted here (G8).
+;; No :factory/fulfillment-modes is asserted — BTO/MTO/CTO capability is a tsukuru-integration
+;; fact, not a public-directory fact, and is left unset rather than guessed.
+;; Compiled 2026-07-08 via public web research (company sites + Wikipedia), one source_url per
+;; entry. 80 companies across 10 industry/region clusters (medium pilot batch, per owner scope).
+
+[;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
+  :factory/display-name "FANUC Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["industrial-robotics" "cnc-controls" "factory-automation" "servo-motors"]
+  :factory/source-url "https://en.wikipedia.org/wiki/FANUC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/yaskawa-electric-corporation"
+  :factory/display-name "Yaskawa Electric Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["industrial-robotics" "servo-motors" "motion-control" "ac-drives"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Yaskawa_Electric_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/murata-manufacturing"
+  :factory/display-name "Murata Manufacturing Co., Ltd."
+  :factory/country "JP" :factory/isic "C26"
+  :factory/capabilities ["ceramic-capacitors" "electronic-components" "rf-modules" "sensors"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Murata_Manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/mitutoyo-corporation"
+  :factory/display-name "Mitutoyo Corporation"
+  :factory/country "JP" :factory/isic "C26"
+  :factory/capabilities ["precision-metrology" "coordinate-measuring-machines" "measuring-instruments"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mitutoyo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/amada"
+  :factory/display-name "Amada Co., Ltd."
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["sheet-metal-machinery" "press-brakes" "laser-cutting" "stamping-press"]
+  :factory/source-url "https://www.amada.co.jp/en/corporate/profile/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/nachi-fujikoshi"
+  :factory/display-name "Nachi-Fujikoshi Corp."
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["industrial-robotics" "bearings" "cutting-tools" "hydraulic-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nachi-Fujikoshi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/nakamura-tome-precision-industry"
+  :factory/display-name "Nakamura-Tome Precision Industry Co., Ltd."
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["cnc-lathes" "precision-machining" "turning-centers"]
+  :factory/source-url "https://www.nakamura-tome.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/harmonic-drive-systems"
+  :factory/display-name "Harmonic Drive Systems Inc."
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["precision-reduction-gears" "robotics-components" "servo-actuators"]
+  :factory/source-url "https://www.hds.co.jp/english/company/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Germany — automotive parts / injection molding / industrial machinery (C22/C28/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/de/robert-bosch"
+  :factory/display-name "Robert Bosch GmbH"
+  :factory/country "DE" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "industrial-automation" "electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bosch_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/zf-friedrichshafen"
+  :factory/display-name "ZF Friedrichshafen AG"
+  :factory/country "DE" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "driveline-systems" "chassis-technology"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ZF_Friedrichshafen"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/mahle"
+  :factory/display-name "Mahle GmbH"
+  :factory/country "DE" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "engine-systems" "thermal-management"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mahle_GmbH"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/continental"
+  :factory/display-name "Continental AG"
+  :factory/country "DE" :factory/isic "C22"
+  :factory/capabilities ["tires" "rubber-products" "industrial-rubber-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Continental_AG"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/freudenberg-sealing-technologies"
+  :factory/display-name "Freudenberg Sealing Technologies"
+  :factory/country "DE" :factory/isic "C22"
+  :factory/capabilities ["rubber-seals" "precision-molding" "automotive-components"]
+  :factory/source-url "https://www.fst.com/company/about-us/at-a-glance/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/arburg"
+  :factory/display-name "ARBURG GmbH + Co KG"
+  :factory/country "DE" :factory/isic "C28"
+  :factory/capabilities ["injection-molding-machinery" "tooling" "plastics-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Arburg"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/trumpf"
+  :factory/display-name "TRUMPF SE + Co. KG"
+  :factory/country "DE" :factory/isic "C28"
+  :factory/capabilities ["machine-tools" "laser-technology" "industrial-automation"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Trumpf"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/krones"
+  :factory/display-name "Krones AG"
+  :factory/country "DE" :factory/isic "C28"
+  :factory/capabilities ["packaging-machinery" "bottling-equipment" "industrial-automation"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Krones"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Taiwan + South Korea — semiconductor / electronics contract manufacturing (C26) ════════════
+ {:factory/did "candidate:manufacturer-directory/tw/tsmc"
+  :factory/display-name "Taiwan Semiconductor Manufacturing Company (TSMC)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "foundry" "ic-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/TSMC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/umc"
+  :factory/display-name "United Microelectronics Corporation (UMC)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "foundry"]
+  :factory/source-url "https://en.wikipedia.org/wiki/United_Microelectronics_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/ase-technology-holding"
+  :factory/display-name "ASE Technology Holding (ASE Group)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["ic-packaging" "ic-test"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ASE_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/powertech-technology"
+  :factory/display-name "Powertech Technology Inc (PTI)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["ic-packaging" "ic-test"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Powertech_Technology"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/foxconn"
+  :factory/display-name "Hon Hai Precision Industry Co., Ltd. (Foxconn)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["electronics-assembly" "pcba"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Foxconn"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/samsung-electronics"
+  :factory/display-name "Samsung Electronics"
+  :factory/country "KR" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "foundry"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Samsung_Electronics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/sk-hynix"
+  :factory/display-name "SK hynix"
+  :factory/country "KR" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab"]
+  :factory/source-url "https://en.wikipedia.org/wiki/SK_Hynix"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hana-micron"
+  :factory/display-name "Hana Micron"
+  :factory/country "KR" :factory/isic "C26"
+  :factory/capabilities ["ic-packaging" "ic-test"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hana_Micron"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ USA — aerospace components / precision machining / robotics (C25/C28/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/boeing"
+  :factory/display-name "Boeing"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["aerospace-components" "aircraft-manufacturing" "final-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Boeing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/precision-castparts"
+  :factory/display-name "Precision Castparts Corp"
+  :factory/country "US" :factory/isic "C25"
+  :factory/capabilities ["investment-casting" "forging" "aerospace-components" "fasteners"]
+  :factory/source-url "https://www.precast.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/spirit-aerosystems"
+  :factory/display-name "Spirit AeroSystems"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["aerostructures" "fuselage-manufacturing" "composite-manufacturing" "aerospace-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Spirit_AeroSystems"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/moog"
+  :factory/display-name "Moog Inc"
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["precision-machining" "motion-control" "aerospace-components" "actuation-systems"]
+  :factory/source-url "https://www.moog.com/contact-us/moog-facilities.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/barnes-aerospace"
+  :factory/display-name "Barnes Aerospace"
+  :factory/country "US" :factory/isic "C25"
+  :factory/capabilities ["precision-machining" "cnc-machining" "aerospace-components" "fabrication"]
+  :factory/source-url "https://barnesaero.com/who-we-are/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/boston-dynamics"
+  :factory/display-name "Boston Dynamics"
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["industrial-robotics" "advanced-manufacturing" "legged-robots" "robotics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Boston_Dynamics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/rockwell-automation"
+  :factory/display-name "Rockwell Automation"
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["industrial-robotics" "automation" "machinery" "autonomous-mobile-robots"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rockwell_Automation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/haas-automation"
+  :factory/display-name "Haas Automation"
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["cnc-machining" "machine-tools" "precision-machining"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Haas_Automation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ China — electronics contract manufacturing / electrical equipment / EV+battery (C26/C27/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/cn/byd"
+  :factory/display-name "BYD Company"
+  :factory/country "CN" :factory/isic "C29"
+  :factory/capabilities ["ev-components" "battery-cells" "automotive-assembly" "electronics-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BYD_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/catl"
+  :factory/display-name "CATL (Contemporary Amperex Technology Co., Limited)"
+  :factory/country "CN" :factory/isic "C27"
+  :factory/capabilities ["battery-cells" "ev-components" "energy-storage"]
+  :factory/source-url "https://en.wikipedia.org/wiki/CATL"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/luxshare-precision"
+  :factory/display-name "Luxshare Precision Industry"
+  :factory/country "CN" :factory/isic "C26"
+  :factory/capabilities ["electronics-assembly" "pcba" "consumer-electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Luxshare"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/boe-technology"
+  :factory/display-name "BOE Technology Group"
+  :factory/country "CN" :factory/isic "C26"
+  :factory/capabilities ["display-panels" "electronics-components" "consumer-electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BOE_Technology"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/midea"
+  :factory/display-name "Midea Group"
+  :factory/country "CN" :factory/isic "C27"
+  :factory/capabilities ["electrical-equipment" "home-appliances" "hvac"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Midea_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/gree-electric"
+  :factory/display-name "Gree Electric Appliances"
+  :factory/country "CN" :factory/isic "C27"
+  :factory/capabilities ["electrical-equipment" "hvac" "home-appliances"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gree_Electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/goertek"
+  :factory/display-name "Goertek Inc."
+  :factory/country "CN" :factory/isic "C26"
+  :factory/capabilities ["electronics-assembly" "acoustic-components" "consumer-electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Goertek"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/eve-energy"
+  :factory/display-name "EVE Energy"
+  :factory/country "CN" :factory/isic "C27"
+  :factory/capabilities ["battery-cells" "ev-components" "energy-storage"]
+  :factory/source-url "https://en.wikipedia.org/wiki/EVE_Energy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Italy — furniture / textiles / leather / industrial machinery (C13/C15/C28/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/it/cassina"
+  :factory/display-name "Cassina S.p.A."
+  :factory/country "IT" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "furniture-design" "cabinet-making"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cassina_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/poltrona-frau"
+  :factory/display-name "Poltrona Frau S.p.A."
+  :factory/country "IT" :factory/isic "C31"
+  :factory/capabilities ["leather-furniture" "furniture-manufacturing" "leather-upholstery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Poltrona_Frau"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/natuzzi"
+  :factory/display-name "Natuzzi S.p.A."
+  :factory/country "IT" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "sofa-manufacturing" "leather-upholstery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Natuzzi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/loro-piana"
+  :factory/display-name "Loro Piana S.p.A."
+  :factory/country "IT" :factory/isic "C13"
+  :factory/capabilities ["textile-weaving" "wool-processing" "cashmere-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Loro_Piana"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/marzotto-group"
+  :factory/display-name "Marzotto Group"
+  :factory/country "IT" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "wool-spinning" "fabric-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Marzotto_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/tods"
+  :factory/display-name "Tod's S.p.A."
+  :factory/country "IT" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "footwear-manufacturing" "leather-craftsmanship"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tod's"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/biesse"
+  :factory/display-name "Biesse S.p.A."
+  :factory/country "IT" :factory/isic "C28"
+  :factory/capabilities ["industrial-machinery" "woodworking-machinery" "machine-manufacturing"]
+  :factory/source-url "https://biesse.com/us/en/history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/danieli"
+  :factory/display-name "Danieli & C. Officine Meccaniche S.p.A."
+  :factory/country "IT" :factory/isic "C28"
+  :factory/capabilities ["industrial-machinery" "steel-plant-equipment" "metallurgical-machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Danieli"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ India — pharmaceuticals / textiles / auto components (C13/C21/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/in/sun-pharmaceutical-industries"
+  :factory/display-name "Sun Pharmaceutical Industries Ltd"
+  :factory/country "IN" :factory/isic "C21"
+  :factory/capabilities ["pharma-manufacturing" "generic-drugs" "active-pharmaceutical-ingredients"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sun_Pharma"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/cipla"
+  :factory/display-name "Cipla Limited"
+  :factory/country "IN" :factory/isic "C21"
+  :factory/capabilities ["pharma-manufacturing" "generic-drugs" "respiratory-medicines"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cipla"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/ipca-laboratories"
+  :factory/display-name "Ipca Laboratories Limited"
+  :factory/country "IN" :factory/isic "C21"
+  :factory/capabilities ["pharma-manufacturing" "generic-drugs" "formulations"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ipca_Laboratories"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/arvind"
+  :factory/display-name "Arvind Limited"
+  :factory/country "IN" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "denim" "fabric-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Arvind_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/vardhman-textiles"
+  :factory/display-name "Vardhman Textiles Ltd"
+  :factory/country "IN" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "yarn-production" "fabric-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vardhman_Group_of_Companies"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/trident"
+  :factory/display-name "Trident Limited"
+  :factory/country "IN" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "home-textiles" "yarn-production"]
+  :factory/source-url "https://www.tridentindia.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/bharat-forge"
+  :factory/display-name "Bharat Forge Limited"
+  :factory/country "IN" :factory/isic "C29"
+  :factory/capabilities ["auto-components" "forging" "engine-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bharat_Forge"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/samvardhana-motherson"
+  :factory/display-name "Samvardhana Motherson International Ltd"
+  :factory/country "IN" :factory/isic "C29"
+  :factory/capabilities ["auto-components" "wiring-harnesses" "plastic-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Samvardhana_Motherson"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Nordics (SE/FI/DK/NO) — industrial equipment / paper-pulp / cleantech (C17/C27/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/se/atlas-copco"
+  :factory/display-name "Atlas Copco"
+  :factory/country "SE" :factory/isic "C28"
+  :factory/capabilities ["industrial-equipment" "compressors" "machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Atlas_Copco"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/skf"
+  :factory/display-name "SKF"
+  :factory/country "SE" :factory/isic "C28"
+  :factory/capabilities ["industrial-equipment" "bearings" "machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/SKF"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/wartsila"
+  :factory/display-name "Wärtsilä"
+  :factory/country "FI" :factory/isic "C28"
+  :factory/capabilities ["industrial-equipment" "marine-engines" "energy-machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/W%C3%A4rtsil%C3%A4"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/upm-kymmene"
+  :factory/display-name "UPM-Kymmene"
+  :factory/country "FI" :factory/isic "C17"
+  :factory/capabilities ["paper-pulp" "forest-industry"]
+  :factory/source-url "https://en.wikipedia.org/wiki/UPM_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/vestas-wind-systems"
+  :factory/display-name "Vestas Wind Systems"
+  :factory/country "DK" :factory/isic "C27"
+  :factory/capabilities ["cleantech" "wind-turbines" "electrical-machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vestas"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/danfoss"
+  :factory/display-name "Danfoss"
+  :factory/country "DK" :factory/isic "C28"
+  :factory/capabilities ["industrial-equipment" "cleantech" "climate-solutions"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Danfoss"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/kongsberg-gruppen"
+  :factory/display-name "Kongsberg Gruppen"
+  :factory/country "NO" :factory/isic "C28"
+  :factory/capabilities ["industrial-equipment" "maritime-machinery" "defense-technology"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kongsberg_Gruppen"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/nel-asa"
+  :factory/display-name "Nel ASA"
+  :factory/country "NO" :factory/isic "C28"
+  :factory/capabilities ["cleantech" "hydrogen-equipment" "electrolysers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nel_ASA"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Southeast Asia (VN/MY/TH/ID) — EMS / electrical equipment / textiles (C13/C26/C27) ════════════
+ {:factory/did "candidate:manufacturer-directory/vn/vinatex"
+  :factory/display-name "Vinatex"
+  :factory/country "VN" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "yarn-spinning" "fabric-weaving" "garment-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vinatex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/tng-investment-and-trading"
+  :factory/display-name "TNG Investment and Trading"
+  :factory/country "VN" :factory/isic "C13"
+  :factory/capabilities ["garment-manufacturing" "apparel-sewing" "sportswear" "textile-manufacturing"]
+  :factory/source-url "https://www.tng.vn"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/inari-amertron"
+  :factory/display-name "Inari Amertron Berhad"
+  :factory/country "MY" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-packaging" "osat" "electronics-assembly" "optoelectronics"]
+  :factory/source-url "https://www.inari-amertron.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/vs-industry"
+  :factory/display-name "VS Industry Berhad"
+  :factory/country "MY" :factory/isic "C26"
+  :factory/capabilities ["ems" "electronics-assembly" "plastic-injection-molding" "pcb-assembly"]
+  :factory/source-url "https://www.vs-i.com/corporate-profile/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/delta-electronics-thailand"
+  :factory/display-name "Delta Electronics (Thailand) PCL"
+  :factory/country "TH" :factory/isic "C27"
+  :factory/capabilities ["power-supplies" "electrical-equipment" "electronics-manufacturing"]
+  :factory/source-url "https://www.deltathailand.com/en/delta-overview"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/kce-electronics"
+  :factory/display-name "KCE Electronics PCL"
+  :factory/country "TH" :factory/isic "C26"
+  :factory/capabilities ["pcb-manufacturing" "electronic-components" "automotive-electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/KCE_Electronics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/pan-brothers"
+  :factory/display-name "PT Pan Brothers Tbk"
+  :factory/country "ID" :factory/isic "C13"
+  :factory/capabilities ["garment-manufacturing" "textile-manufacturing" "apparel-sewing"]
+  :factory/source-url "https://www.panbrotherstbk.com/AboutUs/pbrx"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/polytron"
+  :factory/display-name "Polytron (PT Hartono Istana Teknologi)"
+  :factory/country "ID" :factory/isic "C27"
+  :factory/capabilities ["electrical-equipment" "home-appliances" "consumer-electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Polytron_(electronics_company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ UK + France — aerospace / automotive / precision components (C25/C29/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/gb/rolls-royce-holdings"
+  :factory/display-name "Rolls-Royce Holdings plc"
+  :factory/country "GB" :factory/isic "C30"
+  :factory/capabilities ["aerospace-engines" "aerospace-components" "precision-machining"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rolls-Royce_Holdings"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/gkn-aerospace"
+  :factory/display-name "GKN Aerospace"
+  :factory/country "GB" :factory/isic "C30"
+  :factory/capabilities ["aerospace-components" "aerostructures" "precision-machining"]
+  :factory/source-url "https://en.wikipedia.org/wiki/GKN"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/meggitt"
+  :factory/display-name "Meggitt (Parker Meggitt)"
+  :factory/country "GB" :factory/isic "C30"
+  :factory/capabilities ["aerospace-components" "defense-systems" "precision-engineering"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Meggitt"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/cosworth"
+  :factory/display-name "Cosworth"
+  :factory/country "GB" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "precision-machining" "motorsport-engineering"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cosworth"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/safran"
+  :factory/display-name "Safran"
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["aerospace-engines" "aerospace-components" "defense-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Safran"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/figeac-aero"
+  :factory/display-name "Figeac Aéro"
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["aerospace-components" "precision-machining" "metal-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Figeac_Aero"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/valeo"
+  :factory/display-name "Valeo"
+  :factory/country "FR" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "electronics" "precision-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Valeo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/daher"
+  :factory/display-name "Daher"
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["aerospace-composites" "aerostructures" "precision-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Daher"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
