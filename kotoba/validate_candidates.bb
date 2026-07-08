@@ -25,6 +25,17 @@
       (fail (str "duplicate :factory/did found — "
                  (->> dids (frequencies) (filter #(> (val %) 1)) (map key) (into []))))))
 
+  ;; catches the same company added twice under different :factory/did slugs — the DID check
+  ;; above only catches identical ids, not identical companies (this happened for real research
+  ;; picks re-surfacing across batches 9-13; a normalized-name collision here would have caught
+  ;; them even if a different slug had been used by mistake)
+  (let [norm (fn [s] (-> s clojure.string/lower-case (clojure.string/replace #"[^a-z0-9]" "")))
+        by-norm (group-by (comp norm :factory/display-name) entries)
+        dupes (filter #(> (count (val %)) 1) by-norm)]
+    (when (seq dupes)
+      (fail (str "near-duplicate :factory/display-name (same company, different :factory/did) — "
+                 (mapv #(mapv :factory/display-name (val %)) dupes)))))
+
   (doseq [[i e] (map-indexed vector entries)]
     (let [did (:factory/did e)]
       (when (or (nil? did) (re-find #"^did:web:tsukuru\.etzhayyim\.com/" did))

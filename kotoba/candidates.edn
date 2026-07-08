@@ -126,6 +126,18 @@
 ;; the file header above and CLAUDE.md's Manufacturer Registry Rules — but the scale target
 ;; that originally motivated the "460+" figure in manifest.edn/CLAUDE.md is now matched by real,
 ;; sourced, verifiable public-directory entries rather than an unverified legacy assumption.
+;; Batch 14 (/loop pass 14): with the scale milestone passed, shifted weight from raw growth
+;; toward maturity: kotoba/validate_candidates.bb gained a near-duplicate-display-name check
+;; (normalized, case/punctuation-insensitive) alongside the existing duplicate-:factory/did
+;; check — a spot audit of all 464 prior entries found zero near-duplicates, confirming the
+;; batch-10-onward pre-append-grep discipline has been working, but the check is now permanent
+;; and automatic rather than a manual step. Also +29 companies, +0 new countries: fourth entry
+;; for 21 places that had exactly 2 (Trinidad/Mongolia/Tanzania/Georgia/Qatar/Cameroon/
+;; Zimbabwe/Rwanda/Bosnia/Kenya/Cyprus/Ghana/Albania/Cambodia/Lebanon/Norway/Ethiopia/Senegal/
+;; Zambia/Hong Kong/Serbia, skewed toward cement/brewing/basic-metals/chemicals/pharma to
+;; diversify each place's industry mix); thin-ISIC round 6 across C14/C16/C25/C31.
+;; Running total: 493 companies / 94 countries / 23 ISIC divisions, zero duplicate DIDs, zero
+;; near-duplicate display names.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3031,4 +3043,182 @@
   :factory/country "CH" :factory/isic "C15"
   :factory/capabilities ["footwear-manufacturing" "leather-shoes" "safety-shoes" "rubber-footwear"]
   :factory/source-url "https://en.wikipedia.org/wiki/Bata_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fourth entry — Balkans + Caucasus + Africa + small economies (21 previously-2-entry places) ════════════
+ {:factory/did "candidate:manufacturer-directory/tt/trinidad-cement-limited"
+  :factory/display-name "Trinidad Cement Limited"
+  :factory/country "TT" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "ready-mix-concrete" "aggregates-production"]
+  :factory/source-url "https://www.tclgroup.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/gobi-cashmere"
+  :factory/display-name "Gobi Cashmere"
+  :factory/country "MN" :factory/isic "C14"
+  :factory/capabilities ["cashmere-processing" "knitwear-manufacturing" "garment-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gobi_Cashmere"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/tanzania-breweries"
+  :factory/display-name "Tanzania Breweries Limited"
+  :factory/country "TZ" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tanzania_Breweries_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/rustavi-steel"
+  :factory/display-name "Rustavi Steel"
+  :factory/country "GE" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "rebar-production" "seamless-pipe-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rustavi_Steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/qatar-national-cement"
+  :factory/display-name "Qatar National Cement Company"
+  :factory/country "QA" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "lime-production" "sand-washing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Qatar_National_Cement_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/cimencam"
+  :factory/display-name "Cimencam"
+  :factory/country "CM" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "ready-mix-concrete"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Cimenteries_du_Cameroun"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/sable-chemical-industries"
+  :factory/display-name "Sable Chemical Industries"
+  :factory/country "ZW" :factory/isic "C20"
+  :factory/capabilities ["ammonium-nitrate-production" "ammonia-production" "fertilizer-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sable_Chemicals"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/sulfo-rwanda-industries"
+  :factory/display-name "SULFO Rwanda Industries"
+  :factory/country "RW" :factory/isic "C20"
+  :factory/capabilities ["soap-manufacturing" "detergent-production" "cooking-oil-processing"]
+  :factory/source-url "https://sulfo.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/aluminij-mostar"
+  :factory/display-name "Aluminij Mostar"
+  :factory/country "BA" :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "primary-aluminium-production" "electrolysis"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Aluminij"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/east-african-breweries"
+  :factory/display-name "East African Breweries Limited"
+  :factory/country "KE" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "spirits-distilling" "beverage-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/East_African_Breweries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/medochemie"
+  :factory/display-name "Medochemie Ltd"
+  :factory/country "CY" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drug-production" "tablet-and-capsule-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Medochemie"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/fan-milk"
+  :factory/display-name "Fan Milk Limited"
+  :factory/country "GH" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "ice-cream-manufacturing" "yoghurt-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fan_Milk"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/antea-cement"
+  :factory/display-name "Antea Cement"
+  :factory/country "AL" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "quarrying"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Antea_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/chip-mong-insee-cement"
+  :factory/display-name "Chip Mong Insee Cement Corporation"
+  :factory/country "KH" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://www.chipmonginsee.com/company-background/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/brasserie-almaza"
+  :factory/display-name "Brasserie Almaza"
+  :factory/country "LB" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Almaza_Beer"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/no/norsk-hydro"
+  :factory/display-name "Norsk Hydro ASA"
+  :factory/country "NO" :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "primary-aluminium-production" "rolled-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Norsk_Hydro"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/bgi-ethiopia"
+  :factory/display-name "BGI Ethiopia PLC"
+  :factory/country "ET" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BGI_Ethiopia_PLC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/industries-chimiques-du-senegal"
+  :factory/display-name "Industries Chimiques du Senegal"
+  :factory/country "SN" :factory/isic "C20"
+  :factory/capabilities ["phosphoric-acid-production" "fertilizer-manufacturing" "phosphate-processing"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Industries_chimiques_du_S%C3%A9n%C3%A9gal"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/chilanga-cement"
+  :factory/display-name "Chilanga Cement Plc"
+  :factory/country "ZM" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Chilanga_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/vitasoy-international-holdings"
+  :factory/display-name "Vitasoy International Holdings"
+  :factory/country "HK" :factory/isic "C11"
+  :factory/capabilities ["soy-milk-production" "plant-based-beverage-manufacturing" "juice-and-tea-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vitasoy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/hesteel-serbia"
+  :factory/display-name "Hesteel Serbia"
+  :factory/country "RS" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "blast-furnace-ironmaking" "hot-and-cold-rolling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hesteel_Serbia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 6 — furniture / apparel / wood products / fabricated metal (C14/C16/C25/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/haworth"
+  :factory/display-name "Haworth Inc."
+  :factory/country "US" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "seating" "casegoods" "movable-walls"]
+  :factory/source-url "https://www.haworth.com/na/en/about/about-haworth.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/okamura-corporation"
+  :factory/display-name "Okamura Corporation"
+  :factory/country "JP" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "seating" "storage" "store-fixtures"]
+  :factory/source-url "https://www.okamura.com/corporate-profile/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/shenzhou-international"
+  :factory/display-name "Shenzhou International Group Holdings"
+  :factory/country "CN" :factory/isic "C14"
+  :factory/capabilities ["knitwear" "garment-manufacturing" "oem-apparel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Shenzhou_International"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/yesim-tekstil"
+  :factory/display-name "Yesim Tekstil"
+  :factory/country "TR" :factory/isic "C14"
+  :factory/capabilities ["knitwear" "garment-manufacturing" "home-textiles"]
+  :factory/source-url "https://english.yesim.com/icerik/8/general-profile/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/boise-cascade"
+  :factory/display-name "Boise Cascade Company"
+  :factory/country "US" :factory/isic "C16"
+  :factory/capabilities ["plywood" "engineered-wood-products" "lumber"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Boise_Cascade"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/york-timbers"
+  :factory/display-name "York Timbers Limited"
+  :factory/country "ZA" :factory/isic "C16"
+  :factory/capabilities ["sawn-lumber" "plywood" "timber-processing"]
+  :factory/source-url "https://www.york.co.za/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/snap-on"
+  :factory/display-name "Snap-on Incorporated"
+  :factory/country "US" :factory/isic "C25"
+  :factory/capabilities ["hand-tools" "tool-storage" "diagnostic-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Snap-on"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/groupe-seb"
+  :factory/display-name "Groupe SEB"
+  :factory/country "FR" :factory/isic "C25"
+  :factory/capabilities ["cookware" "metal-household-articles" "small-kitchen-appliances"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Groupe_SEB"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
