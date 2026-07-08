@@ -37,16 +37,30 @@
 ;; (steel/aluminium/cement/petrochemicals/paints/food/EMS, previously all pharma/textiles/
 ;; auto) for economy depth; Central Asia+Caucasus and Caribbean+remaining-Balkans for country
 ;; gaps. Running total: 272 companies / 83 countries / 23 ISIC divisions.
-;; Remaining country gaps: Russia/CIS and Iran (politically sensitive — skip pending explicit
-;; owner direction), Pacific Islands (Fiji, Papua New Guinea), remaining Caribbean (Jamaica,
-;; Trinidad already added but Jamaica/Cuba/Haiti still open), Mongolia, North Korea
-;; (politically sensitive — skip), a handful of small European states (Cyprus, Malta,
-;; Luxembourg, Iceland). With most significant economies now represented, future batches
-;; should default to economy-depth (any already-listed country, new industries) unless a
-;; specific country gap is worth closing. See kotoba/validate_candidates.bb (batch 4) and
-;; .github/workflows/validate-candidates.yml (batch 5, fixed in the batch-5 PR after the
-;; first CI run failed on a nonexistent babashka/setup-babashka action — now uses the
-;; official install script) for the automated consistency check and its CI enforcement.
+;; Batch 8 (/loop pass 8): +33 companies / +8 countries (IS LU CY MT MN FJ PG JM) — JP +8
+;; (automotive/steel/chemicals/pharma/food/beverages/shipbuilding/tires, previously all
+;; robotics/precision-machining/electronics/printing) and KR +8 (automotive/steel/
+;; petrochemicals/shipbuilding/home-electronics, previously all semiconductors/electronics/
+;; tobacco) for economy depth; small-but-real economies (Iceland aluminum smelting,
+;; Luxembourg steel/tires, Cyprus/Malta brewing+cement+rubber, Mongolia/Fiji/PNG/Jamaica
+;; mining-adjacent metals and food/beverage) for country-gap fill — deliberately not padded
+;; to a round number where the real company count ran out (9 in the small-Europe cluster, not
+;; forced to 8). Running total: 305 companies / 91 countries / 23 ISIC divisions, zero
+;; duplicate DIDs.
+;; Remaining country gaps: Russia/CIS, Iran, and North Korea (politically sensitive — skip
+;; pending explicit owner direction), Haiti and Cuba (Caribbean remainder — Cuba politically
+;; sensitive, treat like Russia/Iran pending owner direction), a handful of very small states
+;; (Andorra, San Marino, Monaco, Liechtenstein — likely no meaningful primary manufacturing to
+;; find). With virtually every significant manufacturing economy now represented, future
+;; batches should default to economy-depth (any already-listed country, new industries) —
+;; that is the real lever left toward the original registry's "460+ manufacturers" scale
+;; reference — rather than chasing ever-smaller remaining-country gaps. See
+;; kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
+;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
+;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
+;; fixed in the batch-5 PR after the first CI run failed on a nonexistent
+;; babashka/setup-babashka action — now uses the official install script) for the automated
+;; consistency check and its CI enforcement.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -1746,4 +1760,210 @@
   :factory/country "AL" :factory/isic "C24"
   :factory/capabilities ["steelmaking" "electric-arc-furnace" "rebar" "iron-products"]
   :factory/source-url "https://www.kurum.al/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Japan depth — automotive / steel / chemicals / pharma / food / beverages / shipbuilding / tires (C10/C11/C20/C21/C22/C24/C29/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/toyota-motor"
+  :factory/display-name "Toyota Motor Corporation"
+  :factory/country "JP" :factory/isic "C29"
+  :factory/capabilities ["automotive-manufacturing" "passenger-vehicles" "commercial-vehicles" "engine-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Toyota"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/nippon-steel"
+  :factory/display-name "Nippon Steel Corporation"
+  :factory/country "JP" :factory/isic "C24"
+  :factory/capabilities ["crude-steel-production" "steelmaking" "rolled-steel" "steel-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nippon_Steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/asahi-kasei"
+  :factory/display-name "Asahi Kasei Corporation"
+  :factory/country "JP" :factory/isic "C20"
+  :factory/capabilities ["chemicals" "synthetic-fibers" "performance-materials" "electronics-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Asahi_Kasei"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/takeda-pharmaceutical"
+  :factory/display-name "Takeda Pharmaceutical Company"
+  :factory/country "JP" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biopharmaceuticals" "drug-manufacturing" "vaccines"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Takeda_Pharmaceutical_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/ajinomoto"
+  :factory/display-name "Ajinomoto Co., Inc."
+  :factory/country "JP" :factory/isic "C10"
+  :factory/capabilities ["seasonings" "amino-acids" "food-processing" "msg-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ajinomoto"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/kirin-holdings"
+  :factory/display-name "Kirin Holdings Company"
+  :factory/country "JP" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "soft-drinks" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kirin_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/mitsubishi-heavy-industries"
+  :factory/display-name "Mitsubishi Heavy Industries"
+  :factory/country "JP" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "marine-vessels" "ship-engineering" "heavy-machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mitsubishi_Heavy_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/bridgestone"
+  :factory/display-name "Bridgestone Corporation"
+  :factory/country "JP" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "industrial-rubber"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bridgestone"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ South Korea depth — automotive / steel / petrochemicals / shipbuilding / home-electronics (C20/C24/C27/C29/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/kr/hyundai-motor"
+  :factory/display-name "Hyundai Motor Company"
+  :factory/country "KR" :factory/isic "C29"
+  :factory/capabilities ["passenger-vehicles" "commercial-vehicles" "vehicle-assembly" "r-and-d"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hyundai_Motor_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/kia"
+  :factory/display-name "Kia Corporation"
+  :factory/country "KR" :factory/isic "C29"
+  :factory/capabilities ["passenger-vehicles" "vehicle-assembly" "electric-vehicles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/posco"
+  :factory/display-name "POSCO"
+  :factory/country "KR" :factory/isic "C24"
+  :factory/capabilities ["crude-steel" "flat-steel" "stainless-steel" "integrated-steel-mill"]
+  :factory/source-url "https://en.wikipedia.org/wiki/POSCO"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hyundai-steel"
+  :factory/display-name "Hyundai Steel"
+  :factory/country "KR" :factory/isic "C24"
+  :factory/capabilities ["crude-steel" "steel-plate" "automotive-steel" "electric-arc-furnace"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hyundai_Steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/lg-chem"
+  :factory/display-name "LG Chem"
+  :factory/country "KR" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "synthetic-resins" "basic-chemicals" "plastics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/LG_Chem"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/lotte-chemical"
+  :factory/display-name "Lotte Chemical"
+  :factory/country "KR" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "synthetic-resins" "basic-petrochemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lotte_Chemical"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hd-hyundai-heavy-industries"
+  :factory/display-name "HD Hyundai Heavy Industries"
+  :factory/country "KR" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "marine-engines" "offshore-vessels"]
+  :factory/source-url "https://en.wikipedia.org/wiki/HD_Hyundai_Heavy_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/lg-electronics"
+  :factory/display-name "LG Electronics"
+  :factory/country "KR" :factory/isic "C27"
+  :factory/capabilities ["home-appliances" "televisions" "refrigerators" "washing-machines"]
+  :factory/source-url "https://en.wikipedia.org/wiki/LG_Electronics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Iceland + Luxembourg + Cyprus + Malta — aluminum smelting / basic metals / tires / brewing / cement (C11/C22/C23/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/is/isal-rio-tinto"
+  :factory/display-name "ÍSAL (Rio Tinto Iceland)"
+  :factory/country "IS" :factory/isic "C24"
+  :factory/capabilities ["primary-aluminum-smelting" "casting" "aluminum-billets"]
+  :factory/source-url "https://www.riotinto.is/fyrirtaekid/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/alcoa-fjardaal"
+  :factory/display-name "Alcoa Fjarðaál"
+  :factory/country "IS" :factory/isic "C24"
+  :factory/capabilities ["primary-aluminum-smelting" "casting" "aluminum-rod-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alcoa_Fjar%C3%B0a%C3%A1l"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/nordural-grundartangi"
+  :factory/display-name "Norðurál Grundartangi (Century Aluminum)"
+  :factory/country "IS" :factory/isic "C24"
+  :factory/capabilities ["primary-aluminum-smelting" "casting" "low-carbon-billet-production"]
+  :factory/source-url "https://centuryaluminum.com/products-and-plants/grundartangi-iceland/default.aspx"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/arcelormittal"
+  :factory/display-name "ArcelorMittal"
+  :factory/country "LU" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "long-products" "structural-steel" "steel-rd"]
+  :factory/source-url "https://luxembourg.arcelormittal.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/goodyear-luxembourg"
+  :factory/display-name "Goodyear S.A. (Colmar-Berg plant)"
+  :factory/country "LU" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "truck-tires" "off-the-road-tires" "tire-rd"]
+  :factory/source-url "https://news.goodyear.eu/fr-lu/goodyear-celebre-ses-75-ans-dactivite-au-luxembourg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/keo"
+  :factory/display-name "KEO plc"
+  :factory/country "CY" :factory/isic "C11"
+  :factory/capabilities ["brewing" "wine-production" "beverage-bottling" "canned-food"]
+  :factory/source-url "https://en.wikipedia.org/wiki/KEO_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/vassiliko-cement-works"
+  :factory/display-name "Vassiliko Cement Works"
+  :factory/country "CY" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-production" "quarrying"]
+  :factory/source-url "https://www.vassiliko.com/en/the-company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/simonds-farsons-cisk"
+  :factory/display-name "Simonds Farsons Cisk plc"
+  :factory/country "MT" :factory/isic "C11"
+  :factory/capabilities ["brewing" "soft-drink-bottling" "canning"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Simonds_Farsons_Cisk"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mt/trelleborg-sealing-solutions-malta"
+  :factory/display-name "Trelleborg Sealing Solutions Malta"
+  :factory/country "MT" :factory/isic "C22"
+  :factory/capabilities ["rubber-molding" "o-ring-manufacturing" "sealing-solutions" "cleanroom-manufacturing"]
+  :factory/source-url "https://www.trelleborg.com/en/seals/about-us/manufacturing-capabilities/malta"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Jamaica + Mongolia + Fiji + Papua New Guinea — bauxite/copper basic metals / food-beverage (C10/C11/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/jm/jamalco"
+  :factory/display-name "Jamalco"
+  :factory/country "JM" :factory/isic "C24"
+  :factory/capabilities ["bauxite-mining" "alumina-refining" "basic-metals"]
+  :factory/source-url "https://www.jamalco.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/j-wray-and-nephew"
+  :factory/display-name "J. Wray & Nephew Ltd"
+  :factory/country "JM" :factory/isic "C11"
+  :factory/capabilities ["rum-distilling" "spirits-bottling" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/J._Wray_and_Nephew_Ltd."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/erdenet-mining"
+  :factory/display-name "Erdenet Mining Corporation"
+  :factory/country "MN" :factory/isic "C24"
+  :factory/capabilities ["copper-ore-processing" "copper-concentrate" "molybdenum-processing" "basic-metals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Erdenet_Mining_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/apu-company"
+  :factory/display-name "APU Company"
+  :factory/country "MN" :factory/isic "C11"
+  :factory/capabilities ["vodka-distilling" "beer-brewing" "dairy-processing" "beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/APU_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/fiji-sugar-corporation"
+  :factory/display-name "Fiji Sugar Corporation"
+  :factory/country "FJ" :factory/isic "C10"
+  :factory/capabilities ["sugar-milling" "cane-processing" "food-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Fiji_Sugar_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/punjas"
+  :factory/display-name "Punjas (Punja & Sons Ltd)"
+  :factory/country "FJ" :factory/isic "C10"
+  :factory/capabilities ["rice-milling" "flour-milling" "biscuit-manufacturing" "food-processing"]
+  :factory/source-url "https://www.punjas.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/new-britain-palm-oil"
+  :factory/display-name "New Britain Palm Oil Limited"
+  :factory/country "PG" :factory/isic "C10"
+  :factory/capabilities ["palm-oil-milling" "palm-kernel-crushing" "vegetable-oil-refining"]
+  :factory/source-url "https://www.nbpol.com.pg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/south-pacific-brewery"
+  :factory/display-name "South Pacific Brewery"
+  :factory/country "PG" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "beverage-bottling"]
+  :factory/source-url "https://www.sp.com.pg/our-company"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
