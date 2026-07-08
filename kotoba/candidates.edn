@@ -94,6 +94,21 @@
 ;; batch's new picks get grepped against the merged main candidates.edn before being appended,
 ;; not just validated after the fact. Running total: 398 companies / 91 countries / 23 ISIC
 ;; divisions, zero duplicate DIDs.
+;; Batch 12 (/loop pass 12): +32 companies, +2 new countries (IE, HK) — third entry for 19
+;; countries that had exactly 2 (mostly pharma/food/automotive/electricals, filling gaps left
+;; by earlier cement/textile/electronics-heavy batches): Malaysia, Indonesia, Thailand,
+;; Philippines, Singapore, Vietnam, Saudi Arabia, UAE, Jordan, Uganda, North Macedonia,
+;; Algeria, Egypt, Uzbekistan, Tunisia, Morocco, Côte d'Ivoire, Kazakhstan; thin-ISIC round 4
+;; across C12/C16/C17/C18/C19/C25/C31/C32. Ireland enters the dataset via Smurfit Westrock
+;; (paper) and Cimpress (printing); Hong Kong via Man Wah Holdings (furniture).
+;; Dropped 4 duplicate agent picks this batch (Qatar Steel, Bosnalijek, Sinopec, and — a FOURTH
+;; time — Reliance Industries) via the pre-append grep against merged main. The recurring
+;; Reliance Industries collisions (batches 9, 10, 11, 12) confirm it's simply the most
+;; "obvious" real example for oil-refining/petrochemical prompts; rather than keep expanding
+;; avoid-lists, every batch's raw picks get grepped against candidates.edn before appending —
+;; that step is now non-negotiable, not just for spot-checks.
+;; Running total: 430 companies / 93 countries / 23 ISIC divisions, zero duplicate DIDs — within
+;; 30 of the original registry's "460+ manufacturers" scale reference.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -2587,4 +2602,204 @@
   :factory/country "KR" :factory/isic "C22"
   :factory/capabilities ["tires" "rubber-products"]
   :factory/source-url "https://en.wikipedia.org/wiki/Hankook"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Third entry — Southeast Asia + Gulf/Middle East (MY/ID/TH/PH/SG/VN/SA/AE/JO) ════════════
+ {:factory/did "candidate:manufacturer-directory/my/nestle-manufacturing"
+  :factory/display-name "Nestlé Manufacturing (M) Sdn. Bhd."
+  :factory/country "MY" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "beverage-powder" "dairy" "halal-certified"]
+  :factory/source-url "https://www.nestle.com.my/media/pressreleases/nestle-establishes-worlds-largest-milo-factory-in-negerisembilan"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/indofood-cbp"
+  :factory/display-name "PT Indofood CBP Sukses Makmur Tbk"
+  :factory/country "ID" :factory/isic "C10"
+  :factory/capabilities ["instant-noodles" "food-processing" "fmcg" "packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Indofood"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/thai-union-group"
+  :factory/display-name "Thai Union Group PCL"
+  :factory/country "TH" :factory/isic "C10"
+  :factory/capabilities ["seafood-processing" "canned-tuna" "frozen-seafood" "cold-chain"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Thai_Union_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/san-miguel-food-and-beverage"
+  :factory/display-name "San Miguel Food and Beverage, Inc."
+  :factory/country "PH" :factory/isic "C10"
+  :factory/capabilities ["meat-processing" "dairy" "ice-cream" "food-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/San_Miguel_Food_and_Beverage"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/gsk-singapore"
+  :factory/display-name "GSK Singapore (Jurong manufacturing site)"
+  :factory/country "SG" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "api-production" "continuous-manufacturing" "gmp-cleanroom"]
+  :factory/source-url "https://www.gsk.com/en-gb/locations/singapore/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/vn/vinamilk"
+  :factory/display-name "Vinamilk (Vietnam Dairy Products JSC)"
+  :factory/country "VN" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "uht-milk" "powdered-milk" "food-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vinamilk"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/almarai"
+  :factory/display-name "Almarai Company"
+  :factory/country "SA" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "juice-processing" "bakery" "infant-nutrition"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Almarai"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ae/julphar"
+  :factory/display-name "Julphar (Gulf Pharmaceutical Industries)"
+  :factory/country "AE" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "insulin-production" "sterile-injectables" "oral-solid-dosage"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Julphar"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/hikma-pharmaceuticals"
+  :factory/display-name "Hikma Pharmaceuticals"
+  :factory/country "JO" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generics" "oncology-drugs" "api-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hikma_Pharmaceuticals"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Third entry — Africa + Balkans + Caucasus + Central Asia (UG/MK/DZ/EG/UZ/TN/MA/CI/KZ) ════════════
+ {:factory/did "candidate:manufacturer-directory/ug/quality-chemical-industries"
+  :factory/display-name "Quality Chemical Industries Limited"
+  :factory/country "UG" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "antiretrovirals" "antimalarials" "generic-drugs"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Quality_Chemical_Industries_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/alkaloid"
+  :factory/display-name "Alkaloid AD Skopje"
+  :factory/country "MK" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generics" "cosmetics" "chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Alkaloid_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/saidal-group"
+  :factory/display-name "Saidal Group"
+  :factory/country "DZ" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generics" "active-pharmaceutical-ingredients"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Saidal"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/elsewedy-electric"
+  :factory/display-name "Elsewedy Electric"
+  :factory/country "EG" :factory/isic "C27"
+  :factory/capabilities ["cables" "transformers" "electrical-equipment" "wind-turbines"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Elsewedy_Electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/artel-electronics"
+  :factory/display-name "Artel Electronics"
+  :factory/country "UZ" :factory/isic "C27"
+  :factory/capabilities ["home-appliances" "refrigerators" "televisions" "washing-machines"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Artel_Electronics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/adwya"
+  :factory/display-name "Adwya"
+  :factory/country "TN" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generics" "cardiology" "dermatology"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Adwya"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/renault-tanger-mediterranee"
+  :factory/display-name "Renault Tanger Méditerranée"
+  :factory/country "MA" :factory/isic "C29"
+  :factory/capabilities ["automotive-assembly" "vehicle-manufacturing" "body-stamping" "paint-shop"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Renault_Tanger_M%C3%A9diterran%C3%A9e"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/societe-ivoirienne-de-raffinage"
+  :factory/display-name "Société Ivoirienne de Raffinage"
+  :factory/country "CI" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "fuel-products" "hydrocracking"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_ivoirienne_de_raffinage"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/chimpharm"
+  :factory/display-name "Chimpharm JSC (SANTO, Polpharma Group)"
+  :factory/country "KZ" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generics" "injectables" "tablets"]
+  :factory/source-url "https://santo.kz/about/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 4a — tobacco / paper / fabricated metal / petroleum refining (C12/C17/C19/C25) ════════════
+ {:factory/did "candidate:manufacturer-directory/cn/china-national-tobacco"
+  :factory/display-name "China National Tobacco Corporation"
+  :factory/country "CN" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "tobacco-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/China_Tobacco"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/gudang-garam"
+  :factory/display-name "Gudang Garam"
+  :factory/country "ID" :factory/isic "C12"
+  :factory/capabilities ["kretek-cigarettes" "clove-cigarettes" "tobacco-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gudang_Garam"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/nine-dragons-paper-holdings"
+  :factory/display-name "Nine Dragons Paper Holdings"
+  :factory/country "CN" :factory/isic "C17"
+  :factory/capabilities ["containerboard" "packaging-paper" "pulp-and-paper-mills"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nine_Dragons_Paper_Holdings_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/smurfit-westrock"
+  :factory/display-name "Smurfit Westrock"
+  :factory/country "IE" :factory/isic "C17"
+  :factory/capabilities ["corrugated-packaging" "containerboard" "paper-mills"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Smurfit_Westrock"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/ball-corporation"
+  :factory/display-name "Ball Corporation"
+  :factory/country "US" :factory/isic "C25"
+  :factory/capabilities ["aluminum-cans" "metal-packaging" "beverage-containers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ball_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/bekaert"
+  :factory/display-name "Bekaert"
+  :factory/country "BE" :factory/isic "C25"
+  :factory/capabilities ["steel-wire-products" "wire-drawing" "metal-coatings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bekaert"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC fill round 4b — other manufacturing / printing / wood / furniture (C16/C18/C31/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/fi/amer-sports"
+  :factory/display-name "Amer Sports Corporation"
+  :factory/country "FI" :factory/isic "C32"
+  :factory/capabilities ["sporting-goods" "skis" "tennis-rackets" "golf-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Amer_Sports"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/b-braun"
+  :factory/display-name "B. Braun SE"
+  :factory/country "DE" :factory/isic "C32"
+  :factory/capabilities ["medical-instruments" "surgical-instruments" "sutures" "dialysis-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/B._Braun"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/tc-transcontinental"
+  :factory/display-name "TC Transcontinental (Transcontinental Inc.)"
+  :factory/country "CA" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "flexible-packaging-printing" "specialty-media"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Transcontinental_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/cimpress"
+  :factory/display-name "Cimpress plc"
+  :factory/country "IE" :factory/isic "C18"
+  :factory/capabilities ["mass-customization-printing" "commercial-printing" "signage-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cimpress"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/weyerhaeuser"
+  :factory/display-name "Weyerhaeuser Company"
+  :factory/country "US" :factory/isic "C16"
+  :factory/capabilities ["lumber" "structural-wood-products" "plywood" "timberland-management"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Weyerhaeuser"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/sumitomo-forestry"
+  :factory/display-name "Sumitomo Forestry Co., Ltd."
+  :factory/country "JP" :factory/isic "C16"
+  :factory/capabilities ["plywood" "laminated-timber" "wood-building-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sumitomo_Forestry"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/vitra-international"
+  :factory/display-name "Vitra International AG"
+  :factory/country "CH" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "design-furniture" "seating"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vitra_(furniture)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/man-wah-holdings"
+  :factory/display-name "Man Wah Holdings Limited"
+  :factory/country "HK" :factory/isic "C31"
+  :factory/capabilities ["sofas" "motion-furniture" "mattresses"]
+  :factory/source-url "https://www.manwah.com/about/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
