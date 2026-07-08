@@ -11,7 +11,15 @@
 ;; No :factory/fulfillment-modes is asserted — BTO/MTO/CTO capability is a tsukuru-integration
 ;; fact, not a public-directory fact, and is left unset rather than guessed.
 ;; Compiled 2026-07-08 via public web research (company sites + Wikipedia), one source_url per
-;; entry. 80 companies across 10 industry/region clusters (medium pilot batch, per owner scope).
+;; entry. Batch 1: 80 companies / 18 countries / 12 ISIC divisions (medium pilot, per owner
+;; scope). Batch 2 (same day, /loop coverage pass): +32 companies / +11 countries (BR MX ES PL
+;; CZ NL CH AT TR IL SG) / +4 ISIC divisions (C10 food, C20 chemicals, C24 basic metals, C32
+;; other manufacturing incl. precision instruments/watches). Running total: 112 companies / 29
+;; countries / 16 ISIC divisions. Still-uncovered ISIC divisions worth a future batch: C11-12
+;; (beverages/tobacco), C14 (apparel, distinct from C13 textiles), C16 (wood products), C18
+;; (printing), C19 (coke/petroleum), C23 (non-metallic minerals: cement/glass/ceramics), C33
+;; (repair/installation). Still-uncovered regions worth a future batch: Canada, Australia,
+;; South Africa, Portugal, Belgium, Philippines, remaining Gulf/MENA and Sub-Saharan Africa.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -511,4 +519,204 @@
   :factory/country "FR" :factory/isic "C30"
   :factory/capabilities ["aerospace-composites" "aerostructures" "precision-manufacturing"]
   :factory/source-url "https://en.wikipedia.org/wiki/Daher"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Brazil + Mexico — aerospace / steel / food processing / auto components (C10/C24/C29/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/br/embraer"
+  :factory/display-name "Embraer"
+  :factory/country "BR" :factory/isic "C30"
+  :factory/capabilities ["aerospace-components" "aircraft-manufacturing" "defense-aircraft" "commercial-aircraft"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Embraer"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/gerdau"
+  :factory/display-name "Gerdau"
+  :factory/country "BR" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "long-steel" "mini-mills"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gerdau"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/marcopolo"
+  :factory/display-name "Marcopolo"
+  :factory/country "BR" :factory/isic "C29"
+  :factory/capabilities ["bus-body-manufacturing" "motor-vehicle-assembly" "coachwork"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Marcopolo_S.A."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/jbs"
+  :factory/display-name "JBS"
+  :factory/country "BR" :factory/isic "C10"
+  :factory/capabilities ["meat-processing" "food-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/JBS-Friboi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/metalsa"
+  :factory/display-name "Metalsa"
+  :factory/country "MX" :factory/isic "C29"
+  :factory/capabilities ["automotive-frames" "chassis-manufacturing" "structural-components"]
+  :factory/source-url "https://metalsa.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/nemak"
+  :factory/display-name "Nemak"
+  :factory/country "MX" :factory/isic "C29"
+  :factory/capabilities ["aluminum-components" "engine-parts" "castings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nemak"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/grupo-bimbo"
+  :factory/display-name "Grupo Bimbo"
+  :factory/country "MX" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "bakery-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Grupo_Bimbo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/deacero"
+  :factory/display-name "Deacero"
+  :factory/country "MX" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "wire-products" "rebar"]
+  :factory/source-url "https://www.deacero.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Spain + Poland + Czech Republic — automotive components / industrial machinery (C28/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/es/gestamp-automocion"
+  :factory/display-name "Gestamp Automoción, S.A."
+  :factory/country "ES" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "metal-stamping" "chassis-parts" "tooling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gestamp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/cie-automotive"
+  :factory/display-name "CIE Automotive, S.A."
+  :factory/country "ES" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "forging" "casting" "stamping"]
+  :factory/source-url "https://en.wikipedia.org/wiki/CIE_Automotive"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/danobatgroup"
+  :factory/display-name "Danobatgroup (Danobat)"
+  :factory/country "ES" :factory/isic "C28"
+  :factory/capabilities ["machine-tools" "industrial-machinery" "grinding-machines" "precision-lathes"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Danobat"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/wielton"
+  :factory/display-name "Wielton S.A."
+  :factory/country "PL" :factory/isic "C29"
+  :factory/capabilities ["trailers" "semi-trailers" "commercial-vehicle-bodies"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Wielton"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/solaris-bus-and-coach"
+  :factory/display-name "Solaris Bus & Coach"
+  :factory/country "PL" :factory/isic "C29"
+  :factory/capabilities ["buses" "electric-buses" "trolleybuses" "trams"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Solaris_Bus_%26_Coach"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/famur"
+  :factory/display-name "FAMUR (Grenevia S.A.)"
+  :factory/country "PL" :factory/isic "C28"
+  :factory/capabilities ["mining-machinery" "longwall-systems" "conveyors" "industrial-machinery"]
+  :factory/source-url "https://famur.com/en/history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/zetor-tractors"
+  :factory/display-name "Zetor Tractors a.s."
+  :factory/country "CZ" :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery" "tractors" "engines" "transmissions"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Zetor"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/tatra-trucks"
+  :factory/display-name "Tatra Trucks a.s."
+  :factory/country "CZ" :factory/isic "C29"
+  :factory/capabilities ["heavy-trucks" "off-road-vehicles" "commercial-vehicles" "chassis"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tatra_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Switzerland + Netherlands + Austria — semiconductor equipment / precision instruments / medical devices (C26/C28/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/nl/asml-holding"
+  :factory/display-name "ASML Holding N.V."
+  :factory/country "NL" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-lithography-equipment" "photolithography-systems" "euv-systems"]
+  :factory/source-url "https://www.asml.com/en/company/about-asml/locations/veldhoven"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/besi"
+  :factory/display-name "BE Semiconductor Industries N.V. (Besi)"
+  :factory/country "NL" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-assembly-equipment" "die-attach-equipment" "packaging-equipment"]
+  :factory/source-url "https://www.besi.com/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/comet-holding"
+  :factory/display-name "Comet Holding AG"
+  :factory/country "CH" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-equipment" "x-ray-inspection-systems" "rf-power-systems"]
+  :factory/source-url "https://comet.tech/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/rolex"
+  :factory/display-name "Rolex SA"
+  :factory/country "CH" :factory/isic "C32"
+  :factory/capabilities ["watchmaking" "precision-instruments"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rolex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/swatch-group"
+  :factory/display-name "Swatch Group Ltd"
+  :factory/country "CH" :factory/isic "C32"
+  :factory/capabilities ["watchmaking"]
+  :factory/source-url "https://www.swatchgroup.com/en/swatch-group-head-office"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/straumann-group"
+  :factory/display-name "Straumann Group"
+  :factory/country "CH" :factory/isic "C32"
+  :factory/capabilities ["medical-devices" "dental-implants"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Straumann"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/anton-paar"
+  :factory/display-name "Anton Paar GmbH"
+  :factory/country "AT" :factory/isic "C26"
+  :factory/capabilities ["precision-instruments" "measurement-instruments" "analytical-instruments"]
+  :factory/source-url "https://www.anton-paar.com/corp-en/about-us/anton-paar-companies/anton-paar-gmbh/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/at-s"
+  :factory/display-name "AT&S (Austria Technologie & Systemtechnik AG)"
+  :factory/country "AT" :factory/isic "C26"
+  :factory/capabilities ["printed-circuit-boards" "ic-substrates" "electronics-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/AT%26S"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Turkey + Israel + Singapore — textiles / defense electronics / specialty chemicals (C13/C20/C26) ════════════
+ {:factory/did "candidate:manufacturer-directory/tr/kordsa-teknik-tekstil"
+  :factory/display-name "Kordsa Teknik Tekstil A.S."
+  :factory/country "TR" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "technical-textiles" "tire-cord-fabric" "industrial-yarns"]
+  :factory/source-url "https://kordsa.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/aselsan"
+  :factory/display-name "Aselsan A.S."
+  :factory/country "TR" :factory/isic "C26"
+  :factory/capabilities ["defense-electronics" "radar-systems" "military-electronics" "avionics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Aselsan"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/hektas-ticaret"
+  :factory/display-name "Hektas Ticaret T.A.S."
+  :factory/country "TR" :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "agrochemicals" "crop-protection"]
+  :factory/source-url "https://hektas.com.tr/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/elbit-systems"
+  :factory/display-name "Elbit Systems Ltd."
+  :factory/country "IL" :factory/isic "C26"
+  :factory/capabilities ["defense-electronics" "aerospace-electronics" "unmanned-systems" "electronic-warfare"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Elbit_Systems"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/icl-group"
+  :factory/display-name "ICL Group Ltd."
+  :factory/country "IL" :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "fertilizers" "bromine-chemicals" "potash"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ICL_Group_Ltd."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/delta-galil-industries"
+  :factory/display-name "Delta Galil Industries Ltd."
+  :factory/country "IL" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "apparel-manufacturing" "knitted-fabrics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Delta_Galil_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/st-engineering"
+  :factory/display-name "ST Engineering Ltd."
+  :factory/country "SG" :factory/isic "C26"
+  :factory/capabilities ["defense-electronics" "aerospace-electronics" "avionics-manufacturing"]
+  :factory/source-url "https://www.stengg.com/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/aem-holdings"
+  :factory/display-name "AEM Holdings Ltd."
+  :factory/country "SG" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-components" "test-equipment-manufacturing" "electronics-manufacturing"]
+  :factory/source-url "https://aem.com.sg/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
