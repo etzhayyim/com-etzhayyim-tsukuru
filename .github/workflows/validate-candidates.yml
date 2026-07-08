@@ -1,0 +1,22 @@
+name: validate-candidates
+
+on:
+  pull_request:
+    paths:
+      - "kotoba/candidates.edn"
+      - "kotoba/validate_candidates.bb"
+  push:
+    branches: [main]
+    paths:
+      - "kotoba/candidates.edn"
+      - "kotoba/validate_candidates.bb"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: babashka/setup-babashka@v2
+        with:
+          babashka-version: "1.3.191"
+      - run: bb kotoba/validate_candidates.bb kotoba/candidates.edn

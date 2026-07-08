@@ -18,17 +18,20 @@
 ;; divisions (C11 beverages, C12 tobacco, C16 wood/cork, C18 printing, C19 coke/petroleum, C23
 ;; non-metallic minerals). Batch 4 (/loop pass 4): +32 companies / +15 countries (BD KH LK PH NG
 ;; KE GH CL AR CO PE RO HU SK SI) / +1 ISIC division (C14 apparel, closing the gap called out
-;; after batch 3). Running total: 176 companies / 53 countries / 23 ISIC divisions.
+;; after batch 3). Batch 5 (/loop pass 5): +32 companies / +11 countries (LT LV EE BG HR RS PK
+;; ET TZ UG CI) — pure regional-depth pass, no new ISIC divisions. Running total: 208
+;; companies / 64 countries / 23 ISIC divisions.
 ;; Only C33 (repair/installation of machinery — arguably a service, not primary manufacturing)
 ;; remains uncovered, likely permanently by design. Still-uncovered regions worth a future
-;; batch: Russia/CIS (politically sensitive — skip pending explicit owner direction), Central
-;; Asia, Pacific Islands, remaining Caribbean, remaining Balkans (Bulgaria, Croatia, Serbia),
-;; Baltics (Estonia, Latvia, Lithuania), remaining Sub-Saharan Africa (Ethiopia, Tanzania,
-;; Uganda, Côte d'Ivoire), Iran (politically sensitive — skip pending explicit owner direction),
-;; Pakistan. With ISIC breadth essentially complete (23/24), future batches should be almost
-;; entirely regional-depth passes: more companies per already-covered division/country, plus
-;; filling remaining country gaps. See kotoba/validate_candidates.bb for the automated
-;; consistency check (uniqueness, source-url presence, field shape) added in batch 4.
+;; batch: Russia/CIS and Iran (politically sensitive — skip pending explicit owner direction),
+;; Central Asia (Kazakhstan, Uzbekistan), Pacific Islands, Caribbean (Dominican Republic,
+;; Trinidad), remaining Balkans (North Macedonia, Bosnia, Albania), remaining Sub-Saharan
+;; Africa (Senegal, Cameroon, Zambia, Zimbabwe, Rwanda), remaining Middle East (Jordan,
+;; Lebanon, Morocco, Tunisia, Algeria). With ISIC breadth complete at 23/24, all future
+;; batches are regional-depth passes: more companies per already-covered division/country,
+;; plus filling remaining country gaps. See kotoba/validate_candidates.bb (batch 4) and
+;; .github/workflows/validate-candidates.yml (batch 5) for the automated consistency check
+;; and its CI enforcement on PRs touching this file.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -1128,4 +1131,204 @@
   :factory/country "SI" :factory/isic "C29"
   :factory/capabilities ["automotive-components" "seating-systems" "chassis-components"]
   :factory/source-url "https://www.tpv-automotive.si/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Estonia + Latvia + Lithuania (Baltics) — electronics / furniture-wood / machinery (C16/C26/C28/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/lt/teltonika"
+  :factory/display-name "Teltonika"
+  :factory/country "LT" :factory/isic "C26"
+  :factory/capabilities ["electronics-assembly" "iot-devices" "pcb-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Teltonika"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/hansamatrix"
+  :factory/display-name "HansaMatrix"
+  :factory/country "LV" :factory/isic "C26"
+  :factory/capabilities ["electronics-manufacturing-services" "pcb-assembly" "precision-mechanics"]
+  :factory/source-url "https://hansamatrix.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/vilniaus-baldai"
+  :factory/display-name "Vilniaus Baldai"
+  :factory/country "LT" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "flat-pack-furniture" "wood-products"]
+  :factory/source-url "https://www.vilniausbaldai.lt/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/standard-as"
+  :factory/display-name "Standard AS"
+  :factory/country "EE" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "office-furniture" "wood-products"]
+  :factory/source-url "https://www.standard.ee/en/firmast/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/latvijas-finieris"
+  :factory/display-name "Latvijas Finieris"
+  :factory/country "LV" :factory/isic "C16"
+  :factory/capabilities ["plywood-manufacturing" "veneer-production" "wood-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Latvijas_Finieris"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/skano-fibreboard"
+  :factory/display-name "Skano Fibreboard"
+  :factory/country "EE" :factory/isic "C16"
+  :factory/capabilities ["wood-fibreboard" "wood-products" "insulation-boards"]
+  :factory/source-url "https://nordicfibreboard.com/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/blrt-grupp"
+  :factory/display-name "BLRT Grupp"
+  :factory/country "EE" :factory/isic "C28"
+  :factory/capabilities ["industrial-machinery" "machine-building" "metal-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/BLRT_Grupp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/arginta-engineering"
+  :factory/display-name "Arginta Engineering"
+  :factory/country "LT" :factory/isic "C28"
+  :factory/capabilities ["industrial-machinery" "metal-fabrication" "machinery-manufacturing"]
+  :factory/source-url "https://argintaengineering.lt/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Bulgaria + Croatia + Serbia (Balkans) — automotive components / textiles / food (C10/C13/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/hr/ad-plastik"
+  :factory/display-name "AD Plastik"
+  :factory/country "HR" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "plastic-parts" "interior-exterior-parts" "oem-supplier"]
+  :factory/source-url "https://en.wikipedia.org/wiki/AD_Plastik"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/drouzhba"
+  :factory/display-name "Drouzhba PLC"
+  :factory/country "BG" :factory/isic "C29"
+  :factory/capabilities ["automotive-components" "engine-parts" "piston-manufacturing"]
+  :factory/source-url "https://www.drouzhba.bg/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/podravka"
+  :factory/display-name "Podravka"
+  :factory/country "HR" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "condiments" "packaged-food" "seasonings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Podravka"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/lb-bulgaricum"
+  :factory/display-name "LB Bulgaricum"
+  :factory/country "BG" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "dairy-products" "yogurt-production" "starter-cultures"]
+  :factory/source-url "https://lbbulgaricum.bg/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/imlek"
+  :factory/display-name "Imlek a.d."
+  :factory/country "RS" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "dairy-products" "milk-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Imlek_a.d."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/mak-ad"
+  :factory/display-name "MAK AD"
+  :factory/country "BG" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "technical-fabrics" "protective-textiles" "uniforms"]
+  :factory/source-url "https://www.mak.bg/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rs/yumco"
+  :factory/display-name "Yumco (Jumko)"
+  :factory/country "RS" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "yarn-production" "fabric-production" "garment-manufacturing"]
+  :factory/source-url "https://sr.wikipedia.org/sr-ec/%D0%88%D1%83%D0%BC%D0%BA%D0%BE"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/cateks"
+  :factory/display-name "Cateks d.d."
+  :factory/country "HR" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "technical-textiles" "coated-fabrics" "household-textiles"]
+  :factory/source-url "https://cateks.hr/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Pakistan — textiles / cement / pharmaceuticals (C13/C21/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/pk/nishat-mills"
+  :factory/display-name "Nishat Mills Limited"
+  :factory/country "PK" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "spinning" "weaving" "home-textiles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nishat_Mills_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/interloop"
+  :factory/display-name "Interloop Limited"
+  :factory/country "PK" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "hosiery-manufacturing" "knitwear" "denim"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Interloop_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/gul-ahmed-textile-mills"
+  :factory/display-name "Gul Ahmed Textile Mills Limited"
+  :factory/country "PK" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "home-textiles" "apparel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gul_Ahmed"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/lucky-cement"
+  :factory/display-name "Lucky Cement Limited"
+  :factory/country "PK" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lucky_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/dg-khan-cement"
+  :factory/display-name "D.G. Khan Cement Company Limited"
+  :factory/country "PK" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/DG_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/maple-leaf-cement"
+  :factory/display-name "Maple Leaf Cement Factory Limited"
+  :factory/country "PK" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Maple_Leaf_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/searle-company"
+  :factory/display-name "The Searle Company Limited"
+  :factory/country "PK" :factory/isic "C21"
+  :factory/capabilities ["pharma-manufacturing"]
+  :factory/source-url "https://searlecompany.com/profile-of-company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pk/ferozsons-laboratories"
+  :factory/display-name "Ferozsons Laboratories Limited"
+  :factory/country "PK" :factory/isic "C21"
+  :factory/capabilities ["pharma-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ferozsons"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Ethiopia + Tanzania + Uganda + Côte d'Ivoire — apparel-textiles / food-beverage / cement (C10/C13/C14/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/et/kombolcha-textile"
+  :factory/display-name "Kombolcha Textile Share Company"
+  :factory/country "ET" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "yarn-spinning" "fabric-weaving" "bedsheet-manufacturing"]
+  :factory/source-url "https://kombolchatextile.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/derba-midroc-cement"
+  :factory/display-name "Derba MIDROC Cement"
+  :factory/country "ET" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "limestone-mining"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Derba_MIDROC_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/bakhresa-group"
+  :factory/display-name "Bakhresa Group (Bakhresa Food Products)"
+  :factory/country "TZ" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "beverage-manufacturing" "flour-milling" "bottled-water"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bakhresa_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/tanga-cement"
+  :factory/display-name "Tanga Cement PLC (Simba Cement)"
+  :factory/country "TZ" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "building-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tanga_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/nyanza-textile-industries"
+  :factory/display-name "Nyanza Textile Industries Limited (Nytil)"
+  :factory/country "UG" :factory/isic "C13"
+  :factory/capabilities ["textile-manufacturing" "spinning" "weaving" "garment-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nyanza_Textile_Industries_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/mukwano-industries"
+  :factory/display-name "Mukwano Industries (U) Ltd"
+  :factory/country "UG" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "edible-oil-manufacturing" "flour-milling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mukwano_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/solibra"
+  :factory/display-name "Solibra (Société de Limonaderies et Boissons Rafraîchissantes d'Afrique)"
+  :factory/country "CI" :factory/isic "C10"
+  :factory/capabilities ["beverage-manufacturing" "brewing" "soft-drink-bottling"]
+  :factory/source-url "https://www.solibra.ci/entreprise/notre-histoire-20.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/lafargeholcim-cote-divoire"
+  :factory/display-name "LafargeHolcim Côte d'Ivoire"
+  :factory/country "CI" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "building-materials" "white-cement-production"]
+  :factory/source-url "https://www.lafargeholcim.ci/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
