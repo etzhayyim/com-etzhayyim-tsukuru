@@ -173,6 +173,21 @@
 ;; or near-identical name strings — parent/subsidiary and holding-company/brand relationships
 ;; still need a human judgment call, which is why every batch's picks get read, not just grepped.
 ;; Running total: 547 companies / 95 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 18 (/loop pass 18): +16 companies, +0 new countries. Tried and abandoned an automated
+;; parent/subsidiary-detection heuristic for validate_candidates.bb (flag same-country entries
+;; sharing a distinctive first display-name word, to generalize the batch-17 ICL/Metsä catch) —
+;; tested against the live 547-entry file, it flagged 8 pairs, all 8 false positives from
+;; country/city-prefixed company naming (Thai Union vs Thai Oil, Nippon Steel vs Nippon Paper,
+;; British American Tobacco vs British Steel, etc.), a 0% true-positive rate. Reverted rather
+;; than ship a check that would cry wolf on every future batch; parent/subsidiary judgment
+;; stays a manual-read call, not automatable this cheaply. Greece depth (was 1 entry: Titan
+;; Cement, Elval aluminum, Vianex pharma). Thin-ISIC round 10 across C12/C18/C19/C22/C31/C32.
+;; One candidate (Habanos S.A., Cuban state cigar monopoly) intentionally excluded — Cuba
+;; carries the same US-sanctions sensitivity previously flagged for Russia/Iran/North Korea
+;; (batches 5/9), and that self-imposed pending-owner-direction policy is kept consistent here
+;; rather than unilaterally revisited mid-batch; flagged in the PR/turn summary for the owner
+;; to weigh in on explicitly if Cuba should be back in scope for a future batch.
+;; Running total: 563 companies / 95 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3596,4 +3611,104 @@
   :factory/country "HK" :factory/isic "C18"
   :factory/capabilities ["book-printing" "security-printing" "packaging-printing" "commercial-printing"]
   :factory/source-url "https://www.candcprinting.com/eng/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Greece depth + thin-ISIC round 10a — cement/aluminum/pharma / rubber-plastics / furniture / other manufacturing (C21/C22/C23/C24/C31/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/gr/titan-cement-group"
+  :factory/display-name "Titan Cement Group"
+  :factory/country "GR" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-manufacturing" "ready-mix-concrete" "aggregates"]
+  :factory/source-url "https://www.titan.gr/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/elval"
+  :factory/display-name "Elval (ElvalHalcor / Viohalco)"
+  :factory/country "GR" :factory/isic "C24"
+  :factory/capabilities ["aluminum-rolling" "aluminum-foil" "aluminum-coils-and-sheets" "automotive-aluminum-alloys"]
+  :factory/source-url "https://www.elval.com/en/about-elval"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/vianex"
+  :factory/display-name "Vianex S.A."
+  :factory/country "GR" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "prescription-drugs" "otc-products" "nutritional-supplements"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vianex_S.A."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/semperit"
+  :factory/display-name "Semperit AG Holding"
+  :factory/country "AT" :factory/isic "C22"
+  :factory/capabilities ["industrial-rubber-hoses" "conveyor-belts" "escalator-handrails" "polymer-profiles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Semperit"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/opmobility"
+  :factory/display-name "OPmobility (Plastic Omnium)"
+  :factory/country "FR" :factory/isic "C22"
+  :factory/capabilities ["automotive-plastic-body-parts" "exterior-systems" "fuel-systems" "plastic-injection-molding"]
+  :factory/source-url "https://www.opmobility.com/en/plastic-omnium-is-now-opmobility/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/la-z-boy"
+  :factory/display-name "La-Z-Boy Incorporated"
+  :factory/country "US" :factory/isic "C31"
+  :factory/capabilities ["reclining-chairs" "sofas" "upholstered-furniture" "sleeper-sofas"]
+  :factory/source-url "https://en.wikipedia.org/wiki/La-Z-Boy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/fritz-hansen"
+  :factory/display-name "Fritz Hansen"
+  :factory/country "DK" :factory/isic "C31"
+  :factory/capabilities ["designer-chairs" "tables" "lighting" "furniture-manufacturing"]
+  :factory/source-url "https://www.fritzhansen.com/en/corporate-profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/roland-corporation"
+  :factory/display-name "Roland Corporation"
+  :factory/country "JP" :factory/isic "C32"
+  :factory/capabilities ["electronic-musical-instruments" "synthesizers" "digital-pianos" "drum-machines"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Roland_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/dentsply-sirona"
+  :factory/display-name "Dentsply Sirona"
+  :factory/country "US" :factory/isic "C32"
+  :factory/capabilities ["dental-instruments" "dental-equipment" "dental-consumables"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dentsply_Sirona"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 10b — petroleum refining / tobacco / printing (C12/C18/C19) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/idemitsu-kosan"
+  :factory/display-name "Idemitsu Kosan"
+  :factory/country "JP" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "lubricants" "fuel-distribution"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Idemitsu_Kosan"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/petrochina"
+  :factory/display-name "PetroChina"
+  :factory/country "CN" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petrochemicals" "natural-gas" "fuel-distribution"]
+  :factory/source-url "https://en.wikipedia.org/wiki/PetroChina"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/sonatrach"
+  :factory/display-name "Sonatrach"
+  :factory/country "DZ" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "natural-gas" "petrochemicals" "exploration-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sonatrach"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/eastern-company"
+  :factory/display-name "Eastern Company"
+  :factory/country "EG" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "cigar-production"]
+  :factory/source-url "https://www.easternegypt.com/about-us-2-2/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/mayr-melnhof-group"
+  :factory/display-name "Mayr-Melnhof Group"
+  :factory/country "AT" :factory/isic "C18"
+  :factory/capabilities ["cartonboard-manufacturing" "folding-cartons" "packaging-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Mayr-Melnhof"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/hung-hing-printing-group"
+  :factory/display-name "Hung Hing Printing Group"
+  :factory/country "HK" :factory/isic "C18"
+  :factory/capabilities ["packaging-printing" "book-printing" "commercial-printing"]
+  :factory/source-url "https://www.hunghingprinting.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/caxton-and-ctp"
+  :factory/display-name "Caxton and CTP Publishers and Printers"
+  :factory/country "ZA" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "newspaper-printing" "publishing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Caxton_and_CTP_Publishers_and_Printers"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
