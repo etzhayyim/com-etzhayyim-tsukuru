@@ -54,8 +54,18 @@
 ;; find). With virtually every significant manufacturing economy now represented, future
 ;; batches should default to economy-depth (any already-listed country, new industries) —
 ;; that is the real lever left toward the original registry's "460+ manufacturers" scale
-;; reference — rather than chasing ever-smaller remaining-country gaps. See
-;; kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
+;; reference — rather than chasing ever-smaller remaining-country gaps.
+;; Batch 9 (/loop pass 9): +32 companies, +0 new countries (pure depth + thin-ISIC pass, using
+;; kotoba/coverage_report.bb output to target it) — GB +8 (pharma/chemicals/steel/food, vs.
+;; existing aerospace/auto/tobacco), FR +8 (pharma/industrial-gases/food/luxury-leather, vs.
+;; existing aerospace/auto/spirits), TW +8 (petrochemicals/steel/bicycles/food, vs. existing
+;; all-semiconductor), plus 8 companies specifically closing the four thinnest ISIC divisions
+;; flagged by the coverage report: C12 tobacco (+2: Japan Tobacco, Philip Morris
+;; International), C18 printing (+2: RR Donnelley, Quad/Graphics), C19 petroleum refining
+;; (+2: Indian Oil Corporation, Valero Energy), C25 fabricated metal products (+2: Crown
+;; Holdings, Stanley Black & Decker). Running total: 337 companies / 91 countries / 23 ISIC
+;; divisions, zero duplicate DIDs.
+;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
 ;; fixed in the batch-5 PR after the first CI run failed on a nonexistent
@@ -1966,4 +1976,204 @@
   :factory/country "PG" :factory/isic "C11"
   :factory/capabilities ["beer-brewing" "beverage-bottling"]
   :factory/source-url "https://www.sp.com.pg/our-company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ UK depth — pharma / chemicals / steel / food-beverage (C10/C20/C21/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/gb/gsk"
+  :factory/display-name "GSK plc"
+  :factory/country "GB" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "vaccines" "biotechnology" "drug-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/GSK_plc"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/astrazeneca"
+  :factory/display-name "AstraZeneca plc"
+  :factory/country "GB" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biotechnology" "oncology-drugs" "vaccine-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/AstraZeneca"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/tata-steel-uk"
+  :factory/display-name "Tata Steel UK (Port Talbot Steelworks)"
+  :factory/country "GB" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "blast-furnace" "hot-rolled-steel" "electric-arc-furnace"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Port_Talbot_Steelworks"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/british-steel"
+  :factory/display-name "British Steel Limited"
+  :factory/country "GB" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "long-products" "rail-steel" "blast-furnace"]
+  :factory/source-url "https://en.wikipedia.org/wiki/British_Steel_(2016%E2%80%93present)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/ineos"
+  :factory/display-name "INEOS Group Limited"
+  :factory/country "GB" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "polymers" "specialty-chemicals" "industrial-chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ineos"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/croda-international"
+  :factory/display-name "Croda International plc"
+  :factory/country "GB" :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "personal-care-ingredients" "lanolin-processing" "life-sciences-ingredients"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Croda_International"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/associated-british-foods"
+  :factory/display-name "Associated British Foods plc"
+  :factory/country "GB" :factory/isic "C10"
+  :factory/capabilities ["sugar-processing" "bakers-yeast" "packaged-food" "grocery-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Associated_British_Foods"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/diageo"
+  :factory/display-name "Diageo plc"
+  :factory/country "GB" :factory/isic "C10"
+  :factory/capabilities ["spirits-distilling" "beer-brewing" "beverage-bottling" "whisky-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Diageo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ France depth — pharma / industrial-gases-chemicals / food / luxury-leather (C10/C15/C20/C21) ════════════
+ {:factory/did "candidate:manufacturer-directory/fr/sanofi"
+  :factory/display-name "sanofi"
+  :factory/country "FR" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "biologics" "vaccines" "r-and-d"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sanofi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/air-liquide"
+  :factory/display-name "Air Liquide"
+  :factory/country "FR" :factory/isic "C20"
+  :factory/capabilities ["industrial-gases" "medical-gases" "gas-separation" "chemicals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Air_Liquide"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/arkema"
+  :factory/display-name "Arkema"
+  :factory/country "FR" :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "adhesives" "advanced-materials" "coatings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Arkema"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/danone"
+  :factory/display-name "Danone"
+  :factory/country "FR" :factory/isic "C10"
+  :factory/capabilities ["dairy-products" "plant-based-foods" "bottled-water" "infant-nutrition"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Danone"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/lactalis"
+  :factory/display-name "Lactalis"
+  :factory/country "FR" :factory/isic "C10"
+  :factory/capabilities ["dairy-products" "cheese-making" "milk-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lactalis"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/louis-vuitton"
+  :factory/display-name "Louis Vuitton"
+  :factory/country "FR" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "handbags" "luxury-manufacturing" "ready-to-wear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Louis_Vuitton"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/hermes"
+  :factory/display-name "Hermès"
+  :factory/country "FR" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "saddlery" "luxury-manufacturing" "handbags"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Herm%C3%A8s"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/servier"
+  :factory/display-name "Servier"
+  :factory/country "FR" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "cardiovascular-drugs" "oncology" "r-and-d"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Laboratoires_Servier"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Taiwan depth — petrochemicals/plastics / basic metals / bicycles / food-beverage (C10/C20/C24/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/tw/formosa-plastics"
+  :factory/display-name "Formosa Plastics Corp"
+  :factory/country "TW" :factory/isic "C20"
+  :factory/capabilities ["pvc-resin" "petrochemicals" "plastic-resins" "caustic-soda"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Formosa_Plastics_Corp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/nan-ya-plastics"
+  :factory/display-name "Nan Ya Plastics Corporation"
+  :factory/country "TW" :factory/isic "C20"
+  :factory/capabilities ["plastics-processing" "polyester-fiber" "pvc-film" "electronic-materials"]
+  :factory/source-url "https://www.npc.com.tw/j2npc/enus/CompanyProfile.jsp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/china-steel-corporation"
+  :factory/display-name "China Steel Corporation"
+  :factory/country "TW" :factory/isic "C24"
+  :factory/capabilities ["integrated-steelmaking" "hot-rolled-steel" "cold-rolled-steel" "steel-plate"]
+  :factory/source-url "https://en.wikipedia.org/wiki/China_Steel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/tung-ho-steel"
+  :factory/display-name "Tung Ho Steel Enterprise Corporation"
+  :factory/country "TW" :factory/isic "C24"
+  :factory/capabilities ["rebar" "structural-steel" "steel-plate" "steel-fabrication"]
+  :factory/source-url "https://www.tunghosteel.com/EN/HomeEg/about/intro"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/giant-manufacturing"
+  :factory/display-name "Giant Manufacturing Co., Ltd."
+  :factory/country "TW" :factory/isic "C30"
+  :factory/capabilities ["bicycle-manufacturing" "carbon-frame-production" "e-bikes" "bicycle-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Giant_Bicycles"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/merida-industry"
+  :factory/display-name "Merida Industry Co., Ltd."
+  :factory/country "TW" :factory/isic "C30"
+  :factory/capabilities ["bicycle-manufacturing" "frame-design" "e-bikes" "oem-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Merida_Bikes"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/uni-president-enterprises"
+  :factory/display-name "Uni-President Enterprises Corporation"
+  :factory/country "TW" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "beverage-production" "instant-noodles" "dairy-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Uni-President_Enterprises_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/taiwan-sugar-corporation"
+  :factory/display-name "Taiwan Sugar Corporation"
+  :factory/country "TW" :factory/isic "C10"
+  :factory/capabilities ["sugar-refining" "food-processing" "agribusiness"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Taiwan_Sugar_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC global fill — tobacco / printing / petroleum refining / fabricated metal products (C12/C18/C19/C25) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/japan-tobacco"
+  :factory/display-name "Japan Tobacco Inc"
+  :factory/country "JP" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-products" "heated-tobacco"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Japan_Tobacco"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/philip-morris-international"
+  :factory/display-name "Philip Morris International"
+  :factory/country "US" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-products" "heated-tobacco" "nicotine-pouches"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Philip_Morris_International"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/rr-donnelley"
+  :factory/display-name "RR Donnelley"
+  :factory/country "US" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "catalog-printing" "book-printing" "packaging-printing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/RR_Donnelley"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/quad-graphics"
+  :factory/display-name "Quad/Graphics"
+  :factory/country "US" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "magazine-printing" "catalog-printing" "retail-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Quad_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/indian-oil-corporation"
+  :factory/display-name "Indian Oil Corporation Limited"
+  :factory/country "IN" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "fuel-distribution"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Indian_Oil_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/valero-energy"
+  :factory/display-name "Valero Energy"
+  :factory/country "US" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "gasoline-production" "diesel-production" "renewable-fuels"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Valero_Energy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/crown-holdings"
+  :factory/display-name "Crown Holdings"
+  :factory/country "US" :factory/isic "C25"
+  :factory/capabilities ["metal-cans" "beverage-cans" "food-cans" "aerosol-cans"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Crown_Holdings"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/stanley-black-and-decker"
+  :factory/display-name "Stanley Black & Decker"
+  :factory/country "US" :factory/isic "C25"
+  :factory/capabilities ["hand-tools" "fastening-tools" "storage-solutions"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Stanley_Black_%26_Decker"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
