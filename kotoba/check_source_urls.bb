@@ -7,6 +7,14 @@
 ;; validate-candidates.yml. A non-2xx/3xx result here means "worth a human
 ;; glance", not "this entry is fabricated" — G10 sourcing honesty is about the
 ;; fact being real and citable, not about the URL never rotting.
+;;
+;; First full run (2026-07-08, 505 entries): 477/493 clean (96.8%), 16 flagged — every one of
+;; the 16 was a `curl`-vs-WAF false positive (403 from a corporate anti-bot/Cloudflare
+;; challenge, or 000 from a TLS/connection-level bot block), not an actually-dead source. Spot
+;; examples: Saudi Aramco, Swatch Group, Deacero — all real, all live, all just reject plain
+;; curl. Expect this pattern to repeat: treat 403/000 results as "reachable in a real browser,
+;; blocked here" by default, and only chase a replacement source if the SAME url still fails
+;; when opened by hand.
 
 (require '[clojure.edn :as edn]
          '[clojure.java.io :as io]
