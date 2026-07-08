@@ -138,6 +138,17 @@
 ;; diversify each place's industry mix); thin-ISIC round 6 across C14/C16/C25/C31.
 ;; Running total: 493 companies / 94 countries / 23 ISIC divisions, zero duplicate DIDs, zero
 ;; near-duplicate display names.
+;; Batch 15 (/loop pass 15): +12 companies, +0 new countries. Kuwait depth (EQUATE
+;; Petrochemical, Kuwait Cement — was down to 1 entry, now 3) plus thin-ISIC round 7 across
+;; C12/C15/C17/C18/C19. Dropped 2 more duplicate agent picks: Reliance Industries for C19 — a
+;; FIFTH recurrence across batches 9/10/11/12/13/15 (it keeps coming back because it's simply
+;; the most obvious real "world's largest refinery" example for any petroleum-refining prompt)
+;; — and Amcor for C18, which already exists under C22 (added batch 10). Maturity: adds
+;; kotoba/check_source_urls.bb, a periodic/manual link-reachability checker (curl HEAD/GET per
+;; :factory/source-url, 8s timeout) — deliberately NOT wired into CI since HTTP checks are
+;; inherently flaky (rate-limiting, bot-blocking) and a transient 403 doesn't mean an entry's
+;; underlying fact is wrong; it's a "worth a human glance" signal, not a hard gate.
+;; Running total: 505 companies / 94 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3221,4 +3232,80 @@
   :factory/country "FR" :factory/isic "C25"
   :factory/capabilities ["cookware" "metal-household-articles" "small-kitchen-appliances"]
   :factory/source-url "https://en.wikipedia.org/wiki/Groupe_SEB"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Kuwait depth + thin-ISIC round 7a — petrochemicals / cement / tobacco / petroleum refining (C12/C19/C20/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/kw/equate-petrochemical"
+  :factory/display-name "EQUATE Petrochemical Company"
+  :factory/country "KW" :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "ethylene" "polyethylene" "polypropylene"]
+  :factory/source-url "https://www.equate.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/kuwait-cement"
+  :factory/display-name "Kuwait Cement Company"
+  :factory/country "KW" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://kuwaitcement.com/our-factory-2/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/godfrey-phillips-india"
+  :factory/display-name "Godfrey Phillips India"
+  :factory/country "IN" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "cut-tobacco-processing"]
+  :factory/source-url "https://www.godfreyphillips.co.in/company/cigarette-manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/swisher-international"
+  :factory/display-name "Swisher International"
+  :factory/country "US" :factory/isic "C12"
+  :factory/capabilities ["cigar-manufacturing" "tobacco-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Swisher_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/sk-energy"
+  :factory/display-name "SK Energy"
+  :factory/country "KR" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products"]
+  :factory/source-url "https://eng.sk.com/companies/info/sk-energy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 7b — leather goods / paper / printing (C15/C17/C18) ════════════
+ {:factory/did "candidate:manufacturer-directory/it/geox"
+  :factory/display-name "Geox S.p.A."
+  :factory/country "IT" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "breathable-technology" "leather-goods" "design"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Geox"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/wolverine-world-wide"
+  :factory/display-name "Wolverine World Wide"
+  :factory/country "US" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-tanning" "boots" "leather-goods"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Wolverine_World_Wide"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/bally"
+  :factory/display-name "Bally"
+  :factory/country "CH" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "footwear-manufacturing" "handbags" "luxury-accessories"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bally_(fashion_house)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/sappi"
+  :factory/display-name "Sappi Limited"
+  :factory/country "ZA" :factory/isic "C17"
+  :factory/capabilities ["pulp-production" "paper-manufacturing" "dissolving-pulp" "packaging-paper"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sappi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/asia-pulp-and-paper"
+  :factory/display-name "Asia Pulp & Paper"
+  :factory/country "ID" :factory/isic "C17"
+  :factory/capabilities ["pulp-production" "paper-manufacturing" "packaging-paper" "tissue"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Asia_Pulp_%26_Paper"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gb/de-la-rue"
+  :factory/display-name "De La Rue"
+  :factory/country "GB" :factory/isic "C18"
+  :factory/capabilities ["banknote-printing" "security-printing" "passport-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/De_La_Rue"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/giesecke-devrient"
+  :factory/display-name "Giesecke+Devrient"
+  :factory/country "DE" :factory/isic "C18"
+  :factory/capabilities ["banknote-printing" "security-printing" "currency-technology"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Giesecke%2BDevrient"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
