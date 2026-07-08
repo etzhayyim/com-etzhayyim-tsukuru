@@ -241,6 +241,17 @@
 ;; "footwear manufacturing" would misrepresent what they actually do; kept Prada and ASICS,
 ;; which have real manufacturing heritage, instead.
 ;; Running total: 698 companies / 99 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 24 (/loop pass 24): +29 companies, +1 new country (NZ New Zealand). Full-roster depth
+;; for 15 countries (Bahrain/Honduras/Lesotho/Tanzania/Lithuania/Bulgaria/Israel/Croatia,
+;; Georgia/Hungary/Myanmar/Kuwait/Romania/Qatar/Cameroon). Thin-ISIC round 16 across C16/C17,
+;; the two remaining divisions with the lowest counts. Dropped 2 candidates: Sveza (Russian
+;; plywood major) per the standing sanctions-sensitivity policy, and "ITC Limited (Paperboards
+;; & Specialty Papers Division)" — the same corporate entity as the already-listed ITC Limited
+;; (added batch 13 for its tobacco business), just describing a different product division;
+;; same country, same legal entity, so treated as a duplicate the same way ICL Group/ICL Dead
+;; Sea Works and Metsä Wood/Metsä Group were in batches 17-18, even though the pre-append grep
+;; alone wouldn't have caught the different display-name wording.
+;; Running total: 727 companies / 100 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -4610,4 +4621,186 @@
   :factory/country "IN" :factory/isic "C27"
   :factory/capabilities ["wiring-devices" "switchgear" "cables-and-wires" "circuit-breakers"]
   :factory/source-url "https://en.wikipedia.org/wiki/Havells"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Bahrain/Honduras/Lesotho/Tanzania/Lithuania/Bulgaria/Israel/Croatia (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/bh/aluminium-bahrain"
+  :factory/display-name "Aluminium Bahrain (Alba)"
+  :factory/country "BH" :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "primary-aluminium-production" "alumina-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Aluminium_Bahrain"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/cerveceria-hondurena"
+  :factory/display-name "Cerveceria Hondurena"
+  :factory/country "HN" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "bottling"]
+  :factory/source-url "https://www.cerveceriahondurena.com/historia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/mg-health"
+  :factory/display-name "MG Health"
+  :factory/country "LS" :factory/isic "C21"
+  :factory/capabilities ["medical-cannabis-cultivation" "cannabis-extraction" "gmp-pharmaceutical-processing"]
+  :factory/source-url "https://www.mghealth.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/kioo"
+  :factory/display-name "Kioo Limited"
+  :factory/country "TZ" :factory/isic "C23"
+  :factory/capabilities ["glass-container-manufacturing" "bottle-production" "glass-recycling"]
+  :factory/source-url "https://kiooglass.co.tz/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/thermo-fisher-baltics"
+  :factory/display-name "Thermo Fisher Scientific Baltics"
+  :factory/country "LT" :factory/isic "C21"
+  :factory/capabilities ["molecular-biology-reagent-manufacturing" "enzyme-production" "life-science-research-products"]
+  :factory/source-url "https://investlithuania.com/success-stories/thermo-fisher-scientific-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/sopharma"
+  :factory/display-name "Sopharma AD"
+  :factory/country "BG" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drug-production" "otc-medicine-production"]
+  :factory/source-url "https://www.sopharmagroup.com/en/home/manufacturing-operations-sites/sofia-bulgaria"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/teva-pharmaceutical"
+  :factory/display-name "Teva Pharmaceutical Industries"
+  :factory/country "IL" :factory/isic "C21"
+  :factory/capabilities ["generic-pharmaceutical-manufacturing" "active-pharmaceutical-ingredient-production" "drug-formulation"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Teva_Pharmaceuticals"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/pliva"
+  :factory/display-name "Pliva"
+  :factory/country "HR" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drug-production" "active-pharmaceutical-ingredient-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pliva"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Georgia/Hungary/Myanmar/Kuwait/Romania/Qatar/Cameroon (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/ge/georgian-manganese"
+  :factory/display-name "Georgian Manganese"
+  :factory/country "GE" :factory/isic "C24"
+  :factory/capabilities ["ferroalloy-production" "manganese-mining" "metallurgical-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Georgian_Manganese_LLC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/zwack-unicum"
+  :factory/display-name "Zwack Unicum"
+  :factory/country "HU" :factory/isic "C11"
+  :factory/capabilities ["spirits-distilling" "liqueur-production" "bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Zwack"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/myanma-pharmaceutical"
+  :factory/display-name "Myanma Pharmaceutical Industrial Enterprise"
+  :factory/country "MM" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-production" "vaccine-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Myanma_Pharmaceutical_Industry_Enterprise"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/kuwait-flour-mills"
+  :factory/display-name "Kuwait Flour Mills & Bakeries Company"
+  :factory/country "KW" :factory/isic "C10"
+  :factory/capabilities ["flour-milling" "bakery-products" "pasta-production" "animal-feed"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kuwait_Flour_Mills_%26_Bakeries_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/liberty-galati"
+  :factory/display-name "Liberty Galați"
+  :factory/country "RO" :factory/isic "C24"
+  :factory/capabilities ["steel-production" "iron-smelting" "hot-rolling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gala%C8%9Bi_steel_works"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/qatalum"
+  :factory/display-name "Qatar Aluminium (Qatalum)"
+  :factory/country "QA" :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "primary-aluminium-production" "casting"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Qatalum"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/sosucam"
+  :factory/display-name "Société Sucrière du Cameroun (SOSUCAM)"
+  :factory/country "CM" :factory/isic "C10"
+  :factory/capabilities ["sugar-refining" "sugarcane-processing" "packaging"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Sosucam"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 16a — paper (C17) ════════════
+ {:factory/did "candidate:manufacturer-directory/ca/cascades"
+  :factory/display-name "Cascades Inc."
+  :factory/country "CA" :factory/isic "C17"
+  :factory/capabilities ["containerboard" "boxboard" "tissue-paper" "recycled-fiber"]
+  :factory/source-url "https://www.cascades.com/en/about-us/our-company/our-history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/mayr-melnhof-karton"
+  :factory/display-name "Mayr-Melnhof Karton AG"
+  :factory/country "AT" :factory/isic "C17"
+  :factory/capabilities ["cartonboard" "folding-cartons" "recycled-fiber" "packaging-paper"]
+  :factory/source-url "https://mayr-melnhof.com/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hansol-paper"
+  :factory/display-name "Hansol Paper Co., Ltd."
+  :factory/country "KR" :factory/isic "C17"
+  :factory/capabilities ["printing-writing-paper" "carton-board" "specialty-paper" "thermal-paper"]
+  :factory/source-url "https://www.hansolpaper.co.kr/m/eng/intro/place?p=1"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/sofidel"
+  :factory/display-name "Sofidel Group"
+  :factory/country "IT" :factory/isic "C17"
+  :factory/capabilities ["tissue-paper" "hygiene-paper" "paper-manufacturing"]
+  :factory/source-url "https://www.sofidel.com/en/the-group/our-history/the-origins-and-leadership-in-italy/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/bio-pappel"
+  :factory/display-name "Bio Pappel, S.A.B. de C.V."
+  :factory/country "MX" :factory/isic "C17"
+  :factory/capabilities ["corrugated-packaging" "containerboard" "bond-paper" "newsprint"]
+  :factory/source-url "https://biopappel.com/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/id/april-group"
+  :factory/display-name "APRIL Group (Asia Pacific Resources International Limited)"
+  :factory/country "ID" :factory/isic "C17"
+  :factory/capabilities ["pulp-production" "paper-manufacturing" "paperboard" "fiber-plantations"]
+  :factory/source-url "https://www.aprilasia.com/en/about-us/our-operations"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/progroup"
+  :factory/display-name "Progroup AG"
+  :factory/country "DE" :factory/isic "C17"
+  :factory/capabilities ["containerboard" "corrugated-sheetboard" "packaging-paper" "recycled-fiber"]
+  :factory/source-url "https://www.progroup.ag/en/company/locations/overview"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 16b — wood products (C16) ════════════
+ {:factory/did "candidate:manufacturer-directory/kr/dongwha-enterprise"
+  :factory/display-name "Dongwha Enterprise"
+  :factory/country "KR" :factory/isic "C16"
+  :factory/capabilities ["particleboard" "mdf" "melamine-faced-board"]
+  :factory/source-url "https://www.emis.com/php/company-profile/KR/Dongwha_Enterprise_CoLtd_en_1650381.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/century-plyboards"
+  :factory/display-name "Century Plyboards (India)"
+  :factory/country "IN" :factory/isic "C16"
+  :factory/capabilities ["plywood" "mdf" "veneer" "laminates"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Century_Plyboards"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/ta-ann-holdings"
+  :factory/display-name "Ta Ann Holdings Berhad"
+  :factory/country "MY" :factory/isic "C16"
+  :factory/capabilities ["plywood" "sawn-timber" "veneer"]
+  :factory/source-url "https://www.taann.com.my/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/barlinek"
+  :factory/display-name "Barlinek S.A."
+  :factory/country "PL" :factory/isic "C16"
+  :factory/capabilities ["wood-flooring" "engineered-wood" "parquet"]
+  :factory/source-url "https://www.barlinek.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/fantoni"
+  :factory/display-name "Fantoni SpA"
+  :factory/country "IT" :factory/isic "C16"
+  :factory/capabilities ["mdf" "particleboard" "melamine-panels"]
+  :factory/source-url "https://www.fantoni.it/group/fantoni-group/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/carter-holt-harvey"
+  :factory/display-name "Carter Holt Harvey"
+  :factory/country "NZ" :factory/isic "C16"
+  :factory/capabilities ["sawn-timber" "plywood" "lvl" "structural-timber"]
+  :factory/source-url "https://chh.com/about-us/our-business/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/de/pfleiderer"
+  :factory/display-name "Pfleiderer Group"
+  :factory/country "DE" :factory/isic "C16"
+  :factory/capabilities ["particleboard" "mdf" "laminate-flooring" "decorative-panels"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pfleiderer"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
