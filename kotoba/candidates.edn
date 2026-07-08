@@ -319,6 +319,16 @@
 ;; fixed in the batch-5 PR after the first CI run failed on a nonexistent
 ;; babashka/setup-babashka action — now uses the official install script) for the automated
 ;; consistency check and its CI enforcement.
+;; Batch 31 (/loop pass 31): +49 companies, +0 new countries. Full-roster depth for 10
+;; countries (Croatia/Hungary/Romania/Kuwait/Ghana/Morocco/Philippines/Kazakhstan/Belgium/
+;; Nigeria) — the first double-digit-country depth pass. Targeted the six thinnest ISIC
+;; divisions going in (C16/C14/C22/C31/C18/C13) alongside C25/C19/C12/C27/C20/C23/C28 fill.
+;; One drop: Van de Velde N.V. (Belgium, C14 lingerie) — headquartered in Belgium but its
+;; owned production workshop is in Tunisia, not Belgium; excluded because :factory/country
+;; is meant to reflect where the company actually manufactures (per the Renault Tanger
+;; Méditerranée / Safran Aircraft Engines Morocco precedent — factory location, not HQ), and
+;; no Belgian manufacturing site was found for it.
+;; Running total: 943 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -5914,4 +5924,299 @@
   :factory/country "IN" :factory/isic "C17"
   :factory/capabilities ["pulp" "office-paper" "packaging-board" "coated-paper"]
   :factory/source-url "https://www.jkpaper.com/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/spacva"
+  :factory/display-name "Spačva d.d."
+  :factory/country "HR" :factory/isic "C16"
+  :factory/capabilities ["oak-sawmilling" "veneer-production" "parquet-flooring" "solid-wood-doors"]
+  :factory/source-url "https://spacva.eu/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/borovo"
+  :factory/display-name "Borovo d.d."
+  :factory/country "HR" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "rubber-footwear" "canvas-shoes" "rubber-technical-goods"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Borovo_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/koncar-elektroindustrija"
+  :factory/display-name "KONČAR – Elektroindustrija d.d."
+  :factory/country "HR" :factory/isic "C27"
+  :factory/capabilities ["power-transformers" "electric-generators" "electric-motors" "switchgear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/KON%C4%8CAR_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/duro-dakovic-grupa"
+  :factory/display-name "Đuro Đaković Grupa d.d."
+  :factory/country "HR" :factory/isic "C25"
+  :factory/capabilities ["pressure-vessels" "heat-exchangers" "steel-structures" "heavy-metal-fabrication"]
+  :factory/source-url "https://en.wikipedia.org/wiki/%C4%90uro_%C4%90akovi%C4%87_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/ina"
+  :factory/display-name "INA, d.d."
+  :factory/country "HR" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "motor-fuels" "lubricants" "bitumen-asphalt"]
+  :factory/source-url "https://en.wikipedia.org/wiki/INA_d.d."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/mol-group"
+  :factory/display-name "MOL Group"
+  :factory/country "HU" :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "fuel-production" "petrochemicals" "downstream-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/MOL_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/tungsram"
+  :factory/display-name "Tungsram"
+  :factory/country "HU" :factory/isic "C27"
+  :factory/capabilities ["lighting-equipment" "led-lighting" "automotive-lighting" "light-sources"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tungsram"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/graboplast"
+  :factory/display-name "Graboplast Zrt."
+  :factory/country "HU" :factory/isic "C22"
+  :factory/capabilities ["pvc-flooring" "resilient-flooring" "synthetic-leather" "vinyl-manufacturing"]
+  :factory/source-url "https://www.graboplast.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/patria-nyomda"
+  :factory/display-name "Pátria Nyomda Zrt."
+  :factory/country "HU" :factory/isic "C18"
+  :factory/capabilities ["security-printing" "forms-printing" "commercial-printing" "business-stationery"]
+  :factory/source-url "https://patria.hu/about-us/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/77-elektronika"
+  :factory/display-name "77 Elektronika Kft."
+  :factory/country "HU" :factory/isic "C32"
+  :factory/capabilities ["medical-diagnostics" "urine-analyzers" "blood-glucose-meters" "in-vitro-devices"]
+  :factory/source-url "https://www.en.e77.hu/about/our-history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/braiconf"
+  :factory/display-name "Braiconf S.A."
+  :factory/country "RO" :factory/isic "C14"
+  :factory/capabilities ["shirt-manufacturing" "ready-to-wear-apparel" "private-label-production" "garment-cutting-sewing"]
+  :factory/source-url "https://www.braiconf.ro/en/acasa-english/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/guban"
+  :factory/display-name "Guban"
+  :factory/country "RO" :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "handmade-shoes" "artisanal-shoemaking" "custom-lasts"]
+  :factory/source-url "https://guban.ro/pages/despre-noi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/lafor-beechwood-timber"
+  :factory/display-name "Lafor (Beechwood Timber)"
+  :factory/country "RO" :factory/isic "C16"
+  :factory/capabilities ["sawmilling" "beechwood-timber" "hardwood-edge-glued-panels" "flooring-components"]
+  :factory/source-url "https://www.beechwoodtimber.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/romcarbon"
+  :factory/display-name "Romcarbon S.A."
+  :factory/country "RO" :factory/isic "C22"
+  :factory/capabilities ["plastic-packaging" "polymer-processing" "plastic-compounds" "recycled-polymers"]
+  :factory/source-url "https://www.romcarbon.com/about-romcarbon/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/romradiatoare"
+  :factory/display-name "Romradiatoare S.A."
+  :factory/country "RO" :factory/isic "C25"
+  :factory/capabilities ["heat-exchangers" "industrial-radiators" "cooling-systems" "metal-stamping"]
+  :factory/source-url "https://www.romradiatoare.com/en/company/history-values/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/plastic-industries-company"
+  :factory/display-name "Plastic Industries Company (PIC)"
+  :factory/country "KW" :factory/isic "C22"
+  :factory/capabilities ["injection-molding" "blow-molding" "pipe-extrusion" "hdpe-water-tanks"]
+  :factory/source-url "https://plasind.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/national-textile-company"
+  :factory/display-name "National Textile Company"
+  :factory/country "KW" :factory/isic "C13"
+  :factory/capabilities ["fabric-weaving-finishing" "dyeing-and-bleaching" "cut-and-sew" "bed-linens-towels"]
+  :factory/source-url "https://madeinkuwaitgate.com/factories/national-textiles-company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/midad-pack"
+  :factory/display-name "Midad Pack"
+  :factory/country "KW" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "flexographic-printing" "sheet-fed-printing" "commercial-packaging-print"]
+  :factory/source-url "https://www.midadpack.com/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/al-mashaan-steel"
+  :factory/display-name "Al Mashaan Steel Co."
+  :factory/country "KW" :factory/isic "C25"
+  :factory/capabilities ["steel-fabrication" "stainless-steel-products" "handrails-balustrades" "architectural-metalwork"]
+  :factory/source-url "https://almashaansteel.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kw/al-khateeb-industries"
+  :factory/display-name "Al Khateeb Industries Company"
+  :factory/country "KW" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "home-furniture" "kitchen-cabinetry" "custom-carpentry"]
+  :factory/source-url "https://kiu-kw.org/en/project/al-khatib-industries/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/akosombo-textiles"
+  :factory/display-name "Akosombo Textiles Limited"
+  :factory/country "GH" :factory/isic "C13"
+  :factory/capabilities ["wax-print-fabric" "cotton-weaving" "textile-finishing" "spinning"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Akosombo_Textile_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/evans-timbers"
+  :factory/display-name "Evans Timbers Limited"
+  :factory/country "GH" :factory/isic "C16"
+  :factory/capabilities ["plywood-manufacturing" "veneer-production" "sawmilling" "hardwood-processing"]
+  :factory/source-url "https://evanstimbers.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/dtrt-apparel"
+  :factory/display-name "DTRT Apparel Limited"
+  :factory/country "GH" :factory/isic "C14"
+  :factory/capabilities ["garment-manufacturing" "knitwear" "activewear-sewing" "cut-and-sew"]
+  :factory/source-url "https://moti.gov.gh/new/blog-details.php?v=ODE%3D"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/poly-products-ghana"
+  :factory/display-name "Poly Products (Ghana) Limited"
+  :factory/country "GH" :factory/isic "C22"
+  :factory/capabilities ["plastic-film-packaging" "woven-sacks" "flexible-packaging" "storage-tanks"]
+  :factory/source-url "https://www.ifc.org/en/pressroom/2025/ifc-partners-with-mohinani-group-to-drive-plastic-recycling-and-manufacturing-in-w"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/buck-press"
+  :factory/display-name "Buck Press Limited"
+  :factory/country "GH" :factory/isic "C18"
+  :factory/capabilities ["security-printing" "offset-printing" "book-publishing" "packaging-print"]
+  :factory/source-url "https://buckpress.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/vita-couture"
+  :factory/display-name "Vita Couture"
+  :factory/country "MA" :factory/isic "C14"
+  :factory/capabilities ["garment-manufacturing" "fast-fashion" "cut-and-sew" "export-apparel"]
+  :factory/source-url "https://www.vita-couture.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/sentury-tire-morocco"
+  :factory/display-name "Sentury Tire Morocco"
+  :factory/country "MA" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "passenger-car-tires" "automotive-components"]
+  :factory/source-url "https://www.tirebusiness.com/expansion/production-starts-sentury-tire-plant-tangier-morocco/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/stroc-industrie"
+  :factory/display-name "STROC Industrie"
+  :factory/country "MA" :factory/isic "C25"
+  :factory/capabilities ["steel-structures" "metal-fabrication" "boilermaking" "industrial-piping"]
+  :factory/source-url "https://www.stroc.com/groupe/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/societe-marocaine-des-tabacs"
+  :factory/display-name "Société Marocaine des Tabacs (Imperial Tobacco Maroc)"
+  :factory/country "MA" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "fmcg-production" "export-manufacturing"]
+  :factory/source-url "https://medias24.com/2024/07/26/la-smt-compte-investir-jusqua-500-mdh-sur-les-trois-prochaines-annees/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/siera-manar-group"
+  :factory/display-name "Siera (Manar Group)"
+  :factory/country "MA" :factory/isic "C27"
+  :factory/capabilities ["household-appliances" "refrigerator-manufacturing" "white-goods" "domestic-appliances"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Siera"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/pmftc"
+  :factory/display-name "PMFTC Inc."
+  :factory/country "PH" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "heated-tobacco-products" "cigarette-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/PMFTC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/manila-cordage"
+  :factory/display-name "Manila Cordage Company"
+  :factory/country "PH" :factory/isic "C13"
+  :factory/capabilities ["rope-manufacturing" "cordage" "abaca-fiber-processing" "synthetic-rope"]
+  :factory/source-url "https://www.manilacordage.net/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/gtvl-manufacturing"
+  :factory/display-name "GTVL Manufacturing Industries Inc."
+  :factory/country "PH" :factory/isic "C14"
+  :factory/capabilities ["undergarment-manufacturing" "knitting" "cut-and-sew" "apparel-printing"]
+  :factory/source-url "https://gtvl.com/company-history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/atlanta-industries"
+  :factory/display-name "Atlanta Industries, Inc."
+  :factory/country "PH" :factory/isic "C22"
+  :factory/capabilities ["pvc-pipe-manufacturing" "plastic-extrusion" "hdpe-pipes" "plastic-fittings"]
+  :factory/source-url "https://www.atlanta.ph/who-we-are/about-atlanta"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/interior-crafts-kenneth-cobonpue"
+  :factory/display-name "Interior Crafts of the Islands, Inc. (Kenneth Cobonpue)"
+  :factory/country "PH" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "rattan-weaving" "handcrafted-furniture" "export-furniture"]
+  :factory/source-url "https://kennethcobonpue.com/the-brand"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/kazazot"
+  :factory/display-name "KazAzot JSC"
+  :factory/country "KZ" :factory/isic "C20"
+  :factory/capabilities ["ammonia-production" "ammonium-nitrate" "nitrogen-fertilizers" "chemical-manufacturing"]
+  :factory/source-url "https://kazazot.kz/en/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/sfk-plywood"
+  :factory/display-name "SFK Plywood (SFK Kazakhstan LLP)"
+  :factory/country "KZ" :factory/isic "C16"
+  :factory/capabilities ["birch-plywood" "wood-veneer" "film-faced-plywood" "wood-processing"]
+  :factory/source-url "https://sfkplywood.com/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/knk-chemical"
+  :factory/display-name "KNK Chemical LLP"
+  :factory/country "KZ" :factory/isic "C22"
+  :factory/capabilities ["polyethylene-film" "pvc-pipes" "hdpe-pipes" "packaging-film"]
+  :factory/source-url "https://knk.kz/en/production-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/central-asia-cement-karcement"
+  :factory/display-name "Central Asia Cement JSC (Karcement)"
+  :factory/country "KZ" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker" "building-materials" "non-metallic-minerals"]
+  :factory/source-url "https://karcement.kz/en/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/ariba"
+  :factory/display-name "Ariba LLP"
+  :factory/country "KZ" :factory/isic "C31"
+  :factory/capabilities ["upholstered-furniture" "sofas" "handmade-furniture" "home-furnishings"]
+  :factory/source-url "https://ariba.kz/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/picanol-group"
+  :factory/display-name "Picanol Group"
+  :factory/country "BE" :factory/isic "C28"
+  :factory/capabilities ["weaving-machines" "airjet-technology" "rapier-technology" "industrial-textile-machinery"]
+  :factory/source-url "https://www.picanol.be/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/sioen-industries"
+  :factory/display-name "Sioen Industries NV"
+  :factory/country "BE" :factory/isic "C13"
+  :factory/capabilities ["technical-textiles" "coated-fabrics" "geotextiles" "protective-clothing-fabric"]
+  :factory/source-url "https://sioen.com/en/group/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/unilin"
+  :factory/display-name "Unilin"
+  :factory/country "BE" :factory/isic "C16"
+  :factory/capabilities ["wood-based-panels" "laminate-flooring" "mdf-chipboard" "engineered-wood"]
+  :factory/source-url "https://www.unilinpanels.com/en/production-plants"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/recticel"
+  :factory/display-name "Recticel NV/SA"
+  :factory/country "BE" :factory/isic "C22"
+  :factory/capabilities ["insulation-boards" "pir-pu-foam" "insulated-panels" "foam-processing"]
+  :factory/source-url "https://www.recticel.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/notore-chemical-industries"
+  :factory/display-name "Notore Chemical Industries Plc"
+  :factory/country "NG" :factory/isic "C20"
+  :factory/capabilities ["urea-fertilizer" "npk-fertilizer" "ammonia-production" "agro-allied"]
+  :factory/source-url "https://notore.com/about-notore/history-and-milestones/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/vitafoam-nigeria"
+  :factory/display-name "Vitafoam Nigeria Plc"
+  :factory/country "NG" :factory/isic "C22"
+  :factory/capabilities ["polyurethane-foam" "flexible-foam" "rigid-foam" "mattress-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vitafoam_Nigeria_Plc"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/nigerian-breweries"
+  :factory/display-name "Nigerian Breweries Plc"
+  :factory/country "NG" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverages" "bottling" "lager-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nigerian_Breweries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/british-american-tobacco-nigeria"
+  :factory/display-name "British American Tobacco Nigeria Limited"
+  :factory/country "NG" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "packaging" "export-production"]
+  :factory/source-url "https://www.batwca.com/brands-and-products/manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ng/academy-press"
+  :factory/display-name "Academy Press Plc"
+  :factory/country "NG" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "book-publishing" "label-printing" "secure-print-solutions"]
+  :factory/source-url "https://academypress-plc.com/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
+
