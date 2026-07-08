@@ -300,6 +300,19 @@
 ;; already-listed Georg Fischer AG (batch 21, C25), same same-entity-different-classification
 ;; pattern as Grupo Kaltex/ITC Limited.
 ;; Running total: 867 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 30 (/loop pass 30): +27 companies, +0 new countries. Full-roster depth for 13
+;; countries (Liechtenstein/El-Salvador/Haiti/Madagascar/Nicaragua/Guatemala,
+;; Uzbekistan/Iceland/Lesotho/Tanzania/Lithuania/Bulgaria/Israel). Thin-ISIC round 22 across
+;; C30 (other transport equipment — rail/motorcycles/shipbuilding, the newly-thinnest division)
+;; and C17 paper. Two drops: Letšeng Diamonds (Lesotho) — not actually a manufacturer, it's a
+;; diamond mine (ISIC division 08 mining, not section C manufacturing), out of this dataset's
+;; scope regardless of duplication; and "Metsä Group" for C17, a THIRD attempt at the same
+;; same-corporate-family duplicate rejected in batches 17/18/29 (Metsä Wood).
+;; Running total: 894 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; This is the 30th consecutive /loop batch (started from an 80-company manual seed, batches
+;; 1-3 pushed to 464 to cross the original "460+ manufacturers" reference, batch 24 crossed 100
+;; countries) — 30 PRs merged to main, zero duplicate DIDs surviving into the file at any point,
+;; despite 40+ individual duplicate/near-duplicate picks caught and dropped along the way.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -5731,4 +5744,174 @@
   :factory/country "US" :factory/isic "C32"
   :factory/capabilities ["golf-clubs" "golf-balls" "sporting-goods"]
   :factory/source-url "https://en.wikipedia.org/wiki/Callaway_Golf_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Liechtenstein/El Salvador/Haiti/Madagascar/Nicaragua/Guatemala (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/li/neutrik"
+  :factory/display-name "Neutrik AG"
+  :factory/country "LI" :factory/isic "C27"
+  :factory/capabilities ["electronic-connectors" "audio-connectors" "video-connectors" "cable-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Neutrik"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/empresas-adoc"
+  :factory/display-name "Empresas ADOC"
+  :factory/country "SV" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "leather-processing" "rubber-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Empresas_ADOC"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/brasserie-nationale"
+  :factory/display-name "Brasserie Nationale d'Haïti (BRANA)"
+  :factory/country "HT" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-liquor-production" "soft-drink-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Brasserie_Nationale_d%27Ha%C3%AFti"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/alpha-ciment"
+  :factory/display-name "Alpha Ciment SA"
+  :factory/country "MG" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production"]
+  :factory/source-url "https://alphaciment.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/cemex-nicaragua"
+  :factory/display-name "Cemex Nicaragua, S.A."
+  :factory/country "NI" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "concrete-production" "aggregates-production"]
+  :factory/source-url "https://www.cemex.com/w/nicaragua"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/molinos-modernos"
+  :factory/display-name "Molinos Modernos, S.A."
+  :factory/country "GT" :factory/isic "C10"
+  :factory/capabilities ["wheat-flour-milling" "corn-flour-milling" "pasta-manufacturing"]
+  :factory/source-url "https://www.cmi.co/en/business-units/molinos-modernos"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Uzbekistan/Iceland/Lesotho/Tanzania/Lithuania/Bulgaria/Israel (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/is/ossur"
+  :factory/display-name "Össur hf"
+  :factory/country "IS" :factory/isic "C32"
+  :factory/capabilities ["prosthetics-manufacturing" "orthopedic-bracing" "compression-therapy" "medical-device-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/%C3%96ssur"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/ahangarancement"
+  :factory/display-name "Ahangarancement JSC"
+  :factory/country "UZ" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-manufacturing" "construction-materials"]
+  :factory/source-url "https://uzsm.uz/en/about/organizations/ahangaransement-jsc/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/tanzania-cigarette"
+  :factory/display-name "Tanzania Cigarette Company Limited"
+  :factory/country "TZ" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "consumer-packaged-goods"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tanzania_Cigarette_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/ekspla"
+  :factory/display-name "Ekspla UAB"
+  :factory/country "LT" :factory/isic "C26"
+  :factory/capabilities ["laser-manufacturing" "photonics" "scientific-instruments" "laser-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ekspla"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/melexis-bulgaria"
+  :factory/display-name "Melexis Bulgaria"
+  :factory/country "BG" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-testing" "ic-manufacturing" "automotive-sensors" "wafer-probing"]
+  :factory/source-url "https://www.melexis.com/en/contact/offices-and-locations"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/tower-semiconductor"
+  :factory/display-name "Tower Semiconductor"
+  :factory/country "IL" :factory/isic "C26"
+  :factory/capabilities ["semiconductor-fabrication" "analog-ic-manufacturing" "wafer-foundry" "image-sensors"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tower_Semiconductor"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 22a — other transport equipment (C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/kawasaki-heavy-industries"
+  :factory/display-name "Kawasaki Heavy Industries"
+  :factory/country "JP" :factory/isic "C30"
+  :factory/capabilities ["rail-rolling-stock" "aerospace" "shipbuilding" "motorcycles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kawasaki_Heavy_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hyundai-rotem"
+  :factory/display-name "Hyundai Rotem"
+  :factory/country "KR" :factory/isic "C30"
+  :factory/capabilities ["rail-rolling-stock" "high-speed-trains" "emus" "locomotives"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hyundai_Rotem"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/stadler-rail"
+  :factory/display-name "Stadler Rail"
+  :factory/country "CH" :factory/isic "C30"
+  :factory/capabilities ["rail-rolling-stock" "trams" "metro-vehicles" "locomotives"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Stadler_Rail"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/talgo"
+  :factory/display-name "Talgo"
+  :factory/country "ES" :factory/isic "C30"
+  :factory/capabilities ["rail-rolling-stock" "high-speed-trains" "intercity-trains"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Talgo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/bajaj-auto"
+  :factory/display-name "Bajaj Auto"
+  :factory/country "IN" :factory/isic "C30"
+  :factory/capabilities ["motorcycles" "scooters" "two-wheelers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bajaj_Auto"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/ducati"
+  :factory/display-name "Ducati"
+  :factory/country "IT" :factory/isic "C30"
+  :factory/capabilities ["motorcycles" "sport-motorcycles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ducati_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nl/damen-shipyards"
+  :factory/display-name "Damen Shipyards Group"
+  :factory/country "NL" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "naval-vessels" "workboats" "dredgers"]
+  :factory/source-url "https://www.damen.com/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/naval-group"
+  :factory/display-name "Naval Group"
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "submarines" "naval-defense"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Naval_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 22b — paper (C17) ════════════
+ {:factory/did "candidate:manufacturer-directory/jp/rengo"
+  :factory/display-name "Rengo Co., Ltd."
+  :factory/country "JP" :factory/isic "C17"
+  :factory/capabilities ["corrugated-board" "corrugated-boxes" "paperboard" "folding-cartons"]
+  :factory/source-url "https://www.rengo.co.jp/english/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/shandong-sun-paper"
+  :factory/display-name "Shandong Sun Paper Industry Joint Stock Co., Ltd."
+  :factory/country "CN" :factory/isic "C17"
+  :factory/capabilities ["pulp" "paper" "paperboard" "dissolving-pulp"]
+  :factory/source-url "https://www.sunpapergroup.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/es/saica"
+  :factory/display-name "Saica Group"
+  :factory/country "ES" :factory/isic "C17"
+  :factory/capabilities ["recycled-paper" "containerboard" "corrugated-packaging" "paper-recycling"]
+  :factory/source-url "https://www.saica.com/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/kruger"
+  :factory/display-name "Kruger Inc."
+  :factory/country "CA" :factory/isic "C17"
+  :factory/capabilities ["pulp" "paper" "paperboard" "tissue"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kruger_Inc."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/double-a"
+  :factory/display-name "Double A (1991) Public Company Limited"
+  :factory/country "TH" :factory/isic "C17"
+  :factory/capabilities ["pulp" "copy-paper" "office-paper" "integrated-paper-manufacturing"]
+  :factory/source-url "https://doubleapaper.com/th-en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/mpact"
+  :factory/display-name "Mpact Limited"
+  :factory/country "ZA" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "paper-recycling" "corrugated-packaging" "paperboard"]
+  :factory/source-url "https://www.mpact.co.za/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/jk-paper"
+  :factory/display-name "JK Paper Limited"
+  :factory/country "IN" :factory/isic "C17"
+  :factory/capabilities ["pulp" "office-paper" "packaging-board" "coated-paper"]
+  :factory/source-url "https://www.jkpaper.com/about"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
