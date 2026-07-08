@@ -360,6 +360,21 @@
 ;; engine manufacturers, not munitions manufacturers).
 ;; Running total: 1034 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; Crossed 1,000 companies in this batch.
+;; Batch 34 (/loop pass 34): +48 companies, +0 new countries. Full-roster depth for 10
+;; countries (Lesotho/Jamaica/Dominican-Republic/Madagascar/Cambodia/Honduras/Lebanon/
+;; Ethiopia/Estonia/Nicaragua). Targeted the thinnest ISIC divisions going in (C32/C16/C14/
+;; C30/C12/C27/C17) alongside C18/C13/C25/C22/C15/C21/C20/C24/C11/C10/C26 fill. Lesotho
+;; yielded only 3 of the requested 4 (agent explicitly ran down and rejected several dead
+;; ends — Kolonyama Pottery closed in the 1990s, Basotho blankets are actually woven in
+;; South Africa not Lesotho, no verifiable diamond-cutting/C16/C17/C18/C20/C22/C25/C27/C30/
+;; C32 manufacturer found — consistent with the batch-33 finding that some small countries
+;; have a genuine research ceiling, not just an under-searched gap). One country-subsidiary
+;; keep, not a duplicate: Pou Chen (Cambodia) Co., Ltd. alongside the already-listed Pou
+;; Chen Corporation (Taiwan, TW) — same corporate group, distinct country and physical
+;; factory, same precedent as Tata Steel UK/India and BAT Kenya/Nigeria/Cambodia (this
+;; batch's own BAT Cambodia entry is a third instance of the same pattern). No drops this
+;; batch — every candidate cleared the genuine-owned-factory and currently-operating bars.
+;; Running total: 1082 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -6795,5 +6810,293 @@
   :factory/country "MT" :factory/isic "C25"
   :factory/capabilities ["structural-steel" "steel-fabrication" "port-equipment" "pipe-supports"]
   :factory/source-url "https://motherwellbridge.com/en_util/mb_eng/malta/facilities"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/formosa-textile"
+  :factory/display-name "Formosa Textile Company (Pty) Ltd"
+  :factory/country "LS" :factory/isic "C13"
+  :factory/capabilities ["denim-fabric-weaving" "cotton-yarn-spinning" "fabric-dyeing" "ring-spun-yarn"]
+  :factory/source-url "https://www.nhjeans.com/formosa-textile-maseru-lesotho/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/rosehip-company"
+  :factory/display-name "The Rosehip Company"
+  :factory/country "LS" :factory/isic "C10"
+  :factory/capabilities ["rosehip-oil-cold-pressing" "dried-fruit-processing" "seed-oil-extraction" "herbal-tea-blending"]
+  :factory/source-url "https://www.therosehipcompany.com/products/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/wegrow"
+  :factory/display-name "WeGROW Lesotho (Pty) Ltd"
+  :factory/country "LS" :factory/isic "C21"
+  :factory/capabilities ["medical-cannabis-cultivation" "eu-gmp-cannabis-processing" "post-harvest-extraction" "bulk-pharmaceutical-ingredients"]
+  :factory/source-url "https://www.wegrowls.com/about-wegrow-medical-cannabis-production/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/barrington-cigars"
+  :factory/display-name "Barrington Cigars (Jamaica) Ltd"
+  :factory/country "JM" :factory/isic "C12"
+  :factory/capabilities ["hand-rolled-cigars" "cigar-manufacturing" "tobacco-processing" "cigar-export"]
+  :factory/source-url "https://barringtonhousecigars.com/about-jamaican-tobacco/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/tuff-gong-international"
+  :factory/display-name "Tuff Gong International Ltd"
+  :factory/country "JM" :factory/isic "C18"
+  :factory/capabilities ["vinyl-record-pressing" "audio-mastering" "record-manufacturing" "stamper-production"]
+  :factory/source-url "https://thevinylfactory.com/news/tuff-gong-international-start-pressing-vinyl/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/woodcats-international"
+  :factory/display-name "Woodcats International Ltd"
+  :factory/country "JM" :factory/isic "C16"
+  :factory/capabilities ["wooden-pallets" "sawmilling" "lumber-processing" "heat-treated-packaging"]
+  :factory/source-url "https://woodcatsinternational.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/tropical-metal-products"
+  :factory/display-name "Tropical Metal Products Ltd (TMP)"
+  :factory/country "JM" :factory/isic "C25"
+  :factory/capabilities ["metal-roofing" "sheet-metal-fabrication" "flashing-and-guttering" "window-components"]
+  :factory/source-url "https://tmpja.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/sun-island-jamaica"
+  :factory/display-name "Sun Island Jamaica Ltd"
+  :factory/country "JM" :factory/isic "C14"
+  :factory/capabilities ["apparel-manufacturing" "garment-sewing" "screen-printing" "embroidery"]
+  :factory/source-url "https://www.sunislandjamaica.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/laboratorios-rowe"
+  :factory/display-name "Laboratorios Rowe"
+  :factory/country "DO" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "generic-medicines" "tablets-and-capsules" "topical-creams"]
+  :factory/source-url "https://hoy.com.do/laboratorios-rowe-la-mayor-industria-de-medicamentos-de-rd/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/industria-cartonera-dominicana"
+  :factory/display-name "Industria Cartonera Dominicana, S.A."
+  :factory/country "DO" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "paperboard-packaging" "box-manufacturing" "packaging-printing"]
+  :factory/source-url "https://www.1411.com.do/otras-categorias-a-b-c-y-d/cartoneras/industria-cartonera-dominicana-s-a-46013.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/packsol"
+  :factory/display-name "PackSol (Fábrica de Envases Plásticos)"
+  :factory/country "DO" :factory/isic "C22"
+  :factory/capabilities ["pet-preforms" "plastic-caps" "plastic-containers" "packaging-manufacturing"]
+  :factory/source-url "https://www.packsol.do/fabricacion-de-envases-plasticos-en-republica-dominicana/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/colina-shoes"
+  :factory/display-name "Colina Shoes"
+  :factory/country "DO" :factory/isic "C15"
+  :factory/capabilities ["athletic-footwear" "footwear-assembly" "contract-manufacturing" "free-zone-production"]
+  :factory/source-url "https://www.colinashoes.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/metaldom"
+  :factory/display-name "Metaldom (Grupo Metaldom)"
+  :factory/country "DO" :factory/isic "C24"
+  :factory/capabilities ["steel-rebar" "long-steel-products" "flat-steel" "steel-rolling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Metaldom"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/sacimem"
+  :factory/display-name "Imperial Tobacco Madagascar (SACIMEM)"
+  :factory/country "MG" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "leaf-blending" "packaging"]
+  :factory/source-url "https://imperial-tobacco-madagascar.com/a-propos.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/spah"
+  :factory/display-name "SPAH (Société de Production d'Articles Hygiéniques)"
+  :factory/country "MG" :factory/isic "C17"
+  :factory/capabilities ["tissue-paper-manufacturing" "cellulose-wadding" "paper-recycling" "toilet-paper-production"]
+  :factory/source-url "https://ecoaustral.com/la-spah-pionniere-dans-la-valorisation-des-dechets-de-papier/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/secren"
+  :factory/display-name "SECREN (Société d'Etudes, de Construction et de Réparation Navales)"
+  :factory/country "MG" :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "ship-repair" "dry-dock-services" "boilermaking"]
+  :factory/source-url "https://www.secren.mg/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/vitaplast"
+  :factory/display-name "Vitaplast SARL"
+  :factory/country "MG" :factory/isic "C22"
+  :factory/capabilities ["plastic-injection-molding" "pet-bottle-manufacturing" "plastic-containers" "recycled-plastics"]
+  :factory/source-url "https://www.madayp.com/company/2257/Vitaplast"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/cimelta-madagascar"
+  :factory/display-name "Cimelta Madagascar"
+  :factory/country "MG" :factory/isic "C25"
+  :factory/capabilities ["metal-fabrication" "boilermaking" "structural-steel" "tanks-and-reservoirs"]
+  :factory/source-url "https://simmadagascar.mg/nos-membres/cimelta-madagascar/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/pou-chen-cambodia"
+  :factory/display-name "Pou Chen (Cambodia) Co., Ltd."
+  :factory/country "KH" :factory/isic "C15"
+  :factory/capabilities ["athletic-footwear" "casual-footwear" "shoe-assembly" "contract-manufacturing"]
+  :factory/source-url "https://www.fairlabor.org/member/pou-chen-group/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/angkor-plywood"
+  :factory/display-name "Angkor Plywood Co., Ltd."
+  :factory/country "KH" :factory/isic "C16"
+  :factory/capabilities ["plywood" "veneer-sheets" "wood-pellets" "film-faced-plywood"]
+  :factory/source-url "https://www.angkorplywoodgroup.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/bat-cambodia"
+  :factory/display-name "British American Tobacco (Cambodia) Limited"
+  :factory/country "KH" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "vertically-integrated-production" "local-brands"]
+  :factory/source-url "https://www.bat-cambodia.com/who-we-are/about-bat-cambodia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/kims-rubber"
+  :factory/display-name "KIMS Rubber (Cambodia) Co., Ltd."
+  :factory/country "KH" :factory/isic "C22"
+  :factory/capabilities ["crepe-rubber" "rubber-processing" "latex-coagulation" "export-grade-rubber"]
+  :factory/source-url "https://www.akp.gov.kh/post/detail/371376"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/isi-steel"
+  :factory/display-name "ISI Steel Co., Ltd."
+  :factory/country "KH" :factory/isic "C25"
+  :factory/capabilities ["steel-roofing-sheets" "steel-pipes" "structural-steel" "galvanized-steel"]
+  :factory/source-url "https://www.isiip.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/grupo-karims"
+  :factory/display-name "Grupo Karim's (GK Global)"
+  :factory/country "HN" :factory/isic "C13"
+  :factory/capabilities ["yarn-spinning" "ring-spun-cotton" "knitting" "dyeing-finishing"]
+  :factory/source-url "https://www.gkglobal.com/businessunits"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/plihsa"
+  :factory/display-name "PLIHSA (Plásticos Industriales Hondureños, S.A.)"
+  :factory/country "HN" :factory/isic "C22"
+  :factory/capabilities ["plastic-injection-molding" "beverage-packaging" "crown-caps" "plastic-crates"]
+  :factory/source-url "https://www.plihsa.com/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/proimi"
+  :factory/display-name "PROIMI"
+  :factory/country "HN" :factory/isic "C31"
+  :factory/capabilities ["wicker-furniture" "rattan-furniture" "outdoor-furniture" "handcrafted-furniture"]
+  :factory/source-url "https://proimi.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/grupo-zinma"
+  :factory/display-name "Grupo Zinma (TRACOMA S.A. de C.V.)"
+  :factory/country "HN" :factory/isic "C16"
+  :factory/capabilities ["sawn-lumber" "kiln-dried-lumber" "pressure-treated-wood" "pine-flooring-moldings"]
+  :factory/source-url "https://grupozinma.hn/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/grupo-pharmaetica"
+  :factory/display-name "Grupo Pharmaetica (Laboratorios Pharmaetica)"
+  :factory/country "HN" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "gmp-certified" "generic-medicines" "tablets-capsules"]
+  :factory/source-url "https://pharmaetica.com/pharmaetica/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/regie-libanaise-des-tabacs"
+  :factory/display-name "Régie Libanaise des Tabacs et Tombacs"
+  :factory/country "LB" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-leaf-processing" "tobacco-curing" "state-monopoly-production"]
+  :factory/source-url "https://www.regie.com.lb/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/sad-ein-soap-factory"
+  :factory/display-name "Sad-Ein Soap Factory"
+  :factory/country "LB" :factory/isic "C20"
+  :factory/capabilities ["olive-oil-soap" "traditional-saponification" "handmade-soap-manufacturing" "herbal-cosmetic-soap"]
+  :factory/source-url "https://www.sad-ein.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/liban-cables"
+  :factory/display-name "Liban Cables S.A.L."
+  :factory/country "LB" :factory/isic "C27"
+  :factory/capabilities ["power-cable-manufacturing" "building-wire" "high-voltage-cables" "solar-pv-cables"]
+  :factory/source-url "https://www.libancables.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/ipco"
+  :factory/display-name "IPCO – Industrial Plastics Company S.A.L."
+  :factory/country "LB" :factory/isic "C22"
+  :factory/capabilities ["pet-plastic-containers" "hdpe-packaging" "injection-molding" "custom-mold-design"]
+  :factory/source-url "https://ipcolebanon.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/arab-printing-press"
+  :factory/display-name "Arab Printing Press S.A.L."
+  :factory/country "LB" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "packaging-printing" "label-printing" "security-printing"]
+  :factory/source-url "https://www.arab-printing-press.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/indochine-apparel"
+  :factory/display-name "Indochine Apparel PLC"
+  :factory/country "ET" :factory/isic "C14"
+  :factory/capabilities ["cut-and-sew" "garment-manufacturing" "denim-trousers" "export-garment-production"]
+  :factory/source-url "https://portside.org/2018-03-10/china-turning-ethiopia-giant-fast-fashion-factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/horizon-addis-tyre"
+  :factory/display-name "Horizon Addis Tyre Share Company"
+  :factory/country "ET" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "inner-tubes" "rubber-products" "industrial-tires"]
+  :factory/source-url "https://www.horizon-atc.com/en/history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/adami-tulu-pesticides"
+  :factory/display-name "Adami Tulu Pesticides Processing S.C."
+  :factory/country "ET" :factory/isic "C20"
+  :factory/capabilities ["agrochemicals" "pesticide-formulation" "herbicide-production" "chemical-processing"]
+  :factory/source-url "https://www.2merkato.com/news/alerts/2936-ethiopia-adami-tulu-pesticide-expands-its-plant-to-produce-24-d"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/tsehay-industry"
+  :factory/display-name "Tsehay Industry S.C. (Kaliti Metal Products Factory)"
+  :factory/country "ET" :factory/isic "C25"
+  :factory/capabilities ["structural-steel" "sheet-metal-fabrication" "door-window-profiles" "roofing-sheets"]
+  :factory/source-url "https://tsehayindustrysc.com/?page_id=10&lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/euro-cable"
+  :factory/display-name "Euro Cable PLC"
+  :factory/country "ET" :factory/isic "C27"
+  :factory/capabilities ["electrical-cable-manufacturing" "power-cables" "building-wire" "armored-cable"]
+  :factory/source-url "https://www.2merkato.com/directory/15188-euro-cable-plc"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/baltic-workboats"
+  :factory/display-name "Baltic Workboats AS"
+  :factory/country "EE" :factory/isic "C30"
+  :factory/capabilities ["aluminium-shipbuilding" "patrol-vessels" "workboats" "wave-piercing-hulls"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Baltic_Workboats"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/balteco"
+  :factory/display-name "Balteco AS"
+  :factory/country "EE" :factory/isic "C22"
+  :factory/capabilities ["acrylic-bathtubs" "sanitary-ware" "hydromassage-tubs" "shower-cabins"]
+  :factory/source-url "https://balteco.ee/en/estonian-bathroom-manufacturer/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/a-le-coq"
+  :factory/display-name "AS A. Le Coq"
+  :factory/country "EE" :factory/isic "C11"
+  :factory/capabilities ["brewing" "beer-production" "soft-drinks" "cider-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/A._Le_Coq"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/gpv-estonia"
+  :factory/display-name "GPV Estonia AS"
+  :factory/country "EE" :factory/isic "C26"
+  :factory/capabilities ["pcb-assembly" "electronics-manufacturing-services" "industrial-electronics" "smt-assembly"]
+  :factory/source-url "https://gpv-group.com/locations/gpv-estonia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/salvest"
+  :factory/display-name "Salvest AS"
+  :factory/country "EE" :factory/isic "C10"
+  :factory/capabilities ["canned-food" "ready-meals" "jams-and-preserves" "food-processing"]
+  :factory/source-url "https://www.salvest.ee/en/about-salvest/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/rolter"
+  :factory/display-name "Rolter"
+  :factory/country "NI" :factory/isic "C15"
+  :factory/capabilities ["rubber-sandals" "footwear-manufacturing" "rubber-molding" "work-boots"]
+  :factory/source-url "https://www.laprensani.com/2025/10/26/suplemento/la-prensa-domingo/3552223-las-chinelas-mas-famosas-de-nicaragua-cumplen-70-anos-de-historia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/proplasa"
+  :factory/display-name "Productora de Plásticos, S.A. (PROPLASA)"
+  :factory/country "NI" :factory/isic "C22"
+  :factory/capabilities ["plastic-injection-molding" "household-plastics" "industrial-packaging" "plastic-containers"]
+  :factory/source-url "https://www.dnb.com/business-directory/company-profiles.productora_de_plasticos_sa.8d6be0fcf8848a885e6d4180617fc125.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/maderas-sostenibles"
+  :factory/display-name "Maderas Sostenibles"
+  :factory/country "NI" :factory/isic "C16"
+  :factory/capabilities ["sustainable-hardwood" "sawmilling" "wood-processing" "timber-milling"]
+  :factory/source-url "https://www.maderassostenibles.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/immsa"
+  :factory/display-name "Industria Metal Mecánica, S.A. (IMMSA)"
+  :factory/country "NI" :factory/isic "C25"
+  :factory/capabilities ["wire-products" "galvanized-steel-sheet" "structural-steel-profiles" "nails-and-fasteners"]
+  :factory/source-url "https://www.immsa.com.ni/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/minfu-aceros"
+  :factory/display-name "Minfu Aceros"
+  :factory/country "NI" :factory/isic "C24"
+  :factory/capabilities ["steel-rebar" "scrap-metal-recycling" "electric-arc-furnace" "structural-steel-beams"]
+  :factory/source-url "https://cnzf.gob.ni/minfu-aceros-inicia-operaciones-y-fortalece-la-industria-nicaraguense/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
