@@ -157,6 +157,22 @@
 ;; Industry, Nitori, Getinge, Steinway & Sons). Sweden+Turkey+Thailand depth (Scania, SSAB,
 ;; Sobi, Ford Otosan, Erdemir, Arçelik, Charoen Pokphand Foods, Sahaviriya Steel).
 ;; Running total: 521 companies / 94 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 17 (/loop pass 17): +26 companies, +1 new country (GR). Fourth entry for 14
+;; previously-3-entry countries (Balkans+Baltics+Portugal+Israel, Peru-region+North
+;; Africa+Argentina+Chile — chemicals/basic-metals/cement heavy). Thin-ISIC round 9 across
+;; C12/C14/C16/C17/C18/C25. Greece enters via Karelia Tobacco Company.
+;; Dropped 6 duplicate agent picks this batch — the highest count yet, but all legitimate
+;; near-misses rather than the same-company-re-suggested pattern from before: ICL Dead Sea
+;; Works (same real facility as the already-listed ICL Group, il/icl-group, just described at
+;; subsidiary granularity) and Metsä Group (same corporate family as the already-listed Metsä
+;; Wood, fi/metsa-wood, parent vs. business-unit) were judgment calls — same country, same
+;; underlying enterprise, would read as double-counting even with a different :factory/did
+;; slug and a name the near-duplicate-name checker wouldn't catch (different display names).
+;; The other 4 (Michell y Cía, Ciments du Maroc, Interloop, Vinatex) were literal re-adds of
+;; already-listed companies. This is a reminder that grep-for-collision only catches identical
+;; or near-identical name strings — parent/subsidiary and holding-company/brand relationships
+;; still need a human judgment call, which is why every batch's picks get read, not just grepped.
+;; Running total: 547 companies / 95 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3416,4 +3432,168 @@
   :factory/country "TH" :factory/isic "C24"
   :factory/capabilities ["hot-rolled-steel" "steel-coil" "steel-plate"]
   :factory/source-url "https://en.wikipedia.org/wiki/Sahaviriya_Steel_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fourth entry — Balkans + Baltics + Portugal + Israel (SI/LT/BG/HR/EE/LV/PT/IL) ════════════
+ {:factory/did "candidate:manufacturer-directory/si/talum"
+  :factory/display-name "Talum d.d."
+  :factory/country "SI" :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "alumina-refining" "aluminium-casting" "foundry-alloys"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Talum"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/ab-achema"
+  :factory/display-name "AB Achema"
+  :factory/country "LT" :factory/isic "C20"
+  :factory/capabilities ["nitrogen-fertilizers" "ammonia-production" "industrial-gases" "resins"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Achema"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/aurubis-bulgaria"
+  :factory/display-name "Aurubis Bulgaria AD"
+  :factory/country "BG" :factory/isic "C24"
+  :factory/capabilities ["copper-smelting" "copper-cathode-production" "sulfuric-acid-production"]
+  :factory/source-url "https://www.aurubis.com/en/bulgaria"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/petrokemija"
+  :factory/display-name "Petrokemija d.d."
+  :factory/country "HR" :factory/isic "C20"
+  :factory/capabilities ["nitrogen-fertilizers" "npk-fertilizers" "ammonia-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Petrokemija"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/viru-keemia-grupp"
+  :factory/display-name "Viru Keemia Grupp AS"
+  :factory/country "EE" :factory/isic "C19"
+  :factory/capabilities ["shale-oil-production" "oil-shale-processing" "fine-chemicals" "resins"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Viru_Keemia_Grupp"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/valmiera-glass-group"
+  :factory/display-name "AS Valmieras stikla šķiedra (Valmiera Glass Group)"
+  :factory/country "LV" :factory/isic "C23"
+  :factory/capabilities ["glass-fibre-manufacturing" "composite-materials" "e-glass-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Valmiera_Fibreglass"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pt/bondalti-chemicals"
+  :factory/display-name "Bondalti Chemicals, S.A."
+  :factory/country "PT" :factory/isic "C20"
+  :factory/capabilities ["basic-chemicals" "aniline-production" "nitrobenzene-production" "chlor-alkali"]
+  :factory/source-url "https://www.bondalti.com/en/bondalti/history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Fourth entry — Peru + North Africa + Argentina + Chile (DZ/SA/JO/TN/AR/CL) ════════════
+ {:factory/did "candidate:manufacturer-directory/dz/gica"
+  :factory/display-name "Groupe Industriel des Ciments d'Algérie (GICA)"
+  :factory/country "DZ" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "concrete" "aggregates"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Groupe_industriel_des_ciments_d%27Alg%C3%A9rie"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/sami-advanced-electronics"
+  :factory/display-name "SAMI Advanced Electronics Company (AEC)"
+  :factory/country "SA" :factory/isic "C26"
+  :factory/capabilities ["electronics-manufacturing" "pcb-assembly" "cable-harnesses" "defense-electronics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Advanced_Electronics_Company_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/jerash-garments"
+  :factory/display-name "Jerash Garments and Fashions Manufacturing Co."
+  :factory/country "JO" :factory/isic "C14"
+  :factory/capabilities ["garment-manufacturing" "cut-and-sew" "sportswear" "apparel-export"]
+  :factory/source-url "https://jerashholdings.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/one-tech-holding"
+  :factory/display-name "One Tech Holding (OneTech Group)"
+  :factory/country "TN" :factory/isic "C27"
+  :factory/capabilities ["cable-manufacturing" "electronics-assembly" "mechatronics" "plastic-injection"]
+  :factory/source-url "https://onetech-group.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/vassalli-fabril"
+  :factory/display-name "Vassalli Fabril"
+  :factory/country "AR" :factory/isic "C28"
+  :factory/capabilities ["combine-harvesters" "agricultural-machinery" "farm-implements"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vassalli_Fabril"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cl/cementos-bio-bio"
+  :factory/display-name "Cementos Bío Bío (Cbb)"
+  :factory/country "CL" :factory/isic "C23"
+  :factory/capabilities ["cement-production" "lime" "aggregates" "ready-mix-concrete"]
+  :factory/source-url "https://cbb.cl/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 9a — wood products / fabricated metal (C16/C25) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/louisiana-pacific"
+  :factory/display-name "Louisiana-Pacific Corporation"
+  :factory/country "US" :factory/isic "C16"
+  :factory/capabilities ["osb" "engineered-wood" "siding" "structural-panels"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Louisiana-Pacific_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/binderholz-group"
+  :factory/display-name "Binderholz Group"
+  :factory/country "AT" :factory/isic "C16"
+  :factory/capabilities ["sawn-timber" "glulam" "clt" "solid-wood-panels"]
+  :factory/source-url "https://www.binderholz.com/en-us/mass-timber-solutions/binderholz-headquarter-fuegen-austria/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/dexco"
+  :factory/display-name "Dexco S.A. (formerly Duratex)"
+  :factory/country "BR" :factory/isic "C16"
+  :factory/capabilities ["wood-panels" "mdf" "particleboard" "laminate-flooring"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Duratex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/daiken-corporation"
+  :factory/display-name "Daiken Corporation"
+  :factory/country "JP" :factory/isic "C16"
+  :factory/capabilities ["plywood" "mdf" "fiberboard" "building-materials"]
+  :factory/source-url "https://www.daiken-ad.com/about/business/buildingmaterials.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/allegion"
+  :factory/display-name "Allegion plc"
+  :factory/country "IE" :factory/isic "C25"
+  :factory/capabilities ["locks" "security-hardware" "door-hardware" "access-control"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Allegion"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pl/canpack-group"
+  :factory/display-name "CANPACK Group (Canpack S.A.)"
+  :factory/country "PL" :factory/isic "C25"
+  :factory/capabilities ["beverage-cans" "metal-packaging" "closures" "containers"]
+  :factory/source-url "https://www.canpack.com/contact-details/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/victorinox"
+  :factory/display-name "Victorinox AG"
+  :factory/country "CH" :factory/isic "C25"
+  :factory/capabilities ["cutlery" "knives" "hand-tools"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Victorinox"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/sundram-fasteners"
+  :factory/display-name "Sundram Fasteners Limited"
+  :factory/country "IN" :factory/isic "C25"
+  :factory/capabilities ["fasteners" "bolts-nuts" "forged-components" "wire-products"]
+  :factory/source-url "https://sundram.com/contact-us.php"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 9b — tobacco / apparel / paper / printing (C12/C14/C17/C18) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/universal-corporation"
+  :factory/display-name "Universal Corporation"
+  :factory/country "US" :factory/isic "C12"
+  :factory/capabilities ["leaf-tobacco-processing" "tobacco-merchanting" "stemming-redrying"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Universal_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/karelia-tobacco"
+  :factory/display-name "Karelia Tobacco Company"
+  :factory/country "GR" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "export"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Karelia_Tobacco_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/nippon-paper-industries"
+  :factory/display-name "Nippon Paper Industries"
+  :factory/country "JP" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "pulp-production" "paperboard" "household-paper"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nippon_Paper_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/za/novus-holdings"
+  :factory/display-name "Novus Holdings"
+  :factory/country "ZA" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "book-printing" "newspaper-printing" "packaging-printing"]
+  :factory/source-url "https://novus.holdings/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/c-and-c-joint-printing"
+  :factory/display-name "C & C Joint Printing Co. (H.K.) Ltd."
+  :factory/country "HK" :factory/isic "C18"
+  :factory/capabilities ["book-printing" "security-printing" "packaging-printing" "commercial-printing"]
+  :factory/source-url "https://www.candcprinting.com/eng/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
