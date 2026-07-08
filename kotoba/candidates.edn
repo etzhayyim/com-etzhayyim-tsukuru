@@ -490,6 +490,19 @@
 ;; here for visibility. Two more Sumitomo Electric country-subsidiary keeps this batch, in
 ;; different countries: SEWS-CABIND Albania and Sumi (Cambodia) Wiring Systems.
 ;; Running total: 1440 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 43 (/loop pass 43): +40 companies, +0 new countries. Second-pass depth for 10
+;; single-pass-only countries at the 10-entry floor (Czechia/Estonia/Egypt/Ethiopia/Senegal/
+;; Nicaragua/Zambia/Guatemala/Kazakhstan/Latvia). Sixth BAT country-subsidiary keep: British
+;; American Tobacco Zambia Plc, alongside UK (HQ)/Kenya/Nigeria/Cambodia/Uzbekistan. Every
+;; agent this batch continued self-policing currently-operating status without being asked
+;; twice — Nicaragua's agent rejected Cone Denim/Grupo Denim (repeated closures, most recent
+;; April 2024) and two paint companies whose actual plants turned out to be in neighboring
+;; countries; Ethiopia's agent excluded Bishoftu Automotive Engineering Industry despite a
+;; real physical factory, because it now sits under Ethiopia's Defense Engineering Industry
+;; Group producing military vehicles alongside civilian buses — an ambiguous civilian/military
+;; split judged too close to the standing weapons-scope line to include even without an
+;; explicit ammunition/small-arms product. No drops from the returned candidates themselves.
+;; Running total: 1480 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -9361,5 +9374,245 @@
   :factory/country "LB" :factory/isic "C15"
   :factory/capabilities ["leather-tanning" "hide-dyeing-finishing" "footwear-leather" "leather-goods"]
   :factory/source-url "https://www.salemtannery.com/production-plant"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/meopta"
+  :factory/display-name "Meopta – optika, s.r.o."
+  :factory/country "CZ" :factory/isic "C26"
+  :factory/capabilities ["optics" "binoculars" "riflescopes" "optomechanical-components"]
+  :factory/source-url "https://www.meopta.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/philip-morris-cr"
+  :factory/display-name "Philip Morris ČR a.s."
+  :factory/country "CZ" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "nicotine-pouches" "export-production"]
+  :factory/source-url "https://www.expats.cz/czech-news/article/philip-morris-international-investing-over-czk-1-billion-in-kutna-hora-factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/synthesia"
+  :factory/display-name "Synthesia a.s."
+  :factory/country "CZ" :factory/isic "C20"
+  :factory/capabilities ["organic-intermediates" "cellulose-derivatives" "pigments-and-dyes" "industrial-chemicals"]
+  :factory/source-url "https://www.synthesia.eu/eng/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/skoda-electric"
+  :factory/display-name "Škoda Electric a.s."
+  :factory/country "CZ" :factory/isic "C27"
+  :factory/capabilities ["traction-motors" "electric-drives" "trolleybus-manufacturing" "railway-electrical-equipment"]
+  :factory/source-url "https://acri.cz/en/skoda-electric-a-s/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/estonia-klaverivabrik"
+  :factory/display-name "Estonia Klaverivabrik AS (Estonia Piano Factory)"
+  :factory/country "EE" :factory/isic "C32"
+  :factory/capabilities ["grand-pianos" "concert-pianos" "musical-instruments" "wood-craftsmanship"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Estonia_Piano_Factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/printall"
+  :factory/display-name "Printall AS"
+  :factory/country "EE" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "book-printing" "periodical-printing" "binding"]
+  :factory/source-url "https://www.printall.ee/et/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/tallinna-farmaatsiatehase"
+  :factory/display-name "Tallinna Farmaatsiatehase AS"
+  :factory/country "EE" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "ointments" "creams-gels" "semi-solid-dosage-forms"]
+  :factory/source-url "https://tft.ee/about.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/wendre"
+  :factory/display-name "Wendre AS"
+  :factory/country "EE" :factory/isic "C13"
+  :factory/capabilities ["bedding-textiles" "duvets-pillows" "fiber-filling" "technical-textiles"]
+  :factory/source-url "https://wendregroup.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/gb-auto"
+  :factory/display-name "GB Auto (Ghabbour Auto)"
+  :factory/country "EG" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "bus-manufacturing" "motorcycle-assembly" "ckd-assembly"]
+  :factory/source-url "https://gb-corporation.com/gb-auto/manufacturing-facilities/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/eipico"
+  :factory/display-name "EIPICO (Egyptian International Pharmaceutical Industries Co.)"
+  :factory/country "EG" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "antibiotics" "sterile-injectables" "generic-drugs"]
+  :factory/source-url "https://www.eipico.com.eg/HTML.aspx?name=Eipico2_AboutUs"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/al-ahram-beverages"
+  :factory/display-name "Al Ahram Beverages Company (Heineken Egypt)"
+  :factory/country "EG" :factory/isic "C11"
+  :factory/capabilities ["brewing" "malt-production" "beverage-bottling" "barley-processing"]
+  :factory/source-url "https://www.alahrambeverages.com/about-us/plants/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/el-ahram-printing-packaging"
+  :factory/display-name "El Ahram Company for Printing & Packaging S.A.E. (EPPK)"
+  :factory/country "EG" :factory/isic "C18"
+  :factory/capabilities ["flexible-packaging" "printing" "lamination" "aluminium-foil"]
+  :factory/source-url "https://www.ahramco.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/eg/nag-hamady-fiber-board"
+  :factory/display-name "Nag Hamady Fiber Board Co. (NFB)"
+  :factory/country "EG" :factory/isic "C16"
+  :factory/capabilities ["mdf-panels" "hdf-panels" "fiberboard-manufacturing" "bagasse-based-wood-products"]
+  :factory/source-url "https://nfb-eg.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/marathon-motor-engineering"
+  :factory/display-name "Marathon Motor Engineering PLC"
+  :factory/country "ET" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "automotive-manufacturing" "electric-vehicles" "skd-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Marathon_Motors_Engineering"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/mesfin-industrial-engineering"
+  :factory/display-name "Mesfin Industrial Engineering"
+  :factory/country "ET" :factory/isic "C28"
+  :factory/capabilities ["wind-towers" "industrial-machinery" "steel-fabrication" "electromechanical-engineering"]
+  :factory/source-url "https://mesfinme.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/guts-agro-industry"
+  :factory/display-name "Guts Agro Industry PLC"
+  :factory/country "ET" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "fortified-food" "corn-soy-blend" "iodized-salt"]
+  :factory/source-url "https://www.2scale.org/upload/c2874c_2SCALE_paper2.pdf"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/berhanena-selam-printing"
+  :factory/display-name "Berhanena Selam Printing Enterprise"
+  :factory/country "ET" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "security-printing" "newspaper-printing" "book-publishing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Berhanena_Selam_Printing_Enterprise"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/sismar"
+  :factory/display-name "SISMAR (Société Industrielle Sahélienne de Matériel Agricole et de Représentation)"
+  :factory/country "SN" :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery" "metal-fabrication" "tractors-implements" "forging"]
+  :factory/source-url "https://sismar.sn/a-propos/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/domitexka-saloum"
+  :factory/display-name "DOMITEXKA-SALOUM"
+  :factory/country "SN" :factory/isic "C13"
+  :factory/capabilities ["cotton-spinning" "weaving" "knitting" "dyeing-printing"]
+  :factory/source-url "https://www.sikafinance.com/marches/senegal-lusine-de-transformation-cotonniere-domitexka-entame-son-operation-de-relance_47483"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/biga-home"
+  :factory/display-name "Biga Home (Doğanlar Furniture Group)"
+  :factory/country "SN" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "wood-furniture" "mass-production" "home-furnishings"]
+  :factory/source-url "https://www.sikafinance.com/marches/senegal-une-usine-de-fabrication-de-200-000-meubles-par-an-inauguree_42550"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/universelle-industries"
+  :factory/display-name "Universelle Industries"
+  :factory/country "SN" :factory/isic "C25"
+  :factory/capabilities ["steel-sheet-manufacturing" "rebar" "structural-profiles" "wire-mesh"]
+  :factory/source-url "https://www.au-senegal.com/universelle-industries,6625.html?lang=fr"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/hialpesa-nicaragua"
+  :factory/display-name "Hialpesa Nicaragua S.A."
+  :factory/country "NI" :factory/isic "C13"
+  :factory/capabilities ["yarn-spinning" "weaving" "dyeing-finishing" "fabric-production"]
+  :factory/source-url "https://laverdadnica.com/inauguran-dos-nuevas-empresas-de-zonas-francas-en-nicaragua/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/laboratorios-ramos"
+  :factory/display-name "Laboratorios Ramos S.A."
+  :factory/country "NI" :factory/isic "C21"
+  :factory/capabilities ["generic-medicines" "pharmaceutical-manufacturing" "otc-products" "tablet-production"]
+  :factory/source-url "https://www.ramos.com.ni/acerca-de/historia.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/nika-comfort"
+  :factory/display-name "Nika Comfort"
+  :factory/country "NI" :factory/isic "C31"
+  :factory/capabilities ["mattress-manufacturing" "foam-production" "bedding" "upholstery"]
+  :factory/source-url "https://nikacomfort.com/conocenos/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/bat-zambia"
+  :factory/display-name "British American Tobacco Zambia Plc"
+  :factory/country "ZM" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "filter-rod-production" "export-manufacturing"]
+  :factory/source-url "https://www.lusakatimes.com/2019/11/30/finance-minister-opens-a-cigarette-manufacturing-plant-in-lusaka/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/indeni-petroleum-refinery"
+  :factory/display-name "Indeni Petroleum Refinery Company Limited"
+  :factory/country "ZM" :factory/isic "C19"
+  :factory/capabilities ["crude-oil-refining" "petrol-production" "jet-fuel-production" "lpg-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Indeni_Petroleum_Refinery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/pharmanova-zambia"
+  :factory/display-name "Pharmanova Zambia Limited"
+  :factory/country "ZM" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-tablets" "oral-rehydration-salts" "antiseptics-disinfectants" "cosmetics-production"]
+  :factory/source-url "https://www.pharmanovazambia.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/imperial-plastics-zambia"
+  :factory/display-name "Imperial Plastics Limited"
+  :factory/country "ZM" :factory/isic "C22"
+  :factory/capabilities ["hdpe-pipe-extrusion" "pvc-pipe-manufacturing" "irrigation-hose-production" "electrical-conduit-pipes"]
+  :factory/source-url "https://agri4all.com/product/the-perfect-pvc-pipe-imperial-plastics-zambia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/rosmo"
+  :factory/display-name "Rosmo (Fábrica de Carrocerías Rosmo, S.A.)"
+  :factory/country "GT" :factory/isic "C29"
+  :factory/capabilities ["bus-body-manufacturing" "cargo-van-fabrication" "refrigerated-units" "vehicle-coachwork"]
+  :factory/source-url "https://www.rosmo.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/print-studio"
+  :factory/display-name "Print Studio"
+  :factory/country "GT" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "lithography" "packaging-printing" "pharmaceutical-packaging"]
+  :factory/source-url "https://www.printstudio.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/plastimax"
+  :factory/display-name "Plastimax, S.A. (Plásticos Máximos)"
+  :factory/country "GT" :factory/isic "C22"
+  :factory/capabilities ["injection-molding" "blow-molding" "plastic-packaging" "bottle-manufacturing"]
+  :factory/source-url "https://plastimaxsa.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/pindegua"
+  :factory/display-name "Pindegua (Pinturas de Guatemala, S.A.)"
+  :factory/country "GT" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "industrial-coatings" "architectural-paint" "varnish-production"]
+  :factory/source-url "http://www.pindegua.com/inicio/ubicacion/1"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/azala-textile"
+  :factory/display-name "AZALA Textile LLP"
+  :factory/country "KZ" :factory/isic "C13"
+  :factory/capabilities ["cotton-spinning" "yarn-production" "woven-fabric" "home-textiles"]
+  :factory/source-url "https://factories.kz/producers/azala-textile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/almaty-heavy-machine-building"
+  :factory/display-name "Almaty Heavy Machine Building Plant JSC (AZTM)"
+  :factory/country "KZ" :factory/isic "C28"
+  :factory/capabilities ["mining-equipment" "metallurgical-machinery" "rolling-mill-equipment" "forging-equipment"]
+  :factory/source-url "http://www.aztm.kz/EN/index.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/kentau-transformer-plant"
+  :factory/display-name "Kentau Transformer Plant JSC (Alageum Electric)"
+  :factory/country "KZ" :factory/isic "C27"
+  :factory/capabilities ["power-transformers" "electrical-equipment-manufacturing" "switchgear" "transformer-assembly"]
+  :factory/source-url "https://alageum.com/en/predpriyatiya/ao-ktz"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/kazakhstan-kagazy"
+  :factory/display-name "Kazakhstan Kagazy (Kagazy Recycling LLP)"
+  :factory/country "KZ" :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "recycled-paper" "corrugated-cardboard" "packaging-production"]
+  :factory/source-url "https://kazakhstankagazy.com/en/about-us.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/madara-cosmetics"
+  :factory/display-name "MADARA Cosmetics (AS MADARA Cosmetics)"
+  :factory/country "LV" :factory/isic "C20"
+  :factory/capabilities ["organic-cosmetics" "skincare-manufacturing" "cosmetics-formulation" "personal-care"]
+  :factory/source-url "https://nasdaqbaltic.com/statistics/en/instrument/LV0000101624/company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/jelgavas-tipografija"
+  :factory/display-name "Jelgavas tipogrāfija (Jelgava Printing House)"
+  :factory/country "LV" :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "book-binding" "digital-printing" "notebook-manufacturing"]
+  :factory/source-url "https://jt.lv/en/about-us/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/lesjofors-springs-lv"
+  :factory/display-name "Lesjöfors Springs LV (LSEZ SIA)"
+  :factory/country "LV" :factory/isic "C25"
+  :factory/capabilities ["coil-springs" "wire-forming" "metal-stamping" "gas-springs"]
+  :factory/source-url "https://www.lesjofors.com/en/contact/lesjofors-springs-lv-lsez-sia-liepaja/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/avoti"
+  :factory/display-name "Avoti (SIA Avoti)"
+  :factory/country "LV" :factory/isic "C31"
+  :factory/capabilities ["solid-wood-furniture" "plywood-furniture" "wood-pellets" "large-scale-woodworking"]
+  :factory/source-url "https://www.avoti.lv/en/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
