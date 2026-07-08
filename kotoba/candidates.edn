@@ -271,6 +271,14 @@
 ;; Dominican Republic/Albania/Cambodia/Honduras/Lebanon/Kazakhstan/Norway). Thin-ISIC round 18
 ;; across C18/C22/C31 — zero duplicates this batch, a clean run.
 ;; Running total: 787 companies / 105 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 27 (/loop pass 27): +27 companies, +1 new country (LI Liechtenstein, via Hilti).
+;; Full-roster depth for 14 countries. Thin-ISIC round 19 across C25 (now the single thinnest
+;; division) and C12 tobacco — the C12 research agent hit a transient API 500 error mid-run and
+;; had to be relaunched from scratch; the retry succeeded. Dropped 1 duplicate: "La Aurora"
+;; (Dominican Republic cigars), the same company as the already-listed "La Aurora Cigars"
+;; (batch 13) just under a shortened display name — caught by the pre-append grep despite the
+;; name truncation.
+;; Running total: 814 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -5198,4 +5206,174 @@
   :factory/country "KR" :factory/isic "C18"
   :factory/capabilities ["banknote-printing" "security-printing" "passport-printing" "stamp-printing"]
   :factory/source-url "https://en.wikipedia.org/wiki/Korea_Minting_and_Security_Printing_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — El Salvador/Haiti/Madagascar/Nicaragua/Guatemala/New Zealand/Bahrain (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/sv/arnecom-yazaki"
+  :factory/display-name "Arnecom de El Salvador S.A. de C.V. (Yazaki)"
+  :factory/country "SV" :factory/isic "C29"
+  :factory/capabilities ["automotive-wiring-harnesses" "electrical-component-assembly" "connector-manufacturing"]
+  :factory/source-url "https://www.yazaki-group.com/en/company/overseas/index.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/cimenterie-nationale"
+  :factory/display-name "Cimenterie Nationale S.E.M. (CINA)"
+  :factory/country "HT" :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "portland-cement-production" "cement-bagging-and-distribution"]
+  :factory/source-url "https://www.cina.com.ht/about-cina/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/star-breweries"
+  :factory/display-name "Star Breweries of Madagascar (Brasseries STAR)"
+  :factory/country "MG" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "soft-drink-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Three_Horses_Beer"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ni/joya-de-nicaragua"
+  :factory/display-name "Joya de Nicaragua S.A."
+  :factory/country "NI" :factory/isic "C12"
+  :factory/capabilities ["cigar-rolling" "tobacco-fermentation" "tobacco-leaf-curing"]
+  :factory/source-url "https://joyacigars.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/grupo-pantaleon"
+  :factory/display-name "Grupo Pantaleón (Ingenio Pantaleón)"
+  :factory/country "GT" :factory/isic "C10"
+  :factory/capabilities ["sugar-milling" "molasses-production" "cane-ethanol-distillation"]
+  :factory/source-url "https://www.pantaleon.com/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/new-zealand-steel"
+  :factory/display-name "New Zealand Steel"
+  :factory/country "NZ" :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "iron-sand-smelting" "steel-slab-and-billet-production"]
+  :factory/source-url "https://www.nzsteel.co.nz/new-zealand-steel/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/asry"
+  :factory/display-name "Arab Shipbuilding and Repair Yard Company (ASRY)"
+  :factory/country "BH" :factory/isic "C30"
+  :factory/capabilities ["ship-repair" "shipbuilding" "rig-fabrication" "marine-engineering"]
+  :factory/source-url "https://www.asry.net/About/AboutAsry/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Ethiopia/Belgium/Czech/Senegal/Estonia/Papua New Guinea/Zambia (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/et/national-tobacco-enterprise"
+  :factory/display-name "National Tobacco Enterprise (Ethiopia) S.C."
+  :factory/country "ET" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing"]
+  :factory/source-url "https://www.jt.com/media/news/2016/pdf/20160715_12.pdf"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/be/barco"
+  :factory/display-name "Barco NV"
+  :factory/country "BE" :factory/isic "C26"
+  :factory/capabilities ["display-technology" "projector-manufacturing" "visualization-systems" "medical-imaging-displays"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Barco_(manufacturer)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/linet"
+  :factory/display-name "LINET spol. s r.o."
+  :factory/country "CZ" :factory/isic "C32"
+  :factory/capabilities ["hospital-bed-manufacturing" "medical-furniture" "healthcare-equipment"]
+  :factory/source-url "https://www.linet.com/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/sar"
+  :factory/display-name "Société Africaine de Raffinage (SAR)"
+  :factory/country "SN" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "petroleum-products" "fuel-processing"]
+  :factory/source-url "https://www.sar.sn/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/harju-elekter"
+  :factory/display-name "Harju Elekter AS"
+  :factory/country "EE" :factory/isic "C27"
+  :factory/capabilities ["electrical-equipment-manufacturing" "switchgear" "substations" "automation-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Harju_Elekter"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/paradise-foods"
+  :factory/display-name "Paradise Foods Limited"
+  :factory/country "PG" :factory/isic "C10"
+  :factory/capabilities ["biscuit-manufacturing" "confectionery" "snack-food-production" "chocolate-manufacturing"]
+  :factory/source-url "https://paradisefoods.com.pg/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/trade-kings"
+  :factory/display-name "Trade Kings Limited"
+  :factory/country "ZM" :factory/isic "C20"
+  :factory/capabilities ["soap-manufacturing" "detergent-production" "personal-care-products"]
+  :factory/source-url "https://www.tradekings.co.zm/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 19a — fabricated metal products (C25), +1 new country ════════════
+ {:factory/did "candidate:manufacturer-directory/de/knipex"
+  :factory/display-name "Knipex"
+  :factory/country "DE" :factory/isic "C25"
+  :factory/capabilities ["pliers" "hand-tools" "cutting-tools" "wire-strippers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Knipex"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/li/hilti"
+  :factory/display-name "Hilti"
+  :factory/country "LI" :factory/isic "C25"
+  :factory/capabilities ["anchor-fastening-systems" "fasteners" "construction-hardware"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hilti"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/kale-kilit"
+  :factory/display-name "Kale Kilit"
+  :factory/country "TR" :factory/isic "C25"
+  :factory/capabilities ["locks" "cylinders" "security-hardware" "padlocks"]
+  :factory/source-url "https://www.kalekilit.com.tr/en/corporate/history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cn/cimc"
+  :factory/display-name "China International Marine Containers"
+  :factory/country "CN" :factory/isic "C25"
+  :factory/capabilities ["shipping-containers" "steel-fabrication" "metal-containers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/China_International_Marine_Containers"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/fontana-gruppo"
+  :factory/display-name "Fontana Gruppo"
+  :factory/country "IT" :factory/isic "C25"
+  :factory/capabilities ["fasteners" "bolts-nuts-screws" "automotive-fasteners"]
+  :factory/source-url "https://gruppofontana.it/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/canam-group"
+  :factory/display-name "Canam Group"
+  :factory/country "CA" :factory/isic "C25"
+  :factory/capabilities ["structural-steel" "steel-buildings" "joists" "bridge-components"]
+  :factory/source-url "https://www.canam.com/en/manufacturing-expertise/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/nord-lock"
+  :factory/display-name "Nord-Lock Group"
+  :factory/country "SE" :factory/isic "C25"
+  :factory/capabilities ["wedge-locking-washers" "bolt-securing" "fasteners"]
+  :factory/source-url "https://www.nord-lock.com/contact/sweden/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/sutton-tools"
+  :factory/display-name "Sutton Tools"
+  :factory/country "AU" :factory/isic "C25"
+  :factory/capabilities ["cutting-tools" "drill-bits" "taps-and-dies" "reamers"]
+  :factory/source-url "https://suttontools.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 19b — tobacco products (C12) ════════════
+ {:factory/did "candidate:manufacturer-directory/vn/vinataba"
+  :factory/display-name "Vietnam National Tobacco Corporation (Vinataba)"
+  :factory/country "VN" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "leaf-processing" "export"]
+  :factory/source-url "https://www.vinataba.com.vn/introduce-2/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/tobacco-authority-of-thailand"
+  :factory/display-name "Tobacco Authority of Thailand"
+  :factory/country "TH" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "state-enterprise" "leaf-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tobacco_Authority_of_Thailand"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ch/oettinger-davidoff"
+  :factory/display-name "Oettinger Davidoff AG"
+  :factory/country "CH" :factory/isic "C12"
+  :factory/capabilities ["cigar-manufacturing" "premium-cigars" "pipe-tobacco"]
+  :factory/source-url "https://www.oettingerdavidoff.com/history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/pacific-cigarette-company"
+  :factory/display-name "Pacific Cigarette Company (formerly Savanna Tobacco)"
+  :factory/country "ZW" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pacific_Cigarette_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/landewyck-tobacco"
+  :factory/display-name "Landewyck Tobacco S.A. (Heintz van Landewyck)"
+  :factory/country "LU" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "roll-your-own-tobacco" "independent-family-owned"]
+  :factory/source-url "https://landewyck.com/company/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
