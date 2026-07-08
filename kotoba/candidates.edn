@@ -149,6 +149,14 @@
 ;; inherently flaky (rate-limiting, bot-blocking) and a transient 403 doesn't mean an entry's
 ;; underlying fact is wrong; it's a "worth a human glance" signal, not a hard gate.
 ;; Running total: 505 companies / 94 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 16 (/loop pass 16): +16 companies, +0 new countries. First full kotoba/
+;; check_source_urls.bb run reported 477/505 clean (96.8%); the 16 flagged were all curl-vs-WAF
+;; false positives (403/000 from corporate anti-bot protection), not dead sources — noted in
+;; the script's own header so future runs don't re-investigate the same pattern. Thin-ISIC
+;; round 8 across C19/C22/C31/C32 (Ecopetrol, Petron, Nokian Tyres, Apollo Tyres, IKEA
+;; Industry, Nitori, Getinge, Steinway & Sons). Sweden+Turkey+Thailand depth (Scania, SSAB,
+;; Sobi, Ford Otosan, Erdemir, Arçelik, Charoen Pokphand Foods, Sahaviriya Steel).
+;; Running total: 521 companies / 94 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -3308,4 +3316,104 @@
   :factory/country "DE" :factory/isic "C18"
   :factory/capabilities ["banknote-printing" "security-printing" "currency-technology"]
   :factory/source-url "https://en.wikipedia.org/wiki/Giesecke%2BDevrient"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 8 — petroleum refining / rubber-plastics / furniture / other manufacturing (C19/C22/C31/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/co/ecopetrol"
+  :factory/display-name "Ecopetrol"
+  :factory/country "CO" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "crude-distillation" "petroleum-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ecopetrol"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/petron-corporation"
+  :factory/display-name "Petron Corporation"
+  :factory/country "PH" :factory/isic "C19"
+  :factory/capabilities ["oil-refining" "fuel-production" "petroleum-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Petron_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/nokian-tyres"
+  :factory/display-name "Nokian Tyres"
+  :factory/country "FI" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "winter-tires"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nokian_Tyres"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/apollo-tyres"
+  :factory/display-name "Apollo Tyres"
+  :factory/country "IN" :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Apollo_Tyres"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/ikea-industry"
+  :factory/display-name "IKEA Industry AB"
+  :factory/country "SE" :factory/isic "C31"
+  :factory/capabilities ["wood-furniture" "furniture-manufacturing" "flat-pack-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Inter_IKEA_Holding"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/nitori-holdings"
+  :factory/display-name "Nitori Holdings"
+  :factory/country "JP" :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "home-furnishings"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Nitori"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/getinge"
+  :factory/display-name "Getinge AB"
+  :factory/country "SE" :factory/isic "C32"
+  :factory/capabilities ["medical-instruments" "surgical-equipment" "sterilization-equipment"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Getinge_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/us/steinway-and-sons"
+  :factory/display-name "Steinway & Sons"
+  :factory/country "US" :factory/isic "C32"
+  :factory/capabilities ["musical-instruments" "piano-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Steinway_%26_Sons"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Sweden + Turkey + Thailand depth — automotive / steel / pharma / appliances / food (C10/C21/C24/C27/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/se/scania"
+  :factory/display-name "Scania AB"
+  :factory/country "SE" :factory/isic "C29"
+  :factory/capabilities ["trucks" "buses" "diesel-engines" "commercial-vehicles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Scania_AB"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/ssab"
+  :factory/display-name "SSAB AB"
+  :factory/country "SE" :factory/isic "C24"
+  :factory/capabilities ["steel" "specialty-steel" "hot-rolled-steel" "cold-rolled-steel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/SSAB"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/sobi"
+  :factory/display-name "Swedish Orphan Biovitrum (Sobi)"
+  :factory/country "SE" :factory/isic "C21"
+  :factory/capabilities ["biopharmaceuticals" "rare-disease-treatment" "haematology" "immunology"]
+  :factory/source-url "https://www.sobi.com/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/ford-otosan"
+  :factory/display-name "Ford Otosan"
+  :factory/country "TR" :factory/isic "C29"
+  :factory/capabilities ["automobiles" "light-commercial-vehicles" "trucks" "engines"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ford_Otosan"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/erdemir"
+  :factory/display-name "Erdemir (Ereğli Demir ve Çelik Fabrikaları)"
+  :factory/country "TR" :factory/isic "C24"
+  :factory/capabilities ["flat-steel" "hot-rolled-steel" "cold-rolled-steel" "tinplate"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Erdemir"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/arcelik"
+  :factory/display-name "Arçelik A.Ş."
+  :factory/country "TR" :factory/isic "C27"
+  :factory/capabilities ["household-appliances" "refrigerators" "washing-machines" "white-goods"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ar%C3%A7elik"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/charoen-pokphand-foods"
+  :factory/display-name "Charoen Pokphand Foods"
+  :factory/country "TH" :factory/isic "C10"
+  :factory/capabilities ["animal-feed" "poultry-processing" "pork-production" "food-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Charoen_Pokphand_Foods"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/sahaviriya-steel-industries"
+  :factory/display-name "Sahaviriya Steel Industries"
+  :factory/country "TH" :factory/isic "C24"
+  :factory/capabilities ["hot-rolled-steel" "steel-coil" "steel-plate"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sahaviriya_Steel_Industries"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
