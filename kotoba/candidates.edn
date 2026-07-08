@@ -458,6 +458,21 @@
 ;; flagged and excluded recently-closed plants (e.g. Argentina's FATE S.A. tire plant,
 ;; closed February 2026) rather than including stale entries.
 ;; Running total: 1366 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 41 (/loop pass 41): +32 companies, +0 new countries. Targeted the tail of the
+;; per-country distribution: the 7 countries sitting at 7-9 entries (Liechtenstein/Lesotho/
+;; Myanmar/Cameroon/Haiti/Bosnia/Luxembourg — each already researched once or twice before)
+;; plus 3 single-pass-only countries pulled up from the 10-tier (Ghana/Rwanda/El-Salvador).
+;; All ten yielded genuine new entries even at 2nd/3rd pass depth (Liechtenstein and Lesotho,
+;; the two smallest and most-researched, still yielded 2 each — Herbert Ospelt Anstalt and
+;; INFICON AG for LI; Organo-Vite and Zeri Leather for LS). Fourth Pou Chen country-
+;; subsidiary keep: Myanmar Pou Chen Co., alongside Taiwan (HQ)/Cambodia/Indonesia. First RR
+;; Donnelley country-subsidiary keep: RR Donnelley de El Salvador, alongside the already-
+;; listed US entry — same precedent pattern as BAT/Bata/ArcelorMittal/Pou Chen. No drops —
+;; agents continued to self-police scope (Bosnia/Myanmar prompts explicitly reiterated the
+;; weapons/sanctions exclusions and no agent violated them) and currently-operating status
+;; (Haiti and Lesotho agents each explicitly rejected leads with ambiguous 2024-2026
+;; operating status rather than include stale entries).
+;; Running total: 1398 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -8885,5 +8900,197 @@
   :factory/country "NZ" :factory/isic "C11"
   :factory/capabilities ["craft-brewing" "beer-manufacturing" "cider-manufacturing" "canning"]
   :factory/source-url "https://moabeer.com/pages/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/ttu-energetik"
+  :factory/display-name "TTU Energetik d.o.o. Tuzla"
+  :factory/country "BA" :factory/isic "C28"
+  :factory/capabilities ["conveyor-systems" "gear-reducers" "steel-structures" "mining-equipment"]
+  :factory/source-url "https://ttuenergetik.ba/en/o-nama/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/feal"
+  :factory/display-name "Feal d.o.o. Široki Brijeg"
+  :factory/country "BA" :factory/isic "C25"
+  :factory/capabilities ["aluminum-profiles" "extrusion" "facade-systems" "anodizing"]
+  :factory/source-url "https://feal.ba/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/tt-kabeli"
+  :factory/display-name "TT Kabeli d.o.o. (TT Cables)"
+  :factory/country "BA" :factory/isic "C27"
+  :factory/capabilities ["power-cables" "low-voltage-cables" "cable-extrusion" "wire-manufacturing"]
+  :factory/source-url "https://www.ttcables.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/everwell-cameroon-cables"
+  :factory/display-name "Everwell Cameroon Cables and Engineering S.A."
+  :factory/country "CM" :factory/isic "C27"
+  :factory/capabilities ["power-cables" "aluminum-conductors" "copper-conductors" "cable-manufacturing"]
+  :factory/source-url "https://www.businessincameroon.com/business-in-cameroon/2210-8486-chinese-hebei-huatong-deploys-activity-in-cameroon-upon-a-cfa5bn-investment"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/omes-footwear"
+  :factory/display-name "OMES Footwear"
+  :factory/country "CM" :factory/isic "C15"
+  :factory/capabilities ["wooden-clogs" "handmade-footwear" "orthopedic-soles" "fair-trade-manufacturing"]
+  :factory/source-url "https://www.agenceecofin.com/entreprises/2508-79473-le-britannique-omes-fabricant-de-chaussures-s-installe-au-cameroun-et-offre-une-vitrine-aux-marques-locales"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/plasticam"
+  :factory/display-name "Plasticam S.A."
+  :factory/country "CM" :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard" "packaging" "polyethylene-film" "expanded-polystyrene"]
+  :factory/source-url "https://plasticam.net/accueil/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/tropical-cable-and-conductor"
+  :factory/display-name "Tropical Cable & Conductor Ltd (TCCL)"
+  :factory/country "GH" :factory/isic "C27"
+  :factory/capabilities ["electrical-cables" "power-conductors" "copper-aluminium-wire" "cable-manufacturing"]
+  :factory/source-url "https://www.gepaghana.org/import/ghana-exporter/tropical-cable-conductor-ltd/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/lagray-chemical"
+  :factory/display-name "LaGray Chemical Company (Ghana) Ltd"
+  :factory/country "GH" :factory/isic "C21"
+  :factory/capabilities ["pharmaceuticals" "active-pharmaceutical-ingredients" "generic-drugs" "gmp-manufacturing"]
+  :factory/source-url "https://www.businessghana.com/site/directory/medical-suppliers/4452/LaGray-Chemical-Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/cresta-paint-industries"
+  :factory/display-name "Cresta Paint Industries Limited"
+  :factory/country "GH" :factory/isic "C20"
+  :factory/capabilities ["paints" "auto-refinish-coatings" "industrial-coatings" "chemical-manufacturing"]
+  :factory/source-url "https://www.businessghana.com/site/directory/paint-manufacturers/3972/Cresta-Paint-Industries-Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/dihoc-footwear-kumasi-shoe-factory"
+  :factory/display-name "DIHOC Footwear Division Limited (Kumasi Shoe Factory)"
+  :factory/country "GH" :factory/isic "C15"
+  :factory/capabilities ["footwear" "safety-boots" "leather-goods" "shoe-manufacturing"]
+  :factory/source-url "https://businessghana.com/site/news/business/260725/Kumasi-Shoe-Factory-opens-showroom-in-Accra"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/latex-foam-ghana"
+  :factory/display-name "Latex Foam Rubber Products Ltd"
+  :factory/country "GH" :factory/isic "C31"
+  :factory/capabilities ["mattresses" "foam-products" "spring-mattresses" "bedding-furniture"]
+  :factory/source-url "https://latexfoamghana.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/frager-essential-oil"
+  :factory/display-name "Frager Essential Oil S.A."
+  :factory/country "HT" :factory/isic "C20"
+  :factory/capabilities ["essential-oils" "vetiver-distillation" "steam-distillation" "fragrance-ingredients"]
+  :factory/source-url "https://frageroils.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/caribbean-craft"
+  :factory/display-name "Caribbean Craft S.A."
+  :factory/country "HT" :factory/isic "C32"
+  :factory/capabilities ["papier-mache" "home-decor" "recycled-materials" "metal-art"]
+  :factory/source-url "https://www.caribbean-craft.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/laboratoires-farmatrix"
+  :factory/display-name "Laboratoires Farmatrix S.A."
+  :factory/country "HT" :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablets" "generic-medicines" "gmp-certified"]
+  :factory/source-url "https://adih.ht/adihmembers/laboratoires-farmatrix/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/li/herbert-ospelt-anstalt"
+  :factory/display-name "Herbert Ospelt Anstalt"
+  :factory/country "LI" :factory/isic "C10"
+  :factory/capabilities ["meat-processing" "pet-food" "deli-products" "convenience-food"]
+  :factory/source-url "https://www.ospelt.com/en/production-and-facilities/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/li/inficon"
+  :factory/display-name "INFICON AG"
+  :factory/country "LI" :factory/isic "C26"
+  :factory/capabilities ["vacuum-instruments" "sensor-technology" "semiconductor-equipment" "precision-measurement"]
+  :factory/source-url "https://www.inficon.com/en/career/Liechtenstein"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/organo-vite"
+  :factory/display-name "Organo-Vite (Pty) Ltd"
+  :factory/country "LS" :factory/isic "C10"
+  :factory/capabilities ["rosehip-processing" "herbal-extracts" "agro-processing" "natural-products"]
+  :factory/source-url "https://organo-vite.com/about.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/zeri-leather"
+  :factory/display-name "Zeri Leather (Jalad Africa (Pty) Ltd)"
+  :factory/country "LS" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "handbags-manufacturing" "handcrafted" "leather-accessories"]
+  :factory/source-url "https://lestimes.com/local-leather-producer-targets-wider-market-with-amazon/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/guardian-glass-bascharage"
+  :factory/display-name "Guardian Glass (Bascharage plant)"
+  :factory/country "LU" :factory/isic "C23"
+  :factory/capabilities ["float-glass" "glass-manufacturing" "glass-coating" "architectural-glass"]
+  :factory/source-url "https://www.guardianglass.com/eu/en/insights/about-our-plant-in-bascharage-luxembourg"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/cti-systems"
+  :factory/display-name "CTI Systems S.à r.l."
+  :factory/country "LU" :factory/isic "C28"
+  :factory/capabilities ["heavy-load-handling-systems" "intralogistics-equipment" "aviation-maintenance-platforms" "automated-storage-systems"]
+  :factory/source-url "https://www.industrie.lu/cti.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/ampacet-europe"
+  :factory/display-name "Ampacet Europe S.A."
+  :factory/country "LU" :factory/isic "C20"
+  :factory/capabilities ["masterbatch" "color-concentrates" "plastics-additives" "polymer-compounding"]
+  :factory/source-url "https://www.ampacet.com/ampacet-launches-new-color-masterbatch-production-line-in-luxembourg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/myanmar-pou-chen"
+  :factory/display-name "Myanmar Pou Chen Co., Ltd."
+  :factory/country "MM" :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "athletic-shoes" "oem-odm" "export-manufacturing"]
+  :factory/source-url "https://www.rfa.org/english/news/myanmar/fired-12142022183708.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/toa-paint-myanmar"
+  :factory/display-name "TOA Paint (Myanmar) Co., Ltd."
+  :factory/country "MM" :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "coatings" "decorative-paint" "industrial-coatings"]
+  :factory/source-url "https://www.toagroup.com/en/contact-us/branches/myanmar"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/yathar-cho-industry"
+  :factory/display-name "Yathar Cho Industry Ltd. (Yum Yum Myanmar)"
+  :factory/country "MM" :factory/isic "C10"
+  :factory/capabilities ["instant-noodles" "food-processing" "fmcg-manufacturing" "export-manufacturing"]
+  :factory/source-url "https://www.asiamanufacturingreview.com/industry/cover-story/yum-yum-myanmar-taking-myanmar-s-flavors-to-global-supermarket-cid-130.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/mara-phones"
+  :factory/display-name "Mara Phones (Mara Group)"
+  :factory/country "RW" :factory/isic "C26"
+  :factory/capabilities ["smartphone-manufacturing" "electronics-assembly" "pcb-fabrication" "consumer-electronics"]
+  :factory/source-url "https://www.cnn.com/2019/10/08/africa/rwanda-smartphone-factory/index.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/master-steel"
+  :factory/display-name "Master Steel Limited"
+  :factory/country "RW" :factory/isic "C25"
+  :factory/capabilities ["steel-fabrication" "roofing-sheets" "wire-and-nails" "rebar-production"]
+  :factory/source-url "https://mastersteel.co/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/sawmill-east-africa"
+  :factory/display-name "Sawmill East Africa Ltd (SEAL)"
+  :factory/country "RW" :factory/isic "C16"
+  :factory/capabilities ["timber-processing" "sawmilling" "wood-flooring" "wood-doors"]
+  :factory/source-url "https://www.newtimes.co.rw/article/157448/News/sawmill-ea-to-set-up-timber-processing-plant-in-rwanda"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/ampersand"
+  :factory/display-name "Ampersand (Ampersand Energy Ltd)"
+  :factory/country "RW" :factory/isic "C30"
+  :factory/capabilities ["electric-motorcycle-assembly" "battery-pack-manufacturing" "ev-manufacturing" "lithium-ion-batteries"]
+  :factory/source-url "https://www.ifc.org/en/stories/2024/kigali-shift-electric-motorcycles-brings-climate-benefit"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/industrias-la-constancia"
+  :factory/display-name "Industrias La Constancia"
+  :factory/country "SV" :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "soft-drinks" "bottling" "beverage-manufacturing"]
+  :factory/source-url "https://laconstancia.com/nuestra-historia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/rr-donnelley-el-salvador"
+  :factory/display-name "RR Donnelley de El Salvador"
+  :factory/country "SV" :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "security-printing" "forms-and-labels" "packaging-print"]
+  :factory/source-url "https://www.rrd.com/locations/rrd-el-salvador"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/comercial-industrial-olins"
+  :factory/display-name "Comercial Industrial Olins, S.A. de C.V."
+  :factory/country "SV" :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "home-furniture" "custom-furniture-manufacturing" "kitchen-furniture"]
+  :factory/source-url "https://investinelsalvador.gob.sv/catalogo/en/empresa/comercial-industrial-olins-s-a-de-c-v-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/industrias-miguel-angel"
+  :factory/display-name "Industrias Miguel Ángel, S.A. de C.V."
+  :factory/country "SV" :factory/isic "C25"
+  :factory/capabilities ["metal-structures" "vehicle-body-fabrication" "stainless-steel-fabrication" "custom-metalwork"]
+  :factory/source-url "https://www.industriasmiguelangel.com/sobre-nosotros"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
 
