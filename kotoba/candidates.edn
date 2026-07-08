@@ -229,6 +229,18 @@
 ;; Pakistan specifically excluded, since it's simply the most famous Pakistani apparel company;
 ;; dropped as usual via the pre-append grep). Thin-ISIC round 14 across C14/C18/C31/C32.
 ;; Running total: 670 companies / 98 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 23 (/loop pass 23): +28 companies, +1 new country (BH Bahrain). Full-roster depth for
+;; 15 countries (Honduras/Myanmar/Australia/Côte d'Ivoire/Greece/Iceland/Jordan, North
+;; Macedonia/Mongolia/Peru/Saudi Arabia/Slovenia/Tunisia/Trinidad/Uzbekistan). Thin-ISIC round
+;; 15 across C12/C15/C19/C27. Two exclusions this batch: Habanos S.A. (Cuban cigar monopoly)
+;; dropped again per the standing Russia/Iran/North Korea/Cuba sanctions-sensitivity policy
+;; (batches 5/9/18/21); Nike and adidas dropped from the C15 leather/footwear picks on
+;; accuracy grounds — both are primarily brand/design companies that contract out virtually
+;; all footwear production (well-documented, high-visibility fact, unlike most other C15
+;; entries which do describe genuine owned/operated manufacturing), so tagging them as
+;; "footwear manufacturing" would misrepresent what they actually do; kept Prada and ASICS,
+;; which have real manufacturing heritage, instead.
+;; Running total: 698 companies / 99 countries / 23 ISIC divisions, zero duplicate DIDs.
 ;; See kotoba/validate_candidates.bb (batch 4), kotoba/coverage_report.bb (batch 8 — prints the
 ;; per-country/per-ISIC breakdown used to plan each batch, so future passes don't need to
 ;; hand-run ad hoc bb -e queries) and .github/workflows/validate-candidates.yml (batch 5,
@@ -4422,4 +4434,180 @@
   :factory/country "HN" :factory/isic "C14"
   :factory/capabilities ["knitted-garments" "vertical-integration" "apparel-manufacturing"]
   :factory/source-url "https://www.elcatex.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — Honduras/Myanmar/Australia/Cote d'Ivoire/Greece/Iceland/Jordan (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/hn/plasencia-cigars"
+  :factory/display-name "Plasencia Cigars S.A."
+  :factory/country "HN" :factory/isic "C12"
+  :factory/capabilities ["cigar-manufacturing" "hand-rolling" "tobacco-curing" "tobacco-processing"]
+  :factory/source-url "https://www.plasenciacigars.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mm/suzuki-thilawa-motor"
+  :factory/display-name "Suzuki Thilawa Motor Co., Ltd."
+  :factory/country "MM" :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "welding" "painting" "automotive-manufacturing"]
+  :factory/source-url "https://www.globalsuzuki.com/globalnews/2020/0323.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/au/cochlear"
+  :factory/display-name "Cochlear Limited"
+  :factory/country "AU" :factory/isic "C32"
+  :factory/capabilities ["medical-device-manufacturing" "implant-manufacturing" "precision-engineering"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Cochlear_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/cemoi"
+  :factory/display-name "Cémoi"
+  :factory/country "CI" :factory/isic "C10"
+  :factory/capabilities ["chocolate-manufacturing" "cocoa-processing" "confectionery-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/C%C3%A9moi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/fage"
+  :factory/display-name "FAGE Greece Dairy Industry S.A."
+  :factory/country "GR" :factory/isic "C10"
+  :factory/capabilities ["yogurt-production" "dairy-processing" "cheese-making"]
+  :factory/source-url "https://usa.fage/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/alvotech"
+  :factory/display-name "Alvotech"
+  :factory/country "IS" :factory/isic "C21"
+  :factory/capabilities ["biologics-manufacturing" "monoclonal-antibody-production" "fill-finish" "biosimilar-manufacturing"]
+  :factory/source-url "https://www.alvotech.com/facility"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jo/petra-engineering"
+  :factory/display-name "Petra Engineering Industries Co."
+  :factory/country "JO" :factory/isic "C28"
+  :factory/capabilities ["hvac-manufacturing" "sheet-metal-fabrication" "refrigeration-equipment" "air-conditioning-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Petra_Engineering_Industries_Company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Depth — North Macedonia/Mongolia/Peru/Saudi Arabia/Slovenia/Tunisia/Trinidad/Uzbekistan (full-roster researched) ════════════
+ {:factory/did "candidate:manufacturer-directory/mk/kemet-electronics-macedonia"
+  :factory/display-name "KEMET Electronics Macedonia"
+  :factory/country "MK" :factory/isic "C26"
+  :factory/capabilities ["capacitor-manufacturing" "electronic-components" "tantalum-capacitors" "film-capacitors"]
+  :factory/source-url "https://www.prnewswire.com/news-releases/kemet-holds-grand-opening-for-new-manufacturing-plant-in-macedonia-174827341.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/suu"
+  :factory/display-name "Suu JSC"
+  :factory/country "MN" :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "milk-products" "yogurt" "butter"]
+  :factory/source-url "https://suu.mn/en/we/introduction"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pe/tasa"
+  :factory/display-name "Tecnológica de Alimentos (TASA)"
+  :factory/country "PE" :factory/isic "C10"
+  :factory/capabilities ["fishmeal-production" "fish-oil-refining" "omega-3-processing"]
+  :factory/source-url "https://www.tasa.com.pe/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sa/ceer-motors"
+  :factory/display-name "Ceer Motors"
+  :factory/country "SA" :factory/isic "C29"
+  :factory/capabilities ["automotive-assembly" "electric-vehicle-manufacturing" "vehicle-body-shop"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Ceer_Motors"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/gorenje"
+  :factory/display-name "Gorenje"
+  :factory/country "SI" :factory/isic "C27"
+  :factory/capabilities ["household-appliance-manufacturing" "white-goods" "cooking-appliances" "refrigeration"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Gorenje"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/el-fouladh"
+  :factory/display-name "El Fouladh"
+  :factory/country "TN" :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "electric-arc-furnace" "rebar" "billets"]
+  :factory/source-url "http://www.elfouladh.com.tn/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/tringen"
+  :factory/display-name "Trinidad Nitrogen Company (Tringen)"
+  :factory/country "TT" :factory/isic "C20"
+  :factory/capabilities ["ammonia-production" "nitrogen-fertilizer" "chemical-manufacturing"]
+  :factory/source-url "https://www.gem.wiki/Trinidad_Nitrogen_Company_Point_Lisas_Ammonia_Plant"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/navoi-mining-and-metallurgical"
+  :factory/display-name "Navoi Mining and Metallurgical Company (NMMC)"
+  :factory/country "UZ" :factory/isic "C24"
+  :factory/capabilities ["gold-mining" "gold-refining" "metallurgical-processing" "precious-metals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Navoi_Mining_and_Metallurgy_Combinat"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 15a — tobacco / leather goods (C12/C15) ════════════
+ {:factory/did "candidate:manufacturer-directory/us/pyxus-international"
+  :factory/display-name "Pyxus International"
+  :factory/country "US" :factory/isic "C12"
+  :factory/capabilities ["leaf-tobacco-processing" "tobacco-merchant" "contract-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pyxus_International"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/se/swedish-match"
+  :factory/display-name "Swedish Match AB"
+  :factory/country "SE" :factory/isic "C12"
+  :factory/capabilities ["snus-manufacturing" "smokeless-tobacco" "cigar-manufacturing" "moist-snuff"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Swedish_Match"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/taiwan-tobacco-and-liquor"
+  :factory/display-name "Taiwan Tobacco and Liquor Corporation"
+  :factory/country "TW" :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "state-owned-monopoly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Taiwan_Tobacco_and_Liquor_Corporation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/it/prada"
+  :factory/display-name "Prada S.p.A."
+  :factory/country "IT" :factory/isic "C15"
+  :factory/capabilities ["leather-goods" "handbags" "luxury-footwear"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Prada"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jp/asics"
+  :factory/display-name "ASICS Corporation"
+  :factory/country "JP" :factory/isic "C15"
+  :factory/capabilities ["athletic-footwear" "sportswear" "sports-accessories"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Asics"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+
+ ;; ════════════ Thin-ISIC round 15b — petroleum refining / electrical equipment (C19/C27) ════════════
+ {:factory/did "candidate:manufacturer-directory/ng/dangote-petroleum-refinery"
+  :factory/display-name "Dangote Petroleum Refinery"
+  :factory/country "NG" :factory/isic "C19"
+  :factory/capabilities ["crude-oil-refining" "petroleum-products" "single-train-refinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Dangote_refinery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/neste"
+  :factory/display-name "Neste Corporation"
+  :factory/country "FI" :factory/isic "C19"
+  :factory/capabilities ["crude-oil-refining" "renewable-diesel" "fuel-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Neste"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tw/formosa-petrochemical"
+  :factory/display-name "Formosa Petrochemical Corporation"
+  :factory/country "TW" :factory/isic "C19"
+  :factory/capabilities ["crude-oil-refining" "petrochemicals" "olefins-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Formosa_Petrochemical"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/bapco-energies"
+  :factory/display-name "Bapco Energies"
+  :factory/country "BH" :factory/isic "C19"
+  :factory/capabilities ["crude-oil-refining" "petroleum-products" "refinery-operations"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Bapco_Energies"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/weg"
+  :factory/display-name "WEG S.A."
+  :factory/country "BR" :factory/isic "C27"
+  :factory/capabilities ["electric-motors" "generators" "transformers" "industrial-drives"]
+  :factory/source-url "https://en.wikipedia.org/wiki/WEG_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fr/legrand"
+  :factory/display-name "Legrand"
+  :factory/country "FR" :factory/isic "C27"
+  :factory/capabilities ["wiring-devices" "switchgear" "circuit-breakers" "electrical-distribution"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Legrand_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kr/hd-hyundai-electric"
+  :factory/display-name "HD Hyundai Electric"
+  :factory/country "KR" :factory/isic "C27"
+  :factory/capabilities ["transformers" "switchgear" "gas-insulated-switchgear" "generators"]
+  :factory/source-url "https://en.wikipedia.org/wiki/HD_Hyundai_Electric"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/in/havells"
+  :factory/display-name "Havells India"
+  :factory/country "IN" :factory/isic "C27"
+  :factory/capabilities ["wiring-devices" "switchgear" "cables-and-wires" "circuit-breakers"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Havells"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
