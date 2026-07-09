@@ -683,6 +683,24 @@
 ;; line of the same corporate group as the existing STP Global Cable entry — kept per the
 ;; parent-company-different-product-line precedent (Cezanne/Georgian Packaging, batch 51).
 ;; Running total: 1924 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 54 (/loop pass 54): +49 companies, +0 new countries. Deep pass on the next
+;; thinnest-remaining tier of 10 countries (Mongolia/Algeria/North-Macedonia/Bahrain/
+;; Denmark/Côte-d'Ivoire/Uzbekistan/Tunisia/Tanzania/Lithuania). Mongolia yielded only 4
+;; additions, not 5: a strong MIAT Technics (aircraft MRO) candidate was dropped because it
+;; is pure repair/overhaul work, C33, out of scope by design — same reasoning as Lufthansa
+;; Technik Malta (batch 51) and Dakarnave (batch 52). Denmark's research agent independently
+;; excluded NLMK DanSteel despite it being a genuine Danish physical plant, because it is a
+;; subsidiary of Russia's NLMK Group — sanctions-adjacent ownership overrides physical
+;; location, consistent with the Ireland/Aughinish-Alumina reasoning in batch 53. One
+;; cross-batch continuation surfaced a validator-level near-duplicate: "Universelle
+;; Industries" (Côte d'Ivoire, C24, rebar/steel-sheet/wire-nail processing) is a distinct
+;; West African plant of the same corporate family as the existing Senegal entry of the same
+;; name and near-identical product line — kept per the country-subsidiary precedent, but
+;; renamed to "Universelle Industries (Côte d'Ivoire)" since the validator's near-duplicate
+;; check flagged the two identical display names (first time this check has fired in this
+;; dataset's history; prior country-subsidiary keeps all had distinguishing suffixes already,
+;; e.g. "Quad/Graphics Perú", "C&H Garments Senegal").
+;; Running total: 1973 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -12755,4 +12773,357 @@
   :factory/isic "C13"
   :factory/capabilities ["yarn-spinning" "knitted-fabric-production" "textile-dyeing-finishing" "circular-knit-textiles" "vertically-integrated-textiles"]
   :factory/source-url "https://www.mida.gov.my/success-stories/ramatex/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Mongolia — coal briquettes, organic fertilizer, meat processing, carpets (C10/C13/C19/C20) ════════════
+ {:factory/did "candidate:manufacturer-directory/mn/tavantolgoi-fuel"
+  :factory/display-name "Tavantolgoi Fuel LLC"
+  :factory/country "MN"
+  :factory/isic "C19"
+  :factory/capabilities ["coal-briquette-manufacturing" "refined-fuel-production" "solid-fuel-processing" "coal-washing-beneficiation"]
+  :factory/source-url "https://www.montsame.mn/en/read/301311"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/monpellets"
+  :factory/display-name "Monpellets LLC"
+  :factory/country "MN"
+  :factory/isic "C20"
+  :factory/capabilities ["organic-fertilizer-manufacturing" "wool-pellet-processing" "chemical-free-fertilizer" "agricultural-inputs"]
+  :factory/source-url "https://montsame.mn/en/read/267136"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/makh-impex"
+  :factory/display-name "Makh Impex JSC"
+  :factory/country "MN"
+  :factory/isic "C10"
+  :factory/capabilities ["meat-processing" "sausage-manufacturing" "smoked-meat-production" "frozen-food-processing"]
+  :factory/source-url "https://www.makhimpex.mn/index.php?lan=eng&choose=about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mn/erdenet-carpet"
+  :factory/display-name "Erdenet Carpet LLC"
+  :factory/country "MN"
+  :factory/isic "C13"
+  :factory/capabilities ["wool-carpet-manufacturing" "wool-thread-spinning" "felt-products" "woolmark-certified-textiles"]
+  :factory/source-url "https://www.montsame.mn/en/read/130328"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Algeria — beverages, fertilizers, trams, wood panels, plastics (C11/C16/C20/C22/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/dz/hamoud-boualem"
+  :factory/display-name "Hamoud Boualem"
+  :factory/country "DZ"
+  :factory/isic "C11"
+  :factory/capabilities ["soft-drink-manufacturing" "carbonated-beverage-bottling" "soda-production" "non-alcoholic-beverages"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Hamoud_Boualem"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/fertial"
+  :factory/display-name "Fertial (Société des Fertilisants d'Algérie)"
+  :factory/country "DZ"
+  :factory/isic "C20"
+  :factory/capabilities ["nitrogen-fertilizer-production" "phosphate-fertilizers" "ammonia-manufacturing" "agrochemicals"]
+  :factory/source-url "https://www.fertial-dz.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/cital"
+  :factory/display-name "CITAL (Alstom/EMA/Ferrovial JV)"
+  :factory/country "DZ"
+  :factory/isic "C30"
+  :factory/capabilities ["tram-manufacturing" "rail-vehicle-assembly" "rolling-stock-production" "light-rail-vehicles"]
+  :factory/source-url "https://www.alstom.com/alstom-algeria"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/ghamoud"
+  :factory/display-name "Ghamoud"
+  :factory/country "DZ"
+  :factory/isic "C16"
+  :factory/capabilities ["particleboard-manufacturing" "wood-based-panels" "wood-panel-production"]
+  :factory/source-url "https://woodcentral.com.au/inside-algerias-first-continuous-particleboard-plant/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dz/groupe-chiali"
+  :factory/display-name "Groupe Chiali"
+  :factory/country "DZ"
+  :factory/isic "C22"
+  :factory/capabilities ["pvc-pipe-manufacturing" "hdpe-pipe-extrusion" "plastic-profile-manufacturing" "pvc-window-profiles"]
+  :factory/source-url "https://www.groupe-chiali.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ North Macedonia — cement, food, beverages, paper, wood (C10/C11/C16/C17/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/mk/titan-cementarnica-usje"
+  :factory/display-name "TITAN Cementarnica USJE AD Skopje"
+  :factory/country "MK"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "ready-mix-concrete" "aggregates-quarrying" "eps-insulation-panels"]
+  :factory/source-url "https://www.usje.mk/en/about-us/our-history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/vitaminka"
+  :factory/display-name "Vitaminka AD Prilep"
+  :factory/country "MK"
+  :factory/isic "C10"
+  :factory/capabilities ["snack-food-manufacturing" "confectionery-production" "condiment-manufacturing" "biscuit-manufacturing" "food-processing"]
+  :factory/source-url "https://vitaminka.company/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/pivara-skopje"
+  :factory/display-name "Pivara Skopje (Skopsko)"
+  :factory/country "MK"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "soft-drink-bottling" "carbonated-beverage-production"]
+  :factory/source-url "https://pivaraskopje.com.mk/en/about-pivara/skopje-brewery-through-the-years/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/paper-mill-kochani"
+  :factory/display-name "Paper Mill Kochani"
+  :factory/country "MK"
+  :factory/isic "C17"
+  :factory/capabilities ["recycled-paper-manufacturing" "kraft-paper-production" "fluting-medium" "packaging-paper" "waste-paper-recycling"]
+  :factory/source-url "https://paper-mill.eu/en/za-nas/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mk/bording-dooel-vinica"
+  :factory/display-name "Bording DOOEL Vinica"
+  :factory/country "MK"
+  :factory/isic "C16"
+  :factory/capabilities ["beech-lumber-processing" "sawmilling" "veneer-production" "parquet-manufacturing" "wood-export"]
+  :factory/source-url "https://www.globalwood.org/company/mgodetail.asp?id=2099"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Bahrain — textiles, pharma, beverages, gas processing, aluminium (C11/C13/C19/C21/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/bh/westpoint-home-bahrain"
+  :factory/display-name "WestPoint Home Bahrain"
+  :factory/country "BH"
+  :factory/isic "C13"
+  :factory/capabilities ["bed-linen-manufacturing" "home-textile-weaving" "vertically-integrated-textile-mill" "fabric-finishing" "sheet-and-pillowcase-production"]
+  :factory/source-url "https://www.bahrainthismonth.com/magazine/features/bahrains-textile-powerhouse"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/bahrain-pharma"
+  :factory/display-name "Bahrain International Pharmaceutical Manufacturing Company"
+  :factory/country "BH"
+  :factory/isic "C21"
+  :factory/capabilities ["softgel-capsule-manufacturing" "vitamin-and-mineral-supplements" "cough-and-vitamin-syrups" "contract-pharmaceutical-manufacturing"]
+  :factory/source-url "https://www.bahrain-pharma.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/ahmadi-industries"
+  :factory/display-name "Ahmadi Industries B.S.C. (PepsiCo Bahrain bottler)"
+  :factory/country "BH"
+  :factory/isic "C11"
+  :factory/capabilities ["carbonated-soft-drink-bottling" "pepsi-franchise-bottling" "beverage-canning" "syrup-blending"]
+  :factory/source-url "https://www.bahrainiindustri.com/industry/ahmadi-industries/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/banagas"
+  :factory/display-name "Bahrain National Gas Company B.S.C. (Banagas)"
+  :factory/country "BH"
+  :factory/isic "C19"
+  :factory/capabilities ["lpg-processing" "ngl-fractionation" "propane-butane-production" "naphtha-recovery" "associated-gas-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Banagas"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bh/garmco"
+  :factory/display-name "Gulf Aluminium Rolling Mill Company B.S.C.(c) (GARMCO)"
+  :factory/country "BH"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminium-sheet-rolling" "aluminium-coil-production" "aluminium-foil-manufacturing" "tread-plate-manufacturing" "stucco-embossed-coil"]
+  :factory/source-url "https://www.garmco.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Denmark — insulation, egg packaging, flooring, nonwovens, cables (C13/C16/C17/C23/C27) ════════════
+ {:factory/did "candidate:manufacturer-directory/dk/rockwool-international"
+  :factory/display-name "ROCKWOOL International A/S"
+  :factory/country "DK"
+  :factory/isic "C23"
+  :factory/capabilities ["stone-wool-manufacturing" "insulation-products" "fire-protection-materials" "acoustic-panels" "mineral-fiber-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rockwool_International"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/brodrene-hartmann"
+  :factory/display-name "Brødrene Hartmann A/S"
+  :factory/country "DK"
+  :factory/isic "C17"
+  :factory/capabilities ["molded-fiber-packaging" "egg-carton-manufacturing" "pulp-molding" "paper-packaging" "packaging-machinery"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Br%C3%B8drene_Hartmann"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/junckers-industrier"
+  :factory/display-name "Junckers Industrier A/S"
+  :factory/country "DK"
+  :factory/isic "C16"
+  :factory/capabilities ["hardwood-flooring" "sawmilling" "parquet-manufacturing" "wood-lacquer-and-oil-production" "timber-processing"]
+  :factory/source-url "https://www.junckers.com/about/about-junckers"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/fibertex-personal-care"
+  :factory/display-name "Fibertex Personal Care A/S"
+  :factory/country "DK"
+  :factory/isic "C13"
+  :factory/capabilities ["nonwoven-fabric-manufacturing" "spunmelt-textile-production" "spunbond-manufacturing" "hygiene-product-materials" "technical-textiles"]
+  :factory/source-url "https://fibertexpersonalcare.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/dk/nkt"
+  :factory/display-name "NKT A/S"
+  :factory/country "DK"
+  :factory/isic "C27"
+  :factory/capabilities ["power-cable-manufacturing" "high-voltage-cable-production" "submarine-cable-manufacturing" "copper-cable-extrusion" "cable-accessories"]
+  :factory/source-url "https://en.wikipedia.org/wiki/NKT_A/S"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Côte d'Ivoire — cocoa processing, jute bags, footwear, printing, steel (C10/C13/C15/C18/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/ci/cargill-cote-divoire"
+  :factory/display-name "Cargill Côte d'Ivoire (Cargill Cocoa & Chocolate)"
+  :factory/country "CI"
+  :factory/isic "C10"
+  :factory/capabilities ["cocoa-bean-grinding" "cocoa-mass-production" "cocoa-butter-processing" "cocoa-powder-manufacturing" "industrial-food-ingredients"]
+  :factory/source-url "https://www.sikafinance.com/marches/cote-divoire-cargill-investit-72-milliards-fcfa-pour-la-plus-grande-usine-de-broyage-de-cacao-du-monde_18585"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/filtisac"
+  :factory/display-name "Filtisac (Filature, Tissage, Sacs de Côte d'Ivoire)"
+  :factory/country "CI"
+  :factory/isic "C13"
+  :factory/capabilities ["jute-bag-weaving" "synthetic-woven-sack-production" "agricultural-packaging" "cocoa-coffee-export-sacks" "fiber-spinning"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Filtisac"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/ifdcp"
+  :factory/display-name "IFDCP (Ivoirienne de Fabrication et de Distribution de Chaussures Plastiques)"
+  :factory/country "CI"
+  :factory/isic "C15"
+  :factory/capabilities ["injection-molded-footwear" "pvc-sandal-manufacturing" "eva-sandal-production" "plastic-boot-manufacturing"]
+  :factory/source-url "https://annuaireci.com/entreprises/ifdcp-ivoirienne-de-fabrication-de-distribution-de-chaussures-plastiques-abidjan-cote-divoire/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/siag"
+  :factory/display-name "SIAG (Société Industrielle des Arts Graphiques)"
+  :factory/country "CI"
+  :factory/isic "C18"
+  :factory/capabilities ["industrial-book-printing" "school-textbook-printing" "offset-printing" "magazine-brochure-production"]
+  :factory/source-url "https://annuaireci.com/entreprises/siag-ci-societe-industrielle-des-arts-graphiques-abidjan-cote-divoire/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ci/universelle-industries"
+  :factory/display-name "Universelle Industries (Côte d'Ivoire)"
+  :factory/country "CI"
+  :factory/isic "C24"
+  :factory/capabilities ["rebar-manufacturing" "steel-sheet-processing" "wire-nail-production" "steel-tube-profile-fabrication"]
+  :factory/source-url "https://gibtp.ci/membres/universelle-industries/77"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Uzbekistan — pharma, agri machinery, railcars, paper packaging, furniture (C17/C21/C28/C30/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/uz/jurabek-laboratories"
+  :factory/display-name "Jurabek Laboratories"
+  :factory/country "UZ"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "antibiotic-production" "injectable-drug-manufacturing" "infusion-solutions" "generic-medicines"]
+  :factory/source-url "https://jurabek.uz/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/uz-claas-agro"
+  :factory/display-name "Uz CLAAS Agro LLC"
+  :factory/country "UZ"
+  :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery-manufacturing" "combine-harvester-assembly" "tractor-assembly" "metalworking" "industrial-painting"]
+  :factory/source-url "https://www.claas.com/en-us/about-claas/locations"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/tashkent-railcar-plant"
+  :factory/display-name "Tashkent Plant for Construction and Repair of Passenger Cars"
+  :factory/country "UZ"
+  :factory/isic "C30"
+  :factory/capabilities ["railway-rolling-stock" "passenger-railcar-manufacturing" "metro-car-overhaul" "railcar-assembly" "transport-equipment"]
+  :factory/source-url "https://www.uzdaily.uz/en/tashkent-plant-for-construction-and-repair-of-passenger-cars-modernized-metro-cars/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/perfect-paper-group"
+  :factory/display-name "Perfect Paper Group LLC"
+  :factory/country "UZ"
+  :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard-manufacturing" "container-board-production" "packaging-paper" "recycled-paperboard" "paper-cone-manufacturing"]
+  :factory/source-url "https://ppg.uz/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/uz/keng-makon"
+  :factory/display-name "Keng Makon"
+  :factory/country "UZ"
+  :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "wood-furniture" "custom-furniture" "kitchen-furniture" "bedroom-furniture"]
+  :factory/source-url "https://kengmakon.uz/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Tunisia — dairy, wood panels, ceramics, aluminium, aerostructures (C10/C16/C23/C24/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/tn/delice-danone"
+  :factory/display-name "Délice Danone (Délice Holding)"
+  :factory/country "TN"
+  :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "yogurt-production" "fresh-milk-products" "fermented-dairy-specialties"]
+  :factory/source-url "https://www.delice.tn/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/mpbs"
+  :factory/display-name "MPBS (Manufacture de Panneaux Bois du Sud)"
+  :factory/country "TN"
+  :factory/isic "C16"
+  :factory/capabilities ["wood-panel-manufacturing" "melamine-panels" "veneered-panels" "particleboard-production"]
+  :factory/source-url "https://mpbs.com.tn/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/somocer"
+  :factory/display-name "SOMOCER (Société Moderne de Céramique)"
+  :factory/country "TN"
+  :factory/isic "C23"
+  :factory/capabilities ["ceramic-tile-manufacturing" "porcelain-stoneware" "sanitary-ware" "floor-wall-tiles"]
+  :factory/source-url "https://www.somocergroup.com/en/somocer/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/tpr-tunisie-profiles-aluminium"
+  :factory/display-name "TPR (Tunisie Profilés Aluminium)"
+  :factory/country "TN"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminum-extrusion" "aluminum-profile-manufacturing" "anodizing" "powder-coating-lacquering"]
+  :factory/source-url "https://www.tpr.com.tn/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tn/airbus-atlantic-tunisie"
+  :factory/display-name "Airbus Atlantic Tunisie"
+  :factory/country "TN"
+  :factory/isic "C30"
+  :factory/capabilities ["aerostructure-assembly" "aircraft-fuselage-panel-production" "precision-metal-machining" "aeronautical-subassembly-manufacturing"]
+  :factory/source-url "https://www.airframer.com/direct_detail.html?company=162813"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Tanzania — pharma, steel, apparel, printing, industrial gases (C14/C18/C20/C21/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/tz/zenufa-laboratories"
+  :factory/display-name "Zenufa Laboratories (Tanzania) Limited"
+  :factory/country "TZ"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-medicines" "otc-drugs" "cgmp-certified" "tablet-and-capsule-production"]
+  :factory/source-url "https://zenufalaboratories.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/kamal-steel"
+  :factory/display-name "Kamal Steel Limited"
+  :factory/country "TZ"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-rebar-manufacturing" "tmt-bars" "billet-production" "structural-steel" "hot-rolling"]
+  :factory/source-url "http://www.kamalsteel.co.tz/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/mazava-fabrics"
+  :factory/display-name "Mazava Fabrics & Production (E.A.) Limited"
+  :factory/country "TZ"
+  :factory/isic "C14"
+  :factory/capabilities ["sportswear-manufacturing" "apparel-cut-and-sew" "technical-knitwear" "flatlock-sewing" "agoa-export-garments"]
+  :factory/source-url "https://windsgroup.com/mazava/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/tanzania-printers"
+  :factory/display-name "Tanzania Printers Limited"
+  :factory/country "TZ"
+  :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "folding-cartons" "label-printing" "packaging-manufacturing" "flexible-packaging"]
+  :factory/source-url "https://www.tanzaniaprinters.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tz/tol-gases"
+  :factory/display-name "TOL Gases Limited"
+  :factory/country "TZ"
+  :factory/isic "C20"
+  :factory/capabilities ["industrial-gases" "medical-gases" "oxygen-production" "co2-plants" "welding-products"]
+  :factory/source-url "https://www.tolgases.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Lithuania — cement, meat processing, linen, plastics, dental materials (C10/C13/C22/C23/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/lt/akmenes-cementas"
+  :factory/display-name "AB Akmenės cementas"
+  :factory/country "LT"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-manufacturing" "portland-cement" "building-materials" "construction-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Akmen%C4%97s_cementas"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/biovela"
+  :factory/display-name "BIOVELA Group"
+  :factory/country "LT"
+  :factory/isic "C10"
+  :factory/capabilities ["meat-processing" "pork-slaughtering" "fresh-meat-products" "meat-snacks-production" "meat-packaging"]
+  :factory/source-url "https://www.biovela.lt/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/ab-linas"
+  :factory/display-name "AB Linas"
+  :factory/country "LT"
+  :factory/isic "C13"
+  :factory/capabilities ["linen-weaving" "linen-fabric-production" "home-textiles" "bedding-manufacturing" "natural-fiber-textiles"]
+  :factory/source-url "https://linas.lt/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/doloop"
+  :factory/display-name "UAB DOLOOP"
+  :factory/country "LT"
+  :factory/isic "C22"
+  :factory/capabilities ["pet-preform-manufacturing" "plastic-bottle-blow-molding" "injection-molding" "rigid-plastic-film-extrusion" "recycled-pet-packaging"]
+  :factory/source-url "https://www.doloop.com/en/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lt/i-dental"
+  :factory/display-name "i-dental, UAB"
+  :factory/country "LT"
+  :factory/isic "C32"
+  :factory/capabilities ["dental-materials-manufacturing" "glass-ionomer-cements" "dental-composites-production" "endodontic-products" "medical-device-manufacturing"]
+  :factory/source-url "https://www.i-dental.lt/about-us/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
