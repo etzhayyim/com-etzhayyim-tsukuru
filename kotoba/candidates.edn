@@ -579,6 +579,26 @@
 ;; defensible readings of the same company, so rather than adjudicate and duplicate, the new
 ;; entry was dropped and the existing one left as-is.
 ;; Running total: 1679 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 49 (/loop pass 49): +50 companies, +0 new countries. First deep pass on the 10
+;; thinnest-remaining countries (Liechtenstein/Iceland/Lesotho/Bulgaria/Papua-New-Guinea/
+;; Fiji/Bosnia-and-Herzegovina/Cameroon/Haiti/Luxembourg — each went from single digits or
+;; low teens to +5 across 5 distinct ISIC divisions). One reclassification judgment call:
+;; Cameroon Shipyard and Industrial Engineering Ltd (CNIC) does both shipbuilding and
+;; repair/conversion work; since C33 (repair/installation) is permanently out of scope by
+;; design, it was classified C30 (other transport equipment) with tags weighted toward its
+;; shipbuilding/marine-engineering side, consistent with how Fiji Ships & Heavy Industries
+;; (FSHIL, batch-unknown) already carries a similar mixed shipbuilding+repair profile under
+;; C30. Two borderline weapons-adjacent cases were kept after review, both judged genuinely
+;; civilian-primary: MTG Dolphin (Bulgaria, C30) is a commercial shipyard whose documented
+;; primary business is repair/conversion for civilian shipping lines (MSC, Boskalis, Columbia
+;; Shipmanagement), with a minority of patrol-vessel work for the Bulgarian Navy — kept per
+;; the same "primary use" reasoning applied to Merkavim (civilian bus bodies, not combat
+;; vehicles); and Euro-Composites (Luxembourg, C22) is a diversified composite-materials
+;; manufacturer serving aviation/space/rail/industrial customers, one of many end markets
+;; being defense (armored-vehicle interior panels) — kept because it manufactures composite
+;; components, not weapons or combat vehicles itself. No duplicate-DID or cross-batch-repeat
+;; issues surfaced this round (all 50 names checked clean against this file's own text).
+;; Running total: 1729 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -10884,5 +10904,364 @@
   :factory/country "ZA" :factory/isic "C22"
   :factory/capabilities ["tyre-manufacturing" "rubber-processing" "tyre-molding" "oem-tyre-supply"]
   :factory/source-url "https://www.engineeringnews.co.za/article/sumitomo-rubber-sa-pledges-to-invest-in-its-dunlop-ladysmith-plant-2023-03-22"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Liechtenstein — wine, printing, pharma, amusement rides, metal fabrication (C11/C18/C21/C25/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/li/hofkellerei-des-fursten-von-liechtenstein"
+  :factory/display-name "Hofkellerei des Fürsten von Liechtenstein"
+  :factory/country "LI"
+  :factory/isic "C11"
+  :factory/capabilities ["wine-production" "viticulture" "pinot-noir" "chardonnay" "estate-bottling"]
+  :factory/source-url "https://www.hofkellerei.at/en/liechtenstein-winery.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/li/bvd-druck-verlag"
+  :factory/display-name "BVD Druck+Verlag AG"
+  :factory/country "LI"
+  :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "digital-printing" "advertising-technology" "vehicle-wrapping" "personalized-print-products"]
+  :factory/source-url "https://www.bvd.li/produkte"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/li/phafag"
+  :factory/display-name "PHAFAG Aktiengesellschaft"
+  :factory/country "LI"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-active-substances" "tablet-manufacturing" "coated-tablets" "dietary-supplements"]
+  :factory/source-url "https://www.top500.de/details/850/phafag_ag_liechtenstein.php"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/li/intamin"
+  :factory/display-name "Intamin Amusement Rides"
+  :factory/country "LI"
+  :factory/isic "C28"
+  :factory/capabilities ["roller-coasters" "thrill-rides" "ferris-wheels" "water-rides" "amusement-attraction-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Intamin"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/li/ludwig-elkuch"
+  :factory/display-name "Ludwig Elkuch AG (Elkuch Group)"
+  :factory/country "LI"
+  :factory/isic "C25"
+  :factory/capabilities ["sheet-metal-fabrication" "tunnel-safety-doors" "steel-tanks-containers" "waste-disposal-equipment"]
+  :factory/source-url "https://www.s-ge.com/en/company/elkuch-ludwig-ag?ct"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Iceland — plastics, paint, concrete, steel fabrication, aquaculture machinery (C20/C22/C23/C25/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/is/saeplast"
+  :factory/display-name "Sæplast Iceland"
+  :factory/country "IS"
+  :factory/isic "C22"
+  :factory/capabilities ["rotational-molding" "insulated-fish-tubs" "plastic-pallet-manufacturing" "food-storage-containers"]
+  :factory/source-url "https://www.saeplast.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/malning"
+  :factory/display-name "Málning hf (Slippfélagið)"
+  :factory/country "IS"
+  :factory/isic "C20"
+  :factory/capabilities ["paint-manufacturing" "marine-coatings" "wood-protection-coatings" "varnish-production"]
+  :factory/source-url "https://malning.is/about-us-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/bm-valla"
+  :factory/display-name "BM Vallá"
+  :factory/country "IS"
+  :factory/isic "C23"
+  :factory/capabilities ["ready-mix-concrete" "precast-concrete-components" "paving-stone-manufacturing" "masonry-products"]
+  :factory/source-url "https://www.bmvalla.is/frettir/framleidsla-hafin-i-nyrri-steypustod-a-sudurnesjum"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/vhe"
+  :factory/display-name "VHE ehf"
+  :factory/country "IS"
+  :factory/isic "C25"
+  :factory/capabilities ["steel-structure-fabrication" "industrial-steel-equipment" "structural-steelwork" "concrete-block-manufacturing"]
+  :factory/source-url "https://en.vhe.is/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/is/vaki-aquaculture-systems"
+  :factory/display-name "Vaki Aquaculture Systems"
+  :factory/country "IS"
+  :factory/isic "C28"
+  :factory/capabilities ["fish-counting-equipment" "fish-grading-machinery" "aquaculture-automation-systems" "fish-pump-systems"]
+  :factory/source-url "https://www.vakiiceland.is/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Lesotho — automotive seats, apparel, furniture, concrete, bottled water (C11/C14/C23/C29/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/ls/adient-lesotho"
+  :factory/display-name "Adient South Africa (Lesotho) (Pty) Ltd"
+  :factory/country "LS"
+  :factory/isic "C29"
+  :factory/capabilities ["automotive-seat-manufacturing" "leather-cutting-and-sewing" "seat-cover-assembly" "automotive-components" "export-manufacturing"]
+  :factory/source-url "https://www.adient.com/lesothosouthafrica/lesotho/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/tzicc-clothing-manufactures"
+  :factory/display-name "TZICC Clothing Manufactures (Pty) Ltd"
+  :factory/country "LS"
+  :factory/isic "C14"
+  :factory/capabilities ["knitwear-manufacturing" "garment-cutting-and-sewing" "embroidery-and-laundry-finishing" "export-apparel" "sportswear-production"]
+  :factory/source-url "https://mg.co.za/article/2016-10-03-the-textile-industry-needs-to-be-sewn-into-the-fabric-of-lesothos-economy/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/florida-manufacturing-solutions"
+  :factory/display-name "Florida Manufacturing Solutions"
+  :factory/country "LS"
+  :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "school-furniture" "office-furniture" "home-furniture" "wood-and-metal-fabrication"]
+  :factory/source-url "https://floridamsolutions.co.za/about-florida-furniture-manufacturing/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/mafeteng-concrete-blocks"
+  :factory/display-name "Mafeteng Concrete Blocks and Building Construction"
+  :factory/country "LS"
+  :factory/isic "C23"
+  :factory/capabilities ["concrete-block-manufacturing" "cement-brick-making" "paver-manufacturing" "building-materials-production"]
+  :factory/source-url "https://www.africanadvice.com/1221409/Brick_And_Block_Manufacturers_And_Suppliers/Lesotho/Mafeteng_Concrete_Blocks_And_Building_Construction/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ls/ma-george-lesotho-pure-spring-water"
+  :factory/display-name "Ma-George Lesotho Pure Spring Water"
+  :factory/country "LS"
+  :factory/isic "C11"
+  :factory/capabilities ["spring-water-bottling" "water-purification" "beverage-packaging" "export-bottling"]
+  :factory/source-url "https://publiceyenews.com/local-water-bottling-company-cries-foul/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Bulgaria — chemicals, wood panels, metal fittings, shipbuilding, machine tools (C16/C20/C25/C28/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/bg/solvay-sodi"
+  :factory/display-name "Solvay Sodi AD"
+  :factory/country "BG"
+  :factory/isic "C20"
+  :factory/capabilities ["soda-ash-production" "sodium-bicarbonate-production" "industrial-chemical-manufacturing" "glass-industry-inputs"]
+  :factory/source-url "https://www.solvay.com/en/press-release/solvay-celebrates-25th-anniversary-its-presence-devnya-bulgaria"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/kronospan-bulgaria"
+  :factory/display-name "Kronospan Bulgaria EOOD"
+  :factory/country "BG"
+  :factory/isic "C16"
+  :factory/capabilities ["particleboard-manufacturing" "mdf-production" "osb-production" "melamine-faced-panels" "wood-panel-manufacturing"]
+  :factory/source-url "https://kronospan.com/en_BG/company/kronospan/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/berg-montana-fittings"
+  :factory/display-name "Berg Montana Fittings EAD"
+  :factory/country "BG"
+  :factory/isic "C25"
+  :factory/capabilities ["malleable-iron-fittings" "pipe-fittings-manufacturing" "galvanized-fittings" "foundry-casting" "fire-protection-fittings"]
+  :factory/source-url "https://gatsbymetals.com/en/berg-montana-fittings.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/mtg-dolphin"
+  :factory/display-name "MTG Dolphin PLC"
+  :factory/country "BG"
+  :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "ship-repair" "vessel-conversion" "dry-docking-services"]
+  :factory/source-url "https://mtgdolphin.bg/en/home/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/bg/zmm-bulgaria"
+  :factory/display-name "ZMM Bulgaria Holding AD"
+  :factory/country "BG"
+  :factory/isic "C28"
+  :factory/capabilities ["cnc-lathes" "metal-cutting-machines" "machine-tool-manufacturing" "metalworking-machinery"]
+  :factory/source-url "https://zmmbulgaria.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Papua New Guinea — tobacco, cement, tuna canning, bottling, furniture (C10/C11/C12/C23/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/pg/british-american-tobacco-png"
+  :factory/display-name "British American Tobacco (PNG) Ltd"
+  :factory/country "PG"
+  :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-leaf-processing" "tobacco-curing" "cigarette-packaging"]
+  :factory/source-url "https://www.destinationpng.com/section-4/wills/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/png-taiheiyo-cement"
+  :factory/display-name "PNG Taiheiyo Cement Limited"
+  :factory/country "PG"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "cement-grinding" "clinker-processing" "cement-packaging"]
+  :factory/source-url "https://pngtaiheiyo.com/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/rd-tuna-canners"
+  :factory/display-name "RD Tuna Canners Ltd"
+  :factory/country "PG"
+  :factory/isic "C10"
+  :factory/capabilities ["tuna-canning" "fish-processing" "fishmeal-production" "canned-seafood-production"]
+  :factory/source-url "https://www.businessadvantagepng.com/r-d-tuna-pioneer-pngs-fisheries-industry/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/coca-cola-europacific-partners-png"
+  :factory/display-name "Coca-Cola Europacific Partners PNG"
+  :factory/country "PG"
+  :factory/isic "C11"
+  :factory/capabilities ["soft-drink-bottling" "pet-bottle-manufacturing" "juice-processing" "water-bottling"]
+  :factory/source-url "https://www.businessadvantagepng.com/profile-coca-cola-amatil/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/pg/pryde-furniture"
+  :factory/display-name "Pryde Furniture"
+  :factory/country "PG"
+  :factory/isic "C31"
+  :factory/capabilities ["timber-furniture-manufacturing" "custom-joinery" "upholstery-manufacturing" "kitchen-cabinetry"]
+  :factory/source-url "https://www.pryde.com.pg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Fiji — tuna canning, beverages, packaging, printing, cement (C10/C11/C17/C18/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/fj/pacific-fishing-company"
+  :factory/display-name "Pacific Fishing Company Pte Limited (PAFCO)"
+  :factory/country "FJ"
+  :factory/isic "C10"
+  :factory/capabilities ["tuna-canning" "fish-processing" "seafood-packaging" "cold-chain-processing" "dolphin-safe-certified-production"]
+  :factory/source-url "https://pafcofiji.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/paradise-beverages"
+  :factory/display-name "Paradise Beverages (Fiji) Limited"
+  :factory/country "FJ"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "lager-production" "spirits-distilling" "beverage-bottling" "ready-to-drink-mixed-beverages"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Paradise_Beverages"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/golden-manufacturers"
+  :factory/display-name "Golden Manufacturers Limited"
+  :factory/country "FJ"
+  :factory/isic "C17"
+  :factory/capabilities ["corrugated-cardboard-manufacturing" "carton-packaging" "die-cut-packaging" "flexible-packaging" "printed-packaging-labels"]
+  :factory/source-url "https://golden.com.fj/origins"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/star-printery"
+  :factory/display-name "Star Printery Pte Ltd"
+  :factory/country "FJ"
+  :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "digital-printing" "label-printing" "commercial-print-finishing" "signage-production"]
+  :factory/source-url "https://starprintery.net.fj/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fj/tengy-cement"
+  :factory/display-name "Tengy Cement (Fiji) Company Limited"
+  :factory/country "FJ"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-grinding" "cement-manufacturing" "ready-mix-cement" "construction-materials-production"]
+  :factory/source-url "https://www.globalcement.com/news/item/18702-fiji-assures-stable-cement-supply-amid-pacific-cement-suspension"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Bosnia and Herzegovina — cement, food, chemicals, automotive textiles, plastics (C10/C20/C22/C23/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/ba/heidelberg-materials-cement-kakanj"
+  :factory/display-name "Heidelberg Materials Cement BiH d.d. Kakanj"
+  :factory/country "BA"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-manufacturing" "ready-mix-concrete" "cement-terminals"]
+  :factory/source-url "https://www.heidelbergmaterials.com/en/company/group-areas-and-countries/europe/bosnia-and-herzegovina"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/klas-sarajevo"
+  :factory/display-name "Klas d.d. Sarajevo"
+  :factory/country "BA"
+  :factory/isic "C10"
+  :factory/capabilities ["flour-milling" "pasta-production" "bakery-products" "confectionery" "halal-certified-food"]
+  :factory/source-url "https://klas.ba/o-nama/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/sisecam-soda-lukavac"
+  :factory/display-name "Şişecam Soda Lukavac d.o.o."
+  :factory/country "BA"
+  :factory/isic "C20"
+  :factory/capabilities ["soda-ash-production" "sodium-bicarbonate" "basic-inorganic-chemicals" "chemical-exports"]
+  :factory/source-url "https://fic.ba/en/clanice/sisecam-en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/prevent-group-gorazde"
+  :factory/display-name "Prevent Group (Prevent Industrials, Goražde facility)"
+  :factory/country "BA"
+  :factory/isic "C29"
+  :factory/capabilities ["automotive-seat-covers" "vehicle-interior-textiles" "leather-upholstery-cutting-sewing" "motor-vehicle-parts-and-accessories"]
+  :factory/source-url "https://seenews.com/news/german-based-prevent-group-opens-seat-covers-factory-near-bosnias-gorazde-investment-agency-1001197"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ba/bosnaplast"
+  :factory/display-name "Bosnaplast d.o.o. Sarajevo"
+  :factory/country "BA"
+  :factory/isic "C22"
+  :factory/capabilities ["hdpe-pipe-extrusion" "pvc-pipe-manufacturing" "cable-protection-pipes" "plastics-processing"]
+  :factory/source-url "https://bosnaplast.ba/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Cameroon — chemicals, pharma, rubber, bus assembly, shipbuilding (C20/C21/C22/C29/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/cm/complexe-chimique-camerounais"
+  :factory/display-name "Complexe Chimique Camerounais (CCC)"
+  :factory/country "CM"
+  :factory/isic "C20"
+  :factory/capabilities ["soap-manufacturing" "detergent-production" "cleaning-products" "toiletries-manufacturing" "chemical-processing"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/C.C.C."
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/cinpharm"
+  :factory/display-name "Cinpharm SA (Compagnie Industrielle Pharmaceutique)"
+  :factory/country "CM"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-production" "injectable-drug-manufacturing" "syrup-production" "generic-medicines"]
+  :factory/source-url "https://www.businessincameroon.com/companies/1501-5218-cameroon-cinpharm-laboratories-starting-up-raising-1-2-billion-by-opening-up-capital"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/hevecam"
+  :factory/display-name "Hévéa Cameroun SA (Hevecam)"
+  :factory/country "CM"
+  :factory/isic "C22"
+  :factory/capabilities ["natural-rubber-processing" "latex-processing" "rubber-sheet-production" "technically-specified-rubber" "plantation-based-processing"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/H%C3%A9v%C3%A9cam"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/sotrabus"
+  :factory/display-name "Sotrabus SA (Société de Transformation de Bus)"
+  :factory/country "CM"
+  :factory/isic "C29"
+  :factory/capabilities ["bus-assembly" "vehicle-body-fabrication" "chassis-assembly" "bus-upholstery-manufacturing" "transport-vehicle-assembly"]
+  :factory/source-url "https://www.businessincameroon.com/business/0908-7311-cameroonian-sotrabus-becomes-first-vehicle-assembly-unit-in-central-africa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cm/cameroon-shipyard-and-industrial-engineering"
+  :factory/display-name "Cameroon Shipyard and Industrial Engineering Ltd (CNIC)"
+  :factory/country "CM"
+  :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "ship-repair" "marine-engineering" "oil-rig-conversion" "hull-fabrication"]
+  :factory/source-url "https://www.cnicyard.com/en/discover-our-company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Haiti — chocolate, footwear, tissue paper, steel, chemicals (C10/C15/C17/C20/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/ht/askanya-chocolates"
+  :factory/display-name "Les Chocolateries Askanya (Askanya Chocolates)"
+  :factory/country "HT"
+  :factory/isic "C10"
+  :factory/capabilities ["bean-to-bar-chocolate" "cacao-fermenting-and-drying" "single-origin-chocolate-bars" "cacao-bean-processing"]
+  :factory/source-url "https://askanyachocolates.com/pages/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/jl-fine-shoes"
+  :factory/display-name "JL Fine Shoes S.A."
+  :factory/country "HT"
+  :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "industrial-shoemaking" "shoe-assembly" "export-footwear"]
+  :factory/source-url "https://www.satra.com/bulletin/article.php?id=1614"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/glory-industries-haiti"
+  :factory/display-name "Glory Industries Haiti"
+  :factory/country "HT"
+  :factory/isic "C17"
+  :factory/capabilities ["tissue-paper-converting" "toilet-paper-manufacturing" "napkin-production" "recycled-paper-processing"]
+  :factory/source-url "https://flashhaiti.com/business/detail/glory-industries-haiti"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/acierie-d-haiti"
+  :factory/display-name "Aciérie d'Haïti S.A."
+  :factory/country "HT"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-rebar-manufacturing" "steel-rolling-mill" "wire-and-nail-production" "structural-steel-tubing"]
+  :factory/source-url "https://flashhaiti.com/business/detail/Acierie-d-Haiti"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ht/huileries-haitiennes"
+  :factory/display-name "Huileries Haïtiennes S.A. (HUHSA)"
+  :factory/country "HT"
+  :factory/isic "C20"
+  :factory/capabilities ["soap-manufacturing" "laundry-detergent-production" "edible-oil-refining" "margarine-and-shortening-production"]
+  :factory/source-url "https://flashhaiti.com/business/detail/HUHSA-Huilerie-Haitienne"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Luxembourg — wood panels, space robotics, printing, composites, aluminium foil (C16/C18/C22/C24/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/lu/kronospan-luxembourg"
+  :factory/display-name "Kronospan Luxembourg S.A."
+  :factory/country "LU"
+  :factory/isic "C16"
+  :factory/capabilities ["wood-based-panels" "particleboard-manufacturing" "mdf-osb-production" "recycled-wood-processing" "laminate-flooring"]
+  :factory/source-url "https://kronospan.com/en_EN/company/news/view/championing-sustainable-initiatives-kronospan-luxembourg-s-a-starts-the-production-of-particleboard-using-100-recycled-wood-97/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/redwire-space-europe"
+  :factory/display-name "Redwire Space Europe (Redwire Luxembourg)"
+  :factory/country "LU"
+  :factory/isic "C30"
+  :factory/capabilities ["space-robotics-manufacturing" "robotic-arm-production" "satellite-servicing-hardware" "spacecraft-components" "in-space-manufacturing-systems"]
+  :factory/source-url "https://rdw.com/locations/luxembourg/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/imprimerie-centrale"
+  :factory/display-name "Imprimerie Centrale S.A."
+  :factory/country "LU"
+  :factory/isic "C18"
+  :factory/capabilities ["offset-printing" "web-press-printing" "digital-printing" "industrial-print-finishing" "secure-document-production"]
+  :factory/source-url "https://fedil.lu/en/members/590d5bb5-ece6-e611-80f5-c4346bac8ce8/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/euro-composites"
+  :factory/display-name "Euro-Composites S.A."
+  :factory/country "LU"
+  :factory/isic "C22"
+  :factory/capabilities ["honeycomb-core-manufacturing" "composite-sandwich-panels" "aramid-nomex-composites" "aerospace-interior-components" "resin-infusion-manufacturing"]
+  :factory/source-url "https://www.euro-composites.com/en/standort-echternach/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lu/eurofoil-luxembourg"
+  :factory/display-name "Eurofoil Luxembourg S.A."
+  :factory/country "LU"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminium-foil-rolling" "converter-foil-production" "household-foil-manufacturing" "industrial-finstock" "aluminium-scrap-recycling"]
+  :factory/source-url "https://www.eurofoil.com/dudelange"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
-
