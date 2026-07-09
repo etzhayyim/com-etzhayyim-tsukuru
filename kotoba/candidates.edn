@@ -701,6 +701,28 @@
 ;; dataset's history; prior country-subsidiary keeps all had distinguishing suffixes already,
 ;; e.g. "Quad/Graphics Perú", "C&H Garments Senegal").
 ;; Running total: 1973 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 55 (/loop pass 55): +49 companies, +0 new countries — crosses 2,000 entries.
+;; Deep pass on the next thinnest-remaining tier of 10 countries (Israel/Romania/
+;; Argentina/Brazil/Zimbabwe/Kenya/Ghana/Morocco/Sri-Lanka/Philippines). Zimbabwe
+;; yielded only 4 additions (agent dropped a fifth apparel candidate whose name kept
+;; conflating with an unrelated South African company of the same name — sourcing
+;; couldn't be disambiguated with confidence). Several research agents independently
+;; excluded recently-closed operations rather than treat "real company" as sufficient
+;; on its own: Argentina's agent dropped FATE S.A. (tire maker, closed its plant
+;; February 2026) in favor of the still-active Pirelli Merlo plant; Ghana's agent
+;; dropped a defunct electronics assembler (Rlg Communications) and a tobacco factory
+;; that ceased local manufacturing in 2006; Morocco's agent dropped a 180-year-old
+;; denim mill (Evlox, Settat) that had just ceased operations. Philippines' and
+;; Ghana's agents both independently flagged commercial/civilian-only shipyards
+;; (Tsuneishi Cebu — bulk carriers; Tema Shipyard, not included, primarily repair)
+;; consistent with the combat-vessel exclusion policy established in batch 53. One
+;; cross-batch continuation: Alstom Maroc (Fez, Morocco, C27, rail electrical
+;; equipment/transformers) is a distinct plant and product line of the same
+;; corporate family as the existing Alstom entry (France, C30, rolling stock) — kept
+;; per the country-subsidiary precedent, named "Alstom Maroc (Fez industrial site)"
+;; to avoid the validator's near-duplicate display-name check (same fix pattern as
+;; "Universelle Industries (Côte d'Ivoire)" in batch 54).
+;; Running total: 2022 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -13126,4 +13148,357 @@
   :factory/isic "C32"
   :factory/capabilities ["dental-materials-manufacturing" "glass-ionomer-cements" "dental-composites-production" "endodontic-products" "medical-device-manufacturing"]
   :factory/source-url "https://www.i-dental.lt/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Romania — food, tissue paper, fertilizers, cement, rail vehicles (C10/C17/C20/C23/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/ro/agricola-international"
+  :factory/display-name "Agricola Internațional S.A."
+  :factory/country "RO"
+  :factory/isic "C10"
+  :factory/capabilities ["poultry-processing" "meat-products-manufacturing" "processed-meat-production" "cold-cuts-manufacturing" "food-processing"]
+  :factory/source-url "https://agricola.ro/en/company/group-of-companies/agricola-international-sa-en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/pehart-grup"
+  :factory/display-name "Pehart Grup S.A."
+  :factory/country "RO"
+  :factory/isic "C17"
+  :factory/capabilities ["tissue-paper-manufacturing" "toilet-paper-production" "paper-towel-manufacturing" "jumbo-roll-paper-production" "paper-converting"]
+  :factory/source-url "https://pehartgrup.ro/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/azomures"
+  :factory/display-name "Azomureș S.A."
+  :factory/country "RO"
+  :factory/isic "C20"
+  :factory/capabilities ["nitrogen-fertilizer-manufacturing" "ammonia-production" "urea-production" "agricultural-chemicals" "industrial-nitric-acid-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Azomure%C8%99"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/holcim-romania"
+  :factory/display-name "Holcim (Romania) S.A."
+  :factory/country "RO"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "cement-grinding" "ready-mix-concrete" "construction-aggregates"]
+  :factory/source-url "https://www.cemnet.com/global-cement-report/company/holcim-romania-sa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ro/astra-vagoane-calatori"
+  :factory/display-name "ASTRA Vagoane Călători S.A."
+  :factory/country "RO"
+  :factory/isic "C30"
+  :factory/capabilities ["railway-passenger-coach-manufacturing" "tram-manufacturing" "electric-multiple-unit-production" "rolling-stock-modernization" "rail-vehicle-fabrication"]
+  :factory/source-url "https://avcactive.com/en/home/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Israel — footwear, paper, plastics, cement, medical devices (C15/C17/C22/C23/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/il/teva-naot"
+  :factory/display-name "Teva Naot (Naot Footwear)"
+  :factory/country "IL"
+  :factory/isic "C15"
+  :factory/capabilities ["leather-footwear-manufacturing" "shoe-manufacturing" "sandal-manufacturing" "cork-latex-footbed-production" "leather-tanning"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Naot"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/hadera-paper"
+  :factory/display-name "Hadera Paper Ltd."
+  :factory/country "IL"
+  :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "packaging-paper-production" "pulp-processing" "paper-recycling" "corrugated-packaging"]
+  :factory/source-url "https://en.hadera-paper.co.il/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/nesher-israel-cement"
+  :factory/display-name "Nesher Israel Cement Enterprises Ltd."
+  :factory/country "IL"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "construction-materials" "non-metallic-mineral-products"]
+  :factory/source-url "https://www.nesher.co.il/en/about"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/plasson-industries"
+  :factory/display-name "Plasson Industries Ltd."
+  :factory/country "IL"
+  :factory/isic "C22"
+  :factory/capabilities ["plastic-pipe-fittings" "injection-molding" "valve-manufacturing" "water-distribution-equipment" "agricultural-plastics"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Plasson"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/il/insightec"
+  :factory/display-name "InSightec Ltd."
+  :factory/country "IL"
+  :factory/isic "C32"
+  :factory/capabilities ["medical-device-manufacturing" "focused-ultrasound-systems" "mri-guided-therapy-equipment" "surgical-instrument-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Insightec"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Argentina — cement, tires, automotive, tobacco, wood panels (C12/C16/C22/C23/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/ar/loma-negra"
+  :factory/display-name "Loma Negra Compañía Industrial Argentina S.A."
+  :factory/country "AR"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "ready-mix-concrete" "lime-production" "aggregates-quarrying" "construction-materials"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Loma_Negra"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/pirelli-neumaticos"
+  :factory/display-name "Pirelli Neumáticos S.A.I.C. (Planta Merlo)"
+  :factory/country "AR"
+  :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "automotive-tires" "motorcycle-tires" "rubber-products" "radial-tire-production"]
+  :factory/source-url "https://www.pirelli.com/tyre/ar/es/news/2021/10/13/pirelli-celebra-111-anos-en-argentina-e-inaugura-la-producion-de-neumaticos-para-motos/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/toyota-argentina"
+  :factory/display-name "Toyota Argentina S.A. (Planta Zárate)"
+  :factory/country "AR"
+  :factory/isic "C29"
+  :factory/capabilities ["pickup-truck-assembly" "automotive-manufacturing" "vehicle-body-stamping" "engine-and-powertrain-assembly" "export-vehicle-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Toyota_Argentina"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/massalin-particulares"
+  :factory/display-name "Massalin Particulares S.R.L. (Philip Morris Argentina)"
+  :factory/country "AR"
+  :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-leaf-processing" "tobacco-product-packaging"]
+  :factory/source-url "https://www.pmi.com/markets/argentina/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ar/arauco-argentina-faplac"
+  :factory/display-name "Arauco Argentina S.A. (Faplac, Planta Zárate)"
+  :factory/country "AR"
+  :factory/isic "C16"
+  :factory/capabilities ["particleboard-manufacturing" "mdf-panel-production" "melamine-laminated-boards" "wood-panel-processing"]
+  :factory/source-url "https://arauco.com/argentina/menu_productos/tableros/faplac/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Kenya — batteries, steel, plastics, agricultural machinery, printing (C18/C22/C24/C27/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/ke/chloride-exide-kenya"
+  :factory/display-name "Chloride Exide Kenya Ltd"
+  :factory/country "KE"
+  :factory/isic "C27"
+  :factory/capabilities ["lead-acid-battery-manufacturing" "automotive-batteries" "solar-battery-systems" "energy-storage-systems"]
+  :factory/source-url "https://www.chlorideexide.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/devki-steel-mills"
+  :factory/display-name "Devki Steel Mills Limited"
+  :factory/country "KE"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-billets" "tmt-reinforcement-bars" "wire-products" "steel-tubes" "structural-steel"]
+  :factory/source-url "https://devkisteel.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/kenpoly-manufacturers"
+  :factory/display-name "Kenpoly Manufacturers Limited"
+  :factory/country "KE"
+  :factory/isic "C22"
+  :factory/capabilities ["plastic-injection-molding" "household-plastics" "industrial-crates" "plastic-furniture"]
+  :factory/source-url "https://www.kenpoly.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/ndume"
+  :factory/display-name "Ndume Limited"
+  :factory/country "KE"
+  :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery" "ploughs-and-harrows" "planters-and-seeders" "grain-mills" "farm-implements"]
+  :factory/source-url "https://ndumekenya.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ke/chrome-partners"
+  :factory/display-name "Chrome Partners Limited"
+  :factory/country "KE"
+  :factory/isic "C18"
+  :factory/capabilities ["offset-litho-printing" "digital-printing" "packaging-production" "large-format-printing" "print-finishing"]
+  :factory/source-url "https://directory.kam.co.ke/listing/chrome-partners-limited/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Brazil — cement, electronics, machine tools, furniture, medical devices (C23/C26/C28/C31/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/br/votorantim-cimentos"
+  :factory/display-name "Votorantim Cimentos S.A."
+  :factory/country "BR"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "concrete-production" "mortar-manufacturing" "aggregates-production"]
+  :factory/source-url "https://www.votorantimcimentos.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/positivo-tecnologia"
+  :factory/display-name "Positivo Tecnologia S.A."
+  :factory/country "BR"
+  :factory/isic "C26"
+  :factory/capabilities ["computer-manufacturing" "laptop-assembly" "tablet-manufacturing" "server-manufacturing" "consumer-electronics-assembly"]
+  :factory/source-url "https://www.positivotecnologia.com.br/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/industrias-romi"
+  :factory/display-name "Indústrias Romi S.A."
+  :factory/country "BR"
+  :factory/isic "C28"
+  :factory/capabilities ["machine-tools" "cnc-lathes" "machining-centers" "plastic-injection-machines" "iron-castings"]
+  :factory/source-url "https://www.romi.com/en/the-company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/moveis-carraro"
+  :factory/display-name "Móveis Carraro S.A."
+  :factory/country "BR"
+  :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "kitchen-furniture" "bedroom-furniture" "dining-furniture" "wood-panel-furniture"]
+  :factory/source-url "https://carraro.com.br/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/br/baumer"
+  :factory/display-name "Baumer S.A."
+  :factory/country "BR"
+  :factory/isic "C32"
+  :factory/capabilities ["medical-equipment-manufacturing" "orthopedic-implants" "surgical-instruments" "sterilization-equipment" "dental-instruments"]
+  :factory/source-url "https://www.baumer.com.br/institucional/nossa-historia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Philippines — steel, shipbuilding, beverages, plywood, printing (C11/C16/C18/C24/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/ph/steelasia"
+  :factory/display-name "SteelAsia Manufacturing Corporation"
+  :factory/country "PH"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-billet-production" "rebar-manufacturing" "steel-melting" "scrap-based-steelmaking" "long-steel-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/SteelAsia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/tsuneishi-heavy-industries-cebu"
+  :factory/display-name "Tsuneishi Heavy Industries (Cebu), Inc."
+  :factory/country "PH"
+  :factory/isic "C30"
+  :factory/capabilities ["shipbuilding" "bulk-carrier-construction" "vessel-fabrication" "ship-repair" "marine-engineering"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tsuneishi_Cebu_Shipyard"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/asia-brewery"
+  :factory/display-name "Asia Brewery, Inc."
+  :factory/country "PH"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "bottled-water-production" "dairy-beverage-manufacturing" "glass-bottle-manufacturing" "plastic-crate-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Asia_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/smwpi-wood-products"
+  :factory/display-name "SMWPI Wood Products Inc. (Santa Clara Marine Plywood)"
+  :factory/country "PH"
+  :factory/isic "C16"
+  :factory/capabilities ["marine-plywood-manufacturing" "wood-veneer-processing" "plywood-lamination" "timber-processing"]
+  :factory/source-url "https://www.bworldonline.com/property/2017/07/18/16464/marine-plywood-maker-santa-clara-pitches-product-homebuilders/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ph/house-printers-corporation"
+  :factory/display-name "The House Printers Corporation"
+  :factory/country "PH"
+  :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "packaging-printing" "folding-carton-manufacturing" "offset-printing" "digital-printing"]
+  :factory/source-url "http://www.houseprinters.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Ghana — refining, steel, tissue paper, machinery, jewelry (C17/C19/C25/C28/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/gh/tema-oil-refinery"
+  :factory/display-name "Tema Oil Refinery (TOR) Ltd"
+  :factory/country "GH"
+  :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "crude-oil-distillation" "lpg-production" "diesel-and-gasoline-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tema_Oil_Refinery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/b5plus"
+  :factory/display-name "B5Plus Limited"
+  :factory/country "GH"
+  :factory/isic "C25"
+  :factory/capabilities ["steel-tank-and-reservoir-manufacturing" "wire-mesh-and-nail-production" "pre-engineered-buildings" "rolled-steel-bars-and-pipes"]
+  :factory/source-url "https://www.b5plusgroup.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/delta-paper-mill"
+  :factory/display-name "Delta Paper Mill Limited"
+  :factory/country "GH"
+  :factory/isic "C17"
+  :factory/capabilities ["tissue-paper-manufacturing" "toilet-paper-production" "table-napkin-production" "paper-converting"]
+  :factory/source-url "https://deltapapermill.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/sayetech"
+  :factory/display-name "SAYeTECH"
+  :factory/country "GH"
+  :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery-manufacturing" "multi-crop-threshers" "grain-dryers-and-cleaners" "cocoa-pod-breaking-equipment" "animal-feed-mills"]
+  :factory/source-url "https://sayetech.io/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gh/goldbod-jewellery"
+  :factory/display-name "GoldBod Jewellery"
+  :factory/country "GH"
+  :factory/isic "C32"
+  :factory/capabilities ["gold-jewelry-manufacturing" "jewelry-casting" "chains-and-bangles-production" "gold-value-addition"]
+  :factory/source-url "https://goldbod.gov.gh/goldbod-jewellery-redefines-elegance-with-latest-collections/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Sri Lanka — ceramics, pharma, footwear, steel, furniture (C15/C21/C23/C24/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/lk/royal-ceramics-lanka"
+  :factory/display-name "Royal Ceramics Lanka PLC (Rocell)"
+  :factory/country "LK"
+  :factory/isic "C23"
+  :factory/capabilities ["ceramic-tile-manufacturing" "porcelain-tile-manufacturing" "wall-tile-manufacturing" "bathware-manufacturing" "glass-mosaic"]
+  :factory/source-url "https://rocell.com/en/tile-manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/state-pharmaceuticals-manufacturing-corp"
+  :factory/display-name "State Pharmaceuticals Manufacturing Corporation of Sri Lanka"
+  :factory/country "LK"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-production" "capsule-production" "essential-medicines" "cgmp-drug-manufacturing"]
+  :factory/source-url "https://spmc.gov.lk/about-spmc/introduction"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/bata-shoe-ceylon"
+  :factory/display-name "Bata Shoe Company of Ceylon Ltd"
+  :factory/country "LK"
+  :factory/isic "C15"
+  :factory/capabilities ["footwear-manufacturing" "rubber-shoe-manufacturing" "leather-footwear" "shoe-production"]
+  :factory/source-url "https://bata.lk/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/melwa"
+  :factory/display-name "Melwa (Melwire Rolling (Pvt) Ltd)"
+  :factory/country "LK"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-bar-manufacturing" "tmt-rebar-production" "wire-rod-manufacturing" "hot-rolled-steel" "billet-processing"]
+  :factory/source-url "https://melwa.com/quality-and-manufacturing/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lk/damro"
+  :factory/display-name "Damro (Damro Exports (Pvt) Ltd)"
+  :factory/country "LK"
+  :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "wooden-furniture" "household-furniture" "office-furniture" "export-furniture-production"]
+  :factory/source-url "https://www.srilankabusiness.com/exporters-directory/company-profiles/damro-exports-pvt-ltd/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Zimbabwe — ferrochrome, plastics, glass, furniture (C22/C23/C24/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/zw/zimasco"
+  :factory/display-name "Zimasco (Private) Limited"
+  :factory/country "ZW"
+  :factory/isic "C24"
+  :factory/capabilities ["ferrochrome-smelting" "chromite-ore-processing" "ferro-alloy-production" "high-carbon-ferrochrome"]
+  :factory/source-url "https://zimasco.co.zw/overview/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/proplastics"
+  :factory/display-name "Proplastics Limited"
+  :factory/country "ZW"
+  :factory/isic "C22"
+  :factory/capabilities ["pvc-pipe-manufacturing" "hdpe-pipe-manufacturing" "ldpe-pipe-manufacturing" "plastic-pipe-fittings" "irrigation-and-borehole-piping"]
+  :factory/source-url "https://www.industry.co.zw/listing/proplastics/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/zimbabwe-glass-industries"
+  :factory/display-name "Zimbabwe Glass Industries (Zimglass)"
+  :factory/country "ZW"
+  :factory/isic "C23"
+  :factory/capabilities ["glass-container-manufacturing" "glass-bottle-production" "glass-jar-manufacturing" "sodium-silicate-production"]
+  :factory/source-url "https://www.thinklocal.co.zw/listing-item/zim-glass/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zw/calundike-exports"
+  :factory/display-name "Calundike Exports (Nyaradzo Group)"
+  :factory/country "ZW"
+  :factory/isic "C31"
+  :factory/capabilities ["office-furniture-manufacturing" "shop-fittings-manufacturing" "wooden-furniture-production" "casket-manufacturing" "custom-joinery"]
+  :factory/source-url "https://www.calundike.co.zw/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Morocco — steel, beverages, footwear, rail electrical, chemicals (C11/C15/C20/C24/C27) ════════════
+ {:factory/did "candidate:manufacturer-directory/ma/sonasid"
+  :factory/display-name "Sonasid (ArcelorMittal Sonasid)"
+  :factory/country "MA"
+  :factory/isic "C24"
+  :factory/capabilities ["basic-metals-manufacturing" "electric-arc-furnace-steelmaking" "rebar-manufacturing" "wire-rod-production" "steel-billet-casting"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Sonasid"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/brasseries-du-maroc"
+  :factory/display-name "Brasseries du Maroc"
+  :factory/country "MA"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "beverage-bottling" "malting" "lager-production" "fmcg-beverage-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Brasseries_du_Maroc"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/pretty-shoes"
+  :factory/display-name "Pretty Shoes"
+  :factory/country "MA"
+  :factory/isic "C15"
+  :factory/capabilities ["leather-footwear-manufacturing" "shoe-assembly" "sports-shoe-production" "sandal-manufacturing" "export-footwear"]
+  :factory/source-url "https://medias24.com/2022/11/15/pretty-shoes-ouvre-une-nouvelle-usine-a-casablanca/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/alstom-fez"
+  :factory/display-name "Alstom Maroc (Fez industrial site)"
+  :factory/country "MA"
+  :factory/isic "C27"
+  :factory/capabilities ["transformer-manufacturing" "wiring-harness-production" "rail-cable-assembly" "electrical-equipment-manufacturing" "driver-cab-manufacturing"]
+  :factory/source-url "https://www.alstom.com/alstom-morocco"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ma/snep"
+  :factory/display-name "SNEP (Société Nationale d'Electrolyse et de Pétrochimie)"
+  :factory/country "MA"
+  :factory/isic "C20"
+  :factory/capabilities ["pvc-resin-production" "chlor-alkali-electrolysis" "pvc-compound-manufacturing" "industrial-chemicals" "vinyl-products"]
+  :factory/source-url "https://snep.ma/en/produits/pvc/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
