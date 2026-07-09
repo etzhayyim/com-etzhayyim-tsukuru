@@ -1,0 +1,103 @@
+#!/usr/bin/env bb
+;; tsukuru 作る — ingest candidates.edn into a live kotoba node, in a SEPARATE graph
+;; from the consented/onboarded member registry (seed.edn → com.etzhayyim.tsukuru).
+;; ADR-2605202800.
+;;
+;; candidates.edn is a public-directory RESEARCH dataset: every :factory/did uses the
+;; "candidate:manufacturer-directory/..." form (never "did:web:tsukuru.etzhayyim.com/..."),
+;; :factory/sourcing is :public-directory, and :factory/labor-provenance is :unknown for
+;; every entry (see candidates.edn's own header). None of these companies have consented
+;; to or been onboarded into the tsukuru registry. Projecting them into the SAME graph as
+;; consented did:web members would blur that distinction for any downstream query — so
+;; this script writes to its own graph (default "com.etzhayyim.tsukuru.candidates"),
+;; never "com.etzhayyim.tsukuru", and refuses to run against that graph name (see
+;; assert-not-member-graph below). Dry-run by default, live path placeholder — same
+;; posture as ingest_mcp.cljc (no-server-key, G15; operator-bound).
+(ns tsukuru.kotoba.ingest-candidates
+  "tsukuru 作る — candidates.edn ingest scaffold, isolated candidate graph.
+  ADR-2605202800. Sibling of ingest_mcp.cljc (member seed) — deliberately NOT unified
+  with it, so the member-graph default can never accidentally receive candidate rows."
+  (:require [clojure.string :as str]
+            #?(:clj [clojure.java.io :as io])))
+
+(def default-url   "http://127.0.0.1:8077")
+(def default-graph "com.etzhayyim.tsukuru.candidates")
+(def member-graph  "com.etzhayyim.tsukuru")
+
+#?(:clj
+   (def candidates-path
+     (str (-> (io/file *file*) .getParentFile .getAbsolutePath)
+          "/candidates.edn")))
+
+(defn strip-comments [^String s]
+  (let [sb (StringBuilder.)]
+    (loop [i 0 in-str? false]
+      (if (>= i (count s))
+        (str sb)
+        (let [c (.charAt s i)]
+          (cond
+            in-str?  (do (.append sb c) (recur (inc i) (if (= c \") false in-str?)))
+            (= c \") (do (.append sb c) (recur (inc i) true))
+            (= c \;) (recur (inc (or (some (fn [j] (when (= (.charAt s j) \newline) j))
+                                           (range i (count s)))
+                                     (count s)))
+                            false)
+            :else    (do (.append sb c) (recur (inc i) false))))))))
+
+(defn count-top-level-entities [^String s]
+  (let [s (strip-comments s)
+        start (.indexOf s (int \[))]
+    (if (< start 0) 0
+        (loop [i (inc start) depth 0 cnt 0 in-str? false]
+          (if (>= i (count s)) cnt
+              (let [c (.charAt s i)]
+                (cond
+                  in-str?  (recur (inc i) depth cnt (if (= c \") false in-str?))
+                  (= c \") (recur (inc i) depth cnt true)
+                  (= c \{) (recur (inc i) (inc depth) cnt false)
+                  (= c \}) (let [d (dec depth)]
+                              (recur (inc i) d (if (zero? d) (inc cnt) cnt) false))
+                  :else    (recur (inc i) depth cnt false))))))))
+
+(defn estimate-datoms [^String s]
+  (let [s (strip-comments s)]
+    (+ (count (re-seq #" :" s))
+       (count (re-seq #"\{:" s)))))
+
+(defn assert-not-member-graph!
+  "Hard guard: never let this script target the consented-member graph. A typo'd
+  --graph com.etzhayyim.tsukuru would otherwise silently mix unconsented candidate
+  rows into the live member registry."
+  [graph]
+  (when (= graph member-graph)
+    (throw (ex-info (str "refusing to ingest candidates.edn into member graph "
+                          member-graph " — candidates are not consented/onboarded "
+                          "members. Use the default candidate graph or a distinct name.")
+                     {:graph graph}))))
+
+#?(:clj
+   (defn run [{:keys [url graph dry-run?]
+               :or   {url default-url graph default-graph dry-run? false}}]
+     (assert-not-member-graph! graph)
+     (let [raw    (slurp candidates-path)
+           n-e    (count-top-level-entities raw)
+           n-d    (estimate-datoms raw)
+           live?  (and (not dry-run?) (seq (System/getenv "KOTOBA_TOKEN")))]
+       (println (str "   parsed " n-e " candidate entities (~" n-d " datoms) from "
+                      "candidates.edn → " graph " (isolated from " member-graph ")"))
+       (if live?
+         (do (println "   live ingest requested — implement MCP kotoba_datom_create wiring before use.")
+             {:status :live-placeholder :graph graph :entities n-e :datoms n-d})
+         (do (println "   DRY RUN — no writes. Set KOTOBA_TOKEN to ingest (still isolated graph).")
+             {:status :dry-run :graph graph :entities n-e :datoms n-d})))))
+
+#?(:clj
+   (defn -main [& args]
+     (let [argv (vec args)
+           url  (if (some #(= "--url" %) argv)   (get argv (inc (.indexOf argv "--url")))   default-url)
+           gr   (if (some #(= "--graph" %) argv) (get argv (inc (.indexOf argv "--graph"))) default-graph)
+           dry? (boolean (some #(= "--dry-run" %) argv))]
+       (run {:url url :graph gr :dry-run? dry?}))))
+
+#?(:clj
+   (when (= *file* (System/getProperty "babashka.file")) (apply -main *command-line-args*)))
