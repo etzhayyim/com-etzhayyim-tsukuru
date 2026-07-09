@@ -660,6 +660,29 @@
 ;; C&H Garments Senegal (C14) is a distinct physical factory of the same Chinese garment-
 ;; manufacturing family as the existing C&H Garments Ltd entry (Rwanda).
 ;; Running total: 1875 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 53 (/loop pass 53): +50 companies, +0 new countries, minus 1 pre-existing entry
+;; removed as a data-quality correction. Deep pass on the next thinnest-remaining tier of
+;; 10 countries (Ireland/Latvia/Azerbaijan/Slovakia/Colombia/Uganda/Slovenia/Finland/
+;; Trinidad-and-Tobago/Malaysia). Correction: while pulling Colombia's current roster,
+;; found that the existing entry "COTECMAR" (C30, shipbuilding) is Colombia's state-owned
+;; naval defense contractor — verification (Wikipedia) confirmed it builds warships
+;; (Sigma-class frigates), patrol boats and landing craft primarily for the Colombian Navy
+;; and other militaries (Brazil, Guatemala, Honduras), functioning as a defense contractor
+;; under the Ministry of National Defense. This extends the batch-51 Tbilaviamsheni
+;; precedent from ground combat vehicles to combat naval vessels (warships/frigates/
+;; military patrol boats) — both are "combat vehicles" in spirit, so this batch's research
+;; prompts were updated to state the broadened exclusion explicitly. COTECMAR was removed
+;; outright; Colombia's and Ireland's research agents both independently avoided similar
+;; combat-vessel-adjacent shipyards during their own research (Astivik Shipyard in
+;; Cartagena; Aughinish Alumina was separately excluded by the Ireland agent for Rusal/
+;; Deripaska sanctions exposure and a documented Russia-arms-supply-chain link). Two
+;; apparent-but-false duplicate flags resolved during dedup: "Alumex" (Azerbaijan, new) and
+;; the pre-existing "Alumex PLC" (Sri Lanka) are unrelated companies that independently
+;; chose the same generic aluminium-extrusion portmanteau name — kept both, distinct DIDs
+;; already namespaced by country. STP Polymer (Azerbaijan, C22) is a distinct plant/product
+;; line of the same corporate group as the existing STP Global Cable entry — kept per the
+;; parent-company-different-product-line precedent (Cezanne/Georgian Packaging, batch 51).
+;; Running total: 1924 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -10714,12 +10737,6 @@
   :factory/capabilities ["paints-coatings" "varnishes" "printing-inks" "industrial-coatings"]
   :factory/source-url "https://www.pintuco.com.co/historia/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}
- {:factory/did "candidate:manufacturer-directory/co/cotecmar"
-  :factory/display-name "COTECMAR"
-  :factory/country "CO" :factory/isic "C30"
-  :factory/capabilities ["shipbuilding" "naval-vessels" "patrol-boats" "ship-repair"]
-  :factory/source-url "https://www.semana.com/mejor-colombia/articulo/industria-naval-de-talla-mundial-asi-se-convirtio-cotecmar-en-referente-de-ingenieria-construccion-e-innovacion-tecnologica/202659/"
-  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
  {:factory/did "candidate:manufacturer-directory/pt/adira"
   :factory/display-name "ADIRA – Metal Forming Solutions, S.A."
   :factory/country "PT" :factory/isic "C28"
@@ -12378,4 +12395,364 @@
   :factory/isic "C23"
   :factory/capabilities ["glass-container-manufacturing" "bottle-manufacturing" "pharmaceutical-glass-packaging" "beverage-glass-packaging" "glass-melting"]
   :factory/source-url "https://grupovical.com/en/vical-vidrieras/vigua/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Ireland — diamond materials, refining, automotive electronics, chemicals, furniture (C19/C20/C23/C29/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/ie/element-six"
+  :factory/display-name "Element Six Limited"
+  :factory/country "IE"
+  :factory/isic "C23"
+  :factory/capabilities ["synthetic-diamond-manufacturing" "superhard-materials" "tungsten-carbide-materials" "industrial-abrasives" "precision-cutting-components"]
+  :factory/source-url "https://www.gov.ie/en/ida-ireland/news/continued-investment-in-element-six-as-it-celebrates-its-diamond-anniversary-in-shannon/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/irving-oil-whitegate-refinery"
+  :factory/display-name "Irving Oil Whitegate Refinery"
+  :factory/country "IE"
+  :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "crude-oil-processing" "gasoline-production" "diesel-and-kerosene-production" "fuel-distribution"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Whitegate_refinery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/kostal-ireland"
+  :factory/display-name "Kostal Ireland GmbH & Co. KG"
+  :factory/country "IE"
+  :factory/isic "C29"
+  :factory/capabilities ["automotive-electronics-manufacturing" "onboard-vehicle-chargers" "ev-power-electronics" "electronic-component-assembly"]
+  :factory/source-url "https://irland.ahk.de/ie/members/members-directory/kostal-ireland-gmbh-co.-kg"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/dupont-nutrition-ireland"
+  :factory/display-name "International N&H Ireland (DuPont Nutrition Ireland / IFF)"
+  :factory/country "IE"
+  :factory/isic "C20"
+  :factory/capabilities ["cellulosic-chemical-manufacturing" "microcrystalline-cellulose-production" "carboxymethylcellulose-manufacturing" "pharmaceutical-and-food-excipients"]
+  :factory/source-url "https://chamber.corkchamber.ie/list/member/dupont-nutrition-ireland-2219"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ie/mcguigan-furniture"
+  :factory/display-name "McGuigan Furniture"
+  :factory/country "IE"
+  :factory/isic "C31"
+  :factory/capabilities ["contract-furniture-manufacturing" "hospitality-furniture" "upholstery-manufacturing" "timber-furniture-craftsmanship" "powder-coated-steel-furniture"]
+  :factory/source-url "https://www.mcguiganfurniture.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Latvia — agricultural machinery, EVs, medical textiles, plastics, die-casting (C22/C24/C28/C29/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/lv/preco"
+  :factory/display-name "Preco (SIA Preco)"
+  :factory/country "LV"
+  :factory/isic "C28"
+  :factory/capabilities ["grain-handling-equipment" "grain-dryers" "conveyor-systems" "agricultural-machinery"]
+  :factory/source-url "https://www.preco.lv/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/electrify"
+  :factory/display-name "Electrify (SIA Electrify)"
+  :factory/country "LV"
+  :factory/isic "C29"
+  :factory/capabilities ["electric-minibus-manufacturing" "electric-city-buses" "ev-retrofitting" "wheelchair-accessible-transit-vehicles"]
+  :factory/source-url "https://electricbus.lv/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/tonus-elast"
+  :factory/display-name "Tonus Elast"
+  :factory/country "LV"
+  :factory/isic "C32"
+  :factory/capabilities ["compression-stockings" "medical-elastic-goods" "orthoses-and-bandages" "postoperative-support-garments"]
+  :factory/source-url "https://www.tonuselast.com/en/about-us/about-tonus-elast"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/lc-plast"
+  :factory/display-name "LC Plast (SIA LC Plast)"
+  :factory/country "LV"
+  :factory/isic "C22"
+  :factory/capabilities ["plastic-injection-molding" "pvc-hose-and-pipe-extrusion" "plastic-packaging-components" "automotive-and-appliance-plastic-parts"]
+  :factory/source-url "https://www.lcplast.lv/en/molding-of-plastic-products"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lv/adn-castings"
+  :factory/display-name "ADN Castings Ltd"
+  :factory/country "LV"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminium-die-casting" "zinc-die-casting" "aluminium-enclosures" "precision-metal-castings"]
+  :factory/source-url "https://www.tradekey.com/company/ADN-Castings-Ltd-4816050.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Azerbaijan — pharma, beverages, polymer pipes, structural steel, aluminium (C11/C21/C22/C24/C25) ════════════
+ {:factory/did "candidate:manufacturer-directory/az/scandens-pharmaceutical-industries"
+  :factory/display-name "Scandens Pharmaceutical Industries Ltd"
+  :factory/country "AZ"
+  :factory/isic "C21"
+  :factory/capabilities ["tablet-manufacturing" "capsule-manufacturing" "solid-oral-dosage-forms" "pharmaceutical-production"]
+  :factory/source-url "https://www.azernews.az/analysis/250615.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/azerbaijan-coca-cola-bottlers"
+  :factory/display-name "Azerbaijan Coca-Cola Bottlers LLC"
+  :factory/country "AZ"
+  :factory/isic "C11"
+  :factory/capabilities ["carbonated-soft-drinks" "beverage-bottling" "juice-production" "water-bottling"]
+  :factory/source-url "https://president.az/en/articles/view/68932"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/stp-polymer"
+  :factory/display-name "STP Polymer LLC"
+  :factory/country "AZ"
+  :factory/isic "C22"
+  :factory/capabilities ["pvc-profile-manufacturing" "plastic-pipe-manufacturing" "pe-pipe-production" "pipe-fittings"]
+  :factory/source-url "https://www.stp.az/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/azeristeel"
+  :factory/display-name "AzeriSteel"
+  :factory/country "AZ"
+  :factory/isic "C25"
+  :factory/capabilities ["structural-steel-manufacturing" "prefabricated-steel-buildings" "metal-construction" "steel-tank-fabrication"]
+  :factory/source-url "https://azeristeel.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/az/alumex"
+  :factory/display-name "Alumex LLC"
+  :factory/country "AZ"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminum-profile-extrusion" "powder-coating" "window-door-profiles" "architectural-aluminum"]
+  :factory/source-url "https://alumex.az/eng"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Slovakia — glass, chemicals, printing, dairy, beverages (C10/C11/C18/C20/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/sk/rona-glassworks"
+  :factory/display-name "RONA, a.s."
+  :factory/country "SK"
+  :factory/isic "C23"
+  :factory/capabilities ["glass-manufacturing" "drinking-glassware" "crystal-glass" "hand-blown-glass" "glassware-for-aviation-catering"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Rona_glassworks"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/duslo"
+  :factory/display-name "Duslo, a.s."
+  :factory/country "SK"
+  :factory/isic "C20"
+  :factory/capabilities ["mineral-fertilizers" "ammonia-production" "industrial-chemicals" "rubber-chemicals" "polymer-dispersions"]
+  :factory/source-url "https://www.duslo.sk/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/neografia"
+  :factory/display-name "Neografia, a.s."
+  :factory/country "SK"
+  :factory/isic "C18"
+  :factory/capabilities ["book-printing" "magazine-printing" "commercial-printing" "paper-packaging" "offset-printing"]
+  :factory/source-url "https://www.neografia.sk/en/profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/meggle-slovakia-rajo"
+  :factory/display-name "MEGGLE Slovakia s.r.o. (RAJO brand)"
+  :factory/country "SK"
+  :factory/isic "C10"
+  :factory/capabilities ["dairy-products" "milk-processing" "yogurt-production" "cheese-manufacturing" "cottage-cheese"]
+  :factory/source-url "https://www.rajo.sk/en/about-us/current-events/news/rajo-dairy-changes-its-name-to-meggle-slovakia-products-under-the-rajo-brand-continue"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sk/kofola-sk"
+  :factory/display-name "Kofola a.s. (SK)"
+  :factory/country "SK"
+  :factory/isic "C11"
+  :factory/capabilities ["soft-drink-production" "bottled-water" "carbonation-and-bottling" "mineral-water-processing"]
+  :factory/source-url "https://investor.kofola.cz/en/kofola-group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Colombia — steel, tires, ceramics, furniture, agricultural machinery (C22/C23/C24/C28/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/co/acerias-paz-del-rio"
+  :factory/display-name "Acerías Paz del Río S.A."
+  :factory/country "CO"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "blast-furnace-ironmaking" "long-steel-products" "wire-rod-production" "rebar-manufacturing"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Acer%C3%ADas_Paz_del_R%C3%ADo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/goodyear-de-colombia"
+  :factory/display-name "Goodyear de Colombia S.A."
+  :factory/country "CO"
+  :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-processing" "automotive-tires" "truck-tires" "export-manufacturing"]
+  :factory/source-url "https://www.infobae.com/colombia/2026/06/10/el-acuerdo-entre-goodyear-y-sindicato-puso-fin-a-una-huelga-de-92-dias-y-aseguro-empleos-en-colombia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/sociedad-corona"
+  :factory/display-name "Sociedad Corona (Cerámica Corona)"
+  :factory/country "CO"
+  :factory/isic "C23"
+  :factory/capabilities ["sanitaryware-manufacturing" "ceramic-tile-production" "porcelain-fixtures" "tableware-ceramics" "kitchen-and-bath-fittings"]
+  :factory/source-url "https://es.wikipedia.org/wiki/Corona_(Colombia)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/ima-furniture"
+  :factory/display-name "IMA Industria de Artículos de Madera S.A.S."
+  :factory/country "CO"
+  :factory/isic "C31"
+  :factory/capabilities ["wood-furniture-manufacturing" "hospitality-furniture" "cabinet-making" "wood-finishing" "furniture-export"]
+  :factory/source-url "https://imafurniture.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/co/maquinaria-montana"
+  :factory/display-name "Maquinaria Montana Ltda./S.A.S."
+  :factory/country "CO"
+  :factory/isic "C28"
+  :factory/capabilities ["agricultural-machinery" "tractor-implements" "tillage-equipment" "seeding-machinery" "fertilizer-spreaders"]
+  :factory/source-url "https://www.maquinariamontana.com/es/la-empresa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Uganda — sugar, plastics, ceramics, wood panels, bicycles (C10/C16/C22/C23/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/ug/kakira-sugar"
+  :factory/display-name "Kakira Sugar Limited"
+  :factory/country "UG"
+  :factory/isic "C10"
+  :factory/capabilities ["sugar-manufacturing" "cane-crushing" "ethanol-distillation" "molasses-processing" "cogeneration-power"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kakira_Sugar_Works"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/nice-house-of-plastics"
+  :factory/display-name "Nice House of Plastics Ltd"
+  :factory/country "UG"
+  :factory/isic "C22"
+  :factory/capabilities ["plastics-manufacturing" "injection-molding" "toothbrush-manufacturing" "ballpoint-pen-manufacturing" "household-plastics"]
+  :factory/source-url "https://www.nice.co.ug/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/uganda-clays"
+  :factory/display-name "Uganda Clays Limited"
+  :factory/country "UG"
+  :factory/isic "C23"
+  :factory/capabilities ["clay-tile-manufacturing" "brick-making" "roofing-tiles" "building-blocks" "ceramic-pipes"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Uganda_Clays_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/nile-fibreboard"
+  :factory/display-name "Nile Fibreboard Limited"
+  :factory/country "UG"
+  :factory/isic "C16"
+  :factory/capabilities ["mdf-board-manufacturing" "particle-board-manufacturing" "engineered-flooring" "wood-processing" "prefabricated-structures"]
+  :factory/source-url "https://www.newvision.co.ug/news/1498338/museveni-launches-fiberboard-factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ug/buffalo-bicycles-uganda"
+  :factory/display-name "Buffalo Bicycles Uganda (World Bicycle Relief)"
+  :factory/country "UG"
+  :factory/isic "C30"
+  :factory/capabilities ["bicycle-assembly" "bicycle-manufacturing" "non-motorized-vehicle-production"]
+  :factory/source-url "https://worldbicyclerelief.org/uganda/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Slovenia — light aircraft, hydro turbines, paper, beverages, exhaust systems (C11/C17/C28/C29/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/si/pipistrel"
+  :factory/display-name "Pipistrel (Textron eAviation Pipistrel)"
+  :factory/country "SI"
+  :factory/isic "C30"
+  :factory/capabilities ["light-aircraft-manufacturing" "electric-aircraft" "composite-airframes" "ultralight-aircraft" "aviation-engineering"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Pipistrel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/litostroj-power"
+  :factory/display-name "Litostroj Power d.o.o."
+  :factory/country "SI"
+  :factory/isic "C28"
+  :factory/capabilities ["hydro-turbines" "hydroelectric-equipment" "turbine-manufacturing" "heavy-machinery" "power-plant-components"]
+  :factory/source-url "https://www.litostrojpower.com/we-are"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/paloma"
+  :factory/display-name "Paloma d.d. (Sladki Vrh tissue mill)"
+  :factory/country "SI"
+  :factory/isic "C17"
+  :factory/capabilities ["tissue-paper-manufacturing" "toilet-paper-production" "paper-towel-production" "hygienic-paper-products" "paper-mill-operations"]
+  :factory/source-url "https://www.paloma.si/en/about-the-company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/pivovarna-lasko-union"
+  :factory/display-name "Pivovarna Laško Union d.o.o."
+  :factory/country "SI"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "soft-drink-manufacturing" "bottling" "beverage-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Union_Brewery_(Slovenia)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/si/akrapovic"
+  :factory/display-name "Akrapovič d.d."
+  :factory/country "SI"
+  :factory/isic "C29"
+  :factory/capabilities ["exhaust-systems" "titanium-fabrication" "motorcycle-exhausts" "automotive-performance-parts" "carbon-fibre-components"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Akrapovi%C4%8D"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Finland — specialty chemicals, textiles, furniture, drives, beverages (C11/C13/C20/C27/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/fi/kemira"
+  :factory/display-name "Kemira Oyj"
+  :factory/country "FI"
+  :factory/isic "C20"
+  :factory/capabilities ["specialty-chemicals" "water-treatment-chemicals" "pulp-and-paper-chemicals" "coagulants-and-flocculants" "industrial-process-chemicals"]
+  :factory/source-url "https://www.kemira.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/marimekko"
+  :factory/display-name "Marimekko Oyj"
+  :factory/country "FI"
+  :factory/isic "C13"
+  :factory/capabilities ["textile-printing" "fabric-manufacturing" "printed-cotton-fabrics" "home-textiles" "bag-and-accessory-fabric"]
+  :factory/source-url "https://company.marimekko.com/meet-the-maker-marimekko-textile-printing-factory-helsinki-2/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/martela"
+  :factory/display-name "Martela Oyj"
+  :factory/country "FI"
+  :factory/isic "C31"
+  :factory/capabilities ["office-furniture" "ergonomic-seating" "workstation-desks" "furniture-remanufacturing" "contract-furniture-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Martela"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/danfoss-drives-vacon"
+  :factory/display-name "Danfoss Drives Oy (formerly Vacon Oyj)"
+  :factory/country "FI"
+  :factory/isic "C27"
+  :factory/capabilities ["ac-frequency-converters" "variable-speed-drives" "power-electronics" "motor-control-systems" "power-conversion-modules"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Vacon"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/fi/olvi"
+  :factory/display-name "Olvi Oyj"
+  :factory/country "FI"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "cider-production" "soft-drinks-manufacturing" "bottling-and-canning" "malt-beverage-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Olvi"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Trinidad and Tobago — pharma, sawmilling, tissue paper, brewing, baking (C10/C11/C16/C17/C21) ════════════
+ {:factory/did "candidate:manufacturer-directory/tt/vs-pharmaceuticals"
+  :factory/display-name "V&S Pharmaceuticals Limited"
+  :factory/country "TT"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "medicinal-ointments" "antacid-manufacturing" "otc-pharmaceuticals" "topical-analgesics"]
+  :factory/source-url "https://www.vspharmco.tt/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/dhanraj-koodie-sawmilling"
+  :factory/display-name "Dhanraj Koodie Sawmilling Co. Ltd"
+  :factory/country "TT"
+  :factory/isic "C16"
+  :factory/capabilities ["sawmilling" "lumber-processing" "heat-treated-pallets" "industrial-wood-products" "teak-hardwood-lumber"]
+  :factory/source-url "https://www.dkoodiesawmilling.com"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/trinidad-tissues"
+  :factory/display-name "Trinidad Tissues Limited (Grand Bay Paper Products)"
+  :factory/country "TT"
+  :factory/isic "C17"
+  :factory/capabilities ["tissue-paper-manufacturing" "paper-converting" "napkins-and-towels" "hygiene-paper-products" "fsc-certified-production"]
+  :factory/source-url "https://t-tissues.com/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/carib-brewery"
+  :factory/display-name "Carib Brewery Limited"
+  :factory/country "TT"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "shandy-production" "lager-production" "beverage-bottling"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Carib_Brewery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tt/kiss-baking-company"
+  :factory/display-name "Kiss Baking Company Limited"
+  :factory/country "TT"
+  :factory/isic "C10"
+  :factory/capabilities ["bread-manufacturing" "bakery-products" "cake-manufacturing" "wholesale-baking" "packaged-baked-goods"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kiss_Baking_Company_Limited"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Malaysia — aluminium, beverages, glass, offshore fabrication, textiles (C11/C13/C23/C24/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/my/press-metal-aluminium"
+  :factory/display-name "Press Metal Aluminium Holdings Berhad"
+  :factory/country "MY"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminium-smelting" "primary-aluminium-production" "aluminium-billets" "aluminium-extrusion" "alumina-processing"]
+  :factory/source-url "https://www.pressmetal.com/company/our-story"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/carlsberg-brewery-malaysia"
+  :factory/display-name "Carlsberg Brewery Malaysia Berhad"
+  :factory/country "MY"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverages" "stout-production" "cider-production" "non-alcoholic-malt-drinks"]
+  :factory/source-url "https://www.carlsbergmalaysia.com.my/who-we-are/carlsberg-malaysia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/xinyi-glass-malaysia"
+  :factory/display-name "Xinyi Energy Smart (Malaysia) Sdn Bhd"
+  :factory/country "MY"
+  :factory/isic "C23"
+  :factory/capabilities ["float-glass" "coated-glass" "laminated-glass" "automotive-glass" "solar-glass"]
+  :factory/source-url "https://investmelaka.gov.my/xinyi-glass-factory/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/malaysia-marine-and-heavy-engineering"
+  :factory/display-name "Malaysia Marine and Heavy Engineering Holdings Berhad (MMHE)"
+  :factory/country "MY"
+  :factory/isic "C30"
+  :factory/capabilities ["offshore-platform-fabrication" "fpso-construction" "ship-repair" "marine-structure-fabrication" "oil-and-gas-modules"]
+  :factory/source-url "https://mhb.com.my/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/my/ramatex"
+  :factory/display-name "Ramatex Berhad"
+  :factory/country "MY"
+  :factory/isic "C13"
+  :factory/capabilities ["yarn-spinning" "knitted-fabric-production" "textile-dyeing-finishing" "circular-knit-textiles" "vertically-integrated-textiles"]
+  :factory/source-url "https://www.mida.gov.my/success-stories/ramatex/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
