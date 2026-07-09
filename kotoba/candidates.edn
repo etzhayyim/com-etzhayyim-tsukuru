@@ -642,6 +642,24 @@
 ;; corporate family as the existing Feal d.o.o. Široki Brijeg entry (Bosnia) — kept per the
 ;; established country-subsidiary precedent.
 ;; Running total: 1826 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 52 (/loop pass 52): +49 companies, +0 new countries. Deep pass on the next
+;; thinnest-remaining tier of 10 countries (Honduras/Thailand/Lebanon/Kazakhstan/Ethiopia/
+;; Czech-Republic/Senegal/Estonia/Zambia/Guatemala). Senegal yielded only 4 additions, not
+;; 5: a strong Dakarnave (Port of Dakar) shipyard candidate was dropped because its own
+;; sourcing describes it as a pure repair/drydock operation ("repairs 200+ vessels/year"),
+;; which falls under C33 — out of scope by design, same reasoning as the Lufthansa Technik
+;; Malta drop in batch 51. Ethiopia's and Czech Republic's research agents re-confirmed
+;; prior exclusions (Bishoftu Automotive; Česká zbrojovka/STV Group/Excalibur Army cluster)
+;; stay excluded — no re-suggestion this round. One judgment call kept after review: AECI
+;; Mining Explosives (Zambia, C20) manufactures civilian mining/construction blasting
+;; explosives (bulk emulsion, packaged explosives) — a distinct global industry from
+;; weapons/ammunition (same category as Orica/Dyno Nobel), not a hard-exclusion trigger.
+;; Two cross-batch continuations, both kept per the established country-subsidiary
+;; precedent: Kronospan CR (Czech Republic, C16) joins the existing Kronospan Bulgaria and
+;; Kronospan Luxembourg entries as a third distinct plant of the same corporate family;
+;; C&H Garments Senegal (C14) is a distinct physical factory of the same Chinese garment-
+;; manufacturing family as the existing C&H Garments Ltd entry (Rwanda).
+;; Running total: 1875 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -12007,4 +12025,357 @@
   :factory/isic "C27"
   :factory/capabilities ["solar-module-manufacturing" "perc-cell-production" "photovoltaic-panel-assembly" "solar-panel-export"]
   :factory/source-url "https://www.pv-magazine.com/2023/03/10/solarspace-opens-1-2-gw-solar-module-factory-in-cambodia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Honduras — automotive, steel, biodiesel, aquaculture, apparel (C10/C14/C19/C24/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/hn/lear-corporation-honduras"
+  :factory/display-name "Lear Corporation (Honduras operations)"
+  :factory/country "HN"
+  :factory/isic "C29"
+  :factory/capabilities ["automotive-wire-harness-manufacturing" "automotive-seating-manufacturing" "electrical-distribution-systems" "oem-automotive-parts" "wire-assembly"]
+  :factory/source-url "https://sde.gob.hn/2025/03/20/lear-amplia-sus-inversiones-en-honduras-y-genera-mas-empleo/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/aceros-alfa"
+  :factory/display-name "Aceros Alfa, S.A."
+  :factory/country "HN"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-rebar-manufacturing" "hot-rolled-reinforcing-bars" "structural-steel-profiles" "astm-certified-steel" "construction-materials"]
+  :factory/source-url "http://www.acerosalfa.hn/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/biosa-biocombustibles-y-salud"
+  :factory/display-name "Biocombustibles y Salud, S.A. (BIOSA)"
+  :factory/country "HN"
+  :factory/isic "C19"
+  :factory/capabilities ["biodiesel-manufacturing" "palm-oil-derived-fuel" "vitamin-e-extraction" "phytonutrient-production" "renewable-fuel-processing"]
+  :factory/source-url "https://www.laprensa.hn/economia/dineroynegocios/en-construccion-primera-planta-de-biodiesel-y-vitaminas-ISLP970008"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/granjas-marinas-san-bernardo"
+  :factory/display-name "Grupo Granjas Marinas San Bernardo"
+  :factory/country "HN"
+  :factory/isic "C10"
+  :factory/capabilities ["shrimp-aquaculture" "shrimp-processing" "frozen-seafood-export" "asc-certified-farming" "cold-chain-packing"]
+  :factory/source-url "https://www.granjasmarinas.com/site/?lang=en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hn/gildan-honduras"
+  :factory/display-name "Gildan Honduras"
+  :factory/country "HN"
+  :factory/isic "C14"
+  :factory/capabilities ["knit-apparel-manufacturing" "hosiery-manufacturing" "vertically-integrated-textile" "dyeing-finishing" "sewing-cut-and-sew"]
+  :factory/source-url "https://gildancorp.com/en/careers/discover-where-we-work/honduras-operations/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Thailand — beverages, petrochemicals, pharma, cement, compressors (C11/C20/C21/C23/C28) ════════════
+ {:factory/did "candidate:manufacturer-directory/th/thaibev"
+  :factory/display-name "Thai Beverage Public Company Limited (ThaiBev)"
+  :factory/country "TH"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "spirits-distilling" "non-alcoholic-beverages" "bottling" "malt-liquor-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/ThaiBev"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/ptt-global-chemical"
+  :factory/display-name "PTT Global Chemical Public Company Limited (PTTGC)"
+  :factory/country "TH"
+  :factory/isic "C20"
+  :factory/capabilities ["petrochemicals" "olefins-production" "aromatics-production" "plastics-resins" "ethylene-propylene"]
+  :factory/source-url "https://en.wikipedia.org/wiki/PTT_Global_Chemical"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/government-pharmaceutical-organization"
+  :factory/display-name "Government Pharmaceutical Organization (GPO)"
+  :factory/country "TH"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drugs" "tablets-and-capsules" "injectables" "antiretrovirals"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Government_Pharmaceutical_Organization"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/siam-city-cement"
+  :factory/display-name "Siam City Cement Public Company Limited (INSEE)"
+  :factory/country "TH"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "ready-mix-concrete" "construction-aggregates" "clinker-production"]
+  :factory/source-url "https://www.siamcitycement.com/thailand/en/about/company-profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/th/siam-compressor-industry"
+  :factory/display-name "Siam Compressor Industry Co., Ltd. (SCI)"
+  :factory/country "TH"
+  :factory/isic "C28"
+  :factory/capabilities ["hermetic-compressors" "rotary-compressors" "scroll-compressors" "air-conditioning-components" "refrigeration-equipment"]
+  :factory/source-url "https://www.siamcompressor.com/siamcompressor/en/company-profile/vmgo"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Lebanon — dairy, electronics, furniture, textiles, steel (C10/C13/C25/C26/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/lb/liban-lait"
+  :factory/display-name "Liban Lait S.A.L."
+  :factory/country "LB"
+  :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "uht-milk-production" "cheese-manufacturing" "labneh-yogurt-production" "bottling-packaging"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Liban_Lait"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/lsmc"
+  :factory/display-name "LSMC (Lebanese Semiconductors Manufacturing Corporation SARL)"
+  :factory/country "LB"
+  :factory/isic "C26"
+  :factory/capabilities ["pcb-assembly" "smt-electronics-manufacturing" "wire-cable-harness-assembly" "box-build-assembly" "cnc-machining"]
+  :factory/source-url "https://lebsmc.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/k-fleifel-ind"
+  :factory/display-name "K. Fleifel Ind. Co. sarl"
+  :factory/country "LB"
+  :factory/isic "C31"
+  :factory/capabilities ["school-furniture-manufacturing" "office-furniture-manufacturing" "classroom-furniture-fabrication" "storage-shelving-systems"]
+  :factory/source-url "https://www.fleifel.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/jonatex-home"
+  :factory/display-name "Jonatex Home s.a.r.l."
+  :factory/country "LB"
+  :factory/isic "C13"
+  :factory/capabilities ["bed-linen-manufacturing" "bath-linen-towel-production" "table-linen-manufacturing" "hotel-hospital-linens"]
+  :factory/source-url "https://lebanon-industry.com/en/industry/details/8549/Jonatex-Home-sarl"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/lb/dalal-steel-industries"
+  :factory/display-name "Dalal Steel Industries"
+  :factory/country "LB"
+  :factory/isic "C25"
+  :factory/capabilities ["prefabricated-steel-buildings" "sandwich-panel-manufacturing" "modular-construction" "steel-structure-fabrication" "cold-storage-units"]
+  :factory/source-url "https://www.dalalsteel.com/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Kazakhstan — beverages, refining, machinery, solar, railcars (C11/C19/C25/C26/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/kz/efes-karaganda-brewery"
+  :factory/display-name "Efes Karaganda Brewery JSC"
+  :factory/country "KZ"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "bottling" "brewery-manufacturing" "non-alcoholic-beverage-production"]
+  :factory/source-url "https://www.miga.org/project/efes-karaganda-brewery-cjsc"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/atyrau-oil-refinery"
+  :factory/display-name "Atyrau Oil Refinery (ANPZ LLP)"
+  :factory/country "KZ"
+  :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "gasoline-production" "diesel-fuel-production" "jet-fuel-production" "petrochemicals-production"]
+  :factory/source-url "https://www.anpz.kz/en/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/west-kazakhstan-machine-building"
+  :factory/display-name "West Kazakhstan Machine Building Company JSC (ZKMK)"
+  :factory/country "KZ"
+  :factory/isic "C25"
+  :factory/capabilities ["pressure-vessel-manufacturing" "heat-exchanger-production" "oil-and-gas-processing-equipment" "metal-structure-fabrication" "industrial-furnace-manufacturing"]
+  :factory/source-url "https://www.zkmk.kz/about-company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/astana-solar"
+  :factory/display-name "Astana Solar LLP"
+  :factory/country "KZ"
+  :factory/isic "C26"
+  :factory/capabilities ["photovoltaic-module-assembly" "solar-cell-manufacturing" "silicon-wafer-production" "solar-panel-manufacturing"]
+  :factory/source-url "https://www.pv-magazine.com/2013/01/04/kazakhstan-new-plant-opened-in-astana-as-part-of-larger-pv-project_10009718/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kz/tulpar-talgo"
+  :factory/display-name "Tulpar-Talgo LLP"
+  :factory/country "KZ"
+  :factory/isic "C30"
+  :factory/capabilities ["passenger-railcar-manufacturing" "railway-rolling-stock-assembly" "railcar-welding" "rail-vehicle-production"]
+  :factory/source-url "https://rollingstockworld.com/passenger-cars/stadler-receives-a-large-order-for-ktz-coaches-and-acquires-the-tulpar-plant/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Ethiopia — pharma, paper, steel, furniture, plywood (C16/C17/C21/C24/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/et/addis-pharmaceutical-factory"
+  :factory/display-name "Addis Pharmaceutical Factory (APF)"
+  :factory/country "ET"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-and-capsule-production" "injectable-vial-manufacturing" "oral-liquid-syrups" "generic-drug-production"]
+  :factory/source-url "https://africanalpha.com/portfolio-items/addis-pharmaceuticals-apf/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/ethiopian-pulp-and-paper"
+  :factory/display-name "Ethiopian Pulp and Paper S.C."
+  :factory/country "ET"
+  :factory/isic "C17"
+  :factory/capabilities ["paper-manufacturing" "recycled-paper-processing" "corrugated-box-production" "paper-ream-production" "pulp-production"]
+  :factory/source-url "https://eppsc.com.et/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/walia-steel-industry"
+  :factory/display-name "Walia Steel Industry PLC"
+  :factory/country "ET"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "rebar-production" "hollow-section-steel" "sheet-metal-production" "wire-rod-manufacturing"]
+  :factory/source-url "https://capitalethiopia.com/2020/08/23/walia-set-to-open-new-steel-factory/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/finfine-furniture-factory"
+  :factory/display-name "Finfine Furniture Factory (3F)"
+  :factory/country "ET"
+  :factory/isic "C31"
+  :factory/capabilities ["furniture-manufacturing" "sofa-production" "bedroom-furniture" "kitchen-cabinet-production" "wood-furniture-design"]
+  :factory/source-url "https://ethio3f.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/et/dma-plywood-factory"
+  :factory/display-name "DMA Plywood Factory"
+  :factory/country "ET"
+  :factory/isic "C16"
+  :factory/capabilities ["plywood-manufacturing" "wood-processing" "timber-products" "construction-panel-production"]
+  :factory/source-url "https://www.2merkato.com/directory/40002-dma-plywood-factory"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Czech Republic — pharma, tires, steel, paper, wood panels (C16/C17/C21/C22/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/cz/zentiva"
+  :factory/display-name "Zentiva Group, a.s."
+  :factory/country "CZ"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-drugs" "tablet-production" "injectable-medicines" "otc-products"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Zentiva"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/continental-barum"
+  :factory/display-name "Continental Barum s.r.o."
+  :factory/country "CZ"
+  :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-processing" "automotive-tires" "tire-curing" "tread-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Barum_(company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/trinecke-zelezarny"
+  :factory/display-name "Třinecké železárny, a.s. (Moravia Steel Group)"
+  :factory/country "CZ"
+  :factory/isic "C24"
+  :factory/capabilities ["steelmaking" "hot-rolled-steel" "wire-rod-production" "blast-furnace-operations" "seamless-steel-pipes"]
+  :factory/source-url "https://www.trz.cz/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/mondi-steti"
+  :factory/display-name "Mondi Štětí a.s."
+  :factory/country "CZ"
+  :factory/isic "C17"
+  :factory/capabilities ["kraft-paper-production" "pulp-manufacturing" "paper-bag-materials" "packaging-paper" "paper-machine-operations"]
+  :factory/source-url "https://www.mondigroup.com/locations/czech-republic/mondi-steti/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cz/kronospan-cr"
+  :factory/display-name "Kronospan CR, spol. s r.o."
+  :factory/country "CZ"
+  :factory/isic "C16"
+  :factory/capabilities ["wood-based-panels" "particleboard-production" "osb-manufacturing" "laminate-flooring" "mdf-production"]
+  :factory/source-url "https://kronospan.com/en_CZ/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Senegal — tobacco, apparel, pharma/vaccines, buses (C12/C14/C21/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/sn/philip-morris-manufacturing-senegal"
+  :factory/display-name "Philip Morris Manufacturing Senegal (PMMSN)"
+  :factory/country "SN"
+  :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "marlboro-production" "regional-export-packaging"]
+  :factory/source-url "https://www.pmi.com/markets/senegal/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/ch-garments-senegal"
+  :factory/display-name "C&H Garments Senegal S.A."
+  :factory/country "SN"
+  :factory/isic "C14"
+  :factory/capabilities ["garment-manufacturing" "t-shirt-production" "uniform-manufacturing" "apparel-export"]
+  :factory/source-url "https://wwd.com/business-news/business-features/senegal-africa-clothing-manufacturing-ch-1202915285/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/institut-pasteur-de-dakar"
+  :factory/display-name "Institut Pasteur de Dakar"
+  :factory/country "SN"
+  :factory/isic "C21"
+  :factory/capabilities ["vaccine-manufacturing" "yellow-fever-vaccine" "who-prequalified-biologics" "biopharmaceutical-production"]
+  :factory/source-url "https://dcvmn.org/member/institut-pasteur-de-dakar/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sn/senbus-industries"
+  :factory/display-name "Senbus Industries"
+  :factory/country "SN"
+  :factory/isic "C29"
+  :factory/capabilities ["bus-assembly" "minibus-manufacturing" "commercial-truck-assembly" "agricultural-tractor-assembly" "metal-fabrication"]
+  :factory/source-url "https://fr.wikipedia.org/wiki/Senbus_Industries"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Estonia — automotive safety, cement, pulp, rare earths, steel (C17/C23/C24/C25/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/ee/norma-autoliv"
+  :factory/display-name "Norma AS (Autoliv Estonia)"
+  :factory/country "EE"
+  :factory/isic "C29"
+  :factory/capabilities ["automotive-safety-systems" "seatbelt-manufacturing" "airbag-components" "sheet-metal-stamping" "plastic-injection-molding"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Norma_(Estonian_company)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/heidelberg-materials-kunda"
+  :factory/display-name "Heidelberg Materials Kunda AS"
+  :factory/country "EE"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-production" "clinker-grinding" "limestone-aggregates" "construction-materials"]
+  :factory/source-url "https://www.kunda.heidelbergmaterials.ee/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/estonian-cell"
+  :factory/display-name "AS Estonian Cell"
+  :factory/country "EE"
+  :factory/isic "C17"
+  :factory/capabilities ["aspen-pulp-production" "bleached-chemi-thermo-mechanical-pulp" "biogas-production" "pulp-export"]
+  :factory/source-url "https://www.estoniancell.ee/en/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/silmet"
+  :factory/display-name "Silmet AS (NPM Silmet)"
+  :factory/country "EE"
+  :factory/isic "C24"
+  :factory/capabilities ["rare-earth-metal-processing" "niobium-tantalum-production" "rare-earth-oxides" "non-ferrous-metallurgy"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Silmet"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ee/fortaco-estonia"
+  :factory/display-name "Fortaco Estonia OÜ"
+  :factory/country "EE"
+  :factory/isic "C25"
+  :factory/capabilities ["steel-fabrication" "welded-steel-structures" "heavy-machinery-cabins" "cnc-machining" "mobile-equipment-components"]
+  :factory/source-url "https://investinestonia.com/steel-fabrications-producer-fortaco-invests-e10-million-in-narva/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Zambia — automotive, printing, explosives, steel, milling (C10/C18/C20/C24/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/zm/tata-zambia"
+  :factory/display-name "Tata Zambia Limited"
+  :factory/country "ZM"
+  :factory/isic "C29"
+  :factory/capabilities ["bus-manufacturing" "truck-assembly" "commercial-vehicle-production" "bicycle-assembly"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tata_Zambia"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/times-printpak"
+  :factory/display-name "Times Printpak Zambia Limited"
+  :factory/country "ZM"
+  :factory/isic "C18"
+  :factory/capabilities ["newspaper-printing" "commercial-printing" "offset-printing" "print-advertising-production"]
+  :factory/source-url "https://www.idc.co.zm/industry-sectors/transportation-and-logistics-2/times-printpak-zambia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/aeci-mining-explosives"
+  :factory/display-name "AECI Mining Explosives Plc"
+  :factory/country "ZM"
+  :factory/isic "C20"
+  :factory/capabilities ["industrial-explosives-manufacturing" "bulk-emulsion-production" "packaged-explosives" "blasting-initiating-systems"]
+  :factory/source-url "https://en.wikipedia.org/wiki/African_Explosives"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/pdv-metals"
+  :factory/display-name "PDV Metals (Zambia) Limited"
+  :factory/country "ZM"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-rebar-production" "billet-casting" "hot-rolled-steel" "construction-steel-manufacturing"]
+  :factory/source-url "https://english.news.cn/africa/20241109/3f29e17b58c04e99a91569587439df2e/c.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/zm/namilco"
+  :factory/display-name "National Milling Corporation Limited (NAMILCO)"
+  :factory/country "ZM"
+  :factory/isic "C10"
+  :factory/capabilities ["wheat-flour-milling" "maize-meal-production" "rice-processing" "pasta-manufacturing" "animal-feed-production"]
+  :factory/source-url "https://nmc.co.zm/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Guatemala — automotive wiring, steel, furniture, footwear, glass (C15/C23/C24/C29/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/gt/yazaki-guatemala"
+  :factory/display-name "Yazaki Guatemala"
+  :factory/country "GT"
+  :factory/isic "C29"
+  :factory/capabilities ["automotive-wiring-harnesses" "connectors" "power-distribution-modules" "driver-information-displays" "sensor-assembly"]
+  :factory/source-url "https://www.yazaki-na.com/News/1954/yazaki-north-america-celebrates-opening-of-pilot-project-factory-in-guatemala"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/sidegua"
+  :factory/display-name "Siderúrgica de Guatemala, S.A. (SIDEGUA)"
+  :factory/country "GT"
+  :factory/isic "C24"
+  :factory/capabilities ["crude-steel-production" "rebar-manufacturing" "wire-rod" "structural-profiles" "electro-welded-mesh"]
+  :factory/source-url "https://disclosures.ifc.org/project-detail/SPI/7057/siderurgica-de-guatemala-s-a-aceros"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/muebles-continental"
+  :factory/display-name "Muebles Continental, S.A."
+  :factory/country "GT"
+  :factory/isic "C31"
+  :factory/capabilities ["office-furniture-manufacturing" "steel-furniture-fabrication" "filing-cabinets" "reception-desks" "institutional-furniture"]
+  :factory/source-url "https://www.mueblescontinental.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/adelante-shoe-co"
+  :factory/display-name "Adelante Shoe Co."
+  :factory/country "GT"
+  :factory/isic "C15"
+  :factory/capabilities ["leather-footwear" "handcrafted-shoes" "made-to-order-footwear" "artisanal-shoemaking" "small-batch-manufacturing"]
+  :factory/source-url "https://www.themanual.com/fashion/handmade-adelante-shoes-guatemala/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gt/vigua-vidriera-guatemalteca"
+  :factory/display-name "Vidriera Guatemalteca, S.A. (VIGUA)"
+  :factory/country "GT"
+  :factory/isic "C23"
+  :factory/capabilities ["glass-container-manufacturing" "bottle-manufacturing" "pharmaceutical-glass-packaging" "beverage-glass-packaging" "glass-melting"]
+  :factory/source-url "https://grupovical.com/en/vical-vidrieras/vigua/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
