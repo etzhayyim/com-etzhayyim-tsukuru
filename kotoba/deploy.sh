@@ -28,6 +28,17 @@ echo "--> factory registry ingest (:factory/* datoms)"
 python3 "${ACTOR_DIR}/kotoba/ingest_factories.py" --url "${KOTOBA_URL}" --graph "${GRAPH}" \
   $([[ -z "${KOTOBA_TOKEN:-}" ]] && echo --dry-run)
 
+# 0.6 candidate registry projection (public-directory research data, candidates.edn).
+# Deliberately writes to its own graph, never ${GRAPH} — candidates.edn holds
+# non-consented, non-onboarded company research (candidate:manufacturer-directory/...
+# DIDs, :factory/sourcing :public-directory, :factory/labor-provenance :unknown), so it
+# must never land in the same graph as consented did:web members (G10). See
+# ingest_candidates.cljc's assert-not-member-graph! for the hard guard.
+CANDIDATES_GRAPH="${TSUKURU_CANDIDATES_GRAPH:-com.etzhayyim.tsukuru.candidates}"
+echo "--> candidate registry ingest (:factory/* datoms, isolated graph ${CANDIDATES_GRAPH})"
+bb "${ACTOR_DIR}/kotoba/ingest_candidates.cljc" --url "${KOTOBA_URL}" --graph "${CANDIDATES_GRAPH}" \
+  $([[ -z "${KOTOBA_TOKEN:-}" ]] && echo --dry-run)
+
 if [[ -z "${KOTOBA_TOKEN:-}" ]]; then
   echo "--> KOTOBA_TOKEN unset → DRY RUN (no writes). Set an operator AT-session-JWT to ingest."
   python3 "${ACTOR_DIR}/kotoba/ingest_mcp.py" --url "${KOTOBA_URL}" --graph "${GRAPH}" --dry-run
