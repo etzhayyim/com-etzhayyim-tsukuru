@@ -619,6 +619,29 @@
 ;; as the existing Quad/Graphics US entry (C18) — kept as a separate entry per the
 ;; established country-subsidiary precedent (ArcelorMittal, Bata, RR Donnelley, etc.).
 ;; Running total: 1778 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 51 (/loop pass 51): +49 companies, +0 new countries, minus 1 pre-existing entry
+;; removed as a data-quality correction. Deep pass on the next thinnest-remaining tier of
+;; 10 countries (Greece/Croatia/Georgia/Hungary/Qatar/New-Zealand/Cyprus/Albania/Madagascar/
+;; Cambodia). Correction: while pulling Georgia's current roster, found that the existing
+;; entry "JSC Tbilisi Aircraft Manufacturing (Tbilaviamsheni)" (C30) carried an
+;; armored-vehicle-assembly capability tag — verification confirmed its current business is
+;; primarily aircraft repair/overhaul (C33, out of scope by design) plus documented
+;; manufacture of the Didgori APC and Lazika IFV, both ground combat vehicles under this
+;; dataset's exclusion policy. Unlike FAdeA or Aircraft Industries/Let (civilian-primary
+;; aircraft makers kept as precedent), Tbilaviamsheni's current core business is combat
+;; vehicles + repair, so the entry was removed outright rather than edited. Georgia's batch-
+;; 51 research agent was briefed on this and returned 5 clean civilian replacements instead.
+;; Cambodia yielded only 4 additions (agent dropped a fertilizer-JV lead that could not
+;; verify actual production, only import/distribution). Two intentional division-overlap
+;; keeps on strong sourcing: NATEMA (Madagascar, C20, clove-leaf-oil/eugenol chemistry)
+;; alongside the existing Savonnerie Tropicale (soap); Cezanne Printing House (Georgia, C18)
+;; alongside the existing Georgian Packaging Ltd — Cezanne is that company's corporate
+;; parent but a distinct, older entity with a different core product line (book/commercial
+;; printing vs. food-grade paper packaging). One cross-batch continuation: Feal Hrvatska
+;; (Croatia, C24, new EUR 32M Karlovac plant) is a distinct physical plant of the same
+;; corporate family as the existing Feal d.o.o. Široki Brijeg entry (Bosnia) — kept per the
+;; established country-subsidiary precedent.
+;; Running total: 1826 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -4302,12 +4325,6 @@
   :factory/country "CM" :factory/isic "C11"
   :factory/capabilities ["brewing" "bottling" "soft-drink-manufacturing"]
   :factory/source-url "https://en.wikipedia.org/wiki/Boissons_du_Cameroun"
-  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
- {:factory/did "candidate:manufacturer-directory/ge/tbilisi-aircraft-manufacturing"
-  :factory/display-name "JSC Tbilisi Aircraft Manufacturing (Tbilaviamsheni)"
-  :factory/country "GE" :factory/isic "C30"
-  :factory/capabilities ["aircraft-manufacturing" "aerospace-component-production" "armored-vehicle-assembly"]
-  :factory/source-url "https://en.wikipedia.org/wiki/Tbilisi_Aircraft_Manufacturing"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}
  {:factory/did "candidate:manufacturer-directory/kw/gulf-cables-and-electrical-industries"
   :factory/display-name "Gulf Cables & Electrical Industries Group Co. (K.S.C.P.)"
@@ -11637,4 +11654,357 @@
   :factory/isic "C31"
   :factory/capabilities ["wood-furniture-manufacturing" "residential-furniture" "hospitality-furniture" "custom-joinery" "furniture-finishing"]
   :factory/source-url "https://magensa.pe/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Greece — fragrances, tissue paper, wood panels, razors, jewelry (C16/C17/C20/C25/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/gr/vioryl"
+  :factory/display-name "Vioryl S.A."
+  :factory/country "GR"
+  :factory/isic "C20"
+  :factory/capabilities ["essential-oils" "fragrance-compounds" "flavor-manufacturing" "aroma-chemicals" "biopesticide-pheromones"]
+  :factory/source-url "https://www.vioryl.gr/en/history/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/intertrade-hellas-softex"
+  :factory/display-name "Intertrade Hellas S.A. (Softex)"
+  :factory/country "GR"
+  :factory/isic "C17"
+  :factory/capabilities ["tissue-paper-manufacturing" "toilet-paper" "kitchen-roll" "paper-napkins" "facial-tissues"]
+  :factory/source-url "https://intertrade-hellas.gr/en/intertrade-the-largest-greek-paper-processing-industry/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/alfa-wood-group"
+  :factory/display-name "Alfa Wood Group S.A."
+  :factory/country "GR"
+  :factory/isic "C16"
+  :factory/capabilities ["mdf-panels" "chipboard-manufacturing" "melamine-surfaces" "hdf-fiberboard" "wood-flooring"]
+  :factory/source-url "https://alfawood.gr/en/alfa-wood-group-company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/bic-violex"
+  :factory/display-name "BIC Violex S.A."
+  :factory/country "GR"
+  :factory/isic "C25"
+  :factory/capabilities ["razor-manufacturing" "razor-blade-production" "shaving-systems" "disposable-razors" "precision-metal-stamping"]
+  :factory/source-url "https://corporate.bic.com/en-us/news/bic-marks-50-years-of-shaving-innovation"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/gr/zolotas"
+  :factory/display-name "Zolotas"
+  :factory/country "GR"
+  :factory/isic "C32"
+  :factory/capabilities ["gold-jewelry-manufacturing" "fine-jewelry" "granulation-goldsmithing" "silverware" "handcrafted-jewelry"]
+  :factory/source-url "https://www.zolotasjewelry.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Croatia — telecom electronics, glass, furniture, aluminium, printing (C18/C23/C24/C26/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/hr/ericsson-nikola-tesla"
+  :factory/display-name "Ericsson Nikola Tesla d.d."
+  :factory/country "HR"
+  :factory/isic "C26"
+  :factory/capabilities ["telecommunications-equipment" "network-hardware" "electronic-systems-manufacturing" "ict-equipment-production"]
+  :factory/source-url "https://www.ericsson.com/en/about-us/company-facts/ericsson-worldwide/croatia/about-ericsson-nikola-tesla"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/vetropack-straza"
+  :factory/display-name "Vetropack Straža d.d."
+  :factory/country "HR"
+  :factory/isic "C23"
+  :factory/capabilities ["glass-container-manufacturing" "glass-packaging" "bottle-production" "cullet-recycling"]
+  :factory/source-url "https://www.vetropack.com/en/about-us/locations/hum-na-sutli/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/spin-valis"
+  :factory/display-name "Spin Valis d.d."
+  :factory/country "HR"
+  :factory/isic "C31"
+  :factory/capabilities ["solid-oak-furniture" "sawn-timber-production" "edge-glued-panels" "upholstered-seating"]
+  :factory/source-url "https://www.spinvalis.hr/en/o-nama/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/feal-hrvatska"
+  :factory/display-name "Feal Hrvatska d.o.o. (Feal Croatia — Karlovac plant)"
+  :factory/country "HR"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminium-extrusion" "aluminium-profile-production" "facade-systems" "window-door-profiles"]
+  :factory/source-url "https://feal.hr/en/the-first-feal-factory-within-the-eu-and-the-only-factory-of-construction-aluminum-profiles-in-croatia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hr/zrinski"
+  :factory/display-name "Zrinski d.d."
+  :factory/country "HR"
+  :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "book-binding" "offset-printing" "packaging-print"]
+  :factory/source-url "https://www.zrinski.hr/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Georgia — cables, jewelry, printing, plywood, solar panels (C16/C18/C26/C27/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/ge/elvare"
+  :factory/display-name "Elvare (NRG Georgia LLC)"
+  :factory/country "GE"
+  :factory/isic "C27"
+  :factory/capabilities ["electrical-cable-manufacturing" "low-voltage-cable-production" "copper-wire-drawing" "aluminum-cable-production" "insulated-wire-manufacturing"]
+  :factory/source-url "https://elvare.ge/en"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/zarapkhana"
+  :factory/display-name "Zarapkhana"
+  :factory/country "GE"
+  :factory/isic "C32"
+  :factory/capabilities ["gold-jewelry-manufacturing" "silver-jewelry-production" "precious-metal-casting" "custom-jewelry-design"]
+  :factory/source-url "https://zarapkhana.ge/en/about-us/history"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/cezanne-printing-house"
+  :factory/display-name "Cezanne Ltd (Cezanne Printing House)"
+  :factory/country "GE"
+  :factory/isic "C18"
+  :factory/capabilities ["offset-book-printing" "magazine-printing" "commercial-printing" "packaging-printing" "publishing-production"]
+  :factory/source-url "https://cezanne.ge/projects"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/palati-2022"
+  :factory/display-name "Palati 2022 LLC"
+  :factory/country "GE"
+  :factory/isic "C16"
+  :factory/capabilities ["plywood-manufacturing" "birch-veneer-processing" "hardwood-plywood-production" "wood-panel-manufacturing"]
+  :factory/source-url "https://citymarket.ge/ka/blog/83/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ge/ae-solar-georgia"
+  :factory/display-name "AE Solar LLC (Georgian branch of AE Solar GmbH)"
+  :factory/country "GE"
+  :factory/isic "C26"
+  :factory/capabilities ["photovoltaic-module-manufacturing" "solar-panel-assembly" "pv-module-production" "robotic-assembly-line-production"]
+  :factory/source-url "https://www.pv-magazine.com/2019/05/21/ae-solar-inaugurates-500-mw-module-factory-in-georgia/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Hungary — meat processing, chemicals, wood panels, aluminium, light aircraft (C10/C16/C20/C24/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/hu/pick-szeged"
+  :factory/display-name "Pick Szeged Zrt."
+  :factory/country "HU"
+  :factory/isic "C10"
+  :factory/capabilities ["meat-processing" "salami-production" "cured-meats" "sausage-manufacturing" "slaughtering"]
+  :factory/source-url "https://pick.hu/en/the-pick-brand/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/wanhua-borsodchem"
+  :factory/display-name "Wanhua-BorsodChem Zrt."
+  :factory/country "HU"
+  :factory/isic "C20"
+  :factory/capabilities ["isocyanates-production" "mdi-tdi-manufacturing" "pvc-resins" "chlor-alkali-chemicals" "polyurethane-raw-materials"]
+  :factory/source-url "https://borsodchem.com/en/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/swiss-krono-hungary"
+  :factory/display-name "SWISS KRONO Kft. (Hungary)"
+  :factory/country "HU"
+  :factory/isic "C16"
+  :factory/capabilities ["osb-board-manufacturing" "engineered-wood-panels" "wood-panel-production" "continuous-press-pressing"]
+  :factory/source-url "https://www.swisskrono.com/hu-en/about-us/swiss-krono-hungary/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/inotal"
+  :factory/display-name "INOTAL Alumínium- és Salakfeldolgozó Zrt."
+  :factory/country "HU"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminium-rolling" "wire-rod-production" "wire-drawing" "aluminium-slugs" "non-ferrous-metal-processing"]
+  :factory/source-url "https://inotal.hu/en/inotal-en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hu/magnus-aircraft"
+  :factory/display-name "Magnus Aircraft Zrt."
+  :factory/country "HU"
+  :factory/isic "C30"
+  :factory/capabilities ["light-aircraft-manufacturing" "composite-aircraft-production" "sport-aircraft" "training-aircraft" "electric-aircraft"]
+  :factory/source-url "https://magnusaircraft.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Qatar — beverages, pharma, shipyard, medical devices, concrete pipes (C11/C21/C23/C30/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/qa/coca-cola-bottling-plant-doha"
+  :factory/display-name "Coca-Cola Bottling Plant Doha (Al Mana Group)"
+  :factory/country "QA"
+  :factory/isic "C11"
+  :factory/capabilities ["carbonated-soft-drinks" "pet-bottle-manufacturing" "bottled-water" "juice-bottling" "beverage-filling"]
+  :factory/source-url "https://thepeninsulaqatar.com/article/11/10/2016/Coca-Cola-opens-bottling-plant-in-Qatar"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/qatar-pharma"
+  :factory/display-name "Qatar Pharma for Pharmaceutical Industries"
+  :factory/country "QA"
+  :factory/isic "C21"
+  :factory/capabilities ["intravenous-solutions" "pharmaceutical-manufacturing" "ampoules" "dialysis-solutions" "generic-medicines"]
+  :factory/source-url "https://www.gulf-times.com/article/722164/qatar/qatars-pharma-industry-powers-through-regional-uncertainty/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/nakilat-keppel-nkom"
+  :factory/display-name "Nakilat-Keppel Offshore & Marine (N-KOM)"
+  :factory/country "QA"
+  :factory/isic "C30"
+  :factory/capabilities ["ship-repair" "ship-conversion" "offshore-fabrication" "marine-construction" "drydocking"]
+  :factory/source-url "https://www.nakilat.com/services/ship-repair-offshore-construction/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/qatari-german-medical-devices"
+  :factory/display-name "Qatari German Company for Medical Devices (QGMD)"
+  :factory/country "QA"
+  :factory/isic "C32"
+  :factory/capabilities ["disposable-syringes" "insulin-syringes" "iv-cannulas" "hypodermic-needles" "medical-device-manufacturing"]
+  :factory/source-url "https://www.qgmd.com/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/qa/advanced-pipes-and-casts"
+  :factory/display-name "Advanced Pipes and Casts Co. W.L.L. (APC)"
+  :factory/country "QA"
+  :factory/isic "C23"
+  :factory/capabilities ["reinforced-concrete-pipes" "concrete-box-culverts" "grp-pipes" "precast-manholes" "infrastructure-piping"]
+  :factory/source-url "https://www.aamal.com.qa/en/media/press-releases/aamal-subsidiary-advanced-pipes-and-casts-company-launches-commercial"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ New Zealand — pulp, printing, pharma, rubber, cement (C17/C18/C21/C22/C23) ════════════
+ {:factory/did "candidate:manufacturer-directory/nz/oji-fibre-solutions"
+  :factory/display-name "Oji Fibre Solutions"
+  :factory/country "NZ"
+  :factory/isic "C17"
+  :factory/capabilities ["kraft-pulp-manufacturing" "paper-manufacturing" "corrugated-packaging-materials" "pulp-mill-operations"]
+  :factory/source-url "https://ojifs.com/pulp/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/douglas-pharmaceuticals"
+  :factory/display-name "Douglas Pharmaceuticals"
+  :factory/country "NZ"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "generic-medicine-production" "over-the-counter-drug-manufacturing" "contract-manufacturing"]
+  :factory/source-url "https://www.douglas.co.nz/douglas-manufacturing"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/skellerup-holdings"
+  :factory/display-name "Skellerup Holdings"
+  :factory/country "NZ"
+  :factory/isic "C22"
+  :factory/capabilities ["rubber-products-manufacturing" "dairy-rubberware" "gumboot-manufacturing" "industrial-seals-and-components"]
+  :factory/source-url "https://www.skellerup.co.nz/about/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/golden-bay-cement"
+  :factory/display-name "Golden Bay Cement (Fletcher Building)"
+  :factory/country "NZ"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "concrete-materials" "low-carbon-cement"]
+  :factory/source-url "https://www.goldenbay.co.nz/about-us/our-profile"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/nz/blue-star-group"
+  :factory/display-name "Blue Star Group"
+  :factory/country "NZ"
+  :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "packaging-manufacturing" "corrugated-carton-production" "print-finishing"]
+  :factory/source-url "https://www.bluestar.co.nz/what-we-do/packaging/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Cyprus — powerboats, aluminium, electronics, pharma, wood panels (C16/C21/C24/C26/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/cy/karnic-powerboats"
+  :factory/display-name "Karnic Powerboats Ltd"
+  :factory/country "CY"
+  :factory/isic "C30"
+  :factory/capabilities ["powerboat-manufacturing" "fiberglass-hull-construction" "sports-boat-production" "cabin-cruiser-manufacturing"]
+  :factory/source-url "https://www.karnicboats.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/muskita-aluminium"
+  :factory/display-name "MUSKITA Aluminium Industries Ltd"
+  :factory/country "CY"
+  :factory/isic "C24"
+  :factory/capabilities ["aluminium-extrusion" "anodizing" "electrostatic-powder-coating" "aluminium-profile-manufacturing"]
+  :factory/source-url "https://muskita.com.cy/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/a2u"
+  :factory/display-name "A2U Ltd"
+  :factory/country "CY"
+  :factory/isic "C26"
+  :factory/capabilities ["pcb-assembly" "contract-electronics-manufacturing" "cnc-sheet-metal-manufacturing" "electromechanical-integration"]
+  :factory/source-url "https://www.a2-u.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/remedica"
+  :factory/display-name "Remedica Ltd"
+  :factory/country "CY"
+  :factory/isic "C21"
+  :factory/capabilities ["generic-drug-manufacturing" "tablet-and-capsule-production" "oncology-drug-manufacturing" "antibiotic-manufacturing"]
+  :factory/source-url "https://www.remedica.eu/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/cy/cyprus-forest-industries"
+  :factory/display-name "Cyprus Forest Industries Public Ltd (CFI)"
+  :factory/country "CY"
+  :factory/isic "C16"
+  :factory/capabilities ["chipboard-manufacturing" "mdf-production" "melamine-faced-board" "plywood-and-veneer" "wood-panel-manufacturing"]
+  :factory/source-url "https://www.cfi.com.cy/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Albania — food, cosmetics, pharma, packaging machinery, jewelry (C10/C20/C21/C28/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/al/miell-tirana"
+  :factory/display-name "Miell Tirana S.A."
+  :factory/country "AL"
+  :factory/isic "C10"
+  :factory/capabilities ["flour-milling" "grain-processing" "wheat-milling" "food-manufacturing" "industrial-silo-storage"]
+  :factory/source-url "https://www.mielltirana.com/en/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/nenna-manufactory"
+  :factory/display-name "Nenna Manufactory"
+  :factory/country "AL"
+  :factory/isic "C20"
+  :factory/capabilities ["natural-cosmetics-manufacturing" "soap-production" "skincare-production" "co2-extraction-processing"]
+  :factory/source-url "https://nenna.al/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/profarma"
+  :factory/display-name "Profarma Sh.a"
+  :factory/country "AL"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-production" "capsule-production" "injection-solution-production" "gmp-factory"]
+  :factory/source-url "https://www.profarma.al/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/alkanel-automation"
+  :factory/display-name "Alkanel Automation"
+  :factory/country "AL"
+  :factory/isic "C28"
+  :factory/capabilities ["packaging-machinery-manufacturing" "food-processing-equipment" "industrial-automation-equipment" "machine-design-and-production"]
+  :factory/source-url "https://alkanel.al/en/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/al/arjp"
+  :factory/display-name "Albania Refinery and Jewellery Production (ARJP)"
+  :factory/country "AL"
+  :factory/isic "C32"
+  :factory/capabilities ["gold-jewelry-manufacturing" "silver-jewelry-manufacturing" "precious-metal-refining" "jewelry-casting"]
+  :factory/source-url "https://arjp.al/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Madagascar — vehicles, pharma, printing, furniture, essential oils (C18/C20/C21/C29/C31) ════════════
+ {:factory/did "candidate:manufacturer-directory/mg/karenjy"
+  :factory/display-name "Karenjy"
+  :factory/country "MG"
+  :factory/isic "C29"
+  :factory/capabilities ["automobile-manufacturing" "off-road-vehicle-assembly" "fiberglass-composite-body-fabrication" "custom-vehicle-fabrication" "handmade-small-batch-production"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Karenjy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/pharmalagasy"
+  :factory/display-name "Pharmalagasy (formerly OFAFA)"
+  :factory/country "MG"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "capsule-and-tablet-production" "bottling-lines" "plant-based-drug-formulation" "phytomedicine-extraction"]
+  :factory/source-url "https://www.aa.com.tr/fr/afrique/madagascar-se-dote-d-un-nouveau-laboratoire-pharmaceutique-/1886542"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/niag"
+  :factory/display-name "NIAG (Nouvelle Imprimerie des Arts Graphiques)"
+  :factory/country "MG"
+  :factory/isic "C18"
+  :factory/capabilities ["commercial-printing" "offset-printing" "graphic-arts-production" "publication-printing" "quality-certified-print-manufacturing"]
+  :factory/source-url "https://simmadagascar.mg/nos-membres/niag-groupe-andriantsitohaina/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/hazovato"
+  :factory/display-name "Hazovato"
+  :factory/country "MG"
+  :factory/isic "C31"
+  :factory/capabilities ["custom-furniture-manufacturing" "precious-wood-processing" "architectural-joinery-and-doors" "stone-fabrication" "prefabricated-concrete-elements"]
+  :factory/source-url "https://www.hazovato.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mg/natema"
+  :factory/display-name "NATEMA (Natural Extracts Madagascar)"
+  :factory/country "MG"
+  :factory/isic "C20"
+  :factory/capabilities ["clove-leaf-oil-processing" "eugenol-production" "essential-oil-derivatives" "natural-fragrance-ingredient-manufacturing" "industrial-distillation"]
+  :factory/source-url "https://www.givaudan.com/media/media-releases/2016/givaudan-inaugurates-new-plant-processing-natural-ingredients-madagascar"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Cambodia — rice milling, packaging, pharma, solar panels (C10/C17/C21/C27) ════════════
+ {:factory/did "candidate:manufacturer-directory/kh/amru-rice"
+  :factory/display-name "Amru Rice (Cambodia) Co., Ltd."
+  :factory/country "KH"
+  :factory/isic "C10"
+  :factory/capabilities ["rice-milling" "rice-processing" "organic-rice-export" "rice-bran-processing" "contract-farming-integration"]
+  :factory/source-url "https://amrurice.com.kh/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/oji-packaging-cambodia"
+  :factory/display-name "OJI Packaging (Cambodia) Co., Ltd."
+  :factory/country "KH"
+  :factory/isic "C17"
+  :factory/capabilities ["corrugated-carton-manufacturing" "corrugated-board-production" "die-cut-packaging" "carton-printing"]
+  :factory/source-url "https://hartapack.com/about-us/subsidiary-profile/oji-packaging-cambodia-limited/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/ppm-pharma-product-manufacturing"
+  :factory/display-name "PPM (Pharma Product Manufacturing) Co., Ltd."
+  :factory/country "KH"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "antibiotics-production" "generic-medicines" "gmp-certified-production"]
+  :factory/source-url "https://ppmpharma.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/kh/lq-new-energy-solarspace"
+  :factory/display-name "L-Q New Energy Co., Ltd. (Solarspace)"
+  :factory/country "KH"
+  :factory/isic "C27"
+  :factory/capabilities ["solar-module-manufacturing" "perc-cell-production" "photovoltaic-panel-assembly" "solar-panel-export"]
+  :factory/source-url "https://www.pv-magazine.com/2023/03/10/solarspace-opens-1-2-gw-solar-module-factory-in-cambodia/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
