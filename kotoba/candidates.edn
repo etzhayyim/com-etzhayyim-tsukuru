@@ -749,6 +749,21 @@
 ;; subsidiary entry — both pairs already had sufficiently distinct display names, no
 ;; validator near-duplicate issue this round.
 ;; Running total: 2071 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
+;; Batch 57 (/loop pass 57): +48 companies, +0 new countries. First deep pass on a fresh
+;; tier of 10 countries not recently touched (El-Salvador/Hong-Kong/Mexico/Austria/
+;; Rwanda/Jamaica/Singapore/Turkey/Dominican-Republic/Canada). Hong Kong and Singapore
+;; each yielded only 4 additions, not 5: both research agents independently surfaced a
+;; C33-classified pure-MRO candidate (Hongkong United Dockyards; SIA Engineering
+;; Company) which were dropped, consistent with the established C33-out-of-scope-by-
+;; design precedent (Lufthansa Technik Malta/MIAT Technics/Dakarnave/Saudia Technic).
+;; Turkey's agent independently excluded Sedef Shipyard over its TCG Anadolu naval
+;; carrier/LHD build, consistent with the combat-vessel exclusion policy. Two cross-
+;; batch continuations kept per the country-subsidiary precedent, both with names
+;; already distinct enough to clear the validator: Şişecam (Turkey, C23, glass — the
+;; parent company) alongside the existing Şişecam Soda Lukavac entry (Bosnia, C20,
+;; soda-ash chemicals subsidiary); Irving Oil Limited (Canada, C19, the parent/HQ)
+;; alongside the existing Irving Oil Whitegate Refinery entry (Ireland subsidiary).
+;; Running total: 2119 companies / 106 countries / 23 ISIC divisions, zero duplicate DIDs.
 
 [;; ════════════ Japan — precision machining / robotics / electronics (C25/C26/C28) ════════════
  {:factory/did "candidate:manufacturer-directory/jp/fanuc-corporation"
@@ -13880,4 +13895,350 @@
   :factory/isic "C26"
   :factory/capabilities ["smartphone-manufacturing" "electronics-assembly" "mobile-device-production" "consumer-electronics"]
   :factory/source-url "https://www.vietnam-briefing.com/news/where-are-samsungs-factories-in-vietnam.html/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ El Salvador — cement, pharma, household goods, chemicals, food (C10/C20/C21/C23/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/sv/holcim-el-salvador"
+  :factory/display-name "Holcim El Salvador, S.A. de C.V."
+  :factory/country "SV"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "concrete-production" "limestone-quarrying" "cement-bagging"]
+  :factory/source-url "https://www.holcim.com.sv/ubicaciones"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/laboratorios-lopez"
+  :factory/display-name "Laboratorios López, S.A. de C.V."
+  :factory/country "SV"
+  :factory/isic "C21"
+  :factory/capabilities ["pharmaceutical-manufacturing" "tablet-production" "injectable-solutions" "syrup-and-liquid-formulation" "generic-medicines"]
+  :factory/source-url "https://historico.elsalvador.com/historico/523733/laboratorios-lopez-amplia-planta-de-produccion-con-una-inversion-de-8-millones.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/industrias-pichinte"
+  :factory/display-name "Industrias Pichinte"
+  :factory/country "SV"
+  :factory/isic "C32"
+  :factory/capabilities ["broom-manufacturing" "plastic-brush-production" "mop-manufacturing" "rake-manufacturing" "household-cleaning-tools"]
+  :factory/source-url "https://connectamericas.com/company/industrias-pichinte-fabrica-de-escobas-y-sombreros"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/unilever-centroamerica"
+  :factory/display-name "Unilever de Centroamérica, S.A. de C.V."
+  :factory/country "SV"
+  :factory/isic "C20"
+  :factory/capabilities ["detergent-manufacturing" "soap-and-cleaning-products" "chemical-formulation" "consumer-goods-manufacturing" "laundry-care-products"]
+  :factory/source-url "https://historico.elsalvador.com/historico/104283/detergente-y-margarina-la-formula-millonaria-de-unilever.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sv/calvo-conservas"
+  :factory/display-name "Calvo Conservas El Salvador (Grupo Calvo)"
+  :factory/country "SV"
+  :factory/isic "C10"
+  :factory/capabilities ["tuna-canning" "fish-loin-processing" "fish-meal-production" "seafood-packaging" "cold-chain-food-processing"]
+  :factory/source-url "https://www.elsalvador.com/h-destacados/grupo-calvo-ha-invertido-163-millones-en-sus-20-anos-de-operaciones-el-salvador/1095818/2023/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Hong Kong — cement, steel, beverages, dairy (C10/C11/C23/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/hk/green-island-cement"
+  :factory/display-name "Green Island Cement Company Limited"
+  :factory/country "HK"
+  :factory/isic "C23"
+  :factory/capabilities ["cement-manufacturing" "clinker-production" "portland-cement" "ready-mixed-concrete" "limestone-quarrying"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Green_Island_Cement"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/shiu-wing-steel"
+  :factory/display-name "Shiu Wing Steel Limited"
+  :factory/country "HK"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-rebar-manufacturing" "hot-rolled-steel" "wire-mesh-fabrication" "steel-recycling" "construction-steel-products"]
+  :factory/source-url "https://www.shiuwingsteel.com/our-company"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/san-miguel-brewery-hong-kong"
+  :factory/display-name "San Miguel Brewery Hong Kong Limited"
+  :factory/country "HK"
+  :factory/isic "C11"
+  :factory/capabilities ["beer-brewing" "malt-beverage-production" "canning-bottling" "fermentation-processing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/San_Miguel_Brewery_Hong_Kong"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/hk/kowloon-dairy"
+  :factory/display-name "Kowloon Dairy Limited"
+  :factory/country "HK"
+  :factory/isic "C10"
+  :factory/capabilities ["dairy-processing" "fresh-milk-production" "ice-cream-manufacturing" "yogurt-production" "milk-pasteurization"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Kowloon_Dairy"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Mexico — tires, ladders, rail vehicles, tobacco, medical devices (C12/C22/C25/C30/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/mx/jk-tornel"
+  :factory/display-name "JK Tornel, S.A. de C.V."
+  :factory/country "MX"
+  :factory/isic "C22"
+  :factory/capabilities ["tire-manufacturing" "rubber-products" "automotive-tires" "tire-molds" "retreading"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Tornel"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/grupo-cuprum"
+  :factory/display-name "Grupo Cuprum, S.A. de C.V."
+  :factory/country "MX"
+  :factory/isic "C25"
+  :factory/capabilities ["aluminum-extrusion" "ladder-manufacturing" "aluminum-profiles" "scaffolding" "fabricated-metal-products"]
+  :factory/source-url "https://escalerascuprum.com/empresa"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/caf-mexico"
+  :factory/display-name "CAF México, S.A. de C.V."
+  :factory/country "MX"
+  :factory/isic "C30"
+  :factory/capabilities ["railway-rolling-stock" "train-manufacturing" "metro-cars" "rail-vehicle-assembly" "light-rail-vehicles"]
+  :factory/source-url "https://www.manufacturingsitesearch.com/en/article/caf-mexico-builds-trains-for-the-philippines"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/bat-mexico"
+  :factory/display-name "British American Tobacco México, S.A. de C.V."
+  :factory/country "MX"
+  :factory/isic "C12"
+  :factory/capabilities ["cigarette-manufacturing" "tobacco-processing" "tobacco-products" "export-manufacturing"]
+  :factory/source-url "https://www.batmexico.com.mx/quienes-somos/nuestra-empresa/historia-british-american-tobacco-mexico"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/mx/medtronic-mexico"
+  :factory/display-name "Medtronic México, S. de R.L. de C.V. (Tijuana)"
+  :factory/country "MX"
+  :factory/isic "C32"
+  :factory/capabilities ["medical-device-manufacturing" "surgical-instruments" "precision-manufacturing" "cardiac-devices" "medical-technology"]
+  :factory/source-url "https://tijuanaedc.org/medtronic-in-tijuana-success-in-medical-manufacturing/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Austria — steel, beverages, food, refining, fibers (C10/C11/C19/C20/C24) ════════════
+ {:factory/did "candidate:manufacturer-directory/at/voestalpine"
+  :factory/display-name "voestalpine AG"
+  :factory/country "AT"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-manufacturing" "special-steel" "railway-turnouts" "automotive-steel-components" "tool-steel"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Voestalpine"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/red-bull"
+  :factory/display-name "Red Bull GmbH"
+  :factory/country "AT"
+  :factory/isic "C11"
+  :factory/capabilities ["energy-drinks" "canned-beverages" "beverage-filling-and-packaging" "soft-drink-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Red_Bull_GmbH"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/agrana"
+  :factory/display-name "AGRANA Beteiligungs-AG"
+  :factory/country "AT"
+  :factory/isic "C10"
+  :factory/capabilities ["sugar-manufacturing" "starch-products" "fruit-preparations" "juice-concentrate" "bioethanol"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Agrana"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/omv-schwechat-refinery"
+  :factory/display-name "OMV AG (Schwechat Refinery)"
+  :factory/country "AT"
+  :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "fuels-production" "petrochemical-feedstocks" "sustainable-aviation-fuel" "lubricant-base-oils"]
+  :factory/source-url "https://www.omv.com/en/media/press-releases/2018/omv-schwechat-refinery-turns-60"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/at/lenzing"
+  :factory/display-name "Lenzing AG"
+  :factory/country "AT"
+  :factory/isic "C20"
+  :factory/capabilities ["viscose-fiber" "lyocell-fiber-tencel" "modal-fiber" "cellulosic-textile-fibers" "filament-yarn"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Lenzing_AG"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Rwanda — vehicle assembly, pharma, medical supplies, personal care, food (C10/C20/C21/C29/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/rw/volkswagen-mobility-solutions"
+  :factory/display-name "Volkswagen Mobility Solutions Rwanda"
+  :factory/country "RW"
+  :factory/isic "C29"
+  :factory/capabilities ["vehicle-assembly" "semi-knockdown-assembly" "automotive-manufacturing" "electric-vehicle-pilot-production"]
+  :factory/source-url "https://www.volkswagen-newsroom.com/en/press-releases/new-market-potentials-in-africa-volkswagen-founds-company-for-mobility-solutions-in-rwanda-661"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/apex-biotech"
+  :factory/display-name "Apex Biotech Ltd"
+  :factory/country "RW"
+  :factory/isic "C21"
+  :factory/capabilities ["tablet-manufacturing" "capsule-manufacturing" "oral-rehydration-therapy" "generic-pharmaceuticals"]
+  :factory/source-url "https://www.newtimes.co.rw/article/152421/News/apex-biotech-to-open-18-million-drug-plant-in-kigali"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/pharmalab"
+  :factory/display-name "PharmaLab Ltd"
+  :factory/country "RW"
+  :factory/isic "C32"
+  :factory/capabilities ["medical-consumables" "blood-collection-tubes" "specimen-containers" "surgical-face-masks"]
+  :factory/source-url "https://rwandadispatch.com/pharmalab-rwandan-pharmaceutical-targets-massive-regional-market/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/rk-industries-pro-smile"
+  :factory/display-name "RK Industries Ltd (Pro Smile Toothpaste Factory)"
+  :factory/country "RW"
+  :factory/isic "C20"
+  :factory/capabilities ["toothpaste-manufacturing" "oral-care-products" "personal-care-products"]
+  :factory/source-url "https://www.minicom.gov.rw/news-detail/a-first-ever-toothpaste-industry-in-rwanda-launched-in-kigali-special-economic-zone"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/rw/africa-improved-foods"
+  :factory/display-name "Africa Improved Foods (AIF) Rwanda Limited"
+  :factory/country "RW"
+  :factory/isic "C10"
+  :factory/capabilities ["fortified-porridge-flour" "cereal-based-food-processing" "infant-nutrition-products" "maize-and-soy-milling"]
+  :factory/source-url "https://africaimprovedfoods.com/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Jamaica — coffee, vehicle bodies, household goods, ice cream, foam (C10/C22/C29/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/jm/mavis-bank-coffee-factory"
+  :factory/display-name "Mavis Bank Coffee Factory Limited (Jablum)"
+  :factory/country "JM"
+  :factory/isic "C10"
+  :factory/capabilities ["coffee-processing" "coffee-roasting" "coffee-milling" "blue-mountain-coffee-production" "green-bean-grading"]
+  :factory/source-url "https://www.jamaicaobserver.com/2023/08/22/100-years-of-mavis-bank-coffee-factory/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/thompsons-metal-works"
+  :factory/display-name "Thompson's & Company Metal Works Limited"
+  :factory/country "JM"
+  :factory/isic "C29"
+  :factory/capabilities ["truck-body-fabrication" "van-body-manufacturing" "steel-tank-fabrication" "metal-fabrication" "tailgate-lift-installation"]
+  :factory/source-url "https://jmea.org/company_details/thompsons-company-metal-works-limited/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/fleetwood-jamaica"
+  :factory/display-name "Fleetwood Jamaica Limited"
+  :factory/country "JM"
+  :factory/isic "C32"
+  :factory/capabilities ["paint-brush-manufacturing" "paint-roller-manufacturing" "mop-manufacturing" "household-brush-production" "wall-filler-production"]
+  :factory/source-url "https://www.jamaicaobserver.com/2023/07/18/fleetwood-paving-the-way-for-brighter-future/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/caribbean-cream-kremi"
+  :factory/display-name "Caribbean Cream Limited (Kremi)"
+  :factory/country "JM"
+  :factory/isic "C10"
+  :factory/capabilities ["ice-cream-manufacturing" "dairy-processing" "frozen-dessert-production" "ice-cream-cake-production"]
+  :factory/source-url "https://caribcream.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/jm/polyflex-foam"
+  :factory/display-name "Polyflex Foam Limited"
+  :factory/country "JM"
+  :factory/isic "C22"
+  :factory/capabilities ["polyurethane-foam-manufacturing" "foam-bedding-production" "foam-insulation" "protective-packaging-foam" "furniture-cushioning-foam"]
+  :factory/source-url "https://polyflexfoam.com/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Singapore — steel, wood products, aircraft engines, semiconductors (C16/C24/C26/C30) ════════════
+ {:factory/did "candidate:manufacturer-directory/sg/natsteel"
+  :factory/display-name "NatSteel Holdings Pte Ltd"
+  :factory/country "SG"
+  :factory/isic "C24"
+  :factory/capabilities ["steel-billet-production" "rebar-manufacturing" "electric-arc-furnace-steelmaking" "scrap-metal-recycling" "downstream-steel-fabrication"]
+  :factory/source-url "https://www.natsteel.com.sg/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/lht-holdings"
+  :factory/display-name "LHT Holdings Limited"
+  :factory/country "SG"
+  :factory/isic "C16"
+  :factory/capabilities ["wooden-pallet-manufacturing" "wood-crate-fabrication" "wood-waste-recycling" "timber-processing" "packaging-solutions"]
+  :factory/source-url "https://www.lht.com.sg/about-us/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/rolls-royce-singapore"
+  :factory/display-name "Rolls-Royce Singapore Pte Ltd (Seletar)"
+  :factory/country "SG"
+  :factory/isic "C30"
+  :factory/capabilities ["aircraft-engine-assembly" "engine-testing" "wide-chord-fan-blade-manufacturing" "aerospace-component-manufacturing"]
+  :factory/source-url "https://www.rolls-royce.com/media/press-releases-archive/yr-2012/120213-seletar-opening.aspx"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/sg/micron-semiconductor-asia"
+  :factory/display-name "Micron Semiconductor Asia Pte Ltd"
+  :factory/country "SG"
+  :factory/isic "C26"
+  :factory/capabilities ["nand-flash-manufacturing" "wafer-fabrication" "memory-chip-production" "semiconductor-packaging"]
+  :factory/source-url "https://www.edb.gov.sg/en/about-edb/media-releases-publications/micron-breaks-ground-on-advanced-wafer-fab-in-singapore.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Turkey — glass, agricultural machinery, jewelry, paper, cables (C17/C23/C27/C28/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/tr/sisecam"
+  :factory/display-name "Şişecam (Türkiye Şişe ve Cam Fabrikaları A.Ş.)"
+  :factory/country "TR"
+  :factory/isic "C23"
+  :factory/capabilities ["glass-packaging" "flat-glass" "glassware-manufacturing" "glass-fiber" "soda-ash-chemicals"]
+  :factory/source-url "https://www.sisecam.com/en/sisecam-at-a-glance"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/turktraktor"
+  :factory/display-name "TürkTraktör (Türk Traktör ve Ziraat Makineleri A.Ş.)"
+  :factory/country "TR"
+  :factory/isic "C28"
+  :factory/capabilities ["tractor-manufacturing" "agricultural-machinery" "diesel-engines" "construction-machinery" "backhoe-loaders"]
+  :factory/source-url "https://www.turktraktor.com.tr/about-us/who-are-we"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/atasay-kuyumculuk"
+  :factory/display-name "Atasay Kuyumculuk Sanayi ve Ticaret A.Ş."
+  :factory/country "TR"
+  :factory/isic "C32"
+  :factory/capabilities ["jewelry-manufacturing" "gold-jewelry" "diamond-jewelry" "silverware-manufacturing"]
+  :factory/source-url "https://www.emis.com/php/company-profile/TR/Atasay_Kuyumculuk_AS_en_3329123.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/viking-kagit"
+  :factory/display-name "Viking Kağıt ve Selüloz A.Ş."
+  :factory/country "TR"
+  :factory/isic "C17"
+  :factory/capabilities ["tissue-paper" "toilet-paper-manufacturing" "paper-towels" "napkins" "recycled-fiber-paper"]
+  :factory/source-url "https://www.viking.com.tr/en/about-us.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/tr/turk-prysmian-kablo"
+  :factory/display-name "Türk Prysmian Kablo ve Sistemleri A.Ş."
+  :factory/country "TR"
+  :factory/isic "C27"
+  :factory/capabilities ["power-cables" "telecom-cables" "energy-cable-systems" "wire-manufacturing"]
+  :factory/source-url "https://tr.prysmian.com/en/company/prysmian-group-in-turkey"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Dominican Republic — nickel smelting, electronics, medical devices, electrical equip, cacao (C10/C24/C26/C27/C32) ════════════
+ {:factory/did "candidate:manufacturer-directory/do/falcondo"
+  :factory/display-name "Falcondo (Falconbridge Dominicana, S.A.)"
+  :factory/country "DO"
+  :factory/isic "C24"
+  :factory/capabilities ["ferronickel-smelting" "nickel-mining" "non-ferrous-metallurgy" "metal-refining" "iron-nickel-alloy-production"]
+  :factory/source-url "https://falcondo.do/us.php"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/fenix-manufacturing-solutions"
+  :factory/display-name "Fenix Manufacturing Solutions"
+  :factory/country "DO"
+  :factory/isic "C26"
+  :factory/capabilities ["electronics-contract-manufacturing" "pcb-assembly" "printed-circuit-boards" "ignition-systems-manufacturing" "engine-electronics"]
+  :factory/source-url "https://fenix-mfg.com/company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/nissha-medical-technologies"
+  :factory/display-name "Nissha Medical Technologies — Dominican Republic"
+  :factory/country "DO"
+  :factory/isic "C32"
+  :factory/capabilities ["medical-device-assembly" "catheter-component-manufacturing" "ultrasonic-welding" "injection-molding" "ecg-electrode-manufacturing"]
+  :factory/source-url "https://www.nisshamedical.com/en/our-locations/dominican-republic/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/eaton-dominicana"
+  :factory/display-name "Eaton Dominicana"
+  :factory/country "DO"
+  :factory/isic "C27"
+  :factory/capabilities ["circuit-breaker-manufacturing" "fuse-manufacturing" "switchgear-assembly" "electrical-distribution-equipment"]
+  :factory/source-url "https://www.eaton.com/us/en-us/company/news-insights/news-releases/2024/eaton-cuts-ribbon-on-new-dominican-republic-manufacturing-site.html"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/do/rizek-cacao"
+  :factory/display-name "Rizek Cacao"
+  :factory/country "DO"
+  :factory/isic "C10"
+  :factory/capabilities ["cacao-processing" "cacao-butter-production" "cacao-powder-manufacturing" "cacao-nib-production" "chocolate-ingredient-manufacturing"]
+  :factory/source-url "https://www.rizekcacao.com/about-us"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ ;; ════════════ Canada — apparel, fuel cells, transit buses, refining, petrochemicals (C14/C19/C20/C27/C29) ════════════
+ {:factory/did "candidate:manufacturer-directory/ca/canada-goose"
+  :factory/display-name "Canada Goose Holdings Inc."
+  :factory/country "CA"
+  :factory/isic "C14"
+  :factory/capabilities ["outerwear-manufacturing" "down-insulated-apparel" "parkas" "technical-apparel-sewing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Canada_Goose_(clothing)"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/ballard-power-systems"
+  :factory/display-name "Ballard Power Systems Inc."
+  :factory/country "CA"
+  :factory/isic "C27"
+  :factory/capabilities ["hydrogen-fuel-cells" "pem-fuel-cell-stacks" "membrane-electrode-assemblies" "clean-power-generation-systems"]
+  :factory/source-url "https://www.ballard.com/our-company/"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/nfi-group"
+  :factory/display-name "NFI Group Inc. (New Flyer Industries)"
+  :factory/country "CA"
+  :factory/isic "C29"
+  :factory/capabilities ["transit-buses" "motor-coaches" "electric-bus-manufacturing" "heavy-duty-transit-vehicles"]
+  :factory/source-url "https://en.wikipedia.org/wiki/NFI_Group"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/irving-oil"
+  :factory/display-name "Irving Oil Limited"
+  :factory/country "CA"
+  :factory/isic "C19"
+  :factory/capabilities ["petroleum-refining" "gasoline-production" "diesel-and-jet-fuel-production" "asphalt-manufacturing"]
+  :factory/source-url "https://en.wikipedia.org/wiki/Irving_Oil_Refinery"
+  :factory/labor-provenance :unknown :factory/sourcing :public-directory}
+ {:factory/did "candidate:manufacturer-directory/ca/nova-chemicals"
+  :factory/display-name "NOVA Chemicals Corporation"
+  :factory/country "CA"
+  :factory/isic "C20"
+  :factory/capabilities ["polyethylene-production" "ethylene-cracking" "petrochemical-manufacturing" "plastic-resins"]
+  :factory/source-url "https://www.novachem.com/locations/joffre-ab-canada/"
   :factory/labor-provenance :unknown :factory/sourcing :public-directory}]
