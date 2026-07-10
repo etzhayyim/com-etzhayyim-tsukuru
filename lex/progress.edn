@@ -1,18 +1,1 @@
-;; com.etzhayyim.tsukuru.progress — lexicon (EDN form)
-;; ADR-2605202800 · Phase 2 (ports legacy production_progress record kind)
-{:lexicon 1
- :id "com.etzhayyim.tsukuru.progress"
- :defs
- {:main
-  {:type "record"
-   :key "tid"
-   :record
-   {:type "object"
-    :required ["progressId" "orderId" "stage"]
-    :properties
-    {:progressId {:type "string"}
-     :orderId    {:type "string" :description "→ productionOrder"}
-     :stage      {:type "string" :description "dispatched|in-production|assembly|qc|packed|shipped"}
-     :pct        {:type "integer" :description "0..100 completion"}
-     :note       {:type "string"}
-     :timestamp  {:type "string" :format "datetime"}}}}}}
+[{:db/id -1, :lex.progress/lexicon 1, :lex.progress/id "com.etzhayyim.tsukuru.progress", :lex.progress/defs "{:main {:type \"record\", :key \"tid\", :record {:type \"object\", :required [\"progressId\" \"orderId\" \"stage\"], :properties {:progressId {:type \"string\"}, :orderId {:type \"string\", :description \"→ productionOrder\"}, :stage {:type \"string\", :description \"dispatched|in-production|assembly|qc|packed|shipped\"}, :pct {:type \"integer\", :description \"0..100 completion\"}, :note {:type \"string\"}, :timestamp {:type \"string\", :format \"datetime\"}}}}}"}]
