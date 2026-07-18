@@ -1,0 +1,585 @@
+;; tsukuru 作 — manufacturer-registry-seed.edn (illustrative REAL-COMPANY registry seed)
+;;
+;; NOT an ADR-tracked live registry, NOT a verified/onboarded factory relationship, NOT a live
+;; commercial offer. This is an illustrative registry seed drawn from PUBLIC KNOWLEDGE of real,
+;; publicly-documented manufacturers — company identity / home-country / illustrative industry
+;; category only. It widens tsukuru's real-manufacturer coverage at the kotoba-native EDN layer
+;; (companion to kotoba/seed.edn's tiny 3-entry R0 worked example, which stays a small
+;; fictional/representative demo on purpose — see seed.edn's own header). The separate 465-entry
+;; AT-proto catalog at wire/catalogs/manufacturer-catalog.v1.json is
+;; a DIFFERENT, read-only, out-of-scope JSON data file for a different consumer (~90% synthetic
+;; placeholder entries) — this file does not read from or write to it, and is not a copy of it.
+;;
+;; ── ID scheme (IMPORTANT — reader honesty, same spirit as kotoba/agent.cljc's screen-entity "not
+;;    wired" pattern) ──
+;; :factory/did values below use the placeholder pattern "factory/registry-seed/<slug>" — this is
+;; DELIBERATELY NOT a did:web URI, and is DISTINCT from the live path-based factory DID scheme
+;; documented in CLAUDE.md (`did:web:tsukuru.etzhayyim.com/factory/<slug>`,
+;; performerType=service — see also kotoba/seed.edn's :factory/did values, which DO use that live
+;; scheme for its small fictional worked example). None of the real companies below have been
+;; issued a did:web identity, on-chain registration, LEI, or wallet address by tsukuru — inventing
+;; one would misrepresent a real legal entity as having a registration it does not actually have.
+;;
+;; ── What's asserted vs. what's deliberately withheld (honesty framing, G8/G10-style) ──
+;;   - :factory/display-name / :factory/country / :factory/isic / :factory/capabilities are
+;;     stated only where they reflect well-documented public knowledge: a company's identity, its
+;;     commonly-cited primary home/operational country, and a PLAUSIBLE illustrative ISIC rev.4
+;;     section/class (NOT an authoritative customs/statistical classification — same "curated,
+;;     not authoritative" caveat as kotoba/agent.cljc's HS-CLASSIFICATION-TABLE). A few dual-listed /
+;;     recently-restructured / dual-domiciled multinationals carry an inline comment noting the
+;;     country attribution is the commonly-cited one, not a verified legal fact.
+;;   - :factory/capabilities are coarse keyword tags for capability-match token-overlap scoring
+;;     (kotoba/agent.cljc handle-discover) — illustrative process/vertical tags, not a verified
+;;     capability audit, certification, or capacity claim.
+;;   - :factory/labor-provenance is :unknown for every entry (G8) — tsukuru holds no labor-dignity
+;;     disclosure for any of these real companies; :unknown is the honest default, never guessed.
+;;   - :factory/sourcing is :representative (reusing kotoba/schema.edn's existing enum value) —
+;;     here specifically meaning "illustrative registry seed drawn from public knowledge, NOT a
+;;     verified/onboarded factory relationship, NOT a live commercial offer" (a stronger caveat
+;;     than seed.edn's own small fictional-demo use of the same tag).
+;;   - :factory/fulfillment-modes, exact certifications, capacity numbers, street addresses, and
+;;     contact details are DELIBERATELY OMITTED for every entry — inventing them for a real,
+;;     named company would fabricate specifics tsukuru has no way to verify.
+;;
+;; Bridged into kotoba/agent.cljc's handle-discover/capability-match via the new pure
+;; `factory-datom->state` fn (kotoba :factory/* EDN entity → the plain string-keyed shape
+;; handle-discover already expects, same shape as lex/factory.edn's lexicon record) — see
+;; kotoba/test_agent.cljc's test-discover-ranks-real-manufacturer-registry-slice, which replays a
+;; slice of the entries below verbatim.
+;;
+;; ~99 entries across: general contract electronics manufacturing (EMS), semiconductor
+;; foundry/equipment (incl. EUV-relevant), automotive parts, aerospace/defense, robotics/
+;; automation, raw materials/metals, chemicals/advanced-materials (incl. a small, less-certain
+;; slice of publicly-documented carbon-nanotube producers), logistics/3PL, packaging, and
+;; agriculture/food supply — the actual spread of tsukuru's verticals, not a re-run of any single
+;; source list.
+
+[;; ════════════ Electronics contract manufacturing (EMS) ════════════
+ {:factory/did "factory/registry-seed/foxconn"
+  :factory/display-name "Foxconn (Hon Hai Precision Industry Co., Ltd.)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "smt-assembly" "final-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/pegatron"
+  :factory/display-name "Pegatron Corporation"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "smt-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/jabil"
+  :factory/display-name "Jabil Inc."
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "smt-assembly" "supply-chain"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/flex"
+  :factory/display-name "Flex Ltd."
+  :factory/country "SG" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "smt-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/celestica"
+  :factory/display-name "Celestica Inc."
+  :factory/country "CA" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "smt-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/sanmina"
+  :factory/display-name "Sanmina Corporation"
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "pcba"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/wistron"
+  :factory/display-name "Wistron Corporation"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "final-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/quanta-computer"
+  :factory/display-name "Quanta Computer Inc."
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "server-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/compal"
+  :factory/display-name "Compal Electronics, Inc."
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "notebook-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/benchmark-electronics"
+  :factory/display-name "Benchmark Electronics, Inc."
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["ems" "contract-manufacturing" "pcba"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ ;; country: Fabrinet's holding entity is Cayman Islands-incorporated; its manufacturing base
+ ;; (the commonly-cited operational home) is Thailand — country field reflects the latter.
+ {:factory/did "factory/registry-seed/fabrinet"
+  :factory/display-name "Fabrinet"
+  :factory/country "TH" :factory/isic "C26"
+  :factory/capabilities ["ems" "optical-assembly" "precision-manufacturing"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/luxshare-precision"
+  :factory/display-name "Luxshare Precision Industry Co., Ltd."
+  :factory/country "CN" :factory/isic "C26"
+  :factory/capabilities ["ems" "connector-manufacturing" "smt-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Semiconductor foundry / equipment (incl. EUV-relevant) ════════════
+ {:factory/did "factory/registry-seed/tsmc"
+  :factory/display-name "Taiwan Semiconductor Manufacturing Company Limited (TSMC)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "semiconductor-foundry" "packaging" "test"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/samsung-electronics"
+  :factory/display-name "Samsung Electronics Co., Ltd."
+  :factory/country "KR" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "semiconductor-foundry" "memory" "packaging"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/globalfoundries"
+  :factory/display-name "GlobalFoundries Inc."
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "semiconductor-foundry"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/umc"
+  :factory/display-name "United Microelectronics Corporation (UMC)"
+  :factory/country "TW" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "semiconductor-foundry"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/smic"
+  :factory/display-name "Semiconductor Manufacturing International Corporation (SMIC)"
+  :factory/country "CN" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "semiconductor-foundry"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/intel"
+  :factory/display-name "Intel Corporation"
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "semiconductor-foundry" "chip-design"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/sk-hynix"
+  :factory/display-name "SK hynix Inc."
+  :factory/country "KR" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "memory" "packaging"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/micron"
+  :factory/display-name "Micron Technology, Inc."
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "memory"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/texas-instruments"
+  :factory/display-name "Texas Instruments Incorporated"
+  :factory/country "US" :factory/isic "C26"
+  :factory/capabilities ["wafer-fab" "analog-ic" "packaging"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/asml"
+  :factory/display-name "ASML Holding N.V."
+  :factory/country "NL" :factory/isic "C28"
+  :factory/capabilities ["euv-lithography" "wafer-stepper" "lithography-equipment"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/applied-materials"
+  :factory/display-name "Applied Materials, Inc."
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-equipment" "deposition" "etch"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/lam-research"
+  :factory/display-name "Lam Research Corporation"
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-equipment" "etch" "deposition"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/kla"
+  :factory/display-name "KLA Corporation"
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-equipment" "metrology" "inspection"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/tokyo-electron"
+  :factory/display-name "Tokyo Electron Limited"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-equipment" "euv-lithography" "etch" "deposition"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/advantest"
+  :factory/display-name "Advantest Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-equipment" "test" "ate"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/shin-etsu-chemical"
+  :factory/display-name "Shin-Etsu Chemical Co., Ltd."
+  :factory/country "JP" :factory/isic "C20"
+  :factory/capabilities ["silicon-wafer" "semiconductor-materials" "photoresist"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/sumco"
+  :factory/display-name "SUMCO Corporation"
+  :factory/country "JP" :factory/isic "C26"
+  :factory/capabilities ["silicon-wafer" "wafer-fab"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/asm-international"
+  :factory/display-name "ASM International N.V."
+  :factory/country "NL" :factory/isic "C28"
+  :factory/capabilities ["semiconductor-equipment" "deposition" "ald"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Automotive parts ════════════
+ {:factory/did "factory/registry-seed/bosch"
+  :factory/display-name "Robert Bosch GmbH"
+  :factory/country "DE" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "sensors" "electronics"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/denso"
+  :factory/display-name "Denso Corporation"
+  :factory/country "JP" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "electronics" "thermal-systems"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/continental-ag"
+  :factory/display-name "Continental AG"
+  :factory/country "DE" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "tires" "electronics"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/zf-friedrichshafen"
+  :factory/display-name "ZF Friedrichshafen AG"
+  :factory/country "DE" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "drivetrain" "chassis"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/magna-international"
+  :factory/display-name "Magna International Inc."
+  :factory/country "CA" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "contract-manufacturing" "chassis"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/aisin"
+  :factory/display-name "Aisin Corporation"
+  :factory/country "JP" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "drivetrain" "transmission"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/valeo"
+  :factory/display-name "Valeo SE"
+  :factory/country "FR" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "electronics" "lighting"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/yazaki"
+  :factory/display-name "Yazaki Corporation"
+  :factory/country "JP" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "wiring-harness"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/forvia"
+  :factory/display-name "Forvia SE (Faurecia)"
+  :factory/country "FR" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "seating" "interior"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/hyundai-mobis"
+  :factory/display-name "Hyundai Mobis Co., Ltd."
+  :factory/country "KR" :factory/isic "C29"
+  :factory/capabilities ["automotive-parts" "chassis" "electronics"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Aerospace / defense ════════════
+ {:factory/did "factory/registry-seed/boeing"
+  :factory/display-name "The Boeing Company"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "airframe" "final-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/airbus"
+  :factory/display-name "Airbus SE"
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "airframe" "final-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/lockheed-martin"
+  :factory/display-name "Lockheed Martin Corporation"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "defense" "final-assembly"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/rtx-corporation"
+  :factory/display-name "RTX Corporation (Raytheon Technologies)"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "defense" "avionics"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/northrop-grumman"
+  :factory/display-name "Northrop Grumman Corporation"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "defense" "avionics"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/safran"
+  :factory/display-name "Safran S.A."
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "jet-engines" "landing-gear"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/ge-aerospace"
+  :factory/display-name "GE Aerospace"
+  :factory/country "US" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "jet-engines"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/rolls-royce"
+  :factory/display-name "Rolls-Royce Holdings plc"
+  :factory/country "GB" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "jet-engines"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/leonardo"
+  :factory/display-name "Leonardo S.p.A."
+  :factory/country "IT" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "defense" "helicopters"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/thales-group"
+  :factory/display-name "Thales Group"
+  :factory/country "FR" :factory/isic "C30"
+  :factory/capabilities ["aerospace" "defense" "avionics" "radar"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Robotics / automation ════════════
+ {:factory/did "factory/registry-seed/fanuc"
+  :factory/display-name "Fanuc Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["robotics" "cnc" "factory-automation"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/yaskawa"
+  :factory/display-name "Yaskawa Electric Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["robotics" "servo-motors" "factory-automation"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/abb"
+  :factory/display-name "ABB Ltd"
+  :factory/country "CH" :factory/isic "C28"
+  :factory/capabilities ["robotics" "factory-automation" "electrification"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ ;; country: KUKA's operational home is Augsburg, Germany; the group has been majority-owned by
+ ;; China's Midea Group since 2016 — country field reflects the commonly-cited operational home.
+ {:factory/did "factory/registry-seed/kuka"
+  :factory/display-name "KUKA AG"
+  :factory/country "DE" :factory/isic "C28"
+  :factory/capabilities ["robotics" "factory-automation"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/keyence"
+  :factory/display-name "Keyence Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["sensors" "machine-vision" "factory-automation"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/omron"
+  :factory/display-name "Omron Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["sensors" "factory-automation" "controllers"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/rockwell-automation"
+  :factory/display-name "Rockwell Automation, Inc."
+  :factory/country "US" :factory/isic "C28"
+  :factory/capabilities ["factory-automation" "controllers"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/siemens"
+  :factory/display-name "Siemens AG"
+  :factory/country "DE" :factory/isic "C28"
+  :factory/capabilities ["factory-automation" "controllers" "electrification"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/schneider-electric"
+  :factory/display-name "Schneider Electric SE"
+  :factory/country "FR" :factory/isic "C28"
+  :factory/capabilities ["factory-automation" "electrification" "controllers"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/smc-corporation"
+  :factory/display-name "SMC Corporation"
+  :factory/country "JP" :factory/isic "C28"
+  :factory/capabilities ["pneumatics" "factory-automation"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Raw materials / metals ════════════
+ {:factory/did "factory/registry-seed/nippon-steel"
+  :factory/display-name "Nippon Steel Corporation"
+  :factory/country "JP" :factory/isic "C24"
+  :factory/capabilities ["steel" "raw-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/arcelormittal"
+  :factory/display-name "ArcelorMittal S.A."
+  :factory/country "LU" :factory/isic "C24"
+  :factory/capabilities ["steel" "raw-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/posco-holdings"
+  :factory/display-name "POSCO Holdings Inc."
+  :factory/country "KR" :factory/isic "C24"
+  :factory/capabilities ["steel" "raw-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/nucor"
+  :factory/display-name "Nucor Corporation"
+  :factory/country "US" :factory/isic "C24"
+  :factory/capabilities ["steel" "raw-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/alcoa"
+  :factory/display-name "Alcoa Corporation"
+  :factory/country "US" :factory/isic "C24"
+  :factory/capabilities ["aluminum" "raw-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ ;; country: Rio Tinto is dual-listed (Rio Tinto plc, London / Rio Tinto Limited, Melbourne) —
+ ;; country field reflects the plc listing; the group is equally described as Australian.
+ {:factory/did "factory/registry-seed/rio-tinto"
+  :factory/display-name "Rio Tinto"
+  :factory/country "GB" :factory/isic "B07"
+  :factory/capabilities ["mining" "raw-materials" "metals"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/bhp-group"
+  :factory/display-name "BHP Group Limited"
+  :factory/country "AU" :factory/isic "B07"
+  :factory/capabilities ["mining" "raw-materials" "metals"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Chemicals / advanced materials (incl. CNT) ════════════
+ {:factory/did "factory/registry-seed/basf"
+  :factory/display-name "BASF SE"
+  :factory/country "DE" :factory/isic "C20"
+  :factory/capabilities ["chemicals" "polymers" "materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/toray-industries"
+  :factory/display-name "Toray Industries, Inc."
+  :factory/country "JP" :factory/isic "C20"
+  :factory/capabilities ["carbon-fiber" "advanced-materials" "textiles"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/mitsubishi-chemical"
+  :factory/display-name "Mitsubishi Chemical Group Corporation"
+  :factory/country "JP" :factory/isic "C20"
+  :factory/capabilities ["chemicals" "polymers" "materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/dupont"
+  :factory/display-name "DuPont de Nemours, Inc."
+  :factory/country "US" :factory/isic "C20"
+  :factory/capabilities ["chemicals" "advanced-materials" "polymers"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/dow"
+  :factory/display-name "Dow Inc."
+  :factory/country "US" :factory/isic "C20"
+  :factory/capabilities ["chemicals" "polymers" "materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/solvay"
+  :factory/display-name "Solvay SA"
+  :factory/country "BE" :factory/isic "C20"
+  :factory/capabilities ["chemicals" "advanced-materials" "polymers"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/murata-manufacturing"
+  :factory/display-name "Murata Manufacturing Co., Ltd."
+  :factory/country "JP" :factory/isic "C26"
+  :factory/capabilities ["electronic-components" "ceramics" "capacitors"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ ;; CNT vertical (smaller, less-certain slice of publicly-documented producers): country/legal-
+ ;; domicile attribution for these three is less settled in public sources than the rest of this
+ ;; file (holding/production geography can differ) — treat capability tags as the load-bearing
+ ;; fact, country as a best-effort commonly-cited attribution only.
+ {:factory/did "factory/registry-seed/ocsial"
+  :factory/display-name "OCSiAl"
+  :factory/country "LU" :factory/isic "C20"
+  :factory/capabilities ["carbon-nanotube" "cnt" "advanced-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/nanocyl"
+  :factory/display-name "Nanocyl SA"
+  :factory/country "BE" :factory/isic "C20"
+  :factory/capabilities ["carbon-nanotube" "cnt" "advanced-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/cnano-technology"
+  :factory/display-name "Cnano Technology Limited"
+  :factory/country "CN" :factory/isic "C20"
+  :factory/capabilities ["carbon-nanotube" "cnt" "advanced-materials"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Logistics / 3PL ════════════
+ {:factory/did "factory/registry-seed/maersk"
+  :factory/display-name "A.P. Moller - Maersk A/S"
+  :factory/country "DK" :factory/isic "H50"
+  :factory/capabilities ["logistics" "ocean-freight" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/dhl"
+  :factory/display-name "DHL Group (Deutsche Post DHL Group)"
+  :factory/country "DE" :factory/isic "H52"
+  :factory/capabilities ["logistics" "freight-forwarding" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/db-schenker"
+  :factory/display-name "DB Schenker"
+  :factory/country "DE" :factory/isic "H52"
+  :factory/capabilities ["logistics" "freight-forwarding" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/kuehne-nagel"
+  :factory/display-name "Kuehne+Nagel International AG"
+  :factory/country "CH" :factory/isic "H52"
+  :factory/capabilities ["logistics" "freight-forwarding" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/fedex"
+  :factory/display-name "FedEx Corporation"
+  :factory/country "US" :factory/isic "H53"
+  :factory/capabilities ["logistics" "express-freight" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/ups"
+  :factory/display-name "United Parcel Service, Inc."
+  :factory/country "US" :factory/isic "H53"
+  :factory/capabilities ["logistics" "express-freight" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/nippon-express"
+  :factory/display-name "Nippon Express Holdings, Inc."
+  :factory/country "JP" :factory/isic "H52"
+  :factory/capabilities ["logistics" "freight-forwarding" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/cma-cgm"
+  :factory/display-name "CMA CGM Group"
+  :factory/country "FR" :factory/isic "H50"
+  :factory/capabilities ["logistics" "ocean-freight" "3pl"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Packaging ════════════
+ ;; country: Amcor's group domicile has moved across restructurings (historically Swiss-
+ ;; domiciled with a major Australian operating heritage) — country field reflects the
+ ;; commonly-cited Swiss domicile, not a verified current-year legal fact.
+ {:factory/did "factory/registry-seed/amcor"
+  :factory/display-name "Amcor plc"
+  :factory/country "CH" :factory/isic "C22"
+  :factory/capabilities ["packaging" "flexible-packaging"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/sealed-air"
+  :factory/display-name "Sealed Air Corporation"
+  :factory/country "US" :factory/isic "C22"
+  :factory/capabilities ["packaging" "protective-packaging"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/sonoco-products"
+  :factory/display-name "Sonoco Products Company"
+  :factory/country "US" :factory/isic "C17"
+  :factory/capabilities ["packaging" "paper-packaging"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/smurfit-westrock"
+  :factory/display-name "Smurfit WestRock plc"
+  :factory/country "IE" :factory/isic "C17"
+  :factory/capabilities ["packaging" "paper-packaging" "corrugated"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/toppan-holdings"
+  :factory/display-name "Toppan Holdings Inc."
+  :factory/country "JP" :factory/isic "C18"
+  :factory/capabilities ["packaging" "printing"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/tetra-pak"
+  :factory/display-name "Tetra Pak (Tetra Laval Group)"
+  :factory/country "SE" :factory/isic "C22"
+  :factory/capabilities ["packaging" "aseptic-packaging"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+
+ ;; ════════════ Agriculture / food supply ════════════
+ {:factory/did "factory/registry-seed/cargill"
+  :factory/display-name "Cargill, Incorporated"
+  :factory/country "US" :factory/isic "C10"
+  :factory/capabilities ["agriculture" "food-processing" "commodity-trading"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/adm"
+  :factory/display-name "Archer-Daniels-Midland Company"
+  :factory/country "US" :factory/isic "C10"
+  :factory/capabilities ["agriculture" "food-processing" "commodity-trading"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ ;; country: Bunge Global SA redomiciled its legal seat to Switzerland (2023-24 restructuring)
+ ;; while retaining a US (St. Louis) operational hub — country field reflects the legal seat.
+ {:factory/did "factory/registry-seed/bunge-global"
+  :factory/display-name "Bunge Global SA"
+  :factory/country "CH" :factory/isic "C10"
+  :factory/capabilities ["agriculture" "food-processing" "commodity-trading"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/nestle"
+  :factory/display-name "Nestlé S.A."
+  :factory/country "CH" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "food-manufacturing"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/tyson-foods"
+  :factory/display-name "Tyson Foods, Inc."
+  :factory/country "US" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "meat-processing"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/jbs"
+  :factory/display-name "JBS S.A."
+  :factory/country "BR" :factory/isic "C10"
+  :factory/capabilities ["food-processing" "meat-processing"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/louis-dreyfus-company"
+  :factory/display-name "Louis Dreyfus Company B.V."
+  :factory/country "NL" :factory/isic "C10"
+  :factory/capabilities ["agriculture" "commodity-trading"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}
+ {:factory/did "factory/registry-seed/olam-group"
+  :factory/display-name "Olam Group Limited"
+  :factory/country "SG" :factory/isic "C10"
+  :factory/capabilities ["agriculture" "commodity-trading" "food-processing"]
+  :factory/labor-provenance :unknown :factory/sourcing :representative}]

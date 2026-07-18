@@ -4,6 +4,7 @@
 ;; member production-order (BTO) flowing draft → dispatched → in-production → qc →
 ;; ready, with a passed compliance gate, a QC pass, and a computed settlement intent
 ;; (USDC minor, 10% tithe). Prices = USDC minor (6-dp). NOT a live commercial offer.
+;; For broader (illustrative, real-company) manufacturer coverage see kotoba/manufacturer-registry-seed.edn.
 
 [;; ════════════ Factories (manufacturer registry) ════════════
  {:factory/did "did:web:tsukuru.etzhayyim.com/factory/jp-precision-cnc"

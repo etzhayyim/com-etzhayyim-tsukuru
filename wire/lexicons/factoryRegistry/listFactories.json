@@ -1,0 +1,63 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.factoryRegistry.listFactories",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List factories, optionally filtered by parent manufacturer DID. Cursor-paginated. Phase 3 mst-projector view for indexed filter.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "manufacturerDid": {
+            "type": "string",
+            "format": "did"
+          },
+          "countryIso3": { "type": "string" },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50
+          },
+          "cursor": { "type": "string" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": { "type": "ref", "ref": "#factoryView" }
+            },
+            "cursor": { "type": "string" },
+            "total": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "factoryView": {
+      "type": "object",
+      "required": ["factoryUri", "did", "slug", "factoryName", "countryIso3", "createdAt"],
+      "properties": {
+        "factoryUri": { "type": "string", "format": "at-uri" },
+        "did": { "type": "string", "format": "did" },
+        "manufacturerDid": { "type": "string", "format": "did" },
+        "slug": { "type": "string" },
+        "factoryName": { "type": "string" },
+        "countryIso3": { "type": "string" },
+        "city": { "type": "string" },
+        "addressLine": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "capacityLevel": { "type": "string" },
+        "certifications": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "createdAt": { "type": "string", "format": "datetime" }
+      }
+    }
+  }
+}

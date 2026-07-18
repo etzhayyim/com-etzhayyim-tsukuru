@@ -1,0 +1,44 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.cnt.prepareRunPackage",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Prepare a machine-readable CNT/CNT fiber run package for MES, SCADA, PLC, QMS, and EHS execution gates.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "run_id": { "type": "string" },
+          "production_order_id": { "type": "string" },
+          "recipe_revision": { "type": "string" },
+          "product_family": { "type": "string" },
+          "target_spool_length_m": { "type": "integer" },
+          "target_strength_gpa": { "type": "float" },
+          "target_conductivity_s_m": { "type": "integer" },
+          "target_thermal_conductivity_w_mk": { "type": "integer" },
+          "operator_did": { "type": "string" },
+          "equipment_overrides": { "type": "unknown" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "runId": { "type": "string" },
+            "schema": { "type": "string" },
+            "processId": { "type": "string" },
+            "recipeRevision": { "type": "string" },
+            "recipe": { "type": "array", "items": { "type": "unknown" } },
+            "equipmentBinding": { "type": "array", "items": { "type": "unknown" } },
+            "telemetryBinding": { "type": "array", "items": { "type": "unknown" } },
+            "releasePlan": { "type": "unknown" },
+            "ehsInterlocks": { "type": "array", "items": { "type": "string" } },
+            "approvals": { "type": "array", "items": { "type": "unknown" } }
+          }
+        }
+      }
+    }
+  }
+}

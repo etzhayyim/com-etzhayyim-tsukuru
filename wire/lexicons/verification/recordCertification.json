@@ -1,0 +1,52 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.verification.recordCertification",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Auto-generated stub lexicon (F-Plan F2 bootstrap 2026-04-13). Tighten schema when migrating the app.",
+      "x-bootstrap": true,
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "manufacturer_did": {
+              "type": "integer"
+            },
+            "standard": {
+              "type": "string"
+            },
+            "certificate_number": {
+              "type": "integer"
+            },
+            "issued_by": {
+              "type": "string"
+            },
+            "valid_from": {
+              "type": "string"
+            },
+            "valid_until": {
+              "type": "string"
+            },
+            "blob_key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "manufacturer_did",
+            "standard"
+          ]
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    }
+  }
+}

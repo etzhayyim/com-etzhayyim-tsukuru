@@ -1,0 +1,65 @@
+;; tsukuru 作 — EUV run-package seed (kotoba-native, R0, NEW). Same worked-example framing
+;; as kotoba/cnt-run-package-seed.edn / kotoba/seed.edn: a genuine (not fabricated) EUV
+;; run-package that reaches "ready" under `(agent/validate-run-package "euv" seed)`
+;; (src/tsukuru/kotoba/agent.cljc): all 5 catalog steps present (kotoba/
+;; euv-process-catalog.edn), technologyNodeNm/waferDiameterMm/numericalAperture all
+;; numeric, and a CAD/CAM handoff format recorded because a supplier exchange (supplierDid)
+;; is referenced. String-keyed to match agent.cljc's plain-map idiom directly. No
+;; 00-contracts JSON example counterpart exists yet for EUV run-package (unlike CNT); this
+;; seed is that vertical's first concrete run-package shape. Placeholder IDs only
+;; ("...-example-...") — NOT a live commercial offer / real facility.
+{"schema" "tsukuru.euvRunPackage.v1"
+ "runId" "euv-run-example-001"
+ "productionOrderId" "po-euv-example-001"
+ "processId" "tsukuru_euv_lithography_manufacturing_flow"
+ "recipeRevision" "euv-logic-recipe-r1"
+ "productFamily" "euv-logic-wafer"
+ "technologyNodeNm" 3
+ "waferDiameterMm" 300
+ "numericalAperture" 0.33
+ "sourcePowerW" 250
+
+ "recipe"
+ [{"stepId" "step-010-wafer-prep" "sequence" 10
+   "equipmentIds" ["eq-wafer-prep-station" "eq-mes-scada-plc"]
+   "setpoints" {"wafer_diameter_mm" 300 "particle_count_max" 5}
+   "holdPoints" ["particle-count-in-spec" "wafer-id-verified"]
+   "automationMode" "human-gated"}
+  {"stepId" "step-020-euv-exposure" "sequence" 20
+   "equipmentIds" ["eq-track-coater-developer" "eq-euv-scanner" "eq-mes-scada-plc"]
+   "setpoints" {"dose_mj_cm2" 30 "focus_offset_nm" 0 "numerical_aperture" 0.33}
+   "holdPoints" ["dose-in-control" "focus-in-control" "reticle-integrity-verified"]
+   "automationMode" "closed-loop"}
+  {"stepId" "step-030-develop" "sequence" 30
+   "equipmentIds" ["eq-track-coater-developer" "eq-mes-scada-plc"]
+   "setpoints" {"develop_time_s" 60 "bake_temperature_c" 110}
+   "holdPoints" ["cd-in-spec" "develop-uniformity-ok"]
+   "automationMode" "closed-loop"}
+  {"stepId" "step-040-etch" "sequence" 40
+   "equipmentIds" ["eq-etch-chamber" "eq-mes-scada-plc"]
+   "setpoints" {"etch_rate_nm_min" 40 "chamber_pressure_mtorr" 10}
+   "holdPoints" ["etch-rate-in-control" "profile-angle-ok"]
+   "automationMode" "closed-loop"}
+  {"stepId" "step-050-metrology-inspection" "sequence" 50
+   "equipmentIds" ["eq-cd-sem-overlay-metrology" "eq-mes-scada-plc"]
+   "setpoints" {"cd_nm_max" 12 "overlay_budget_nm_max" 3 "defect_density_per_cm2_max" 0.05}
+   "holdPoints" ["cd-pass" "overlay-pass" "defect-density-pass" "coa-issued"]
+   "automationMode" "human-gated"}]
+
+ "telemetryBinding"
+ [{"tag" "EUV.SCANNER.DOSE_MJ_CM2" "source" "plc" "sampleRateHz" 1 "retention" "7y"}
+  {"tag" "EUV.QA.CD_NM" "source" "qms" "sampleRateHz" 0.1 "retention" "lot-life"}]
+
+ "releasePlan"
+ {"qmsArtifacts" ["processFmea" "controlPlan" "inspectionPlan" "spcChart" "certificateOfAnalysis" "nonconformanceReport"]
+  "targetCdNm" 12 "targetOverlayBudgetNm" 3 "targetDefectDensityPerCm2" 0.05
+  "disposition" "hold-for-release"}
+
+ "ehsInterlocks" ["EUV.SOURCE.INTERLOCK" "EUV.RETICLE.POD_CONTAINMENT" "EUV.ETCH.PLASMA_INTERLOCK"]
+
+ "cadCamHandoff" {"format" "gdsii" "supplierExchangeFormat" "gdsii"}
+ "supplierDid" "did:web:tsukuru.etzhayyim.com:euv-supplier-example"
+
+ "approvals"
+ [{"role" "manufacturing-owner" "required" true "did" "did:web:tsukuru.etzhayyim.com:operator-example"}
+  {"role" "quality-owner" "required" true "did" "did:web:tsukuru.etzhayyim.com:quality-example"}]}

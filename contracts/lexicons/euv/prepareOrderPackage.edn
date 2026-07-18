@@ -1,0 +1,31 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.euv.prepareOrderPackage"
+ "defs" {"main" {"type" "query"
+ "description" "Prepare an EUV manufacturing flow and supplier exchange package in one direct API call."
+ "parameters" {"type" "params"
+ "properties" {"flow_id" {"type" "string"}
+ "package_id" {"type" "string"}
+ "production_order_id" {"type" "string"}
+ "technology_node_nm" {"type" "integer"}
+ "wafer_diameter_mm" {"type" "integer"}
+ "numerical_aperture" {"type" "float"}
+ "source_power_w" {"type" "integer"}
+ "design_formats" {"type" "array"
+ "items" {"type" "string"}}
+ "supplier_exchange_format" {"type" "string"}
+ "exchange_format" {"type" "string"}
+ "supplier_did" {"type" "string"}
+ "artifacts" {"type" "array"
+ "items" {"type" "unknown"}}
+ "requirements" {"type" "unknown"}
+ "channels" {"type" "array"
+ "items" {"type" "string"}}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "flowId" {"type" "string"}
+ "packageId" {"type" "string"}
+ "bpmnProcessIds" {"type" "array"
+ "items" {"type" "string"}}
+ "flow" {"type" "unknown"}
+ "supplierPackage" {"type" "unknown"}}}}}}}

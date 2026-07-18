@@ -1,0 +1,51 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.euv.designManufacturingFlow",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Design an EUV lithography manufacturing flow with CAD/CAM handoff gates and supplier exchange envelope.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "flow_id": { "type": "string" },
+          "production_order_id": { "type": "string" },
+          "technology_node_nm": { "type": "integer" },
+          "wafer_diameter_mm": { "type": "integer" },
+          "numerical_aperture": { "type": "float" },
+          "source_power_w": { "type": "integer" },
+          "design_formats": { "type": "array", "items": { "type": "string" } },
+          "supplier_exchange_format": { "type": "string" },
+          "supplier_did": { "type": "string" },
+          "artifacts": { "type": "array", "items": { "type": "unknown" } },
+          "requirements": { "type": "unknown" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "flowId": { "type": "string" },
+            "industryCode": { "type": "string" },
+            "process": { "type": "string" },
+            "bpmnProcessId": { "type": "string" },
+            "technologyNodeNm": { "type": "integer" },
+            "waferDiameterMm": { "type": "integer" },
+            "numericalAperture": { "type": "float" },
+            "sourcePowerW": { "type": "integer" },
+            "designFormats": { "type": "array", "items": { "type": "string" } },
+            "supplierExchangeFormat": { "type": "string" },
+            "supplierDid": { "type": "string" },
+            "artifacts": { "type": "array", "items": { "type": "unknown" } },
+            "requirements": { "type": "unknown" },
+            "phases": { "type": "array", "items": { "type": "unknown" } },
+            "riskControls": { "type": "array", "items": { "type": "string" } },
+            "exchangeEnvelope": { "type": "unknown" }
+          }
+        }
+      }
+    }
+  }
+}

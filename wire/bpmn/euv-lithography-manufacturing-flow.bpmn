@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="Definitions_tsukuru_euv_lithography_manufacturing_flow"
+  targetNamespace="https://etzhayyim.ai/bpmn/tsukuru"
+  exporter="hand-written"
+  exporterVersion="1.0">
+  <bpmn:process id="tsukuru_euv_lithography_manufacturing_flow" name="tsukuru EUV lithography manufacturing flow" isExecutable="true">
+    <bpmn:startEvent id="Start" name="EUV flow request">
+      <bpmn:outgoing>Flow_Design</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_Design" sourceRef="Start" targetRef="Task_DesignFlow"/>
+
+    <bpmn:serviceTask id="Task_DesignFlow" name="design EUV manufacturing flow">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.xrpc.invoke"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com&quot;" target="actor"/>
+          <zeebe:input source="=&quot;com.etzhayyim.apps.tsukuru.euv.designManufacturingFlow&quot;" target="nsid"/>
+          <zeebe:input source="={ production_order_id: productionOrderId, technology_node_nm: technologyNodeNm, wafer_diameter_mm: waferDiameterMm, numerical_aperture: numericalAperture, source_power_w: sourcePowerW, design_formats: designFormats, supplier_exchange_format: supplierExchangeFormat, supplier_did: supplierDid, artifacts: artifacts, requirements: requirements }" target="payload"/>
+          <zeebe:output source="=result" target="euvFlow"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Design</bpmn:incoming>
+      <bpmn:outgoing>Flow_NormalizeSupplierPackage</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_NormalizeSupplierPackage" sourceRef="Task_DesignFlow" targetRef="Task_NormalizeSupplierPackage"/>
+
+    <bpmn:serviceTask id="Task_NormalizeSupplierPackage" name="normalize supplier CAD/RFQ package">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.xrpc.invoke"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com&quot;" target="actor"/>
+          <zeebe:input source="=&quot;com.etzhayyim.apps.tsukuru.supplierExchange.normalizePackage&quot;" target="nsid"/>
+          <zeebe:input source="={ package_id: supplierPackageId, production_order_id: productionOrderId, supplier_did: supplierDid, exchange_format: supplierExchangeFormat, artifacts: artifacts, requirements: requirements, channels: [&quot;rfq&quot;,&quot;dfm&quot;,&quot;quotation&quot;,&quot;purchase-order&quot;,&quot;quality-release&quot;] }" target="payload"/>
+          <zeebe:output source="=result" target="supplierPackage"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_NormalizeSupplierPackage</bpmn:incoming>
+      <bpmn:outgoing>Flow_Audit</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_Audit" sourceRef="Task_NormalizeSupplierPackage" targetRef="Task_Audit"/>
+
+    <bpmn:serviceTask id="Task_Audit" name="emit EUV flow audit">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.audit.emit"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com:industry:isic:c&quot;" target="actor"/>
+          <zeebe:input source="=&quot;euvLithographyManufacturingFlowDesigned&quot;" target="action"/>
+          <zeebe:input source="={ bpmnProcessId: &quot;tsukuru_euv_lithography_manufacturing_flow&quot;, flow: euvFlow, supplierPackage: supplierPackage }" target="payload"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Audit</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_Audit" targetRef="End"/>
+
+    <bpmn:endEvent id="End" name="done">
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+</bpmn:definitions>

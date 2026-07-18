@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etzhayyim.com/schemas/tsukuru-cnt-run-package.schema.json",
+  "title": "Tsukuru CNT Run Package",
+  "type": "object",
+  "required": ["schema", "runId", "productionOrderId", "processId", "recipeRevision", "productFamily", "recipe", "equipmentBinding", "telemetryBinding", "releasePlan", "ehsInterlocks", "approvals"],
+  "properties": {
+    "schema": { "const": "tsukuru.cntRunPackage.v1" },
+    "runId": { "type": "string" },
+    "productionOrderId": { "type": "string" },
+    "processId": { "const": "tsukuru_cnt_fiber_manufacturing_flow" },
+    "recipeRevision": { "type": "string" },
+    "productFamily": { "type": "string" },
+    "recipe": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["stepId", "sequence", "equipmentIds", "setpoints", "holdPoints", "automationMode"],
+        "properties": {
+          "stepId": { "type": "string" },
+          "sequence": { "type": "integer" },
+          "equipmentIds": { "type": "array", "items": { "type": "string" } },
+          "setpoints": { "type": "object", "additionalProperties": { "type": ["string", "number"] } },
+          "holdPoints": { "type": "array", "items": { "type": "string" } },
+          "automationMode": { "type": "string", "enum": ["manual", "human-gated", "closed-loop"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "equipmentBinding": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["catalogEquipmentId", "equipmentInstanceId", "interfaces"],
+        "properties": {
+          "catalogEquipmentId": { "type": "string" },
+          "equipmentInstanceId": { "type": "string" },
+          "interfaces": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "telemetryBinding": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tag", "source", "sampleRateHz", "retention"],
+        "properties": {
+          "tag": { "type": "string" },
+          "source": { "type": "string", "enum": ["plc", "scada", "qms"] },
+          "sampleRateHz": { "type": "number" },
+          "retention": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "releasePlan": {
+      "type": "object",
+      "required": ["qmsArtifacts", "targetStrengthGPa", "targetConductivitySM", "targetThermalConductivityWMK", "targetSpoolLengthM", "disposition"],
+      "properties": {
+        "qmsArtifacts": { "type": "array", "items": { "type": "string" } },
+        "targetStrengthGPa": { "type": "number" },
+        "targetConductivitySM": { "type": "number" },
+        "targetThermalConductivityWMK": { "type": "number" },
+        "targetSpoolLengthM": { "type": "number" },
+        "disposition": { "const": "hold-for-release" }
+      },
+      "additionalProperties": false
+    },
+    "ehsInterlocks": { "type": "array", "items": { "type": "string" } },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "required", "did"],
+        "properties": {
+          "role": { "type": "string" },
+          "required": { "type": "boolean" },
+          "did": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

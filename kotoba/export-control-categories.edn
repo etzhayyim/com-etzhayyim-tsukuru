@@ -1,0 +1,32 @@
+;; tsukuru 作 — curated heuristic dual-use/export-control category snapshot. Documented/
+;; reviewable data source for `screen-export-control` in src/tsukuru/kotoba/agent.cljc —
+;; the .cljc embeds this same data as a Clojure literal (EXPORT-CONTROL-CATEGORIES) so the
+;; actor stays IO-free / portable to cljs+WASM (no runtime file read, no new deps). Keep
+;; the two in sync by hand when editing either one.
+;;
+;; THIS IS NOT a live BIS Entity List / Wassenaar Arrangement / EAR (Export Administration
+;; Regulations) feed. It is a SMALL, HAND-CURATED keyword flag list — a heuristic
+;; pre-screen that only flags "needs licensing review". It does not check, and must never
+;; be described as checking, any real control list. A real licensing/export-control
+;; provider must be wired in via `export-control-fn` before any live commercial use.
+;;
+;; Distinct from screen-entity: screen-entity is a denied-party/sanctions (entity-level)
+;; check; this table is a dual-use/controlled-category (product-level) pre-screen.
+;;
+;; Shape: a vector of {"category" <id> "reason" <plain-language rationale> "keywords"
+;; [<capability-like phrase> ...]}. A product description is tokenized the same way
+;; `tokens`/`capability-match` do in agent.cljc; any keyword phrase sharing a token with
+;; the description flags that category. Any hit → "needs licensing review", never a
+;; silent pass.
+[{"category" "cryptographic-hardware"
+  "reason" "cryptographic/encryption hardware and components are commonly subject to dual-use export licensing"
+  "keywords" ["encryption" "cryptographic" "cryptography" "cipher" "hsm"]}
+ {"category" "night-vision-thermal-imaging"
+  "reason" "night-vision / thermal-imaging optics are commonly controlled dual-use goods"
+  "keywords" ["nightvision" "thermalimaging" "infrared" "imageintensifier"]}
+ {"category" "radar-navigation-systems"
+  "reason" "radar / navigation-guidance apparatus commonly falls under dual-use export-control regimes"
+  "keywords" ["radar" "sonar" "navigationsystem" "gpsguidance"]}
+ {"category" "euv-lithography-equipment"
+  "reason" "EUV lithography and advanced semiconductor manufacturing equipment is a well-known focal point of export-control regimes"
+  "keywords" ["euv" "lithography" "waferstepper" "photomask"]}]

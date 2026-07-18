@@ -1,0 +1,48 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.manufacturerRegistry.getManufacturer"
+ "defs" {"main" {"type" "query"
+ "description" "Look up a manufacturer by DID or slug. Returns the manufacturerView record body or {error: 'notFound'}."
+ "parameters" {"type" "params"
+ "properties" {"did" {"type" "string"
+ "format" "did"
+ "description" "Manufacturer DID (did:web:tsukuru.etzhayyim.com:manufacturer:{slug})."}
+ "slug" {"type" "string"
+ "description" "Manufacturer slug (alternative to did)."}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"manufacturer" {"type" "ref"
+ "ref" "#manufacturerView"}
+ "error" {"type" "string"}}}}}
+ "manufacturerView" {"type" "object"
+ "required" ["did"
+ "slug"
+ "legalName"
+ "countryIso3"
+ "onboardingStatus"]
+ "properties" {"manufacturerUri" {"type" "string"
+ "format" "at-uri"}
+ "did" {"type" "string"
+ "format" "did"}
+ "slug" {"type" "string"}
+ "legalName" {"type" "string"}
+ "tradeName" {"type" "string"}
+ "countryIso3" {"type" "string"}
+ "isicCodes" {"type" "array"
+ "items" {"type" "string"}}
+ "category" {"type" "string"}
+ "factoryType" {"type" "string"}
+ "contactEmail" {"type" "string"}
+ "website" {"type" "string"}
+ "lei" {"type" "string"}
+ "walletAddress" {"type" "string"}
+ "verificationTier" {"type" "string"
+ "enum" ["basic"
+ "verified"
+ "audited"]}
+ "onboardingStatus" {"type" "string"
+ "enum" ["pending-review"
+ "active"
+ "suspended"
+ "off-boarded"]}
+ "createdAt" {"type" "string"
+ "format" "datetime"}}}}}

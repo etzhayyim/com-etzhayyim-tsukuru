@@ -1,0 +1,244 @@
+{
+  "schema": "tsukuru.cntProcessCatalog.v1",
+  "processId": "tsukuru_cnt_fiber_manufacturing_flow",
+  "productFamilies": [
+    "cnt-fiber",
+    "cnt-yarn",
+    "cnt-sheet-preform",
+    "cnt-polymer-composite-filament"
+  ],
+  "equipment": [
+    {
+      "id": "eq-gas-cabinet-mfc",
+      "kind": "gas-handling",
+      "name": "Gas cabinet with mass-flow controllers",
+      "role": "Meter carbon source, carrier gas, reducing gas, and purge streams into the reactor.",
+      "required": true,
+      "interfaces": ["opcua", "modbus-tcp", "hardwired-interlock"],
+      "criticalParameters": ["carbon_source_sccm", "carrier_gas_sccm", "hydrogen_sccm", "purge_state"]
+    },
+    {
+      "id": "eq-catalyst-feeder",
+      "kind": "chemical",
+      "name": "Catalyst precursor feeder",
+      "role": "Dose catalyst or catalyst precursor for CNT nucleation control.",
+      "required": true,
+      "interfaces": ["opcua", "gravimetric-feed"],
+      "criticalParameters": ["catalyst_feed_mg_min", "precursor_temperature_c", "carrier_ratio"]
+    },
+    {
+      "id": "eq-floating-cvd-reactor",
+      "kind": "reactor",
+      "name": "Floating-catalyst CVD reactor",
+      "role": "Grow CNT aerogel/floating network under controlled residence time and temperature.",
+      "required": true,
+      "interfaces": ["opcua", "scada-historian", "safety-plc"],
+      "criticalParameters": ["reactor_zone_temperature_c", "pressure_kpa", "residence_time_s", "aerosol_density"]
+    },
+    {
+      "id": "eq-offgas-scrubber",
+      "kind": "safety",
+      "name": "Offgas scrubber and LEL monitoring train",
+      "role": "Treat exhaust and interlock unsafe combustible or toxic gas conditions.",
+      "required": true,
+      "interfaces": ["safety-plc", "analog-4-20ma"],
+      "criticalParameters": ["lel_percent", "scrubber_ph", "exhaust_flow_m3_h", "interlock_state"]
+    },
+    {
+      "id": "eq-aerogel-collector",
+      "kind": "material-handling",
+      "name": "CNT aerogel collector",
+      "role": "Collect continuous CNT aerogel sock or web from reactor outlet.",
+      "required": true,
+      "interfaces": ["servo-drive", "vision-trigger"],
+      "criticalParameters": ["collector_speed_m_min", "web_tension_n", "web_width_mm"]
+    },
+    {
+      "id": "eq-draw-spinning-frame",
+      "kind": "spinning",
+      "name": "Draw/spinning frame",
+      "role": "Align CNT network into fiber using draw ratio, tension, and twist control.",
+      "required": true,
+      "interfaces": ["ethercat", "opcua"],
+      "criticalParameters": ["draw_ratio", "tow_tension_n", "twist_tpm", "line_rate_m_min"]
+    },
+    {
+      "id": "eq-densification-bath",
+      "kind": "chemical",
+      "name": "Solvent densification/coagulation bath",
+      "role": "Collapse voids, remove residues, and stabilize fiber morphology.",
+      "required": true,
+      "interfaces": ["opcua", "batch-record"],
+      "criticalParameters": ["bath_temperature_c", "solvent_id", "residence_time_s", "conductivity_us_cm"]
+    },
+    {
+      "id": "eq-anneal-furnace",
+      "kind": "thermal",
+      "name": "Inert or reducing atmosphere anneal furnace",
+      "role": "Improve CNT contact, remove volatiles, and tune electrical/thermal properties.",
+      "required": true,
+      "interfaces": ["opcua", "recipe-manager", "safety-plc"],
+      "criticalParameters": ["anneal_temperature_c", "ramp_rate_c_min", "dwell_min", "oxygen_ppm"]
+    },
+    {
+      "id": "eq-doping-infiltration",
+      "kind": "chemical",
+      "name": "Doping/polymer infiltration station",
+      "role": "Apply dopant, sizing, or polymer matrix where product design requires interface tuning.",
+      "required": false,
+      "interfaces": ["batch-record", "opcua"],
+      "criticalParameters": ["dopant_id", "polymer_id", "pickup_percent", "drying_temperature_c"]
+    },
+    {
+      "id": "eq-spooler",
+      "kind": "material-handling",
+      "name": "Precision spooler",
+      "role": "Wind finished CNT fiber under controlled tension and lot genealogy.",
+      "required": true,
+      "interfaces": ["ethercat", "barcode-rfid", "mes"],
+      "criticalParameters": ["spool_tension_n", "spool_speed_m_min", "spool_length_m", "lot_id"]
+    },
+    {
+      "id": "eq-inline-raman",
+      "kind": "metrology",
+      "name": "Inline Raman/optical monitor",
+      "role": "Monitor CNT defect ratio, graphitic signal, and gross web/fiber defects.",
+      "required": true,
+      "interfaces": ["ethernet-ip", "file-drop", "spc"],
+      "criticalParameters": ["raman_id_ig", "g_band_intensity", "defect_count_per_m", "fiber_diameter_um"]
+    },
+    {
+      "id": "eq-release-metrology",
+      "kind": "metrology",
+      "name": "Release metrology bench",
+      "role": "Run tensile, four-point-probe, thermal diffusivity, SEM/TEM sampling, and mass/length checks.",
+      "required": true,
+      "interfaces": ["lims", "qms", "csv-json-import"],
+      "criticalParameters": ["strength_gpa", "conductivity_s_m", "thermal_conductivity_w_mk", "linear_density_tex"]
+    },
+    {
+      "id": "eq-mes-scada-plc",
+      "kind": "automation",
+      "name": "MES/SCADA/PLC control stack",
+      "role": "Coordinate recipes, tags, genealogy, alarms, signatures, and release records.",
+      "required": true,
+      "interfaces": ["opcua", "isa-95", "b2mml", "mqtt", "audit-log"],
+      "criticalParameters": ["recipe_revision", "batch_id", "alarm_state", "electronic_signature_state"]
+    }
+  ],
+  "steps": [
+    {
+      "id": "step-010-feedstock-catalyst-intake",
+      "name": "Feedstock and catalyst intake",
+      "stage": "intake",
+      "objective": "Verify carbon source, catalyst, solvent, dopant, and spool materials before recipe release.",
+      "inputs": ["carbon-source-lot", "catalyst-lot", "solvent-lot", "target-product-spec"],
+      "outputs": ["approved-material-lots", "recipe-draft", "ehs-release"],
+      "equipmentIds": ["eq-gas-cabinet-mfc", "eq-catalyst-feeder", "eq-mes-scada-plc"],
+      "controlParameters": { "material_cert_required": "true", "catalyst_feed_mg_min": 20, "carbon_source_sccm": 800 },
+      "sensors": ["lot-barcode", "gas-pressure", "catalyst-hopper-weight"],
+      "actuators": ["mfc-carbon-source", "mfc-carrier-gas", "catalyst-feeder"],
+      "qualityGates": ["coa-reviewed", "ehs-sds-reviewed", "recipe-revision-approved"],
+      "ehsControls": ["flammable-gas-check", "nanomaterial-handling-sop", "operator-ppe-check"],
+      "automationMode": "human-gated"
+    },
+    {
+      "id": "step-020-floating-cvd-growth",
+      "name": "CNT synthesis growth",
+      "stage": "synthesis",
+      "objective": "Grow CNT network inside the approved morphology and purity window.",
+      "inputs": ["approved-material-lots", "recipe-draft"],
+      "outputs": ["cnt-aerogel-web", "reactor-history", "offgas-history"],
+      "equipmentIds": ["eq-floating-cvd-reactor", "eq-gas-cabinet-mfc", "eq-catalyst-feeder", "eq-offgas-scrubber", "eq-inline-raman"],
+      "controlParameters": { "reactor_zone_temperature_c": 1180, "pressure_kpa": 101, "residence_time_s": 8, "raman_id_ig_min": 8 },
+      "sensors": ["zone-temperature", "pressure", "mass-flow", "lel-percent", "inline-raman"],
+      "actuators": ["heater-zone", "mfc-carbon-source", "mfc-carrier-gas", "catalyst-feeder", "exhaust-damper"],
+      "qualityGates": ["morphology-window-in-control", "offgas-interlock-clear", "raman-trend-in-control"],
+      "ehsControls": ["lel-interlock", "scrubber-active", "reactor-door-interlock"],
+      "automationMode": "closed-loop"
+    },
+    {
+      "id": "step-030-aerogel-collection",
+      "name": "Aerogel collection and web stabilization",
+      "stage": "fiber-formation",
+      "objective": "Collect continuous CNT web without breakage or uncontrolled diameter drift.",
+      "inputs": ["cnt-aerogel-web"],
+      "outputs": ["stabilized-cnt-web", "web-defect-map"],
+      "equipmentIds": ["eq-aerogel-collector", "eq-inline-raman", "eq-mes-scada-plc"],
+      "controlParameters": { "collector_speed_m_min": 1.2, "web_tension_n": 0.15, "defect_count_per_m_max": 3 },
+      "sensors": ["web-tension", "web-width", "optical-defect-camera", "collector-speed"],
+      "actuators": ["collector-servo", "edge-guide", "vision-reject-flag"],
+      "qualityGates": ["web-continuity-ok", "defect-rate-in-control"],
+      "ehsControls": ["local-exhaust-on", "fiber-containment-guard"],
+      "automationMode": "closed-loop"
+    },
+    {
+      "id": "step-040-draw-spin-densify",
+      "name": "Draw spinning and densification",
+      "stage": "fiber-formation",
+      "objective": "Align and densify CNT network into target fiber/yarn form.",
+      "inputs": ["stabilized-cnt-web", "approved-solvent-lot"],
+      "outputs": ["green-cnt-fiber", "tension-history", "bath-history"],
+      "equipmentIds": ["eq-draw-spinning-frame", "eq-densification-bath", "eq-spooler"],
+      "controlParameters": { "draw_ratio": 4, "line_rate_m_min": 1, "bath_temperature_c": 25, "tow_tension_n": 0.35 },
+      "sensors": ["tow-tension", "fiber-diameter", "bath-temperature", "bath-conductivity"],
+      "actuators": ["draw-servo", "bath-pump", "spooler-servo", "twist-drive"],
+      "qualityGates": ["alignment-ratio-ok", "diameter-cv-ok", "no-fiber-break"],
+      "ehsControls": ["solvent-vapor-monitoring", "spill-containment-ready"],
+      "automationMode": "closed-loop"
+    },
+    {
+      "id": "step-050-anneal-dope-size",
+      "name": "Anneal, dope, and size",
+      "stage": "post-treatment",
+      "objective": "Tune contact resistance, interfacial bonding, and residual volatile content.",
+      "inputs": ["green-cnt-fiber", "dopant-or-sizing-lot"],
+      "outputs": ["treated-cnt-fiber", "thermal-history", "chemical-treatment-record"],
+      "equipmentIds": ["eq-anneal-furnace", "eq-doping-infiltration", "eq-spooler", "eq-mes-scada-plc"],
+      "controlParameters": { "anneal_temperature_c": 900, "dwell_min": 30, "oxygen_ppm_max": 20, "pickup_percent": 1.5 },
+      "sensors": ["furnace-temperature", "oxygen-ppm", "line-tension", "bath-weight"],
+      "actuators": ["anneal-heater", "inert-gas-valve", "coating-pump", "spooler-servo"],
+      "qualityGates": ["thermal-profile-approved", "pickup-percent-in-range", "recipe-signature-complete"],
+      "ehsControls": ["hot-surface-guard", "inert-gas-oxygen-monitor", "chemical-fume-exhaust"],
+      "automationMode": "human-gated"
+    },
+    {
+      "id": "step-060-release-metrology",
+      "name": "Release metrology and spool disposition",
+      "stage": "quality-release",
+      "objective": "Release or quarantine the finished spool using mechanical, electrical, thermal, and morphology evidence.",
+      "inputs": ["treated-cnt-fiber", "spool-genealogy"],
+      "outputs": ["released-spool", "qms-release-record", "certificate-of-analysis"],
+      "equipmentIds": ["eq-release-metrology", "eq-inline-raman", "eq-spooler", "eq-mes-scada-plc"],
+      "controlParameters": { "strength_gpa_min": 2, "conductivity_s_m_min": 100000, "raman_id_ig_min": 8, "defect_count_per_m_max": 3 },
+      "sensors": ["tensile-load-cell", "four-point-probe", "thermal-diffusivity", "raman", "spool-length-counter"],
+      "actuators": ["qms-disposition", "label-printer", "quarantine-lock"],
+      "qualityGates": ["tensile-pass", "conductivity-pass", "thermal-pass", "morphology-sampling-pass", "coa-issued"],
+      "ehsControls": ["sample-containment", "waste-disposition-recorded"],
+      "automationMode": "human-gated"
+    }
+  ],
+  "dataRecords": [
+    "com.etzhayyim.apps.tsukuru.cntManufacturingFlow",
+    "com.etzhayyim.apps.tsukuru.cntAutomationPlan",
+    "com.etzhayyim.apps.tsukuru.supplierExchangePackage",
+    "mes.workOrder",
+    "scada.tagHistory",
+    "qms.inspectionPlan",
+    "qms.releaseRecord"
+  ],
+  "plcTags": [
+    "CNT.REACTOR.ZONE_TEMP_C",
+    "CNT.REACTOR.PRESSURE_KPA",
+    "CNT.GAS.CARBON_SOURCE_SCCM",
+    "CNT.GAS.CARRIER_SCCM",
+    "CNT.SAFETY.LEL_PERCENT",
+    "CNT.SPIN.TOW_TENSION_N",
+    "CNT.SPIN.LINE_RATE_M_MIN",
+    "CNT.BATH.TEMP_C",
+    "CNT.ANNEAL.OXYGEN_PPM",
+    "CNT.QA.RAMAN_ID_IG"
+  ],
+  "mesEntities": ["materialLot", "recipeRevision", "workOrder", "equipmentState", "spoolGenealogy", "operatorSignature"],
+  "qmsArtifacts": ["processFmea", "controlPlan", "inspectionPlan", "spcChart", "certificateOfAnalysis", "nonconformanceReport"]
+}

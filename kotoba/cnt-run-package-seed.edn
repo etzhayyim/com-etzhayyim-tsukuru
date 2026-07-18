@@ -1,0 +1,71 @@
+;; tsukuru 作 — CNT run-package seed (kotoba-native, R0). A small worked example — same
+;; framing as kotoba/seed.edn: a genuine (not fabricated) CNT run-package that reaches
+;; "ready" under `(agent/validate-run-package "cnt" seed)` (src/tsukuru/kotoba/agent.cljc):
+;; all 6 catalog steps present (kotoba/cnt-process-catalog.edn), closed-loop steps with
+;; telemetry + EHS interlocks bound, releasePlan carrying all 4 numeric targets, and all 3
+;; required approval roles DID-signed. String-keyed (not keyword-keyed like schema.edn/lex/
+;; *.edn) to match agent.cljc's plain-map idiom directly, and structurally analogous to
+;; wire/examples/cnt/run-package.example.v1.json (that example
+;; only carries 2 of the 6 steps as a partial illustration; this seed is a complete run so it
+;; genuinely reaches "ready"). Placeholder IDs only ("...-example-...") — NOT a live
+;; commercial offer / real facility.
+{"schema" "tsukuru.cntRunPackage.v1"
+ "runId" "cnt-run-example-001"
+ "productionOrderId" "po-cnt-example-001"
+ "processId" "tsukuru_cnt_fiber_manufacturing_flow"
+ "recipeRevision" "cnt-fiber-recipe-r1"
+ "productFamily" "cnt-fiber"
+
+ "recipe"
+ [{"stepId" "step-010-feedstock-catalyst-intake" "sequence" 10
+   "equipmentIds" ["eq-gas-cabinet-mfc" "eq-catalyst-feeder" "eq-mes-scada-plc"]
+   "setpoints" {"catalyst_feed_mg_min" 20 "carbon_source_sccm" 800}
+   "holdPoints" ["coa-reviewed" "ehs-sds-reviewed" "recipe-revision-approved"]
+   "automationMode" "human-gated"}
+  {"stepId" "step-020-floating-cvd-growth" "sequence" 20
+   "equipmentIds" ["eq-floating-cvd-reactor" "eq-gas-cabinet-mfc" "eq-catalyst-feeder" "eq-offgas-scrubber" "eq-inline-raman"]
+   "setpoints" {"reactor_zone_temperature_c" 1180 "pressure_kpa" 101 "residence_time_s" 8 "raman_id_ig_min" 8}
+   "holdPoints" ["morphology-window-in-control" "offgas-interlock-clear" "raman-trend-in-control"]
+   "automationMode" "closed-loop"}
+  {"stepId" "step-030-aerogel-collection" "sequence" 30
+   "equipmentIds" ["eq-aerogel-collector" "eq-inline-raman" "eq-mes-scada-plc"]
+   "setpoints" {"collector_speed_m_min" 1.2 "web_tension_n" 0.15}
+   "holdPoints" ["web-continuity-ok" "defect-rate-in-control"]
+   "automationMode" "closed-loop"}
+  {"stepId" "step-040-draw-spin-densify" "sequence" 40
+   "equipmentIds" ["eq-draw-spinning-frame" "eq-densification-bath" "eq-spooler"]
+   "setpoints" {"draw_ratio" 4 "line_rate_m_min" 1 "bath_temperature_c" 25}
+   "holdPoints" ["alignment-ratio-ok" "diameter-cv-ok" "no-fiber-break"]
+   "automationMode" "closed-loop"}
+  {"stepId" "step-050-anneal-dope-size" "sequence" 50
+   "equipmentIds" ["eq-anneal-furnace" "eq-spooler" "eq-mes-scada-plc"]
+   "setpoints" {"anneal_temperature_c" 900 "dwell_min" 30 "oxygen_ppm_max" 20}
+   "holdPoints" ["thermal-profile-approved" "recipe-signature-complete"]
+   "automationMode" "human-gated"}
+  {"stepId" "step-060-release-metrology" "sequence" 60
+   "equipmentIds" ["eq-release-metrology" "eq-inline-raman" "eq-spooler" "eq-mes-scada-plc"]
+   "setpoints" {"strength_gpa_min" 2 "conductivity_s_m_min" 100000}
+   "holdPoints" ["tensile-pass" "conductivity-pass" "thermal-pass" "coa-issued"]
+   "automationMode" "human-gated"}]
+
+ "equipmentBinding"
+ [{"catalogEquipmentId" "eq-floating-cvd-reactor" "equipmentInstanceId" "cnt-reactor-line-01"
+   "interfaces" ["opcua" "scada-historian" "safety-plc"]}
+  {"catalogEquipmentId" "eq-inline-raman" "equipmentInstanceId" "raman-line-01"
+   "interfaces" ["ethernet-ip" "file-drop" "spc"]}]
+
+ "telemetryBinding"
+ [{"tag" "CNT.REACTOR.ZONE_TEMP_C" "source" "plc" "sampleRateHz" 1 "retention" "7y"}
+  {"tag" "CNT.QA.RAMAN_ID_IG" "source" "qms" "sampleRateHz" 0.05 "retention" "lot-life"}]
+
+ "releasePlan"
+ {"qmsArtifacts" ["processFmea" "controlPlan" "inspectionPlan" "spcChart" "certificateOfAnalysis" "nonconformanceReport"]
+  "targetStrengthGPa" 2 "targetConductivitySM" 100000 "targetThermalConductivityWMK" 100
+  "targetSpoolLengthM" 1000 "disposition" "hold-for-release"}
+
+ "ehsInterlocks" ["CNT.SAFETY.LEL_PERCENT" "CNT.REACTOR.DOOR_INTERLOCK" "CNT.EXHAUST.SCRUBBER_ACTIVE" "CNT.ANNEAL.OXYGEN_PPM"]
+
+ "approvals"
+ [{"role" "manufacturing-owner" "required" true "did" "did:web:tsukuru.etzhayyim.com:operator-example"}
+  {"role" "ehs-owner" "required" true "did" "did:web:tsukuru.etzhayyim.com:ehs-example"}
+  {"role" "quality-owner" "required" true "did" "did:web:tsukuru.etzhayyim.com:quality-example"}]}

@@ -1,0 +1,52 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.manufacturerRegistry.searchManufacturers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Search manufacturers by free-text query against legalName / tradeName / category + filter by min verification tier + ISIC code. Phase 2 client-side search (text matching on read); Phase 3 will move to mst-projector + IVF embedding index for semantic search.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "description": "Free-text search query (matched against legalName / tradeName / category)."
+          },
+          "minTier": {
+            "type": "string",
+            "enum": ["basic", "verified", "audited"],
+            "default": "basic"
+          },
+          "isicCode": { "type": "string" },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 20
+          },
+          "cursor": { "type": "string" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.etzhayyim.apps.tsukuru.manufacturerRegistry.getManufacturer#manufacturerView"
+              }
+            },
+            "cursor": { "type": "string" },
+            "total": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}

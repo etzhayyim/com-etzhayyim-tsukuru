@@ -1,0 +1,6 @@
+{:canonical/format :edn
+ :wire/root "wire"
+ :wire/formats #{"json" "jsonld" "bpmn"}
+ :forbidden/extensions #{"go" "sh"}
+ :legacy/root "20-actors/tsukuru"
+ :standalone/path "orgs/etzhayyim/com-etzhayyim-tsukuru"}

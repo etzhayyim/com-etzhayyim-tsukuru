@@ -1,0 +1,107 @@
+{"$schema" "https://json-schema.org/draft/2020-12/schema"
+ "$id" "https://etzhayyim.com/schemas/tsukuru-cnt-process-catalog.schema.json"
+ "title" "Tsukuru CNT Process Catalog"
+ "type" "object"
+ "required" ["schema"
+ "processId"
+ "productFamilies"
+ "equipment"
+ "steps"
+ "dataRecords"
+ "plcTags"
+ "mesEntities"
+ "qmsArtifacts"]
+ "properties" {"schema" {"const" "tsukuru.cntProcessCatalog.v1"}
+ "processId" {"const" "tsukuru_cnt_fiber_manufacturing_flow"}
+ "productFamilies" {"type" "array"
+ "items" {"type" "string"}
+ "minItems" 1}
+ "equipment" {"type" "array"
+ "items" {"$ref" "#/$defs/equipment"}
+ "minItems" 1}
+ "steps" {"type" "array"
+ "items" {"$ref" "#/$defs/step"}
+ "minItems" 1}
+ "dataRecords" {"type" "array"
+ "items" {"type" "string"}}
+ "plcTags" {"type" "array"
+ "items" {"type" "string"}}
+ "mesEntities" {"type" "array"
+ "items" {"type" "string"}}
+ "qmsArtifacts" {"type" "array"
+ "items" {"type" "string"}}}
+ "$defs" {"equipment" {"type" "object"
+ "required" ["id"
+ "kind"
+ "name"
+ "role"
+ "required"
+ "interfaces"
+ "criticalParameters"]
+ "properties" {"id" {"type" "string"
+ "pattern" "^eq-[a-z0-9-]+$"}
+ "kind" {"type" "string"
+ "enum" ["reactor"
+ "gas-handling"
+ "spinning"
+ "thermal"
+ "chemical"
+ "metrology"
+ "material-handling"
+ "safety"
+ "automation"]}
+ "name" {"type" "string"}
+ "role" {"type" "string"}
+ "required" {"type" "boolean"}
+ "interfaces" {"type" "array"
+ "items" {"type" "string"}}
+ "criticalParameters" {"type" "array"
+ "items" {"type" "string"}}}
+ "additionalProperties" false}
+ "step" {"type" "object"
+ "required" ["id"
+ "name"
+ "stage"
+ "objective"
+ "inputs"
+ "outputs"
+ "equipmentIds"
+ "controlParameters"
+ "sensors"
+ "actuators"
+ "qualityGates"
+ "ehsControls"
+ "automationMode"]
+ "properties" {"id" {"type" "string"
+ "pattern" "^step-[0-9]{3}-[a-z0-9-]+$"}
+ "name" {"type" "string"}
+ "stage" {"type" "string"
+ "enum" ["intake"
+ "synthesis"
+ "fiber-formation"
+ "post-treatment"
+ "quality-release"]}
+ "objective" {"type" "string"}
+ "inputs" {"type" "array"
+ "items" {"type" "string"}}
+ "outputs" {"type" "array"
+ "items" {"type" "string"}}
+ "equipmentIds" {"type" "array"
+ "items" {"type" "string"}}
+ "controlParameters" {"type" "object"
+ "additionalProperties" {"type" ["string"
+ "number"]}}
+ "sensors" {"type" "array"
+ "items" {"type" "string"}}
+ "actuators" {"type" "array"
+ "items" {"type" "string"}}
+ "qualityGates" {"type" "array"
+ "items" {"type" "string"}}
+ "ehsControls" {"type" "array"
+ "items" {"type" "string"}}
+ "automationMode" {"type" "string"
+ "enum" ["manual"
+ "human-gated"
+ "closed-loop"]}}
+ "additionalProperties" false}}
+ "additionalProperties" false}

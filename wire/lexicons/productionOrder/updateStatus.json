@@ -1,0 +1,64 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.productionOrder.updateStatus",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Update the status of a productionOrder (typically called by the manufacturer DID as work progresses). Status transitions are validated against a state machine: pending → accepted → material-procurement → in-production → quality-inspection → shipped → delivered. cancelled / rejected are terminal. Per ADR-2605202800.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["productionOrderUri", "status", "updatedByDid"],
+          "properties": {
+            "productionOrderUri": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "accepted",
+                "material-procurement",
+                "in-production",
+                "quality-inspection",
+                "shipped",
+                "delivered",
+                "cancelled",
+                "rejected"
+              ]
+            },
+            "note": {
+              "type": "string",
+              "maxLength": 1000,
+              "description": "Optional update note (audit trail)."
+            },
+            "updatedByDid": {
+              "type": "string",
+              "format": "did",
+              "description": "DID of the actor making the update (manufacturer / customer / arbiter)."
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["status", "productionOrderUri"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["updated", "invalidTransition", "notFound"]
+            },
+            "productionOrderUri": { "type": "string", "format": "at-uri" },
+            "previousStatus": { "type": "string" },
+            "newStatus": { "type": "string" },
+            "error": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.supplierExchange.validatePackage"
+ "defs" {"main" {"type" "query"
+ "description" "Validate EUV supplier CAD/RFQ exchange package readiness without writing records."
+ "parameters" {"type" "params"
+ "properties" {"package_id" {"type" "string"}
+ "production_order_id" {"type" "string"}
+ "supplier_did" {"type" "string"}
+ "exchange_format" {"type" "string"}
+ "artifacts" {"type" "array"
+ "items" {"type" "unknown"}}
+ "requirements" {"type" "unknown"}
+ "channels" {"type" "array"
+ "items" {"type" "string"}}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "packageId" {"type" "string"}
+ "ready" {"type" "boolean"}
+ "blockers" {"type" "array"
+ "items" {"type" "string"}}
+ "designFormats" {"type" "array"
+ "items" {"type" "string"}}
+ "compatibility" {"type" "unknown"}
+ "requiredCapabilities" {"type" "array"
+ "items" {"type" "string"}}}}}}}}

@@ -1,0 +1,44 @@
+;; tsukuru 作 — curated heuristic HS (Harmonized System) chapter/heading classification
+;; table. Documented/reviewable data source for `classify-product` in
+;; src/tsukuru/kotoba/agent.cljc — the .cljc embeds this same data as a Clojure literal
+;; (HS-CLASSIFICATION-TABLE) so the actor stays IO-free / portable to cljs+WASM (no
+;; runtime file read, no new deps). Keep the two in sync by hand when editing either one.
+;;
+;; Scope: a SMALL curated snapshot covering tsukuru's actual manufacturing verticals per
+;; CLAUDE.md and manifest.edn — CNC/metal machining, aluminium/steel/
+;; plastics articles, electronics/communication equipment, semiconductor devices,
+;; EUV/optical-precision instruments (EUV vertical), CNT/carbon-fiber (CNT fiber
+;; vertical), textiles, vehicle parts, radar/navigation. This is NOT an authoritative
+;; customs ruling and NOT a full HS nomenclature — real tariff classification requires a
+;; real classifier/host integration (inject `classify-fn` at the call site).
+;;
+;; Shape: a vector of {"hsCode" <chapter/heading> "description" <text> "keywords"
+;; [<capability-like phrase> ...]}. A product description is matched by tokenizing it the
+;; same way `capability-match`/`tokens` do in agent.cljc, then scoring how many keyword
+;; phrases in an entry share a token with the description; the highest-scoring entry
+;; (score > 0) wins. No match → an honest "unclassified" result (see classify-product),
+;; never a silent fixed-code fallback.
+[{"hsCode" "8457" "description" "Machining centres and CNC metal-working machine tools"
+  "keywords" ["cnc" "machining" "milling" "lathe" "drilling"]}
+ {"hsCode" "7616" "description" "Other articles of aluminium"
+  "keywords" ["aluminum" "aluminium" "anodized" "anodizing" "bracket"]}
+ {"hsCode" "7326" "description" "Other articles of iron or steel"
+  "keywords" ["steel" "welding" "sheetmetal" "ironwork" "stamping"]}
+ {"hsCode" "3926" "description" "Other articles of plastics"
+  "keywords" ["plastic" "polymer" "injection" "molding" "moulded"]}
+ {"hsCode" "8517" "description" "Telephone sets and apparatus for transmission/reception of voice or data"
+  "keywords" ["telecom" "communication" "modem" "router" "antenna" "transceiver"]}
+ {"hsCode" "8541" "description" "Diodes, transistors and similar semiconductor devices"
+  "keywords" ["semiconductor" "wafer" "transistor" "diode" "asic" "circuit"]}
+ {"hsCode" "8486" "description" "Machines/apparatus for manufacture of semiconductor devices or wafers (incl. EUV lithography)"
+  "keywords" ["euv" "lithography" "photomask" "waferstepper" "opticalinstrument"]}
+ {"hsCode" "9013" "description" "Lasers and other optical appliances/instruments"
+  "keywords" ["laser" "optical" "lens" "photonics" "precisionoptics"]}
+ {"hsCode" "6815" "description" "Articles of carbon fibres and other carbon/graphite articles"
+  "keywords" ["carbonfiber" "nanotube" "cnt" "graphene" "fiber" "fibre"]}
+ {"hsCode" "5407" "description" "Woven fabrics of synthetic filament yarn"
+  "keywords" ["textile" "fabric" "yarn" "weaving"]}
+ {"hsCode" "8708" "description" "Parts and accessories of motor vehicles"
+  "keywords" ["automotive" "vehicle" "chassis" "drivetrain" "axle"]}
+ {"hsCode" "8526" "description" "Radar apparatus and radio navigational aid apparatus"
+  "keywords" ["radar" "sonar" "navigationsystem" "gpsguidance"]}]

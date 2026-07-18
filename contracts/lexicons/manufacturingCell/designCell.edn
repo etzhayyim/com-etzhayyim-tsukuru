@@ -1,0 +1,20 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.manufacturingCell.designCell"
+ "defs" {"main" {"type" "query"
+ "description" "Design a 3D manufacturing cell using kami-engine-sdk manufacturing primitives. Pure compute \u2014 returns a cell plan envelope."
+ "parameters" {"type" "params"
+ "properties" {"productionOrderId" {"type" "string"}
+ "cellId" {"type" "string"}
+ "part" {"type" "unknown"}
+ "devices" {"type" "array"
+ "items" {"type" "unknown"}}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "schema" {"type" "string"}
+ "cellId" {"type" "string"}
+ "productionOrderId" {"type" "string"}
+ "sceneUnits" {"type" "string"}
+ "partEnvelope" {"type" "unknown"}
+ "devices" {"type" "array"
+ "items" {"type" "unknown"}}}}}}}}

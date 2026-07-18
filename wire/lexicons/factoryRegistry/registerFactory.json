@@ -1,0 +1,66 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.factoryRegistry.registerFactory",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Register a factory under a manufacturer. Mints path-based DID did:web:tsukuru.etzhayyim.com:factory:{slug} and writes the factory record. Idempotent via rkey=slug. Per ADR-2605202800 Phase 2.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["manufacturerDid", "slug", "factoryName", "countryIso3"],
+          "properties": {
+            "manufacturerDid": {
+              "type": "string",
+              "format": "did",
+              "description": "Parent manufacturer DID (did:web:tsukuru.etzhayyim.com:manufacturer:{slug})."
+            },
+            "slug": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 64,
+              "description": "Factory slug. Becomes the DID path: did:web:tsukuru.etzhayyim.com:factory:{slug}."
+            },
+            "factoryName": {
+              "type": "string",
+              "maxLength": 256
+            },
+            "countryIso3": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 3
+            },
+            "city": { "type": "string" },
+            "addressLine": { "type": "string" },
+            "postalCode": { "type": "string" },
+            "capacityLevel": {
+              "type": "string",
+              "enum": ["small", "medium", "large"]
+            },
+            "certifications": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["registered", "alreadyExists", "rejected"]
+            },
+            "factoryUri": { "type": "string", "format": "at-uri" },
+            "did": { "type": "string", "format": "did" },
+            "error": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

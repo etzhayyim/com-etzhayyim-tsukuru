@@ -1,0 +1,40 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.productionProgress.getProgress"
+ "defs" {"main" {"type" "query"
+ "description" "Get milestone timeline for a production order (newest first by default)."
+ "parameters" {"type" "params"
+ "required" ["productionOrderUri"]
+ "properties" {"productionOrderUri" {"type" "string"
+ "format" "at-uri"}
+ "limit" {"type" "integer"
+ "minimum" 1
+ "maximum" 100
+ "default" 50}
+ "cursor" {"type" "string"}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "required" ["items"]
+ "properties" {"items" {"type" "array"
+ "items" {"type" "ref"
+ "ref" "#milestoneView"}}
+ "cursor" {"type" "string"}
+ "total" {"type" "integer"}}}}}
+ "milestoneView" {"type" "object"
+ "required" ["milestoneUri"
+ "productionOrderUri"
+ "milestone"
+ "factoryDid"
+ "createdAt"]
+ "properties" {"milestoneUri" {"type" "string"
+ "format" "at-uri"}
+ "productionOrderUri" {"type" "string"
+ "format" "at-uri"}
+ "milestone" {"type" "string"}
+ "factoryDid" {"type" "string"
+ "format" "did"}
+ "note" {"type" "string"}
+ "completedPercent" {"type" "integer"}
+ "evidenceCids" {"type" "array"
+ "items" {"type" "string"}}
+ "createdAt" {"type" "string"
+ "format" "datetime"}}}}}

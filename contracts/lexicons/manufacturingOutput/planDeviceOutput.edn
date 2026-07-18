@@ -1,0 +1,20 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.manufacturingOutput.planDeviceOutput"
+ "defs" {"main" {"type" "query"
+ "description" "Plan manufacturing output for a device (parts + ordered devices + cycle time estimate). Pure compute."
+ "parameters" {"type" "params"
+ "properties" {"productionOrderId" {"type" "string"}
+ "planId" {"type" "string"}
+ "deviceKind" {"type" "string"}
+ "targetQuantity" {"type" "integer"}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "schema" {"type" "string"}
+ "planId" {"type" "string"}
+ "productionOrderId" {"type" "string"}
+ "deviceKind" {"type" "string"}
+ "targetQuantity" {"type" "integer"}
+ "estimatedCycleSec" {"type" "integer"}
+ "requirements" {"type" "array"
+ "items" {"type" "string"}}}}}}}}

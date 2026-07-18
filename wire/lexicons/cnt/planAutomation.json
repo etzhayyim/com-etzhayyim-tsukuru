@@ -1,0 +1,36 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.cnt.planAutomation",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Plan guarded automation for a CNT/CNT fiber process cell.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "automation_id": { "type": "string" },
+          "flow_id": { "type": "string" },
+          "cell_id": { "type": "string" },
+          "production_order_id": { "type": "string" },
+          "control_level": { "type": "string" },
+          "requirements": { "type": "unknown" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "automationId": { "type": "string" },
+            "bpmnProcessId": { "type": "string" },
+            "sensors": { "type": "array", "items": { "type": "string" } },
+            "actuators": { "type": "array", "items": { "type": "string" } },
+            "loops": { "type": "array", "items": { "type": "unknown" } },
+            "requiresHumanApproval": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}

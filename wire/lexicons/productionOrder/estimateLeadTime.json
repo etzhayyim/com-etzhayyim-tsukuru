@@ -1,0 +1,68 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.productionOrder.estimateLeadTime",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Estimate lead time + USDC cost for a hypothetical productionOrder. Pure compute — no records written. Phase 2 uses default priority-based estimates; Phase 3 will read industry-profile records from mst-projector for accurate per-process estimates.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["manufacturerDid"],
+          "properties": {
+            "manufacturerDid": {
+              "type": "string",
+              "format": "did"
+            },
+            "productSpec": {
+              "type": "unknown",
+              "description": "Free-form product specification."
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "priority": {
+              "type": "string",
+              "enum": ["low", "normal", "high", "urgent"],
+              "default": "normal"
+            },
+            "industryCode": {
+              "type": "string",
+              "description": "ISIC Rev. 4 code (e.g. C2811)."
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["estimatedDays", "earliestDate"],
+          "properties": {
+            "estimatedDays": {
+              "type": "integer",
+              "description": "Calendar days from order acceptance to delivery."
+            },
+            "earliestDate": {
+              "type": "string",
+              "format": "datetime",
+              "description": "ISO date of earliest delivery (today + estimatedDays)."
+            },
+            "estimatedCostUsdcMicros": {
+              "type": "integer",
+              "description": "Estimated USDC cost in micros (6 decimals). Phase 2 = base × quantity × priority multiplier; Phase 3 = industry-profile-driven."
+            },
+            "industryCode": { "type": "string" },
+            "requiredCertifications": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

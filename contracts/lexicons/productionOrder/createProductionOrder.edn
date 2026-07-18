@@ -1,0 +1,78 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.productionOrder.createProductionOrder"
+ "defs" {"main" {"type" "procedure"
+ "description" "Create a B2B production order against a registered manufacturer. Per ADR-2605202800 Phase 2, payment.method='escrow_intent' opens a deferred-payment intent AT record; actual USDC transfer occurs at delivery confirmation via @etzhayyim/sdk pay(). Cancellation before delivery writes a refund record (no on-chain tx since no transfer happened)."
+ "input" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "required" ["manufacturerDid"
+ "customerDid"
+ "productSpec"]
+ "properties" {"manufacturerDid" {"type" "string"
+ "format" "did"
+ "description" "Manufacturer etzhayyim DID (did:web:tsukuru.etzhayyim.com:manufacturer:{slug})."}
+ "customerDid" {"type" "string"
+ "format" "did"
+ "description" "Buyer etzhayyim DID."}
+ "factoryDid" {"type" "string"
+ "format" "did"
+ "description" "Optional specific factory DID under manufacturer."}
+ "productSpec" {"type" "object"
+ "description" "Product specification (free-form per industry \u2014 CAD CIDs, BOM, quantities, etc.)."}
+ "fulfillmentMode" {"type" "string"
+ "enum" ["bto"
+ "mto"
+ "cto"]
+ "default" "bto"
+ "description" "Build-to-Order / Made-to-Order / Configure-to-Order."}
+ "priority" {"type" "string"
+ "enum" ["low"
+ "normal"
+ "high"
+ "urgent"]
+ "default" "normal"}
+ "deadline" {"type" "string"
+ "format" "datetime"
+ "description" "ISO-8601 target delivery date."}
+ "payment" {"type" "object"
+ "description" "Payment intent. Per ADR-2605172100 etzhayyim is on-chain only; tsukuru Phase 2 uses deferred escrow_intent (intent record at create, SDK pay() at delivery, refund record at cancel)."
+ "properties" {"method" {"type" "string"
+ "enum" ["escrow_intent"
+ "direct_pay"]
+ "description" "escrow_intent = intent record at create, pay() at delivery, refund at cancel. direct_pay = SDK pay() immediately at order create (no cancellation refund possible)."}
+ "amountUsdcMicros" {"type" "integer"
+ "minimum" 1
+ "description" "Total amount in USDC micros (6 decimals; 10 USDC = 10_000_000)."}
+ "tokenContract" {"type" "string"
+ "description" "ERC-20 token contract. Default: USDC on Base (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)."}
+ "chainId" {"type" "integer"
+ "default" 8453
+ "description" "Base L2 mainnet = 8453."}}}
+ "okaimonoOrderRef" {"type" "string"
+ "format" "at-uri"
+ "description" "Upstream okaimono.etzhayyim.com order AT URI (if applicable)."}
+ "certificationsRequired" {"type" "array"
+ "items" {"type" "string"}
+ "description" "Required certifications (ISO 9001, IATF 16949, AS9100, etc.)."}}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "required" ["productionOrderUri"
+ "status"]
+ "properties" {"productionOrderUri" {"type" "string"
+ "format" "at-uri"
+ "description" "AT URI of the created production order record."}
+ "status" {"type" "string"
+ "enum" ["pending"
+ "rejected"]
+ "description" "pending = order created and waiting manufacturer acceptance; rejected = pre-flight check failed (manufacturer inactive / sanctions / etc.)."}
+ "escrowIntentUri" {"type" "string"
+ "format" "at-uri"
+ "description" "AT URI of the escrow intent record (if payment.method='escrow_intent')."}
+ "estimatedCompletion" {"type" "string"
+ "format" "datetime"
+ "description" "Estimated delivery date based on priority + quantity + industry profile."}
+ "estimatedDays" {"type" "integer"
+ "description" "Estimated lead time in days."}
+ "manufacturerDid" {"type" "string"
+ "format" "did"}
+ "error" {"type" "string"
+ "description" "Error code if status='rejected'."}}}}}}}

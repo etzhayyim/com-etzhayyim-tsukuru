@@ -19,12 +19,6 @@ B2B factory-direct ordering platform for `tsukuru.etzhayyim.com`.
 - Active collection name: `com.etzhayyim.apps.tsukuru.manufacturer`.
 - Historical collection for migration/read-compat: `com.etzhayyim.apps.tsukuru-api.manufacturer`.
 - Registry scale assumption: 460+ manufacturer DIDs across 30+ countries.
-- `kotoba/candidates.edn` is a separate, explicitly-labeled **public-directory reference
-  dataset** (`:factory/sourcing :public-directory`, `candidate:manufacturer-directory/...`
-  ids, never `did:web:tsukuru.etzhayyim.com/...`) — real companies sourced from their own
-  public sites/Wikipedia, NOT onboarded/registered factories. Do not conflate it with the
-  live `:factory/*` registry above. Validate with `bb kotoba/validate_candidates.bb` before
-  committing changes to it.
 
 ## Write Buffer Rule
 
@@ -83,12 +77,37 @@ and embedded-carbon context into the CNT flow.
 
 **Catalog/schema data**:
 - code: `60-apps/etzhayyim-project-tsukuru/appview/tsukuru-tsukr8u0/src/cnt-process-catalog.ts`
-- schema: `00-contracts/schemas/tsukuru-cnt-process-catalog.schema.json`
-- data: `00-contracts/catalogs/com/etzhayyim/tsukuru/cnt/process-catalog.v1.json`
-- run package schema: `00-contracts/schemas/tsukuru-cnt-run-package.schema.json`
-- run package example: `00-contracts/examples/com/etzhayyim/tsukuru/cnt/run-package.example.v1.json`
-- run validation schema: `00-contracts/schemas/tsukuru-cnt-run-validation.schema.json`
-- run validation example: `00-contracts/examples/com/etzhayyim/tsukuru/cnt/run-validation.example.v1.json`
+- schema: `wire/schemas/tsukuru-cnt-process-catalog.schema.json`
+- data: `wire/catalogs/cnt/process-catalog.v1.json`
+- run package schema: `wire/schemas/tsukuru-cnt-run-package.schema.json`
+- run package example: `wire/examples/cnt/run-package.example.v1.json`
+- run validation schema: `wire/schemas/tsukuru-cnt-run-validation.schema.json`
+- run validation example: `wire/examples/cnt/run-validation.example.v1.json`
+
+## CNT / EUV run-package validation — executable parity in the living actor (`kotoba/agent.cljc`)
+
+`00-contracts` only ever carried **static JSON Schema** for CNT (structural validation — "does
+the shape match") and bare lexicons for EUV (no run-package/run-validation schema at all).
+Neither vertical had any **executable business-rule** validation until `validate-run-package`
+(`[vertical run-package]`, `vertical` = `"cnt"` | `"euv"`) was added to
+`src/tsukuru/kotoba/agent.cljc`, following the same honest-stub / curated-table idiom as
+`classify-product`/`screen-export-control`. It returns a run-validation-shaped result
+(`"schema"`/`"runId"`/`"status"`/`"blockers"`/`"warnings"`/`"checks"`/`"dryRun"`, matching
+`com.etzhayyim.apps.tsukuru.cnt.validateRunPackage`'s output shape) and checks real rules —
+catalog step coverage, required-approval DID signatures, closed-loop telemetry/EHS-interlock
+binding, releasePlan numeric targets (CNT); numeric technology-node/wafer-diameter/
+numerical-aperture + CAD/CAM handoff completeness (EUV) — never just key presence, and never
+a silent pass (`estimatedDurationMin` is an honest `0`, not modeled at R0).
+
+- kotoba-native backing data: `kotoba/cnt-process-catalog.edn` (ported from the JSON catalog
+  above), `kotoba/euv-process-catalog.edn` (new — modeled from the EUV lexicons' technology-
+  node/NA/source-power/wafer-diameter parameters; EUV has no process-catalog JSON yet),
+  `kotoba/cnt-run-package-seed.edn` / `kotoba/euv-run-package-seed.edn` (worked "ready"
+  examples, R0, not live commercial offers).
+- EDN lexicon mirrors: `lex/cnt.edn` (7 query lexicons), `lex/euv.edn` (3 query lexicons).
+- kotoba schema: `kotoba/schema.edn`'s `:process-run/*` namespace (`:process-run/vertical`
+  discriminates `:cnt` | `:euv`).
+- tests: `kotoba/test_agent.cljc` — green + blocked coverage for both verticals.
 
 ## Cross-Project Dependencies
 

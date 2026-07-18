@@ -1,0 +1,37 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.euv.getImplementationCoverage",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Report EUV design/manufacturing implementation coverage across XRPC, BPMN, worker tasks, lexicons, and supplier exchange formats.",
+      "parameters": {
+        "type": "params",
+        "properties": {}
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "scope": { "type": "string" },
+            "bpmnActorCount": { "type": "integer" },
+            "commandCount": { "type": "integer" },
+            "bpmnActors": { "type": "array", "items": { "type": "unknown" } },
+            "manifestStatus": { "type": "string" },
+            "manifestChecks": { "type": "array", "items": { "type": "unknown" } },
+            "missingManifestItems": { "type": "array", "items": { "type": "unknown" } },
+            "coverageScore": { "type": "float" },
+            "coverageManifest": { "type": "array", "items": { "type": "unknown" } },
+            "supplierFormats": { "type": "array", "items": { "type": "string" } },
+            "requiredCapabilities": { "type": "array", "items": { "type": "string" } },
+            "collections": { "type": "array", "items": { "type": "string" } },
+            "coverageGates": { "type": "array", "items": { "type": "string" } },
+            "implementationSurfaces": { "type": "unknown" }
+          }
+        }
+      }
+    }
+  }
+}

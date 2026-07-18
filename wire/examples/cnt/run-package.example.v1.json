@@ -1,0 +1,79 @@
+{
+  "schema": "tsukuru.cntRunPackage.v1",
+  "runId": "cnt-run-example-001",
+  "productionOrderId": "po-cnt-example-001",
+  "processId": "tsukuru_cnt_fiber_manufacturing_flow",
+  "recipeRevision": "cnt-fiber-recipe-r1",
+  "productFamily": "cnt-fiber",
+  "recipe": [
+    {
+      "stepId": "step-010-feedstock-catalyst-intake",
+      "sequence": 10,
+      "equipmentIds": ["eq-gas-cabinet-mfc", "eq-catalyst-feeder", "eq-mes-scada-plc"],
+      "setpoints": {
+        "material_cert_required": "true",
+        "catalyst_feed_mg_min": 20,
+        "carbon_source_sccm": 800,
+        "target_strength_gpa": 2,
+        "target_conductivity_s_m": 100000,
+        "target_thermal_conductivity_w_mk": 100,
+        "target_spool_length_m": 1000
+      },
+      "holdPoints": ["coa-reviewed", "ehs-sds-reviewed", "recipe-revision-approved"],
+      "automationMode": "human-gated"
+    },
+    {
+      "stepId": "step-020-floating-cvd-growth",
+      "sequence": 20,
+      "equipmentIds": ["eq-floating-cvd-reactor", "eq-gas-cabinet-mfc", "eq-catalyst-feeder", "eq-offgas-scrubber", "eq-inline-raman"],
+      "setpoints": {
+        "reactor_zone_temperature_c": 1180,
+        "pressure_kpa": 101,
+        "residence_time_s": 8,
+        "raman_id_ig_min": 8,
+        "target_strength_gpa": 2,
+        "target_conductivity_s_m": 100000,
+        "target_thermal_conductivity_w_mk": 100,
+        "target_spool_length_m": 1000
+      },
+      "holdPoints": ["morphology-window-in-control", "offgas-interlock-clear", "raman-trend-in-control"],
+      "automationMode": "closed-loop"
+    }
+  ],
+  "equipmentBinding": [
+    {
+      "catalogEquipmentId": "eq-floating-cvd-reactor",
+      "equipmentInstanceId": "cnt-reactor-line-01",
+      "interfaces": ["opcua", "scada-historian", "safety-plc"]
+    },
+    {
+      "catalogEquipmentId": "eq-inline-raman",
+      "equipmentInstanceId": "raman-line-01",
+      "interfaces": ["ethernet-ip", "file-drop", "spc"]
+    }
+  ],
+  "telemetryBinding": [
+    { "tag": "CNT.REACTOR.ZONE_TEMP_C", "source": "plc", "sampleRateHz": 1, "retention": "7y" },
+    { "tag": "CNT.QA.RAMAN_ID_IG", "source": "qms", "sampleRateHz": 0.05, "retention": "lot-life" }
+  ],
+  "releasePlan": {
+    "qmsArtifacts": ["processFmea", "controlPlan", "inspectionPlan", "spcChart", "certificateOfAnalysis", "nonconformanceReport"],
+    "targetStrengthGPa": 2,
+    "targetConductivitySM": 100000,
+    "targetThermalConductivityWMK": 100,
+    "targetSpoolLengthM": 1000,
+    "disposition": "hold-for-release"
+  },
+  "ehsInterlocks": [
+    "CNT.SAFETY.LEL_PERCENT",
+    "CNT.REACTOR.DOOR_INTERLOCK",
+    "CNT.EXHAUST.SCRUBBER_ACTIVE",
+    "CNT.ANNEAL.OXYGEN_PPM",
+    "CNT.EHS.LOCAL_EXHAUST_ACTIVE"
+  ],
+  "approvals": [
+    { "role": "manufacturing-owner", "required": true, "did": "did:web:tsukuru.etzhayyim.com:operator-example" },
+    { "role": "ehs-owner", "required": true, "did": "" },
+    { "role": "quality-owner", "required": true, "did": "" }
+  ]
+}

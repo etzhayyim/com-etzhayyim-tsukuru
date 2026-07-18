@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="Definitions_tsukuru_validate_supplier_exchange_package"
+  targetNamespace="https://etzhayyim.ai/bpmn/tsukuru"
+  exporter="hand-written"
+  exporterVersion="1.0">
+  <bpmn:process id="tsukuru_validate_supplier_exchange_package" name="tsukuru validate supplier exchange package" isExecutable="true">
+    <bpmn:startEvent id="Start" name="supplier exchange validation request">
+      <bpmn:outgoing>Flow_Validate</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_Validate" sourceRef="Start" targetRef="Task_ValidateSupplierPackage"/>
+
+    <bpmn:serviceTask id="Task_ValidateSupplierPackage" name="validate supplier CAD/RFQ package">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.xrpc.invoke"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com&quot;" target="actor"/>
+          <zeebe:input source="=&quot;com.etzhayyim.apps.tsukuru.supplierExchange.validatePackage&quot;" target="nsid"/>
+          <zeebe:input source="={ package_id: packageId, production_order_id: productionOrderId, supplier_did: supplierDid, exchange_format: exchangeFormat, artifacts: artifacts, requirements: requirements, channels: channels }" target="payload"/>
+          <zeebe:output source="=result" target="validationReport"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Validate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Audit</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_Audit" sourceRef="Task_ValidateSupplierPackage" targetRef="Task_Audit"/>
+
+    <bpmn:serviceTask id="Task_Audit" name="emit supplier validation audit">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.audit.emit"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com:industry:isic:c&quot;" target="actor"/>
+          <zeebe:input source="=&quot;supplierExchangePackageValidated&quot;" target="action"/>
+          <zeebe:input source="={ bpmnProcessId: &quot;tsukuru_validate_supplier_exchange_package&quot;, validationReport: validationReport }" target="payload"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Audit</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_Audit" targetRef="End"/>
+
+    <bpmn:endEvent id="End" name="done">
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+</bpmn:definitions>

@@ -1,0 +1,42 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.cnt.validateRunPackage",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Validate a CNT/CNT fiber run package before execution, including equipment bindings, telemetry, EHS interlocks, approvals, and dry-run metrics.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "run_package": { "type": "unknown" },
+          "run_id": { "type": "string" },
+          "production_order_id": { "type": "string" },
+          "recipe_revision": { "type": "string" },
+          "product_family": { "type": "string" },
+          "target_spool_length_m": { "type": "integer" },
+          "target_strength_gpa": { "type": "float" },
+          "target_conductivity_s_m": { "type": "integer" },
+          "target_thermal_conductivity_w_mk": { "type": "integer" },
+          "operator_did": { "type": "string" },
+          "equipment_overrides": { "type": "unknown" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "schema": { "type": "string" },
+            "runId": { "type": "string" },
+            "status": { "type": "string" },
+            "blockers": { "type": "array", "items": { "type": "string" } },
+            "warnings": { "type": "array", "items": { "type": "string" } },
+            "checks": { "type": "array", "items": { "type": "unknown" } },
+            "dryRun": { "type": "unknown" },
+            "recordId": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

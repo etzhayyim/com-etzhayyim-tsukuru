@@ -1,0 +1,40 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.cnt.prepareOrderPackage",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Prepare a CNT/CNT fiber manufacturing flow, automation plan, and supplier exchange package.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "flow_id": { "type": "string" },
+          "automation_id": { "type": "string" },
+          "package_id": { "type": "string" },
+          "production_order_id": { "type": "string" },
+          "supplier_exchange_format": { "type": "string" },
+          "supplier_did": { "type": "string" },
+          "artifacts": { "type": "array", "items": { "type": "unknown" } },
+          "requirements": { "type": "unknown" },
+          "open_actor_dids": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "flowId": { "type": "string" },
+            "automationId": { "type": "string" },
+            "packageId": { "type": "string" },
+            "bpmnProcessIds": { "type": "array", "items": { "type": "string" } },
+            "flow": { "type": "unknown" },
+            "automation": { "type": "unknown" },
+            "supplierPackage": { "type": "unknown" }
+          }
+        }
+      }
+    }
+  }
+}

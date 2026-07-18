@@ -1,0 +1,66 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.productionOrder.getProductionOrder"
+ "defs" {"main" {"type" "query"
+ "description" "Look up a productionOrder by its AT URI."
+ "parameters" {"type" "params"
+ "required" ["productionOrderUri"]
+ "properties" {"productionOrderUri" {"type" "string"
+ "format" "at-uri"}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"productionOrder" {"type" "ref"
+ "ref" "#productionOrderView"}
+ "error" {"type" "string"}}}}}
+ "productionOrderView" {"type" "object"
+ "required" ["productionOrderUri"
+ "manufacturerDid"
+ "customerDid"
+ "status"
+ "createdAt"]
+ "properties" {"productionOrderUri" {"type" "string"
+ "format" "at-uri"}
+ "manufacturerDid" {"type" "string"
+ "format" "did"}
+ "customerDid" {"type" "string"
+ "format" "did"}
+ "factoryDid" {"type" "string"
+ "format" "did"}
+ "productSpec" {"type" "unknown"}
+ "fulfillmentMode" {"type" "string"
+ "enum" ["bto"
+ "mto"
+ "cto"]}
+ "priority" {"type" "string"
+ "enum" ["low"
+ "normal"
+ "high"
+ "urgent"]}
+ "deadline" {"type" "string"
+ "format" "datetime"}
+ "payment" {"type" "unknown"}
+ "okaimonoOrderRef" {"type" "string"
+ "format" "at-uri"}
+ "certificationsRequired" {"type" "array"
+ "items" {"type" "string"}}
+ "status" {"type" "string"}
+ "estimatedCompletion" {"type" "string"
+ "format" "datetime"}
+ "estimatedDays" {"type" "integer"}
+ "escrowIntentUri" {"type" "string"
+ "format" "at-uri"}
+ "paymentSentUri" {"type" "string"
+ "format" "at-uri"}
+ "escrowRefundUri" {"type" "string"
+ "format" "at-uri"}
+ "createdAt" {"type" "string"
+ "format" "datetime"}
+ "updatedAt" {"type" "string"
+ "format" "datetime"}
+ "note" {"type" "string"}
+ "updatedByDid" {"type" "string"
+ "format" "did"}
+ "cancelledAt" {"type" "string"
+ "format" "datetime"}
+ "cancelReason" {"type" "string"}
+ "cancelledByDid" {"type" "string"
+ "format" "did"}}}}}

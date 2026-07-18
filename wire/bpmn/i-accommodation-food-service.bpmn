@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="Definitions_tsukuru_isic_i_accommodation_food_service"
+  targetNamespace="https://etzhayyim.ai/bpmn/tsukuru"
+  exporter="generated"
+  exporterVersion="1.0">
+  <bpmn:process id="tsukuru_isic_i_accommodation_food_service" name="tsukuru I Accommodation and Food Service Activities" isExecutable="true">
+    <bpmn:startEvent id="Start" name="I pulse">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">0 40 0 * * *</bpmn:timeCycle>
+      </bpmn:timerEventDefinition>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start" targetRef="Task_SelectManufacturers"/>
+
+    <bpmn:serviceTask id="Task_SelectManufacturers" name="sample manufacturers">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.db.select"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;vertex_tsukuru_manufacturer&quot;" target="table"/>
+          <zeebe:input source="=&quot;coalesce(industry_code, '') IN (%s)&quot;" target="whereExpr"/>
+          <zeebe:input source="=[&quot;food-beverage&quot;]" target="whereParams"/>
+          <zeebe:input source="=&quot;value_json AS props&quot;" target="columns"/>
+          <zeebe:input source="=25" target="limit"/>
+          <zeebe:output source="=rows" target="manufacturerRows"/>
+          <zeebe:output source="=rowCount" target="manufacturerRowCount"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_SelectManufacturers" targetRef="Task_Audit"/>
+
+    <bpmn:serviceTask id="Task_Audit" name="emit industry audit">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.audit.emit"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com:industry:isic:i&quot;" target="actor"/>
+          <zeebe:input source="=&quot;industryPulse&quot;" target="action"/>
+          <zeebe:input source="={ sectionCode: &quot;I&quot;, label: &quot;Accommodation and Food Service Activities&quot;, industryCodes: [&quot;food-beverage&quot;], bpmnProcessId: &quot;tsukuru_isic_i_accommodation_food_service&quot;, manufacturerRowCount: manufacturerRowCount, manufacturerRows: manufacturerRows }" target="payload"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_Audit" targetRef="End"/>
+
+    <bpmn:endEvent id="End" name="done">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+</bpmn:definitions>

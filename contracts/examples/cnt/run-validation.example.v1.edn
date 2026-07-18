@@ -1,0 +1,16 @@
+{"schema" "tsukuru.cntRunValidation.v1"
+ "runId" "cnt-run-alpha"
+ "status" "blocked"
+ "blockers" ["required-approvals-signed"]
+ "warnings" ["human-gated-release-step-present"]
+ "checks" [{"id" "recipe-covers-catalog-steps"
+ "passed" true
+ "detail" "recipe covers all catalog process steps"}
+ {"id" "required-approvals-signed"
+ "passed" false
+ "detail" "all required approval roles must have a DID signature"}]
+ "dryRun" {"estimatedDurationMin" 420
+ "closedLoopStepCount" 3
+ "humanGatedStepCount" 3
+ "telemetryTagCount" 19
+ "requiredApprovalCount" 3}}

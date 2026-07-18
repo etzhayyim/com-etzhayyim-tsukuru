@@ -1,0 +1,35 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.softwareIntegration.designStack",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Design an industrial software stack integration plan (PLC / MES / SCADA / ERP linkage). Pure compute.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "productionOrderId": { "type": "string" },
+          "stackId": { "type": "string" },
+          "domain": { "type": "string", "description": "plc | mes | scada | erp" },
+          "vendors": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "schema": { "type": "string" },
+            "stackId": { "type": "string" },
+            "productionOrderId": { "type": "string" },
+            "domain": { "type": "string" },
+            "vendors": { "type": "array", "items": { "type": "string" } },
+            "integrationPoints": { "type": "array", "items": { "type": "string" } },
+            "protocols": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    }
+  }
+}

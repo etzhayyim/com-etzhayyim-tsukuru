@@ -1,0 +1,98 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.qualityInspection.submitInspection",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Submit a quality-inspection report for a production order. When result='pass' or 'conditional_pass', the associated productionOrder transitions to status='passed' and (if escrow_intent payment) triggers on-chain USDC settlement via @etzhayyim/sdk pay(). Per ADR-2605202900 — settlement is the on-chain tx; before this call the buyer's USDC has NOT moved.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["productionOrderUri", "inspectorDid", "result"],
+          "properties": {
+            "productionOrderUri": {
+              "type": "string",
+              "format": "at-uri",
+              "description": "AT URI of the productionOrder being inspected."
+            },
+            "inspectorDid": {
+              "type": "string",
+              "format": "did",
+              "description": "DID of the inspector (3rd-party QA agent or in-house QA actor)."
+            },
+            "inspectionType": {
+              "type": "string",
+              "enum": ["incoming", "in-process", "final", "audit"],
+              "default": "final",
+              "description": "Stage of the inspection."
+            },
+            "result": {
+              "type": "string",
+              "enum": ["pass", "conditional_pass", "fail", "rework_required"],
+              "description": "pass / conditional_pass trigger settlement; fail / rework_required hold the order in production."
+            },
+            "defectRatePpm": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000,
+              "description": "Defect rate in parts-per-million."
+            },
+            "findings": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Free-form findings (one per defect or observation)."
+            },
+            "certificationsVerified": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Certifications (ISO 9001, IATF 16949, etc.) verified during this inspection."
+            },
+            "lotNumber": {
+              "type": "string",
+              "description": "Lot / batch identifier."
+            },
+            "serialNumbers": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Per-unit serial numbers (for serialized products)."
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["status", "inspectionUri", "result"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["recorded", "settled", "settlementFailed"],
+              "description": "recorded = inspection written but no settlement (fail/rework). settled = inspection passed AND escrow_intent settled on-chain. settlementFailed = inspection passed but pay() reverted (the inspection record is still written for audit; caller can retry settlement)."
+            },
+            "inspectionUri": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "result": {
+              "type": "string"
+            },
+            "paymentSentUri": {
+              "type": "string",
+              "format": "at-uri",
+              "description": "AT URI of the payment.sent record (when status='settled')."
+            },
+            "txHash": {
+              "type": "string",
+              "description": "Base L2 tx hash of the USDC settlement (when status='settled')."
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{:migration/id :tsukuru/standalone-cutover
+ :status :complete
+ :source/root "20-actors/tsukuru"
+ :target/repository "orgs/etzhayyim/com-etzhayyim-tsukuru"
+ :canonical/format :edn
+ :wire/root "wire"
+ :migrated
+ {:actor-source ["src/tsukuru/kotoba/agent.cljc"
+                 "src/tsukuru/murakumo.cljc"]
+  :contracts "contracts"
+  :external-contracts "wire"
+  :tests ["test/tsukuru/kotoba/test_agent.cljc"
+          "test/tsukuru/murakumo_test.cljc"]}
+ :pruned #{:go :tinygo :shell :legacy-python-agent}
+ :root/cleanup
+ ["20-actors/tsukuru"
+  "00-contracts/bpmn/com/etzhayyim/tsukuru"
+  "00-contracts/catalogs/com/etzhayyim/tsukuru"
+  "00-contracts/examples/com/etzhayyim/tsukuru"
+  "00-contracts/lexicons/com/etzhayyim/apps/tsukuru"
+  "00-contracts/schemas/tsukuru-*.schema.json"]}

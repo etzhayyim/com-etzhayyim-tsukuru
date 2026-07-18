@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="Definitions_tsukuru_prepare_euv_order_package"
+  targetNamespace="https://etzhayyim.ai/bpmn/tsukuru"
+  exporter="hand-written"
+  exporterVersion="1.0">
+  <bpmn:process id="tsukuru_prepare_euv_order_package" name="tsukuru prepare EUV order package" isExecutable="true">
+    <bpmn:startEvent id="Start" name="EUV order package request">
+      <bpmn:outgoing>Flow_Prepare</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_Prepare" sourceRef="Start" targetRef="Task_PrepareOrderPackage"/>
+
+    <bpmn:serviceTask id="Task_PrepareOrderPackage" name="prepare EUV flow and supplier package">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.xrpc.invoke"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com&quot;" target="actor"/>
+          <zeebe:input source="=&quot;com.etzhayyim.apps.tsukuru.euv.prepareOrderPackage&quot;" target="nsid"/>
+          <zeebe:input source="={ flow_id: flowId, package_id: packageId, production_order_id: productionOrderId, technology_node_nm: technologyNodeNm, wafer_diameter_mm: waferDiameterMm, numerical_aperture: numericalAperture, source_power_w: sourcePowerW, design_formats: designFormats, supplier_exchange_format: supplierExchangeFormat, supplier_did: supplierDid, artifacts: artifacts, requirements: requirements, channels: channels }" target="payload"/>
+          <zeebe:output source="=result" target="orderPackage"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Prepare</bpmn:incoming>
+      <bpmn:outgoing>Flow_Audit</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_Audit" sourceRef="Task_PrepareOrderPackage" targetRef="Task_Audit"/>
+
+    <bpmn:serviceTask id="Task_Audit" name="emit EUV order package audit">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.audit.emit"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com:industry:isic:c&quot;" target="actor"/>
+          <zeebe:input source="=&quot;euvOrderPackagePrepared&quot;" target="action"/>
+          <zeebe:input source="={ bpmnProcessId: &quot;tsukuru_prepare_euv_order_package&quot;, orderPackage: orderPackage }" target="payload"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Audit</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_Audit" targetRef="End"/>
+
+    <bpmn:endEvent id="End" name="done">
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+</bpmn:definitions>

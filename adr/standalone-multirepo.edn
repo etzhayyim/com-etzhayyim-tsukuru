@@ -1,0 +1,14 @@
+{:adr/id :tsukuru/standalone-multirepo
+ :adr/status :accepted
+ :adr/decision
+ {:repository "orgs/etzhayyim/com-etzhayyim-tsukuru"
+  :layout :west-flat-multirepo
+  :canonical-format :edn
+  :external-format-boundary "wire"
+  :runtime #{:clojure :clojurescript :babashka}
+  :deprecated-runtime #{:go :tinygo :shell}}
+ :adr/consequences
+ ["The superproject consumes this repository through west manifest pinning."
+  "JSON, JSON-LD, and BPMN are compatibility artifacts under wire only."
+  "Canonical contract mirrors are EDN under contracts."
+  "The legacy root actor and actor-owned central contracts can be removed after rewiring."]}

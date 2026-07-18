@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="Definitions_tsukuru_isic_c_manufacturing"
+  targetNamespace="https://etzhayyim.ai/bpmn/tsukuru"
+  exporter="generated"
+  exporterVersion="1.0">
+  <bpmn:process id="tsukuru_isic_c_manufacturing" name="tsukuru C Manufacturing" isExecutable="true">
+    <bpmn:startEvent id="Start" name="C pulse">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">0 10 0 * * *</bpmn:timeCycle>
+      </bpmn:timerEventDefinition>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start" targetRef="Task_SelectManufacturers"/>
+
+    <bpmn:serviceTask id="Task_SelectManufacturers" name="sample manufacturers">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.db.select"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;vertex_tsukuru_manufacturer&quot;" target="table"/>
+          <zeebe:input source="=&quot;coalesce(industry_code, '') IN (%s, %s, %s, %s, %s, %s, %s, %s)&quot;" target="whereExpr"/>
+          <zeebe:input source="=[&quot;electronics-semiconductor&quot;,&quot;automobile-mobility&quot;,&quot;aerospace-defense&quot;,&quot;pharma-medical&quot;,&quot;textile-apparel&quot;,&quot;food-beverage&quot;,&quot;furniture-home-goods&quot;,&quot;industrial-materials&quot;]" target="whereParams"/>
+          <zeebe:input source="=&quot;value_json AS props&quot;" target="columns"/>
+          <zeebe:input source="=25" target="limit"/>
+          <zeebe:output source="=rows" target="manufacturerRows"/>
+          <zeebe:output source="=rowCount" target="manufacturerRowCount"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_SelectManufacturers" targetRef="Task_SelectControlledManufacturers"/>
+
+    <bpmn:serviceTask id="Task_SelectControlledManufacturers" name="sample controlled manufacturers">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.db.select"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;vertex_tsukuru_manufacturer&quot;" target="table"/>
+          <zeebe:input source="=&quot;coalesce(industry_code, '') IN (%s, %s, %s, %s) AND coalesce(risk_tier, '') IN (%s, %s)&quot;" target="whereExpr"/>
+          <zeebe:input source="=[&quot;electronics-semiconductor&quot;,&quot;aerospace-defense&quot;,&quot;pharma-medical&quot;,&quot;industrial-materials&quot;,&quot;controlled&quot;,&quot;restricted&quot;]" target="whereParams"/>
+          <zeebe:input source="=&quot;value_json AS props&quot;" target="columns"/>
+          <zeebe:input source="=25" target="limit"/>
+          <zeebe:output source="=rows" target="controlledManufacturerRows"/>
+          <zeebe:output source="=rowCount" target="controlledManufacturerRowCount"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_2A</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_2A" sourceRef="Task_SelectControlledManufacturers" targetRef="Task_Audit"/>
+
+    <bpmn:serviceTask id="Task_Audit" name="emit industry audit">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.audit.emit"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com:industry:isic:c&quot;" target="actor"/>
+          <zeebe:input source="=&quot;industryPulse&quot;" target="action"/>
+          <zeebe:input source="={ sectionCode: &quot;C&quot;, label: &quot;Manufacturing&quot;, industryCodes: [&quot;electronics-semiconductor&quot;,&quot;automobile-mobility&quot;,&quot;aerospace-defense&quot;,&quot;pharma-medical&quot;,&quot;textile-apparel&quot;,&quot;food-beverage&quot;,&quot;furniture-home-goods&quot;,&quot;industrial-materials&quot;], bpmnProcessId: &quot;tsukuru_isic_c_manufacturing&quot;, manufacturerRowCount: manufacturerRowCount, manufacturerRows: manufacturerRows }" target="payload"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_2A</bpmn:incoming>
+      <bpmn:outgoing>Flow_RiskGate</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_RiskGate" sourceRef="Task_Audit" targetRef="Gate_ControlledDetected"/>
+
+    <bpmn:exclusiveGateway id="Gate_ControlledDetected" name="controlled manufacturers?" default="Flow_NoControlled">
+      <bpmn:incoming>Flow_RiskGate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Controlled</bpmn:outgoing>
+      <bpmn:outgoing>Flow_NoControlled</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:sequenceFlow id="Flow_Controlled" sourceRef="Gate_ControlledDetected" targetRef="Task_AuditControlled">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">=controlledManufacturerRowCount &gt; 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_NoControlled" sourceRef="Gate_ControlledDetected" targetRef="End"/>
+
+    <bpmn:serviceTask id="Task_AuditControlled" name="emit controlled manufacturing audit">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.audit.emit"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com:industry:isic:c&quot;" target="actor"/>
+          <zeebe:input source="=&quot;controlledManufacturingPulse&quot;" target="action"/>
+          <zeebe:input source="={ sectionCode: &quot;C&quot;, label: &quot;Manufacturing&quot;, controlledManufacturerRowCount: controlledManufacturerRowCount, controlledManufacturerRows: controlledManufacturerRows, bpmnProcessId: &quot;tsukuru_isic_c_manufacturing&quot; }" target="payload"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Controlled</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_AuditControlled" targetRef="End"/>
+
+    <bpmn:endEvent id="End" name="done">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:incoming>Flow_NoControlled</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+</bpmn:definitions>

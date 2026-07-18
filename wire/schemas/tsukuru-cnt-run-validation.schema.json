@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etzhayyim.com/schemas/tsukuru-cnt-run-validation.schema.json",
+  "title": "Tsukuru CNT run validation",
+  "type": "object",
+  "required": ["schema", "runId", "status", "blockers", "warnings", "checks", "dryRun"],
+  "properties": {
+    "schema": { "const": "tsukuru.cntRunValidation.v1" },
+    "runId": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["ready", "blocked"] },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "passed", "detail"],
+        "properties": {
+          "id": { "type": "string" },
+          "passed": { "type": "boolean" },
+          "detail": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dryRun": {
+      "type": "object",
+      "required": ["estimatedDurationMin", "closedLoopStepCount", "humanGatedStepCount", "telemetryTagCount", "requiredApprovalCount"],
+      "properties": {
+        "estimatedDurationMin": { "type": "integer", "minimum": 0 },
+        "closedLoopStepCount": { "type": "integer", "minimum": 0 },
+        "humanGatedStepCount": { "type": "integer", "minimum": 0 },
+        "telemetryTagCount": { "type": "integer", "minimum": 0 },
+        "requiredApprovalCount": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

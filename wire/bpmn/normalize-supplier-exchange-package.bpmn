@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="Definitions_tsukuru_normalize_supplier_exchange_package"
+  targetNamespace="https://etzhayyim.ai/bpmn/tsukuru"
+  exporter="hand-written"
+  exporterVersion="1.0">
+  <bpmn:process id="tsukuru_normalize_supplier_exchange_package" name="tsukuru normalize supplier exchange package" isExecutable="true">
+    <bpmn:startEvent id="Start" name="supplier exchange request">
+      <bpmn:outgoing>Flow_Normalize</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_Normalize" sourceRef="Start" targetRef="Task_NormalizeSupplierPackage"/>
+
+    <bpmn:serviceTask id="Task_NormalizeSupplierPackage" name="normalize supplier CAD/RFQ package">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.xrpc.invoke"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com&quot;" target="actor"/>
+          <zeebe:input source="=&quot;com.etzhayyim.apps.tsukuru.supplierExchange.normalizePackage&quot;" target="nsid"/>
+          <zeebe:input source="={ package_id: packageId, production_order_id: productionOrderId, supplier_did: supplierDid, exchange_format: exchangeFormat, artifacts: artifacts, requirements: requirements, channels: channels }" target="payload"/>
+          <zeebe:output source="=result" target="supplierPackage"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Normalize</bpmn:incoming>
+      <bpmn:outgoing>Flow_Audit</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_Audit" sourceRef="Task_NormalizeSupplierPackage" targetRef="Task_Audit"/>
+
+    <bpmn:serviceTask id="Task_Audit" name="emit supplier exchange audit">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generic.audit.emit"/>
+        <zeebe:ioMapping>
+          <zeebe:input source="=&quot;did:web:tsukuru.etzhayyim.com:industry:isic:c&quot;" target="actor"/>
+          <zeebe:input source="=&quot;supplierExchangePackageNormalized&quot;" target="action"/>
+          <zeebe:input source="={ bpmnProcessId: &quot;tsukuru_normalize_supplier_exchange_package&quot;, supplierPackage: supplierPackage }" target="payload"/>
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Audit</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_Audit" targetRef="End"/>
+
+    <bpmn:endEvent id="End" name="done">
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+</bpmn:definitions>

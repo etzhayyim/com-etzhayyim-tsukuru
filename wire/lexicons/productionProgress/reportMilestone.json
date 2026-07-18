@@ -1,0 +1,69 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.productionProgress.reportMilestone",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Report a production milestone (factory-side updates as work progresses). Each milestone is an append-only AT record per ADR-2605202800 (record-log semantics, no MST mutation). Milestones do NOT change productionOrder.status — that requires updateStatus per slice 4 with state-machine validation.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["productionOrderUri", "milestone", "factoryDid"],
+          "properties": {
+            "productionOrderUri": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "milestone": {
+              "type": "string",
+              "enum": [
+                "material-received",
+                "first-piece",
+                "production-50-percent",
+                "production-100-percent",
+                "inspection-started",
+                "inspection-passed",
+                "packed-for-shipping",
+                "carrier-handoff"
+              ]
+            },
+            "factoryDid": {
+              "type": "string",
+              "format": "did"
+            },
+            "note": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "completedPercent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "evidenceCids": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "IPFS CIDs of supporting evidence (photos, QC reports, etc.)."
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["status", "milestoneUri"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["recorded", "rejected"]
+            },
+            "milestoneUri": { "type": "string", "format": "at-uri" },
+            "error": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

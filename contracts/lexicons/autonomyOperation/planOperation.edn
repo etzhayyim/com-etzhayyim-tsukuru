@@ -1,0 +1,25 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.autonomyOperation.planOperation"
+ "defs" {"main" {"type" "query"
+ "description" "Plan an autonomy operation (robot fleet task assignment + safety envelope). Pure compute."
+ "parameters" {"type" "params"
+ "properties" {"productionOrderId" {"type" "string"}
+ "operationId" {"type" "string"}
+ "robotDids" {"type" "array"
+ "items" {"type" "string"
+ "format" "did"}}
+ "objective" {"type" "string"}
+ "safetyEnvelope" {"type" "unknown"}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "schema" {"type" "string"}
+ "operationId" {"type" "string"}
+ "productionOrderId" {"type" "string"}
+ "robotDids" {"type" "array"
+ "items" {"type" "string"
+ "format" "did"}}
+ "objective" {"type" "string"}
+ "safetyEnvelope" {"type" "unknown"}
+ "estimatedDurationSec" {"type" "integer"}
+ "humanOversightRequired" {"type" "boolean"}}}}}}}

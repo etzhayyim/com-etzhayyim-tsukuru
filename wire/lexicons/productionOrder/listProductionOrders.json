@@ -1,0 +1,43 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.productionOrder.listProductionOrders",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List productionOrder records with optional filters. Phase 2 post-fetches with cursor pagination; Phase 3 will index via mst-projector.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "manufacturerDid": { "type": "string", "format": "did" },
+          "customerDid": { "type": "string", "format": "did" },
+          "status": { "type": "string" },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50
+          },
+          "cursor": { "type": "string" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.etzhayyim.apps.tsukuru.productionOrder.getProductionOrder#productionOrderView"
+              }
+            },
+            "cursor": { "type": "string" },
+            "total": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}

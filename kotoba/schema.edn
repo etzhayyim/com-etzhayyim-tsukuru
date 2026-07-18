@@ -10,7 +10,7 @@
   :db/valueType :db.type/string
   :db/cardinality :db.cardinality/one
   :db/unique :db.unique/identity
-  :db/doc "path-based factory DID (did:web:tsukuru.etzhayyim.com/...; performerType=service) for onboarded/registered factories. 460+ across 30+ countries (legacy scale assumption, live projection G11/G15-gated). :public-directory sourcing entries (candidates.edn) use a distinct \"candidate:manufacturer-directory/...\" id form instead — NOT a did:web under this domain — because those companies have not onboarded/consented to registration."}
+  :db/doc "path-based factory DID (did:web:tsukuru.etzhayyim.com/...; performerType=service). 460+ across 30+ countries"}
  {:db/ident :factory/display-name
   :db/valueType :db.type/string
   :db/cardinality :db.cardinality/one}
@@ -37,11 +37,7 @@
  {:db/ident :factory/sourcing
   :db/valueType :db.type/keyword
   :db/cardinality :db.cardinality/one
-  :db/doc ":authoritative | :representative | :public-directory (R0 seed honesty, G10). :public-directory = real company, facts drawn from company's own public site / Wikipedia (see :factory/source-url); reference/candidate only, NOT onboarded or registered on tsukuru."}
- {:db/ident :factory/source-url
-  :db/valueType :db.type/string
-  :db/cardinality :db.cardinality/one
-  :db/doc "citation URL for :public-directory sourcing (official company page or Wikipedia) supporting the country/isic/capabilities facts, G10 verifiability"}
+  :db/doc ":authoritative | :representative (R0 seed honesty, G10)"}
 
  ;; ───────────────────────────── :production-order/* — order state machine ─────────────────────────────
  {:db/ident :production-order/id
@@ -174,4 +170,48 @@
  {:db/ident :sbt/active
   :db/valueType :db.type/boolean
   :db/cardinality :db.cardinality/one
-  :db/doc "active Adherent SBT? required for internal SBT↔SBT settlement (§3 / G2)"}]
+  :db/doc "active Adherent SBT? required for internal SBT↔SBT settlement (§3 / G2)"}
+
+ ;; ───────────────────────────── :process-run/* — CNT/EUV run-package + run-validation (kotoba-native) ─────────────────────────────
+ ;; Unified namespace (not :cnt-run/* + :euv-run/*) with a :process-run/vertical
+ ;; discriminator — both verticals share the same run-validation shape produced by
+ ;; kotoba/agent.cljc's `validate-run-package` (see kotoba/{cnt,euv}-process-catalog.edn +
+ ;; kotoba/{cnt,euv}-run-package-seed.edn for the backing catalog/seed data).
+ {:db/ident :process-run/id
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity
+  :db/doc "run-package runId, e.g. cnt-run-example-001 / euv-run-example-001"}
+ {:db/ident :process-run/vertical
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":cnt | :euv — discriminates the validate-run-package business-rule dispatch"}
+ {:db/ident :process-run/production-order
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "ref → :production-order"}
+ {:db/ident :process-run/process-id
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "tsukuru_cnt_fiber_manufacturing_flow | tsukuru_euv_lithography_manufacturing_flow"}
+ {:db/ident :process-run/recipe-revision
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :process-run/product-family
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+ {:db/ident :process-run/status
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/doc ":ready | :blocked — validate-run-package result (mirrors run-validation.status)"}
+ {:db/ident :process-run/blockers
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/many
+  :db/doc "failed check ids blocking :ready (empty when :process-run/status is :ready)"}
+ {:db/ident :process-run/warnings
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/many}
+ {:db/ident :process-run/validated-at
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "ISO-8601 datetime of the last validate-run-package call (passed in; no wall-clock in cell)"}]

@@ -1,0 +1,49 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.qualityInspection.getInspections"
+ "defs" {"main" {"type" "query"
+ "description" "List quality-inspection records for a production order, newest first."
+ "parameters" {"type" "params"
+ "required" ["productionOrderUri"]
+ "properties" {"productionOrderUri" {"type" "string"
+ "format" "at-uri"
+ "description" "AT URI of the productionOrder to fetch inspections for."}
+ "limit" {"type" "integer"
+ "minimum" 1
+ "maximum" 100
+ "default" 50}
+ "cursor" {"type" "string"
+ "description" "Pagination cursor from previous response."}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "required" ["items"]
+ "properties" {"items" {"type" "array"
+ "items" {"type" "ref"
+ "ref" "#inspectionView"}}
+ "cursor" {"type" "string"}
+ "total" {"type" "integer"
+ "description" "Total inspections in result set (may exceed limit; use cursor to page)."}}}}}
+ "inspectionView" {"type" "object"
+ "required" ["inspectionUri"
+ "result"
+ "createdAt"]
+ "properties" {"inspectionUri" {"type" "string"
+ "format" "at-uri"}
+ "productionOrderUri" {"type" "string"
+ "format" "at-uri"}
+ "inspectorDid" {"type" "string"
+ "format" "did"}
+ "inspectionType" {"type" "string"}
+ "result" {"type" "string"}
+ "defectRatePpm" {"type" "integer"}
+ "findings" {"type" "array"
+ "items" {"type" "string"}}
+ "certificationsVerified" {"type" "array"
+ "items" {"type" "string"}}
+ "lotNumber" {"type" "string"}
+ "serialNumbers" {"type" "array"
+ "items" {"type" "string"}}
+ "paymentSentUri" {"type" "string"
+ "format" "at-uri"
+ "description" "Bound to the inspection that triggered settlement."}
+ "createdAt" {"type" "string"
+ "format" "datetime"}}}}}

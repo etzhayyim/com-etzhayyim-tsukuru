@@ -1,0 +1,32 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.cnt.getProcessCatalog"
+ "defs" {"main" {"type" "query"
+ "description" "Return the concrete CNT/CNT fiber manufacturing process, equipment, device, sensor, actuator, MES, SCADA, and QMS catalog."
+ "parameters" {"type" "params"
+ "properties" {"stage" {"type" "string"
+ "knownValues" ["intake"
+ "synthesis"
+ "fiber-formation"
+ "post-treatment"
+ "quality-release"]}
+ "equipment_id" {"type" "string"}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "schema" {"type" "string"}
+ "processId" {"type" "string"}
+ "productFamilies" {"type" "array"
+ "items" {"type" "string"}}
+ "equipment" {"type" "array"
+ "items" {"type" "unknown"}}
+ "steps" {"type" "array"
+ "items" {"type" "unknown"}}
+ "dataRecords" {"type" "array"
+ "items" {"type" "string"}}
+ "plcTags" {"type" "array"
+ "items" {"type" "string"}}
+ "mesEntities" {"type" "array"
+ "items" {"type" "string"}}
+ "qmsArtifacts" {"type" "array"
+ "items" {"type" "string"}}
+ "sourcePaths" {"type" "unknown"}}}}}}}

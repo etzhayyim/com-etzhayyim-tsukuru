@@ -1,0 +1,70 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.productionOrder.cancelProductionOrder",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Cancel a production order. Per ADR-2605202800 Phase 2, cancellation before delivery writes an escrowRefund record (no on-chain tx — escrow_intent never settled). Cancellation after delivery is structurally impossible (USDC already transferred via SDK pay()). Cancellable statuses: pending / accepted / material-procurement.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["productionOrderUri"],
+          "properties": {
+            "productionOrderUri": {
+              "type": "string",
+              "format": "at-uri",
+              "description": "AT URI of the production order to cancel."
+            },
+            "reason": {
+              "type": "string",
+              "maxLength": 1000,
+              "description": "Cancellation rationale (audit trail)."
+            },
+            "cancelledByDid": {
+              "type": "string",
+              "format": "did",
+              "description": "DID of the actor requesting cancellation (customer / manufacturer / arbiter)."
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["status", "productionOrderUri"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["cancelled", "cannotCancel"],
+              "description": "cancelled = order successfully transitioned to cancelled state; cannotCancel = order already in terminal state (delivered/cancelled) or past cancellable window."
+            },
+            "productionOrderUri": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "escrowRefundUri": {
+              "type": "string",
+              "format": "at-uri",
+              "description": "AT URI of the escrow refund record (when escrow_intent was used). Refund is a record-only state transition — no on-chain transfer happened, so no on-chain refund needed."
+            },
+            "currentStatus": {
+              "type": "string",
+              "description": "Current status if cannotCancel."
+            },
+            "cancellableStatuses": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "List of statuses from which cancellation is allowed."
+            },
+            "error": {
+              "type": "string",
+              "description": "Error code if applicable."
+            }
+          }
+        }
+      }
+    }
+  }
+}

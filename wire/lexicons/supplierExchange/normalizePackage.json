@@ -1,0 +1,42 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.supplierExchange.normalizePackage",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Normalize supplier-facing CAD/RFQ artifacts into a tsukuru supplier exchange envelope.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "package_id": { "type": "string" },
+          "production_order_id": { "type": "string" },
+          "supplier_did": { "type": "string" },
+          "exchange_format": { "type": "string" },
+          "artifacts": { "type": "array", "items": { "type": "unknown" } },
+          "requirements": { "type": "unknown" },
+          "channels": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "schema": { "type": "string" },
+            "packageId": { "type": "string" },
+            "productionOrderId": { "type": "string" },
+            "supplierDid": { "type": "string" },
+            "exchangeFormat": { "type": "string" },
+            "channels": { "type": "array", "items": { "type": "string" } },
+            "designFormats": { "type": "array", "items": { "type": "string" } },
+            "artifacts": { "type": "array", "items": { "type": "unknown" } },
+            "requirements": { "type": "unknown" },
+            "compatibility": { "type": "unknown" },
+            "riskControls": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    }
+  }
+}

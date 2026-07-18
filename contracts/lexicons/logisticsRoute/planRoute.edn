@@ -1,0 +1,26 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.logisticsRoute.planRoute"
+ "defs" {"main" {"type" "query"
+ "description" "Plan a logistics route (sea/air/land/multimodal) with assets, waypoints, lead time estimate. Pure compute."
+ "parameters" {"type" "params"
+ "properties" {"productionOrderId" {"type" "string"}
+ "routeId" {"type" "string"}
+ "originIso3" {"type" "string"}
+ "destinationIso3" {"type" "string"}
+ "modality" {"type" "string"
+ "description" "sea | air | land | multimodal"}
+ "waypoints" {"type" "array"
+ "items" {"type" "unknown"}}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "schema" {"type" "string"}
+ "routeId" {"type" "string"}
+ "productionOrderId" {"type" "string"}
+ "originIso3" {"type" "string"}
+ "destinationIso3" {"type" "string"}
+ "modality" {"type" "string"}
+ "waypoints" {"type" "array"
+ "items" {"type" "unknown"}}
+ "estimatedTransitDays" {"type" "integer"}
+ "estimatedCostUsdcMicros" {"type" "integer"}}}}}}}

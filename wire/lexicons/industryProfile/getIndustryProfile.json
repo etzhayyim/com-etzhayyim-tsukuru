@@ -1,0 +1,39 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.industryProfile.getIndustryProfile",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Resolve a tsukuru manufacturing industry profile.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "industry_code": { "type": "string" },
+          "category": { "type": "string" },
+          "process": { "type": "string" },
+          "cpc_code": { "type": "string" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "industryCode": { "type": "string" },
+            "label": { "type": "string" },
+            "categories": { "type": "array", "items": { "type": "string" } },
+            "processes": { "type": "array", "items": { "type": "string" } },
+            "cpcPrefixes": { "type": "array", "items": { "type": "string" } },
+            "requiredCertifications": { "type": "array", "items": { "type": "string" } },
+            "qualityCheckpoints": { "type": "array", "items": { "type": "string" } },
+            "complianceFlags": { "type": "array", "items": { "type": "string" } },
+            "leadTimeMultiplier": { "type": "float" },
+            "costMultiplier": { "type": "float" },
+            "minimumLeadTimeDays": { "type": "integer" },
+            "error": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.apps.tsukuru.manufacturerRegistry.getManufacturerStats",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Aggregate manufacturer registry stats (count by country, category, factory type, tier, onboarding status). Phase 2 client-side aggregation (full-scan + bucket); Phase 3 will move to mst-projector with pre-computed counts for O(1) reads.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "groupBy": {
+            "type": "string",
+            "enum": ["countryIso3", "category", "factoryType", "verificationTier", "onboardingStatus"],
+            "default": "countryIso3"
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["total", "buckets"],
+          "properties": {
+            "total": { "type": "integer" },
+            "buckets": {
+              "type": "array",
+              "items": { "type": "ref", "ref": "#bucket" }
+            },
+            "groupBy": { "type": "string" },
+            "computedAt": { "type": "string", "format": "datetime" }
+          }
+        }
+      }
+    },
+    "bucket": {
+      "type": "object",
+      "required": ["key", "count"],
+      "properties": {
+        "key": { "type": "string" },
+        "count": { "type": "integer" }
+      }
+    }
+  }
+}

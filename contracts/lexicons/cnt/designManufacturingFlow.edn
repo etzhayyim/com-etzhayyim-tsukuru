@@ -1,0 +1,36 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.apps.tsukuru.cnt.designManufacturingFlow"
+ "defs" {"main" {"type" "query"
+ "description" "Design a CNT/CNT fiber manufacturing flow with integrated synthesis, spinning, post-treatment, QA, and open-* signal bindings."
+ "parameters" {"type" "params"
+ "properties" {"flow_id" {"type" "string"}
+ "production_order_id" {"type" "string"}
+ "product_kind" {"type" "string"}
+ "cnt_type" {"type" "string"}
+ "synthesis_method" {"type" "string"}
+ "spinning_method" {"type" "string"}
+ "target_strength_gpa" {"type" "float"}
+ "target_conductivity_s_m" {"type" "integer"}
+ "target_thermal_conductivity_w_mk" {"type" "integer"}
+ "line_rate_m_per_min" {"type" "float"}
+ "design_formats" {"type" "array"
+ "items" {"type" "string"}}
+ "supplier_exchange_format" {"type" "string"}
+ "supplier_did" {"type" "string"}
+ "artifacts" {"type" "array"
+ "items" {"type" "unknown"}}
+ "requirements" {"type" "unknown"}
+ "open_actor_dids" {"type" "array"
+ "items" {"type" "string"}}}}
+ "output" {"encoding" "application/json"
+ "schema" {"type" "object"
+ "properties" {"status" {"type" "string"}
+ "flowId" {"type" "string"}
+ "bpmnProcessId" {"type" "string"}
+ "processIntegration" {"type" "array"
+ "items" {"type" "unknown"}}
+ "automationRequirements" {"type" "array"
+ "items" {"type" "string"}}
+ "openSignals" {"type" "unknown"}
+ "riskControls" {"type" "array"
+ "items" {"type" "string"}}}}}}}}
